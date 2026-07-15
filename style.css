@@ -624,6 +624,33 @@ a:focus-visible {
   box-shadow: 5px 5px 0 var(--gold-hot);
 }
 
+.substack-tiers {
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.substack-tiers li {
+  padding: 0.65rem 0.9rem;
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.substack-tiers strong {
+  color: var(--ink);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  margin-right: 0.35rem;
+}
+
 /* Connect */
 .social {
   list-style: none;
