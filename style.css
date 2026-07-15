@@ -587,30 +587,10 @@ a:focus-visible {
   color: #c5d4ce;
 }
 
-/* Substack */
+/* Join / Substack / Donate */
 .substack {
   background: var(--bg-deep);
   border-bottom: 3px solid var(--ink);
-}
-
-.substack-grid {
-  display: grid;
-  gap: var(--space-8);
-  align-items: center;
-}
-
-@media (min-width: 720px) {
-  .substack-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
-}
-
-.substack p {
-  margin: 0 0 var(--space-5);
-  color: var(--ink-soft);
-  font-size: 1.05rem;
-  font-weight: 500;
-  max-width: 40ch;
 }
 
 .substack .card-label {
@@ -618,37 +598,217 @@ a:focus-visible {
   display: inline-block;
 }
 
-.substack-card {
-  background: var(--marsh);
-  border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--gold-hot);
-}
-
-.substack-tiers {
-  margin: 0 0 var(--space-5);
-  padding: 0;
-  list-style: none;
+.join-grid {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
-.substack-tiers li {
-  padding: 0.65rem 0.9rem;
+@media (min-width: 800px) {
+  .join-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: stretch;
+  }
+}
+
+.join-panel {
+  padding: var(--space-6);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.join-free {
   background: var(--surface);
-  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--marsh);
+}
+
+.join-member {
+  background: var(--marsh-deep);
+  color: #faf6ec;
+  box-shadow: 5px 5px 0 var(--gold-hot);
+  justify-content: center;
+}
+
+.join-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.join-member .join-kicker {
+  color: var(--gold-soft);
+}
+
+.join-panel h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.join-member h3 {
+  color: #faf6ec;
+}
+
+.join-copy {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.join-member .join-copy {
+  color: #d5e0db;
+}
+
+.email-box {
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg);
+  border: 3px solid var(--ink);
   border-radius: 6px;
-  font-size: 0.95rem;
+  min-height: 72px;
+}
+
+/* Substack widget fills the open box */
+#custom-substack-embed,
+.email-box .custom-substack-widget {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.email-box input,
+.email-box button {
+  font-family: var(--font-body) !important;
+}
+
+.join-fallback {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+.join-fallback a {
+  color: var(--marsh-mid);
+  font-weight: 800;
+}
+
+.join-member .btn {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}
+
+/* Donate tiers */
+.donate-block {
+  padding-top: var(--space-6);
+  border-top: 3px solid var(--ink);
+}
+
+.donate-head {
+  margin-bottom: var(--space-5);
+  max-width: 48ch;
+}
+
+.donate-head h3 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.donate-tiers {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .donate-tiers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .donate-tiers {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.donate-tier {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--marsh);
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  min-height: 100%;
+}
+
+.donate-tier:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--gold-hot);
+  color: var(--ink);
+}
+
+.donate-tier-featured {
+  background: var(--marsh);
+  color: #faf6ec;
+  box-shadow: 3px 3px 0 var(--gold-hot);
+}
+
+.donate-tier-featured:hover {
+  color: #faf6ec;
+}
+
+.donate-name {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.donate-tier-featured .donate-name {
+  color: var(--gold-soft);
+}
+
+.donate-amt {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.donate-note {
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--ink-soft);
 }
 
-.substack-tiers strong {
-  color: var(--ink);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.donate-tier-featured .donate-note {
+  color: #c5d4ce;
+}
+
+.donate-fine {
+  margin: var(--space-4) 0 0;
   font-size: 0.8rem;
-  margin-right: 0.35rem;
+  font-weight: 600;
+  color: var(--ink-faint);
 }
 
 /* Connect */

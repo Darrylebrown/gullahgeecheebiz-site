@@ -32,7 +32,8 @@
         <a href="#about">About</a>
         <a href="#works">Works</a>
         <a href="#listen">Listen</a>
-        <a href="#substack">Substack</a>
+        <a href="#substack">Join</a>
+        <a href="#donate">Donate</a>
         <a href="#connect">Connect</a>
       </nav>
     </div>
@@ -153,28 +154,72 @@
     </section>
 
     <section class="section substack" id="substack">
-      <div class="wrap substack-grid">
-        <div>
-          <p class="card-label">Newsletter · Substack</p>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="card-label">Stay with the work</p>
           <h2>Join the circle</h2>
-          <p>
-            Register free for the newsletter. Donate if you’d like.
-            Or join as a paid member — culture first, always supporting the work, not a personal tip jar.
-          </p>
-          <ul class="substack-tiers">
-            <li><strong>Free</strong> — newsletter registration</li>
-            <li><strong>Donate</strong> — optional, when you’re able</li>
-            <li><strong>Member</strong> — $9.99/month or $99/year</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://kofigullahgeecheebiz.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Free newsletter</a>
-            <a class="btn btn-ghost" href="https://kofigullahgeecheebiz.substack.com" target="_blank" rel="noopener noreferrer">Member $9.99 · $99</a>
+          <p class="section-sub">Free newsletter on this page. Substack for members. Tiered gifts when you’re able — culture first, not a personal tip jar.</p>
+        </div>
+
+        <div class="join-grid">
+          <!-- Free open email box -->
+          <div class="join-panel join-free">
+            <p class="join-kicker">Free</p>
+            <h3>Newsletter</h3>
+            <p class="join-copy">Register free — letters and culture notes from Gullah Geechee Biz.</p>
+            <div class="email-box">
+              <div id="custom-substack-embed"></div>
+            </div>
+            <p class="join-fallback">
+              Form not loading?
+              <a href="https://kofigullahgeecheebiz.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe free on Substack</a>
+            </p>
+          </div>
+
+          <!-- Substack member button panel -->
+          <div class="join-panel join-member">
+            <p class="join-kicker">Substack member</p>
+            <h3>$9.99 / mo · $99 / yr</h3>
+            <p class="join-copy">Join on Substack for the full membership path. Support goes to Gullah Geechee Biz work.</p>
+            <a class="btn btn-on-dark" href="https://kofigullahgeecheebiz.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Join on Substack</a>
           </div>
         </div>
-        <div class="listen-card substack-card">
-          <p class="listen-kicker">Publication</p>
-          <p class="listen-title">Gullah Geechee Biz</p>
-          <p class="listen-meta">Free · Donate · $9.99/mo · $99/yr</p>
+
+        <!-- Tiered donations -->
+        <div class="donate-block" id="donate">
+          <div class="donate-head">
+            <p class="card-label">Optional gifts</p>
+            <h3>Donate by tier</h3>
+            <p class="section-sub">One-time or monthly on GitHub Sponsors. Pick a tier that fits — every gift strengthens the work.</p>
+          </div>
+          <div class="donate-tiers">
+            <a class="donate-tier" href="https://github.com/sponsors/Darrylebrown" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">Seed</span>
+              <span class="donate-amt">$5</span>
+              <span class="donate-note">Plant the story</span>
+            </a>
+            <a class="donate-tier" href="https://github.com/sponsors/Darrylebrown" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">Root</span>
+              <span class="donate-amt">$15</span>
+              <span class="donate-note">Deepen the archive</span>
+            </a>
+            <a class="donate-tier donate-tier-featured" href="https://github.com/sponsors/Darrylebrown" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">River</span>
+              <span class="donate-amt">$25</span>
+              <span class="donate-note">Keep the current moving</span>
+            </a>
+            <a class="donate-tier" href="https://github.com/sponsors/Darrylebrown" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">Marsh</span>
+              <span class="donate-amt">$50</span>
+              <span class="donate-note">Hold the Lowcountry</span>
+            </a>
+            <a class="donate-tier" href="https://github.com/sponsors/Darrylebrown" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">Island</span>
+              <span class="donate-amt">$100</span>
+              <span class="donate-note">Anchor a volume</span>
+            </a>
+          </div>
+          <p class="donate-fine">Choose the matching amount on the Sponsors page. Brand support — not a personal tip jar.</p>
         </div>
       </div>
     </section>
@@ -215,5 +260,20 @@
     </div>
   </footer>
   <script src="./counter.js" defer></script>
+  <script>
+    window.CustomSubstackWidget = {
+      substackUrl: "kofigullahgeecheebiz.substack.com",
+      placeholder: "Your email",
+      buttonText: "Register free",
+      theme: "custom",
+      colors: {
+        primary: "#0f2f29",
+        input: "#faf6ec",
+        email: "#0e1613",
+        text: "#faf6ec"
+      }
+    };
+  </script>
+  <script src="https://substackapi.com/widget.js" async></script>
 </body>
 </html>
