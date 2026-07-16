@@ -953,3 +953,38 @@ a:focus-visible {
     transform: none;
   }
 }
+
+/* Merch section */
+.merch-cards {
+  margin-bottom: var(--space-6);
+}
+
+.merch-thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  margin-bottom: var(--space-4);
+}
+
+.merch-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.merch-note {
+  flex: 1 1 100%;
+  margin: 0 0 var(--space-3);
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 56ch;
+}
+
+.hero-seal img[src*="merch"] {
+  border-radius: 12px;
+}
