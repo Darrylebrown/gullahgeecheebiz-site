@@ -1,0 +1,47 @@
+{
+  "brand": "Gullah Geechee Biz",
+  "type": "product_flip_videos",
+  "aspect_ratio": "9:16",
+  "videos": [
+    {
+      "sku": "GGB-BINYAH-TEE",
+      "file": "ggb-flip-binyah-tee.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-binyah-tee.mp4"
+    },
+    {
+      "sku": "GGB-BINYAH-TOTE",
+      "file": "ggb-flip-binyah-tote.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-binyah-tote.mp4"
+    },
+    {
+      "sku": "GGB-BINYAH-STICKER",
+      "file": "ggb-flip-binyah-sticker.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-binyah-sticker.mp4"
+    },
+    {
+      "sku": "GGB-ROOTS-TEE",
+      "file": "ggb-flip-roots-tee.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-roots-tee.mp4"
+    },
+    {
+      "sku": "GGB-BLOOD-TEE",
+      "file": "ggb-flip-blood-tee.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-blood-tee.mp4"
+    },
+    {
+      "sku": "GGB-LOW-TEE",
+      "file": "ggb-flip-lowcountry-tee.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-lowcountry-tee.mp4"
+    },
+    {
+      "sku": "GGB-ROOTS-MUG",
+      "file": "ggb-flip-roots-mug.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-roots-mug.mp4"
+    },
+    {
+      "sku": "GGB-LOW-POSTER",
+      "file": "ggb-flip-lowcountry-poster.mp4",
+      "url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/videos/ggb-flip-lowcountry-poster.mp4"
+    }
+  ]
+}
