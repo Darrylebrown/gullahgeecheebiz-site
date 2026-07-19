@@ -11,8 +11,10 @@ name: Sync Season 1 from Airtable
 
 on:
   workflow_dispatch:          # manual trigger from Actions tab
+  repository_dispatch:        # instant trigger from Airtable button (event_type: airtable-sync)
+    types: [airtable-sync]
   schedule:
-    - cron: '0 */6 * * *'     # every 6 hours, UTC
+    - cron: '0 */6 * * *'     # every 6 hours, UTC (safety net)
 
 permissions:
   contents: write
