@@ -28,9 +28,15 @@
         </svg>
         <span class="brand-text">Gullah Geechee Biz</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav" onclick="var n=document.getElementById('primary-nav');var open=n.classList.toggle('is-open');this.setAttribute('aria-expanded', open);">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="#about">About</a>
-        <a href="#works">Works</a>
+        <a href="#works">Books</a>
+        <a href="./season-1/">Season 1</a>
         <a href="#merch">Merch</a>
         <a href="#listen">Listen</a>
         <a href="#substack">Join</a>
@@ -68,6 +74,29 @@
           A world you never knew existed — and will never forget.
         </p>
         <p class="quote-attr">Gullah Geechee Cultural Heritage Corridor · Sea Islands</p>
+      </div>
+    </section>
+
+    <section class="s1-promo" aria-label="Season 1 announcement">
+      <div class="wrap s1-promo-inner">
+        <div class="s1-promo-copy">
+          <p class="s1-promo-eyebrow">Now casting the calendar</p>
+          <h2 class="s1-promo-h">Season 1 · Sixteen documentaries.<br />Two hundred sixty-two years.</h2>
+          <p class="s1-promo-sub">From Fort Mose 1738 to Queen Quet today. Bi-weekly Fridays, Sep 5, 2026 through Apr 10, 2027. Every premiere anchored to a real cultural date.</p>
+          <div class="s1-promo-actions">
+            <a class="btn btn-primary" href="./season-1/">See the full season</a>
+            <a class="btn btn-ghost" href="./season-1/queen-quet-2000.html">Episode 01 · Queen Quet</a>
+          </div>
+        </div>
+        <div class="s1-promo-count" aria-live="polite">
+          <div class="s1-mini-countdown" id="home-countdown" data-target="2026-09-05T20:00:00-04:00">
+            <div class="cd-cell"><span class="cd-num" id="hc-days">—</span><span class="cd-label">days</span></div>
+            <div class="cd-cell"><span class="cd-num" id="hc-hours">—</span><span class="cd-label">hours</span></div>
+            <div class="cd-cell"><span class="cd-num" id="hc-mins">—</span><span class="cd-label">min</span></div>
+            <div class="cd-cell"><span class="cd-num" id="hc-secs">—</span><span class="cd-label">sec</span></div>
+          </div>
+          <p class="s1-promo-count-cap">Until Episode 01</p>
+        </div>
       </div>
     </section>
 
@@ -317,6 +346,32 @@
     </div>
   </footer>
   <script src="./counter.js" defer></script>
+  <script>
+    // Home page mini-countdown to Season 1 Episode 01 premiere
+    (function() {
+      var el = document.getElementById('home-countdown');
+      if (!el) return;
+      var target = new Date(el.getAttribute('data-target')).getTime();
+      var d = document.getElementById('hc-days');
+      var h = document.getElementById('hc-hours');
+      var m = document.getElementById('hc-mins');
+      var s = document.getElementById('hc-secs');
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) { d.textContent = h.textContent = m.textContent = s.textContent = '00'; return; }
+        var dd = Math.floor(diff / 86400000);
+        var hh = Math.floor((diff % 86400000) / 3600000);
+        var mm = Math.floor((diff % 3600000) / 60000);
+        var ss = Math.floor((diff % 60000) / 1000);
+        d.textContent = String(dd).padStart(2, '0');
+        h.textContent = String(hh).padStart(2, '0');
+        m.textContent = String(mm).padStart(2, '0');
+        s.textContent = String(ss).padStart(2, '0');
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
   <script>
     window.CustomSubstackWidget = {
       substackUrl: "kofigullahgeecheebiz.substack.com",
