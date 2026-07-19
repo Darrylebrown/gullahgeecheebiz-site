@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-19T01:24:00",
-  "source": "initial-seed",
+  "generated_at": "2026-07-19T02:51:54",
+  "source": "airtable",
   "base_id": "appr9ojv124GBNCtR",
   "table_id": "tblykMJANGPLZQyPi",
   "episodes": [
     {
-      "record_id": "seeded-1",
+      "record_id": "recermW2Il2ZVT93d",
       "num": 1,
       "date": "2026-09-05",
       "book_id": "queen-quet-2000",
@@ -23,7 +23,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-2",
+      "record_id": "recaOp6WK8SIeBt97",
       "num": 2,
       "date": "2026-09-19",
       "book_id": "sea-islands-language",
@@ -41,7 +41,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-3",
+      "record_id": "recTboGFZmtl6aAJz",
       "num": 3,
       "date": "2026-10-03",
       "book_id": "ring-shout-tradition",
@@ -59,7 +59,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-4",
+      "record_id": "recVvDB4MR2oKDaS0",
       "num": 4,
       "date": "2026-10-17",
       "book_id": "sweetgrass-basket-tradition",
@@ -77,7 +77,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-5",
+      "record_id": "recxFNy822Y9CIh9m",
       "num": 5,
       "date": "2026-10-31",
       "book_id": "gullah-jack-1822",
@@ -95,7 +95,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-6",
+      "record_id": "recR0zT71qlilllVH",
       "num": 6,
       "date": "2026-11-14",
       "book_id": "sapelo-hog-hammock",
@@ -113,7 +113,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-7",
+      "record_id": "recp1U3Fh0eQWZzPS",
       "num": 7,
       "date": "2026-11-28",
       "book_id": "igbo-landing-1803",
@@ -131,7 +131,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-8",
+      "record_id": "recjRKwcFjI6UC1TE",
       "num": 8,
       "date": "2026-12-12",
       "book_id": "denmark-vesey-1822",
@@ -149,7 +149,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-9",
+      "record_id": "recj94g9CLFX7fGuj",
       "num": 9,
       "date": "2027-01-01",
       "book_id": "port-royal-experiment-1862",
@@ -167,7 +167,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-10",
+      "record_id": "recoZM8xnPImiKdyn",
       "num": 10,
       "date": "2027-01-16",
       "book_id": "robert-smalls-doc",
@@ -185,7 +185,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-11",
+      "record_id": "recqawiVV7CD3o3uI",
       "num": 11,
       "date": "2027-01-30",
       "book_id": "harriet-jacobs-1861",
@@ -203,7 +203,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-12",
+      "record_id": "reccku0zKY6Ht3OWC",
       "num": 12,
       "date": "2027-02-13",
       "book_id": "mother-emanuel-1865",
@@ -221,7 +221,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-13",
+      "record_id": "recDarMoUPVhZUS54",
       "num": 13,
       "date": "2027-02-27",
       "book_id": "weeping-time-1859",
@@ -239,7 +239,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-14",
+      "record_id": "recLv1btFNBEjqsSy",
       "num": 14,
       "date": "2027-03-13",
       "book_id": "penn-school-1862",
@@ -257,7 +257,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-15",
+      "record_id": "reckFEx3FPNq0IXdR",
       "num": 15,
       "date": "2027-03-27",
       "book_id": "harriet-tubman-combahee",
@@ -275,7 +275,7 @@
       "notes": ""
     },
     {
-      "record_id": "seeded-16",
+      "record_id": "recBMo6fQuuj6x4Gm",
       "num": 16,
       "date": "2027-04-10",
       "book_id": "gullah-wars-seminole",

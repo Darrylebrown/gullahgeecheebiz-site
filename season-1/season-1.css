@@ -474,18 +474,10 @@
   .cd-cell { padding: var(--space-3) 6px; }
 }
 
-/* ============================================================
-   QA FIXES — card equal heights, tighter grid, ep meta contrast
-   ============================================================ */
-
+/* --- QA FIXES baked in --- */
 .ep-card { align-items: stretch; }
-.ep-card .ep-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+.ep-card .ep-body { display: flex; flex-direction: column; flex: 1; }
 .ep-card .ep-anchor { margin-top: auto; padding-top: 8px; }
-
 @media (min-width: 1100px) {
   .ep-grid { grid-template-columns: repeat(4, 1fr); }
   .ep-card { grid-template-columns: 58px 1fr; }
@@ -495,10 +487,6 @@
 @media (min-width: 720px) and (max-width: 1099px) {
   .ep-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-.ep-runtime {
-  color: rgba(250, 246, 236, 0.92);
-  font-weight: 500;
-}
+.ep-runtime { color: rgba(250, 246, 236, 0.92); font-weight: 500; }
 .ep-meta-value { color: var(--surface); }
 .brand-text { white-space: nowrap; }
