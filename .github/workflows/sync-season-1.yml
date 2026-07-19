@@ -1,0 +1,46 @@
+name: Sync Season 1 from Airtable
+
+# Runs automatically every 6 hours, and on-demand from the Actions tab.
+# Only commits + pushes if something actually changed.
+#
+# SETUP (one time):
+#   Repo → Settings → Secrets and variables → Actions → New repository secret
+#     Name:  AIRTABLE_TOKEN
+#     Value: pat...  (create at airtable.com/create/tokens,
+#                     scope: data.records:read on the Encyclopedia base)
+
+on:
+  workflow_dispatch:          # manual trigger from Actions tab
+  schedule:
+    - cron: '0 */6 * * *'     # every 6 hours, UTC
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sync from Airtable
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: python3 scripts/sync_from_airtable.py --ci
+
+      - name: Commit + push if changed
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name  "GGB Pipeline Bot"
+          git config user.email "bot@gullahgeecheebiz.com"
+          git add season-1/ scripts/build_season1_site.py
+          git commit -m "chore(season-1): sync from Airtable"
+          git push

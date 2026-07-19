@@ -1,0 +1,296 @@
+{
+  "generated_at": "2026-07-19T01:24:00",
+  "source": "initial-seed",
+  "base_id": "appr9ojv124GBNCtR",
+  "table_id": "tblykMJANGPLZQyPi",
+  "episodes": [
+    {
+      "record_id": "seeded-1",
+      "num": 1,
+      "date": "2026-09-05",
+      "book_id": "queen-quet-2000",
+      "title": "Queen Quet",
+      "anchor": "GG Nation coronation era",
+      "runtime": 100,
+      "era": "2000–today",
+      "logline": "The first Head-of-State of the Gullah Geechee Nation and the fight for federal cultural recognition.",
+      "hero": "A Nation was declared. Then it went to work.",
+      "beats": [
+        "Marquetta Goodwine crowned Queen Quet Chieftess of the Gullah/Geechee Nation, July 2, 2000.",
+        "The federal Cultural Heritage Corridor designation, 2006 — signed into law after a decade of testimony.",
+        "The ongoing work: land trust protections, language preservation, and community sovereignty on the Sea Islands today."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-2",
+      "num": 2,
+      "date": "2026-09-19",
+      "book_id": "sea-islands-language",
+      "title": "Da Language",
+      "anchor": "Turner's Sept research trips",
+      "runtime": 100,
+      "era": "1932–today",
+      "logline": "Lorenzo Dow Turner's wax cylinders prove Gullah is African, and a Mende song survives 200 years.",
+      "hero": "They said it was broken English. He proved it was West Africa.",
+      "beats": [
+        "Lorenzo Dow Turner arrives on Sapelo Island with a wax cylinder recorder, 1932.",
+        "The Amelia Dawley recording — a Mende funeral song sung by a woman who never left Georgia.",
+        "Turner's Africanisms in the Gullah Dialect (1949) rewrites American linguistics."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-3",
+      "num": 3,
+      "date": "2026-10-03",
+      "book_id": "ring-shout-tradition",
+      "title": "The Ring Turn Ever",
+      "anchor": "McIntosh Shouters season",
+      "runtime": 100,
+      "era": "1700s–today",
+      "logline": "The counterclockwise Kongo dance that outlived slavery and became American gospel's grandmother.",
+      "hero": "Counterclockwise. Never crossing feet. A Kongo cosmogram in Georgia soil.",
+      "beats": [
+        "The Kongo cosmogram (Dikenga) travels the Middle Passage, encoded in the shout.",
+        "McIntosh County, Georgia — the last community to keep the shout unbroken from slavery through today.",
+        "How the ring shout birthed American gospel, birthed the spiritual, birthed the sermon."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-4",
+      "num": 4,
+      "date": "2026-10-17",
+      "book_id": "sweetgrass-basket-tradition",
+      "title": "The Basket Sewers",
+      "anchor": "Mt. Pleasant craft season",
+      "runtime": 95,
+      "era": "1700s–today",
+      "logline": "The Senegambian coiling technique that became the Sea Islands' most enduring living art.",
+      "hero": "Rice fanner in 1720. Museum piece in 2020. Same coil, same hands.",
+      "beats": [
+        "The Senegambian origin — rice-country coiling technique that traveled with the enslaved.",
+        "Mount Pleasant, South Carolina — the surviving sweetgrass corridor along Highway 17.",
+        "The threats: development, sweetgrass access loss, generational transfer under strain."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-5",
+      "num": 5,
+      "date": "2026-10-31",
+      "book_id": "gullah-jack-1822",
+      "title": "The Conjure Man",
+      "anchor": "Samhain / liminal date",
+      "runtime": 95,
+      "era": "1822",
+      "logline": "The Kongo priest who armed the Vesey conspiracy with spiritual protection and paid with his life.",
+      "hero": "Vesey brought the plan. Gullah Jack brought the protection.",
+      "beats": [
+        "Jack Pritchard — Kongo-born, sold into Charleston, keeper of nkisi and ancestor lines.",
+        "The role at Vesey's council: crab-claw amulets, parched corn, spiritual coverage for the fighters.",
+        "Trial and execution, July 12, 1822 — refusing to give up his people even at the gallows."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-6",
+      "num": 6,
+      "date": "2026-11-14",
+      "book_id": "sapelo-hog-hammock",
+      "title": "The Last of Sapelo",
+      "anchor": "Cornelia Bailey b. Nov 12",
+      "runtime": 95,
+      "era": "1945–today",
+      "logline": "Cornelia Bailey and Hog Hammock's fight to hold Sapelo Island against developer erasure.",
+      "hero": "An island of 434. A village of 47. And one woman who kept the stories.",
+      "beats": [
+        "Cornelia Bailey born 1945, raised in Hog Hammock — last Gullah community on Sapelo.",
+        "God, Dr. Buzzard, and the Bolito Man (2000) — her memoir, the community record.",
+        "The property tax fight, land loss, and the descendants organizing today."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-7",
+      "num": 7,
+      "date": "2026-11-28",
+      "book_id": "igbo-landing-1803",
+      "title": "The Water Take Us Home",
+      "anchor": "Thanksgiving counter-story",
+      "runtime": 95,
+      "era": "1803",
+      "logline": "Seventy-five Igbo captives walk into Dunbar Creek singing — the birthplace of Black flight mythology.",
+      "hero": "Dunbar Creek, St. Simons Island, May 1803. They chose the water.",
+      "beats": [
+        "The York, the sale at Savannah, the transfer to Skidaway, the coastal schooner to St. Simons.",
+        "The Roswell King letter (only surviving primary source) describing seventy-five walking into the marsh.",
+        "How the story became the myth — flying Africans, Toni Morrison, Beyoncé, and the Gullah oral tradition."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-8",
+      "num": 8,
+      "date": "2026-12-12",
+      "book_id": "denmark-vesey-1822",
+      "title": "The Fire That Never Came",
+      "anchor": "Kujichagulia prep",
+      "runtime": 105,
+      "era": "1822",
+      "logline": "Charleston's largest planned uprising — betrayed six weeks before July 14, silenced for 200 years.",
+      "hero": "Nine thousand names. One night. Six weeks before it lit.",
+      "beats": [
+        "Denmark Vesey — Caribbean-born, free carpenter, class leader at Emanuel AME.",
+        "The plan: July 14, 1822 — armories, ships to Haiti, a general rising across Charleston and the Sea Islands.",
+        "The betrayal, the trials, the executions — and the two centuries of official erasure."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-9",
+      "num": 9,
+      "date": "2027-01-01",
+      "book_id": "port-royal-experiment-1862",
+      "title": "The Freedmen of Port Royal",
+      "anchor": "Emancipation Proc anniversary",
+      "runtime": 105,
+      "era": "1862–1865",
+      "logline": "The first place in America where enslaved people heard themselves declared free.",
+      "hero": "November 7, 1861. The planters ran. Ten thousand stayed.",
+      "beats": [
+        "The Battle of Port Royal, 1861 — Union takes the Sea Islands, planters flee, 10,000 self-liberate.",
+        "The Experiment — northern teachers, missionaries, Black landownership, wage labor, the first Freedmen's schools.",
+        "January 1, 1863 — the Emancipation Proclamation read aloud at Camp Saxton to the 1st South Carolina Volunteers."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-10",
+      "num": 10,
+      "date": "2027-01-16",
+      "book_id": "robert-smalls-doc",
+      "title": "Robert Smalls",
+      "anchor": "MLK weekend",
+      "runtime": 110,
+      "era": "1839–1915",
+      "logline": "The 23-year-old enslaved pilot who stole the Planter, freed his family, and became a Congressman.",
+      "hero": "May 12, 1862. Three a.m. He put on the captain's straw hat.",
+      "beats": [
+        "The Planter escape — Charleston Harbor, past five Confederate forts, delivered to the Union blockade.",
+        "The naval career, the return to Beaufort, the purchase of his former master's house.",
+        "The Reconstruction Congressman — five terms, the SC 1868 Constitution, the founder of the Republican Party in the state."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-11",
+      "num": 11,
+      "date": "2027-01-30",
+      "book_id": "harriet-jacobs-1861",
+      "title": "The Loophole",
+      "anchor": "Black History Month opener",
+      "runtime": 105,
+      "era": "1832–1842",
+      "logline": "Harriet Jacobs hides in her grandmother's crawlspace for seven years and writes it into a book.",
+      "hero": "A crawlspace nine feet by seven. A single peephole. Seven years.",
+      "beats": [
+        "Edenton, North Carolina — Dr. Norcom's pursuit begins, 1832.",
+        "The garret hideaway above her grandmother Molly Horniblow's shed — 1835 to 1842.",
+        "Incidents in the Life of a Slave Girl (1861) — published under Linda Brent, authenticated by Jean Fagan Yellin, 1987."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-12",
+      "num": 12,
+      "date": "2027-02-13",
+      "book_id": "mother-emanuel-1865",
+      "title": "Mother Emanuel",
+      "anchor": "BHM Charleston anchor",
+      "runtime": 110,
+      "era": "1816–2015",
+      "logline": "Vesey's church, burned twice, rebuilt three times — from conspiracy pew to prayer meeting massacre.",
+      "hero": "Founded by Vesey. Burned by Charleston. Named for the God of freedom.",
+      "beats": [
+        "1816 — Morris Brown and Denmark Vesey found Emanuel AME on Calhoun Street.",
+        "1822 — church burned to the ground after the conspiracy discovery. Rebuilt underground for four decades.",
+        "June 17, 2015 — nine killed at Wednesday night Bible study. The forgiveness statements that shook the country."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-13",
+      "num": 13,
+      "date": "2027-02-27",
+      "book_id": "weeping-time-1859",
+      "title": "The Rain Would Not Stop",
+      "anchor": "March 2–3 auction anniversary",
+      "runtime": 100,
+      "era": "1859",
+      "logline": "Pierce Butler auctions 436 human beings at Ten Broeck racetrack in a two-day rain that never stopped.",
+      "hero": "Two days. Four hundred thirty-six people. A rain that would not stop.",
+      "beats": [
+        "Pierce Butler's gambling debts and the decision to liquidate the Butler estate at Hampton Point and Butler Island.",
+        "The auction, March 2–3, 1859 — Ten Broeck racetrack outside Savannah. The largest single slave auction in U.S. history.",
+        "Mortimer Thomson's What Became of the Slaves on a Georgia Plantation — the embedded New-York Tribune reporter's account."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-14",
+      "num": 14,
+      "date": "2027-03-13",
+      "book_id": "penn-school-1862",
+      "title": "Under the Oaks",
+      "anchor": "St. Helena spring",
+      "runtime": 100,
+      "era": "1862–today",
+      "logline": "Laura Towne opens the first Southern school for the formerly enslaved beneath the Praise House oaks.",
+      "hero": "St. Helena Island, 1862. A tent. A slate. The first Southern school.",
+      "beats": [
+        "Laura Towne, Ellen Murray, and Charlotte Forten arrive on St. Helena, April 1862.",
+        "Under the oaks at Brick Baptist Church — the classroom becomes the school becomes the Penn Center.",
+        "1948 to today — Penn Center as civil rights training ground (King, SCLC retreats) and Gullah cultural preservation seat."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-15",
+      "num": 15,
+      "date": "2027-03-27",
+      "book_id": "harriet-tubman-combahee",
+      "title": "The Combahee",
+      "anchor": "Tubman Day + raid lead-in",
+      "runtime": 100,
+      "era": "1863",
+      "logline": "Tubman leads Union gunboats up the Combahee and frees 750 in a single night.",
+      "hero": "June 2, 1863. Three Union gunboats. She was the scout.",
+      "beats": [
+        "Tubman's intelligence network in Beaufort — Gullah pilots, Black watermen, mapped rice-country channels.",
+        "The raid, June 2, 1863 — three gunboats up the Combahee, 750 self-liberated, plantations burned.",
+        "The first woman to lead an armed expedition in U.S. military history. She fought for her pension for 30 years."
+      ],
+      "notes": ""
+    },
+    {
+      "record_id": "seeded-16",
+      "num": 16,
+      "date": "2027-04-10",
+      "book_id": "gullah-wars-seminole",
+      "title": "The Longest War",
+      "anchor": "Season finale · Fort Mose",
+      "runtime": 115,
+      "era": "1738–1858",
+      "logline": "Fort Mose to Nacimiento — 120 years of armed Gullah resistance and the largest slave rebellion in U.S. history.",
+      "hero": "Fort Mose, 1738. Nacimiento, today. The war lasted 120 years.",
+      "beats": [
+        "Fort Mose, Spanish Florida, 1738 — first free Black settlement in North America, garrisoned by escaped Gullah under Captain Francisco Menendez.",
+        "The Negro Fort at Prospect Bluff, 1816 — U.S. Navy destroys a maroon fort, killing 270 in the largest single-day Black massacre of the 19th century.",
+        "John Horse and the 1850 exodus — 300 Black Seminoles walk across Texas to Nacimiento, Coahuila, Mexico, where descendants still live and speak Afro-Seminole Creole today."
+      ],
+      "notes": ""
+    }
+  ]
+}
