@@ -1,7 +1,7 @@
 # Substack — paste pack (Gullah Geechee Biz)
 
 **Publication:** https://kofigullahgeecheebiz.substack.com  
-**Site:** https://darrylebrown.github.io/gullahgeecheebiz-site/
+**Site:** https://gullahgeecheebiz.com/
 
 ## Offer (set this in Substack)
 
@@ -30,7 +30,7 @@ Friends,
 Gullah Geechee Biz has a simple public home on the web — independent and culture-first.
 
 **Visit the site:**  
-https://darrylebrown.github.io/gullahgeecheebiz-site/
+https://gullahgeecheebiz.com/
 
 You’ll find books (Volume 1 · Beaufort, Blood Remembers), the podcast, and ways to stay close to Sea Island culture.
 
@@ -54,7 +54,7 @@ Gullah Geechee Biz is live.
 
 Free newsletter · optional donate · members $9.99/mo or $99/yr  
 
-Site → https://darrylebrown.github.io/gullahgeecheebiz-site/  
+Site → https://gullahgeecheebiz.com/  
 Substack → https://kofigullahgeecheebiz.substack.com
 
 ---
@@ -67,6 +67,6 @@ Thank you for registering.
 
 You’re on the free newsletter. You can also support the work anytime with a donation, or join as a member for $9.99/month or $99/year.
 
-Start here: https://darrylebrown.github.io/gullahgeecheebiz-site/
+Start here: https://gullahgeecheebiz.com/
 
 Culture first. Always.

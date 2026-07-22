@@ -2,7 +2,7 @@
 
 **Brand:** @GullahGeecheeBiz  
 **Tone:** culture-first · soft CTA · no celebrity framing  
-**Link:** https://darrylebrown.github.io/gullahgeecheebiz-site/
+**Link:** https://gullahgeecheebiz.com/
 
 ---
 
@@ -48,7 +48,7 @@ Explore Roots & Rivers encyclopedias and books. Listen on podcast and audiobook.
 Subscribe. Preserve the past. Inspire the future.
 
 @GullahGeecheeBiz  
-https://darrylebrown.github.io/gullahgeecheebiz-site/
+https://gullahgeecheebiz.com/
 
 #GullahGeechee #GullahGeecheeBiz #RootsAndRivers #Lowcountry #CulturalHeritage
 
@@ -116,7 +116,7 @@ It is a living record of America’s Sea Island culture.
 Subscribe. Preserve the past. Inspire the future.
 
 @GullahGeecheeBiz  
-https://darrylebrown.github.io/gullahgeecheebiz-site/
+https://gullahgeecheebiz.com/
 
 #GullahGeechee #GullahGeecheeBiz #RootsAndRivers #Beaufort #Savannah #CulturalHeritage
 

@@ -3,7 +3,7 @@
 Simple public brand site. **Independent of Manus.**
 
 ## Live now
-- GitHub Pages: https://darrylebrown.github.io/gullahgeecheebiz-site/
+- GitHub Pages: https://gullahgeecheebiz.com/
 - Perplexity: https://gullah-geechee-biz.pplx.app
 
 ## Point GullahGeecheeBiz.com (Namecheap)

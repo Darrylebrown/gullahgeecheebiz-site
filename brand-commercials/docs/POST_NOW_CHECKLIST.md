@@ -90,7 +90,7 @@ Subscribe to Gullah Geechee Biz. Preserve the past. Inspire the future.
 > Gullah Geechee Biz documents Gullah Geechee people, places, and traditions — books, audio, music, and daily stories so the record never fades.
 
 **“Where can I get the book?”**
-> Roots & Rivers encyclopedia volumes + more on our site: https://darrylebrown.github.io/gullahgeecheebiz-site/ — thank you for seeking the real history.
+> Roots & Rivers encyclopedia volumes + more on our site: https://gullahgeecheebiz.com/ — thank you for seeking the real history.
 
 **“Is this AI?”**
 > These promos use AI production tools for visuals/voice. The cultural work, research, and mission are real — documenting Gullah Geechee culture so it can’t die through lack of record.
@@ -99,7 +99,7 @@ Subscribe to Gullah Geechee Biz. Preserve the past. Inspire the future.
 > Welcome. Stick around for Sea Island stories, books, and living culture. Glad you’re here.
 
 **Merch interest**
-> Heritage merch funds the cultural work. Shop: https://darrylebrown.github.io/gullahgeecheebiz-site/shop.html
+> Heritage merch funds the cultural work. Shop: https://gullahgeecheebiz.com/shop.html
 
 **Local / “I’m from the Lowcountry”**
 > The marsh remembers. Honored to have you here — this work is for the people and places that raised us.

@@ -27,4 +27,4 @@ Culture-first brand promos for @GullahGeecheeBiz.
 ## Post path
 
 Airtable Ready → Blotato (`BLOTATO_API_KEY`) → Pinterest / TikTok  
-Site: https://darrylebrown.github.io/gullahgeecheebiz-site/
+Site: https://gullahgeecheebiz.com/
