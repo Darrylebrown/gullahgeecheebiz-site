@@ -384,7 +384,7 @@ def build_hub():
     return head(
         "Season 1 — Gullah Geechee Biz Documentary Series",
         "Sixteen documentaries across 32 weeks, from Fort Mose 1738 to Queen Quet today. A Gullah Geechee Biz Production.",
-        "https://darrylebrown.github.io/gullahgeecheebiz-site/season-1/"
+        "https://gullahgeecheebiz.com/season-1/"
     ) + f"""
     <section class="s1-hero">
       <div class="wrap">
@@ -468,7 +468,7 @@ def build_episode(ep, prev_ep, next_ep):
     return head(
         f"{ep['title']} — Episode {ep['num']:02d} · GGB Season 1",
         f"{ep['logline']} A Gullah Geechee Biz documentary. Premieres {date_short}.",
-        f"https://darrylebrown.github.io/gullahgeecheebiz-site/season-1/{ep['book_id']}.html"
+        f"https://gullahgeecheebiz.com/season-1/{ep['book_id']}.html"
     ) + f"""
     <article class="ep-page">
       <header class="ep-hero">

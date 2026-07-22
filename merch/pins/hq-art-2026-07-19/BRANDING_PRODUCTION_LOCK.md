@@ -44,7 +44,7 @@ Exit code **0** = production OK. Non-zero = **do not import**.
 
 ## Soft CTA links (allowed)
 
-- Site: https://darrylebrown.github.io/gullahgeecheebiz-site/  
+- Site: https://gullahgeecheebiz.com/  
 - Shop: …/shop.html  
 - Vol 1: https://www.amazon.com/dp/B0H8M57FBP  
 - Blood Remembers: https://www.amazon.com/dp/B0H7WQ69N9  

@@ -5,7 +5,7 @@
 | Brand | Gullah Geechee Biz |
 |-------|-------------------|
 | Collection | Binyah |
-| Shop | https://darrylebrown.github.io/gullahgeecheebiz-site/shop.html |
+| Shop | https://gullahgeecheebiz.com/shop.html |
 | Fulfillment | Printful POD after Stripe payment |
 | Updated | 2026-07-16 |
 

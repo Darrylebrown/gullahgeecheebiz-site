@@ -99,8 +99,8 @@ Subscribe to Gullah Geechee Biz. Preserve the past. Inspire the future.
 - Add burned-in or platform captions from the voiceover text  
 - Soft CTA: Subscribe @GullahGeecheeBiz on TikTok, YouTube, Instagram  
 - Keep culture-first framing; no celebrity name-drops  
-- Site link: https://darrylebrown.github.io/gullahgeecheebiz-site/  
-- Shop: https://darrylebrown.github.io/gullahgeecheebiz-site/shop.html  
+- Site link: https://gullahgeecheebiz.com/  
+- Shop: https://gullahgeecheebiz.com/shop.html  
 - Suggested caption hooks:  
   - C1: “The full Gullah Geechee Biz house — books, audio, music, social, merch.”  
   - C2: “More than content. A living record of Sea Island culture.”  
