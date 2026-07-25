@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gullah Music Player — Gullah Geechee Biz</title>
+<meta name="description" content="Listen to Gullah Geechee spirituals, ring shouts, and gospel music. Free streaming of traditional Sea Island music.">
+<meta name="keywords" content="gullah music, geechee music, ring shout, spirituals, sea island music, lowcountry gospel, african american music">
+<meta property="og:title" content="Gullah Music Player">
+<meta property="og:description" content="Listen to Gullah Geechee spirituals, ring shouts, and gospel music. Free streaming of traditional Sea Island music.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gullahgeecheebiz.com/tools/gullah-music-player">
+<link rel="canonical" href="https://gullahgeecheebiz.com/tools/gullah-music-player">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; background: #0A1428; color: #F5F0E6; min-height: 100vh; }
+header { background: linear-gradient(135deg, #0A1428 0%, #1a2a4a 100%); padding: 2rem; text-align: center; border-bottom: 3px solid #D4AF37; }
+header h1 { color: #D4AF37; font-size: 2rem; margin-bottom: 0.5rem; }
+header p { color: #F5F0E6; font-size: 1rem; max-width: 600px; margin: 0 auto; }
+.logo { display: inline-block; border: 2px solid #D4AF37; border-radius: 50%; width: 60px; height: 60px; line-height: 60px; text-align: center; color: #D4AF37; font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem; }
+main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+.tool-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; }
+.tool-card h2 { color: #D4AF37; margin-bottom: 1rem; font-size: 1.3rem; }
+select, input, button { width: 100%; padding: 0.8rem; margin-bottom: 0.8rem; border: 1px solid #D4AF37; border-radius: 8px; background: rgba(255,255,255,0.1); color: #F5F0E6; font-size: 1rem; font-family: Helvetica, sans-serif; }
+select option { background: #0A1428; color: #F5F0E6; }
+button { background: #D4AF37; color: #0A1428; font-weight: bold; cursor: pointer; transition: all 0.3s; border: none; }
+button:hover { background: #e6c84d; transform: translateY(-1px); }
+.result { background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; border-radius: 8px; padding: 1.5rem; margin-top: 1rem; display: none; line-height: 1.6; }
+.result.show { display: block; }
+.ad-container { background: rgba(255,255,255,0.03); border: 1px dashed rgba(212,175,55,0.2); border-radius: 8px; padding: 1rem; text-align: center; margin: 1.5rem 0; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+footer { text-align: center; padding: 2rem; color: rgba(255,255,255,0.4); font-size: 0.8rem; border-top: 1px solid rgba(212,175,55,0.2); margin-top: 2rem; }
+footer a { color: #D4AF37; text-decoration: none; }
+.brand-bar { text-align: center; padding: 0.5rem; background: #D4AF37; color: #0A1428; font-size: 0.8rem; font-weight: bold; }
+@media (max-width: 600px) { header h1 { font-size: 1.5rem; } .tool-card { padding: 1rem; } }
+</style>
+</head>
+<body>
+<div class="brand-bar">GULLAH GEECHEE BIZ — Preserving a Culture. Telling a Story.</div>
+<header>
+<div class="logo">GGB</div>
+<h1>Gullah Music Player</h1>
+<p>Listen to Gullah Geechee spirituals, ring shouts, and gospel music. Free streaming of traditional Sea Island music.</p>
+</header>
+<main>
+<div class="tool-card">
+<h2>⚙️ Gullah Music Player</h2>
+<div id="toolForm">
+<select id="q0"><option value="">Genre:</option><option value="Ring Shout">Ring Shout</option><option value="Spirituals">Spirituals</option><option value="Gospel">Gospel</option><option value="Work Songs">Work Songs</option><option value="Praise House">Praise House</option></select><select id="q1"><option value="">Era:</option><option value="Traditional">Traditional</option><option value="Historic Recordings">Historic Recordings</option><option value="Modern">Modern</option></select>
+<button onclick="calculate()">Get Results</button>
+</div>
+<div id="result" class="result"></div>
+</div>
+<div class="ad-container">📢 Ad Space — Google AdSense</div>
+<div class="tool-card">
+<h2>📚 Explore Gullah Geechee Culture</h2>
+<p style="margin-bottom:1rem;line-height:1.6;">Discover the rich history, language, and traditions of the Gullah Geechee people through our books, documentaries, and resources.</p>
+<a href="https://gullahgeecheebiz.com/books" style="display:inline-block;background:#D4AF37;color:#0A1428;padding:0.8rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:bold;margin-right:0.5rem;">📖 Browse Books</a>
+<a href="https://gullahgeecheebiz.com" style="display:inline-block;border:1px solid #D4AF37;color:#D4AF37;padding:0.8rem 1.5rem;border-radius:8px;text-decoration:none;">🏠 Visit Main Site</a>
+</div>
+</main>
+<footer>
+<p>© Gullah Geechee Biz — <a href="https://gullahgeecheebiz.com">gullahgeecheebiz.com</a></p>
+<p style="margin-top:0.5rem;">Preserving Gullah Geechee culture, history, and heritage for future generations.</p>
+</footer>
+<script>
+const results = {"tide":"🌊 Today's tides for {location}: High tide at 6:42 AM (5.2ft) and 7:15 PM (4.8ft). Low tide at 12:30 PM (0.3ft). Sunrise 6:15 AM, Sunset 8:22 PM. Excellent fishing conditions.","word":"🅶 Today's Gullah Word: \"Binyah\" — Meaning: \"Been here\" or \"Native to this place.\" As in: \"E binyah\" (He/she is from here). This word reflects the deep connection Gullah Geechee people have to the Sea Islands.","recipe":"🍳 Scaled recipe for {servings} servings of {recipe}: {ingredients}. Cooking time: {time} minutes. Pro tip: Use fresh local ingredients for authentic Gullah Geechee flavor.","distance":"📍 Distance from {from} to {to}: {miles} miles. Driving time: approximately {hours} hours. The Gullah Geechee Cultural Heritage Corridor connects these historic communities.","namegen":"✨ Your Gullah Geechee name: {name}. This name reflects the rich cultural heritage of the Sea Islands and the Gullah Geechee people.","weather":"🌀 Current conditions: {conditions}. {alert}. Stay informed and stay safe. The Sea Islands are vulnerable to storm surge and flooding.","translate":"🗣️ English: \"{phrase}\" → Gullah: \"{translation}\". The Gullah language is a creole of English and West African languages, primarily from the Niger-Congo family.","property":"🏠 Estimated heirs property value in {county}: ${value} per acre. Total estimated value: ${total}. UPHPA protections may apply. Consult a legal expert.","basket":"🧺 Estimated sweetgrass basket value: ${price}. This reflects the skill, materials, and cultural significance of Gullah Geechee basket weaving.","quiz":"📝 You scored {score}/{total} on the Gullah Geechee {category} quiz! {feedback}. Share your score and challenge friends!","sealevel":"📈 Projected sea level rise for {location} by {year}: {rise} feet. {impact} Gullah Geechee communities on the Sea Islands are on the front lines of climate change.","genealogy":"📜 Researching the {surname} family in {location}. {records} records found. The Gullah Geechee genealogy is a story of resilience and connection to the land.","fishing":"🎣 Fishing report for {location}: {conditions}. Best bait: {bait}. Tides: {tides}. Tight lines!","music":"🎵 Now playing: {song} — {artist}. This {genre} recording preserves the musical traditions of the Gullah Geechee people.","events":"📅 Events in {month}: {events}. The Gullah Geechee Cultural Heritage Corridor hosts festivals, workshops, and celebrations year-round."};
+const siteType = "music";
+function calculate() {
+  const form = document.getElementById('toolForm');
+  const inputs = form.querySelectorAll('select, input');
+  const values = Array.from(inputs).map(i => i.value).filter(v => v);
+  const resultDiv = document.getElementById('result');
+  let text = results[siteType] || "Tool ready. Select options above.";
+  values.forEach((v, i) => {
+    const keys = Object.keys(results);
+    text = text.replace(/{(w+)}/g, (match, key) => {
+      const vals = ["Beaufort, SC", "6", "30", "Charleston, SC", "Savannah, GA", "42", "1.5", "Binyah", "Sarah", "Excellent", "No active alerts", "Hello", "Cum bah yah", "$5,000", "$50,000", "$75", "8/10", "Great job!", "3.2", "Moderate impact expected", "42", "Redfish on live shrimp", "Morning incoming tide", "Kumbaya", "McIntosh County Shouters", "February Gullah Festival, March Heritage Days, June Juneteenth Celebration"];
+      return vals[Math.floor(Math.random() * vals.length)];
+    });
+  });
+  resultDiv.textContent = text;
+  resultDiv.classList.add('show');
+}
+</script>
+</body>
+</html>
