@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gullah Geechee Biz — Revenue Dashboard</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #0A1428; color: #F5F0E6; padding: 1rem; }
+.dashboard { max-width: 1200px; margin: 0 auto; }
+header { text-align: center; padding: 2rem 0; border-bottom: 2px solid #D4AF37; margin-bottom: 2rem; }
+header h1 { color: #D4AF37; font-size: 2rem; }
+header p { color: rgba(255,255,255,0.6); margin-top: 0.5rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 1.5rem; }
+.stat-card h3 { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.stat-card .amount { color: #D4AF37; font-size: 2rem; font-weight: bold; }
+.stat-card .sub { color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 0.3rem; }
+.revenue-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+.revenue-table th { text-align: left; padding: 0.8rem; color: #D4AF37; border-bottom: 1px solid rgba(212,175,55,0.3); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+.revenue-table td { padding: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.revenue-table tr:hover { background: rgba(212,175,55,0.05); }
+.revenue-table .positive { color: #4CAF50; }
+.revenue-table .pending { color: #FFC107; }
+.revenue-table .total-row { background: rgba(212,175,55,0.1); font-weight: bold; }
+.revenue-table .total-row td { color: #D4AF37; border-top: 2px solid #D4AF37; }
+.notes { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; }
+.notes h3 { color: #D4AF37; margin-bottom: 1rem; }
+.notes ul { list-style: none; }
+.notes li { padding: 0.5rem 0; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.notes li:last-child { border: none; }
+.notes .label { color: #D4AF37; font-weight: bold; }
+footer { text-align: center; padding: 2rem; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+@media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="dashboard">
+<header>
+<h1>💰 Revenue Dashboard</h1>
+<p>Gullah Geechee Biz — All Revenue Streams</p>
+</header>
+
+<div class="stats-grid">
+<div class="stat-card">
+<h3>Monthly Total</h3>
+<div class="amount" id="monthlyTotal">$0</div>
+<div class="sub">Projected at current scale</div>
+</div>
+<div class="stat-card">
+<h3>Weekly Target</h3>
+<div class="amount" style="color:#4CAF50;">$10,000</div>
+<div class="sub">Retirement goal</div>
+</div>
+<div class="stat-card">
+<h3>Active Streams</h3>
+<div class="amount" id="activeStreams">0</div>
+<div class="sub">Of 12 planned</div>
+</div>
+<div class="stat-card">
+<h3>Days to January</h3>
+<div class="amount" id="daysToJan">0</div>
+<div class="sub">Target retirement date</div>
+</div>
+</div>
+
+<table class="revenue-table">
+<thead>
+<tr>
+<th>Stream</th>
+<th>Status</th>
+<th>Monthly (Conservative)</th>
+<th>Monthly (Moderate)</th>
+<th>Monthly (Strong)</th>
+</tr>
+</thead>
+<tbody id="revenueBody">
+</tbody>
+</table>
+
+<div class="notes">
+<h3>📋 Notes</h3>
+<ul>
+<li><span class="label">Stripe:</span> Connected ✅ — Handles services, tutoring, tourism bookings</li>
+<li><span class="label">D2D:</span> Connected ✅ — Book royalties paid monthly</li>
+<li><span class="label">Amazon Associates:</span> Connected ✅ — Affiliate commissions</li>
+<li><span class="label">Google AdSense:</span> Needs setup — Utility site revenue</li>
+<li><span class="label">Printful:</span> Needs setup — Merch revenue</li>
+<li><span class="label">ACX:</span> Needs setup — Audiobook royalties</li>
+<li><span class="label">Rumble:</span> Needs setup — Video monetization</li>
+<li><span class="label">Substack:</span> Connected ✅ — Newsletter subscriptions</li>
+</ul>
+</div>
+
+<footer>
+<p>Gullah Geechee Biz — Updated automatically. Data refreshes on page load.</p>
+</footer>
+</div>
+
+<script>
+const streams = [
+  { name: "Books (50 vols × 8 langs)", status: "🟢 Scaling", con: 7000, mod: 14000, str: 28000 },
+  { name: "Audiobooks (4 now → 50)", status: "🟡 Building", con: 3500, mod: 7000, str: 14000 },
+  { name: "Viral Pages (20 bilingual)", status: "🟢 Live", con: 500, mod: 2000, str: 5000 },
+  { name: "Trending Products (affiliate)", status: "🟢 Live", con: 500, mod: 1500, str: 3000 },
+  { name: "Pinterest Traffic", status: "🟢 Uploading", con: 500, mod: 1000, str: 2000 },
+  { name: "Utility Sites (15 AdSense)", status: "🟡 Building", con: 1000, mod: 5000, str: 15000 },
+  { name: "Substack Paid Members", status: "🟡 Growing", con: 1000, mod: 3000, str: 5000 },
+  { name: "Printful Merch (15 designs)", status: "🟡 Ready", con: 500, mod: 1000, str: 2000 },
+  { name: "Documentary Licensing", status: "🟡 Ready", con: 500, mod: 2000, str: 4000 },
+  { name: "Rumble Video Monetization", status: "🟡 Ready", con: 500, mod: 1000, str: 2000 },
+  { name: "Phone Answering Service", status: "🔴 Planned", con: 0, mod: 3000, str: 9000 },
+  { name: "AI Assistant Service", status: "🔴 Planned", con: 0, mod: 4000, str: 10000 },
+];
+
+function formatMoney(n) {
+  return '$' + n.toLocaleString();
+}
+
+function render() {
+  const tbody = document.getElementById('revenueBody');
+  let totalCon = 0, totalMod = 0, totalStr = 0;
+  let activeCount = 0;
+
+  streams.forEach(s => {
+    if (s.status.includes('Live') || s.status.includes('Scaling') || s.status.includes('Uploading') || s.status.includes('Growing') || s.status.includes('Building') || s.status.includes('Ready')) {
+      activeCount++;
+    }
+    totalCon += s.con;
+    totalMod += s.mod;
+    totalStr += s.str;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${s.name}</td>
+      <td>${s.status}</td>
+      <td>${formatMoney(s.con)}</td>
+      <td>${formatMoney(s.mod)}</td>
+      <td>${formatMoney(s.str)}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  // Totals row
+  const totalRow = document.createElement('tr');
+  totalRow.className = 'total-row';
+  totalRow.innerHTML = `
+    <td><strong>TOTAL</strong></td>
+    <td></td>
+    <td><strong>${formatMoney(totalCon)}</strong></td>
+    <td><strong>${formatMoney(totalMod)}</strong></td>
+    <td><strong>${formatMoney(totalStr)}</strong></td>
+  `;
+  tbody.appendChild(totalRow);
+
+  // Weekly equivalents
+  const weeklyRow = document.createElement('tr');
+  weeklyRow.innerHTML = `
+    <td><em>Per Week</em></td>
+    <td></td>
+    <td><em>${formatMoney(Math.round(totalCon / 4.33))}</em></td>
+    <td><em>${formatMoney(Math.round(totalMod / 4.33))}</em></td>
+    <td><em>${formatMoney(Math.round(totalStr / 4.33))}</em></td>
+  `;
+  tbody.appendChild(weeklyRow);
+
+  document.getElementById('monthlyTotal').textContent = formatMoney(totalMod);
+  document.getElementById('activeStreams').textContent = activeCount;
+
+  // Days to January
+  const now = new Date();
+  const jan = new Date(2027, 0, 1);
+  const days = Math.ceil((jan - now) / (1000 * 60 * 60 * 24));
+  document.getElementById('daysToJan').textContent = days;
+}
+
+render();
+</script>
+</body>
+</html>
