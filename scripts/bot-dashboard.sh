@@ -1,0 +1,104 @@
+#!/bin/bash
+# Bot Dashboard — Live activity monitor
+# Usage: ./bot-dashboard.sh [command]
+# Commands: watch (live feed), log (last 50), html (generate dashboard page)
+
+ACTIVITY_LOG="$HOME/.hermes/logs/bot-activity.log"
+DASHBOARD_HTML="$HOME/gullahgeecheebiz-site/bot-dashboard.html"
+
+case "${1:-watch}" in
+  watch)
+    echo "📡 Bot Activity Feed — Press Ctrl+C to stop"
+    echo "═══════════════════════════════════════════"
+    tail -f "$ACTIVITY_LOG" 2>/dev/null || echo "Waiting for activity..."
+    ;;
+  log)
+    echo "📋 Last 50 Bot Activities"
+    echo "═══════════════════════════"
+    tail -50 "$ACTIVITY_LOG" 2>/dev/null || echo "No activity yet"
+    ;;
+  html)
+    cat > "$DASHBOARD_HTML" << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gullah Geechee Biz — Bot Dashboard</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'SF Mono', Monaco, monospace; background: #0A1428; color: #F5F0E6; padding: 2rem; }
+h1 { color: #D4AF37; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.sub { color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-bottom: 2rem; }
+.stats { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat .num { color: #D4AF37; font-size: 1.5rem; font-weight: bold; }
+.stat .lbl { color: rgba(255,255,255,0.4); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+#feed { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; padding: 1rem; height: 60vh; overflow-y: auto; font-size: 0.85rem; line-height: 1.6; }
+.entry { padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.entry:last-child { border-bottom: none; }
+.time { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+.emoji { margin-right: 0.3rem; }
+.event { color: #D4AF37; }
+.details { color: rgba(255,255,255,0.6); }
+.status-bar { display: flex; gap: 1rem; margin-top: 1rem; color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.3rem; }
+.dot-green { background: #4A7C59; }
+.dot-red { background: #8B0000; }
+</style>
+</head>
+<body>
+<h1>🤖 Gullah Geechee Biz — Bot Activity Dashboard</h1>
+<p class="sub">Live feed of all bot activity — auto-refreshes every 5 seconds</p>
+<div class="stats" id="stats">
+  <div class="stat"><div class="num" id="totalCount">0</div><div class="lbl">Total Actions</div></div>
+  <div class="stat"><div class="num" id="todayCount">0</div><div class="lbl">Today</div></div>
+  <div class="stat"><div class="num" id="botCount">13</div><div class="lbl">Active Bots</div></div>
+</div>
+<div id="feed"><div style="color:rgba(255,255,255,0.3);text-align:center;padding:2rem;">Waiting for bot activity...</div></div>
+<div class="status-bar">
+  <span><span class="dot dot-green"></span>System Online</span>
+  <span id="lastUpdate">Last update: —</span>
+</div>
+<script>
+async function refresh() {
+  try {
+    const r = await fetch('/bot-activity.log');
+    const text = await r.text();
+    const lines = text.trim().split('\n').filter(l => l.trim());
+    const feed = document.getElementById('feed');
+    const total = document.getElementById('totalCount');
+    const today = document.getElementById('todayCount');
+    const lastUpdate = document.getElementById('lastUpdate');
+    
+    total.textContent = lines.length;
+    const todayStr = new Date().toISOString().slice(0, 10);
+    today.textContent = lines.filter(l => l.includes(todayStr)).length;
+    lastUpdate.textContent = 'Last update: ' + new Date().toLocaleTimeString();
+    
+    const last50 = lines.slice(-50).reverse();
+    feed.innerHTML = last50.map(line => {
+      const emoji = line.match(/^([\u{1F300}-\u{1FAFF}])/u)?.[1] || '🤖';
+      const rest = line.replace(/^[\u{1F300}-\u{1FAFF}] /, '');
+      return `<div class="entry"><span class="emoji">${emoji}</span><span class="time">${rest.split(']')[0].replace('[','')}</span> <span class="event">${rest.split(':')[0].split(']')[1]?.trim() || ''}</span><span class="details">${rest.split(':').slice(1).join(':')}</span></div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('feed').innerHTML = '<div style="color:rgba(255,255,255,0.3);text-align:center;padding:2rem;">Waiting for first activity...</div>';
+  }
+}
+refresh();
+setInterval(refresh, 5000);
+</script>
+</body>
+</html>
+HTMLEOF
+    echo "✅ Dashboard generated: $DASHBOARD_HTML"
+    echo "   Open in browser: file://$DASHBOARD_HTML"
+    ;;
+  *)
+    echo "Usage: ./bot-dashboard.sh [command]"
+    echo "  watch   — Live terminal feed (tail -f)"
+    echo "  log     — Last 50 activities"
+    echo "  html    — Generate HTML dashboard page"
+    ;;
+esac
