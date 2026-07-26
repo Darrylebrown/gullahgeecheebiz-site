@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binyah Collection — Gullah Geechee Biz</title>
+  <meta name="description" content="Binyah means born here. Shop the Binyah Gullah Geechee Biz collection — tee, tote, and sticker. Stripe checkout, Printful fulfillment." />
+  <meta name="theme-color" content="#1A3D36" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=sentient@400,500,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="./logo.png" type="image/png" />
+  <style>
+    .flip-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .flip-grid { grid-template-columns: repeat(3, 1fr); } }
+    .flip-card {
+      background: rgba(15, 47, 41, 0.06);
+      border: 1px solid rgba(15, 47, 41, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .flip-card video {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #0f2f29;
+      display: block;
+    }
+    .flip-body { padding: 1rem 1.1rem 1.25rem; }
+    .flip-body h3 { margin: 0.25rem 0 0.5rem; font-size: 1.15rem; }
+    .flip-body .card-label { margin: 0; opacity: 0.75; font-size: 0.85rem; letter-spacing: 0.02em; }
+    .flip-body p { margin: 0.5rem 0 1rem; font-size: 0.95rem; line-height: 1.5; }
+    .feed-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.65rem; }
+    .feed-list a { word-break: break-all; }
+    .binyah-hero-video {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(196, 138, 26, 0.35);
+      background: #0f2f29;
+    }
+    .binyah-hero-video video { width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./index.html" aria-label="Gullah Geechee Biz home">
+        <svg class="mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" fill="none">
+          <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 24c3-8 7-12 10-12s7 4 10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 20h16M14 16h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+        <span class="brand-text">Gullah Geechee Biz</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#works">Works</a>
+        <a href="./shop.html">Merch</a>
+        <a href="./shop-binyah.html" aria-current="page">Binyah</a>
+        <a href="./index.html#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Shopping catalog · Binyah collection</p>
+          <h1>Binyah means born here.</h1>
+          <p class="lede">
+            Sea Island identity as wearable merch — tee, tote, and sticker.
+            Culture-first designs. Stripe checkout. Printful prints after you order.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">Shop Binyah</a>
+            <a class="btn btn-ghost" href="./shop.html">All merch</a>
+          </div>
+          <p class="hero-note">Feeds ready for Meta, Pinterest, Google, and TikTok catalogs</p>
+        </div>
+        <div class="binyah-hero-video">
+          <video src="./merch/videos/ggb-flip-binyah-tee.mp4" controls playsinline muted loop poster="./merch/pins/ggb-ad-binyah-keyframe.png" aria-label="Binyah tee product flip video"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="band quote-band">
+      <div class="wrap narrow">
+        <p class="quote">Born here. Wear it with pride.</p>
+        <p class="quote-attr">Gullah Geechee Biz · Binyah line</p>
+      </div>
+    </section>
+
+    <section class="section merch" id="products">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Binyah products</h2>
+          <p class="section-sub">Flip videos for social + live Stripe buy links.</p>
+        </div>
+        <div class="flip-grid">
+          <article class="flip-card" id="tee">
+            <video src="./merch/videos/ggb-flip-binyah-tee.mp4" controls playsinline muted loop poster="./merch/pins/ggb-ad-binyah-keyframe.png" aria-label="Binyah tee flip"></video>
+            <div class="flip-body">
+              <p class="card-label">GGB-BINYAH-TEE · $29.99</p>
+              <h3>Binyah Sea Islands Tee</h3>
+              <p>Unisex heritage tee. Marsh green and gold. Born-here language for Sea Islanders.</p>
+              <a class="btn btn-primary" href="https://buy.stripe.com/28E6oG6XscKVfea90GcjS00" target="_blank" rel="noopener noreferrer">Buy tee</a>
+            </div>
+          </article>
+          <article class="flip-card" id="tote">
+            <video src="./merch/videos/ggb-flip-binyah-tote.mp4" controls playsinline muted loop poster="./merch/pins/ggb-ad-tote-keyframe.png" aria-label="Binyah tote flip"></video>
+            <div class="flip-body">
+              <p class="card-label">GGB-BINYAH-TOTE · $24.99</p>
+              <h3>Binyah Tote</h3>
+              <p>Canvas market bag with Binyah design. Everyday Sea Island carry.</p>
+              <a class="btn btn-primary" href="https://buy.stripe.com/9B628q4PkfX77LI3GmcjS02" target="_blank" rel="noopener noreferrer">Buy tote</a>
+            </div>
+          </article>
+          <article class="flip-card" id="sticker">
+            <video src="./merch/videos/ggb-flip-binyah-sticker.mp4" controls playsinline muted loop poster="./merch/pins/ggb-ad-sticker-keyframe.png" aria-label="Binyah sticker flip"></video>
+            <div class="flip-body">
+              <p class="card-label">GGB-BINYAH-STICKER · $4.99</p>
+              <h3>Binyah Sticker</h3>
+              <p>Small sticker. Big meaning. Entry price that spreads the word.</p>
+              <a class="btn btn-primary" href="https://buy.stripe.com/28E6oGgy2h1b4zw2CicjS07" target="_blank" rel="noopener noreferrer">Buy sticker</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="feeds">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <h2>Shopping catalog feeds</h2>
+          <p class="section-sub">Upload these CSVs into Meta Commerce, Pinterest Catalogs, Google Merchant, or TikTok product catalogs.</p>
+        </div>
+        <ul class="feed-list">
+          <li><a href="./merch/catalog/binyah/binyah-meta-catalog.csv">Meta / Facebook / Instagram catalog CSV</a></li>
+          <li><a href="./merch/catalog/binyah/binyah-pinterest-catalog.csv">Pinterest catalog CSV</a></li>
+          <li><a href="./merch/catalog/binyah/binyah-google-merchant.csv">Google Merchant CSV</a></li>
+          <li><a href="./merch/catalog/binyah/binyah-tiktok-catalog.csv">TikTok product catalog CSV</a></li>
+          <li><a href="./merch/catalog/binyah/binyah-catalog.json">Master JSON</a></li>
+          <li><a href="./merch/catalog/binyah/BINYAH_CATALOG.md">Human-readable catalog notes</a></li>
+        </ul>
+        <p style="margin-top:1.25rem"><a class="btn btn-ghost" href="./shop.html">← Full merch shop</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© Gullah Geechee Biz · Culture-first merch · Stripe + Printful</p>
+    </div>
+  </footer>
+</body>
+</html>
