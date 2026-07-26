@@ -294,18 +294,25 @@ footer a { color: #D4AF37; text-decoration: none; }
 </footer>
 
 <script>
-// Visitor counter
-(function() {
-  const key = 'ggb_visitor_count';
-  let count = parseInt(localStorage.getItem(key)) || 0;
-  count++;
-  localStorage.setItem(key, count);
-  const el = document.getElementById('visitorCount');
-  if (el) {
-    if (count < 1000) el.textContent = count;
-    else el.textContent = (count/1000).toFixed(1) + 'K';
-  }
-})();
+// Visitor counter - uses free API for global count
+fetch('https://api.countapi.xyz/hit/gullahgeecheebiz.com/visitors')
+  .then(r => r.json())
+  .then(d => {
+    const el = document.getElementById('visitorCount');
+    if (el) {
+      const v = d.value;
+      el.textContent = v >= 1000 ? (v/1000).toFixed(1) + 'K' : v;
+    }
+  })
+  .catch(() => {
+    // Fallback to local count
+    const key = 'ggb_visitor_count';
+    let c = parseInt(localStorage.getItem(key)) || 0;
+    c++;
+    localStorage.setItem(key, c);
+    const el = document.getElementById('visitorCount');
+    if (el) el.textContent = c;
+  });
 
 // Countdown timer
 function updateCountdown() {
