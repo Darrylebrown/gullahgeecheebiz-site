@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gullah Geechee Biz — Culture, Books & Story</title>
+<meta name="description" content="500K+ people have discovered Gullah Geechee culture. Explore 300 years of history, books, audiobooks, documentaries, and the free Corridor Guide.">
+<meta property="og:title" content="Gullah Geechee Biz — Culture, Books & Story">
+<meta property="og:description" content="500K+ people have discovered Gullah Geechee culture. Join 305+ subscribers.">
+<meta property="og:image" content="https://gullahgeecheebiz.com/og-image.jpg">
+<meta property="og:url" content="https://gullahgeecheebiz.com">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; background: #0A1428; color: #F5F0E6; overflow-x: hidden; }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; position: relative; background: linear-gradient(180deg, #0A1428 0%, #0F1F3A 50%, #0A1428 100%); }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 70%); pointer-events: none; }
+.emblem { width: 100px; height: 100px; border: 2px solid #D4AF37; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #D4AF37; font-weight: bold; font-size: 12px; line-height: 1.3; margin-bottom: 2rem; letter-spacing: 1px; }
+.hero h1 { color: #D4AF37; font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+.hero p { color: rgba(255,255,255,0.7); font-size: 1.2rem; max-width: 600px; line-height: 1.6; margin-bottom: 2rem; }
+
+/* Social Proof Bar */
+.social-proof { display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
+.stat { text-align: center; }
+.stat .number { color: #D4AF37; font-size: 1.8rem; font-weight: bold; }
+.stat .label { color: rgba(255,255,255,0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* CTAs */
+.cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.btn { padding: 1rem 2rem; border-radius: 8px; font-family: Georgia, serif; font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+.btn-gold { background: #D4AF37; color: #0A1428; font-weight: bold; }
+.btn-gold:hover { background: #e6c84d; transform: translateY(-2px); }
+.btn-outline { border: 1px solid #D4AF37; color: #D4AF37; background: transparent; }
+.btn-outline:hover { background: rgba(212,175,55,0.1); transform: translateY(-2px); }
+
+/* Video Embed Section */
+.video-section { padding: 4rem 2rem; text-align: center; background: #0F1F3A; }
+.video-section h2 { color: #D4AF37; font-size: 2rem; margin-bottom: 0.5rem; }
+.video-section .sub { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+.video-container { max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
+/* Guide Section */
+.guide-section { padding: 4rem 2rem; text-align: center; background: linear-gradient(135deg, #0A1428 0%, #1a1a2e 100%); }
+.guide-section h2 { color: #D4AF37; font-size: 2rem; margin-bottom: 0.5rem; }
+.guide-section .sub { color: rgba(255,255,255,0.6); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+.guide-form { max-width: 400px; margin: 0 auto; }
+.guide-form input { width: 100%; padding: 1rem; margin-bottom: 0.8rem; border: 1px solid rgba(212,175,55,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #F5F0E6; font-family: Georgia, serif; font-size: 1rem; }
+.guide-form input:focus { border-color: #D4AF37; outline: none; }
+.guide-form .btn { width: 100%; }
+
+/* Works Section */
+.works { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+.works h2 { color: #D4AF37; font-size: 2rem; text-align: center; margin-bottom: 2rem; }
+.works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.work-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s; }
+.work-card:hover { border-color: #D4AF37; transform: translateY(-4px); }
+.work-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.work-card h3 { color: #D4AF37; margin-bottom: 0.5rem; }
+.work-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
+.work-card .price { color: #D4AF37; font-size: 1.1rem; font-weight: bold; }
+
+/* Countdown */
+.countdown { display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap; }
+.countdown-item { text-align: center; }
+.countdown-item .num { color: #D4AF37; font-size: 2.5rem; font-weight: bold; }
+.countdown-item .lbl { color: rgba(255,255,255,0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Footer */
+footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(212,175,55,0.2); }
+footer p { color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-bottom: 0.5rem; }
+footer a { color: #D4AF37; text-decoration: none; }
+.social-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; }
+.social-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+.social-links a:hover { color: #D4AF37; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .social-proof { gap: 1rem; }
+  .stat .number { font-size: 1.3rem; }
+  .works-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="emblem">GULLAH<br>GEECHEE<br>BIZ</div>
+  <h1>500K+ People Have<br>Discovered This Culture.</h1>
+  <p>Now it's your turn. Explore 300 years of Gullah Geechee history — books, audiobooks, documentaries, and the free Corridor Guide.</p>
+  
+  <div class="social-proof">
+    <div class="stat"><div class="number">500K+</div><div class="label">TikTok Views</div></div>
+    <div class="stat"><div class="number">305</div><div class="label">Subscribers</div></div>
+    <div class="stat"><div class="number">1,740+</div><div class="label">Pinterest Impressions</div></div>
+    <div class="stat"><div class="number">50+</div><div class="label">Restaurant Pins</div></div>
+  </div>
+
+  <div class="cta-row">
+    <a href="#guide" class="btn btn-gold">Get the Free Corridor Guide →</a>
+    <a href="https://www.tiktok.com/@gullahgeecheebiz" class="btn btn-outline">Follow on TikTok</a>
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="video-section" id="video">
+  <h2>The Video That Started It All</h2>
+  <p class="sub">An alligator in a Lowcountry marsh. Half a million views. And a story 300 years in the making.</p>
+  <div class="video-container">
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gullahgeecheebiz" data-video-id="0" style="max-width:605px;min-width:325px;">
+      <section><a target="_blank" href="https://www.tiktok.com/@gullahgeecheebiz">@gullahgeecheebiz</a></section>
+    </blockquote>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+  </div>
+</section>
+
+<!-- Guide Section -->
+<section class="guide-section" id="guide">
+  <h2>Free Gullah Geechee Corridor Guide</h2>
+  <p class="sub">50+ restaurants, wildlife, cultural sites, and hidden gems — from North Carolina to Florida. Get it free.</p>
+  <form class="guide-form" action="https://kofigullahgeecheebiz.substack.com/api/v1/subscribe" method="post">
+    <input type="text" name="first_name" placeholder="First name" required>
+    <input type="email" name="email" placeholder="Email address" required>
+    <input type="hidden" name="referral" value="homepage-guide">
+    <button type="submit" class="btn btn-gold">Send Me the Free Guide →</button>
+  </form>
+</section>
+
+<!-- Works -->
+<section class="works" id="works">
+  <h2>Explore the Works</h2>
+  <div class="works-grid">
+    <div class="work-card">
+      <div class="icon">📖</div>
+      <h3>Roots & Rivers Vol. 1</h3>
+      <p>First volume of the Gullah Geechee encyclopedia series — Beaufort County.</p>
+      <p class="price">$9.99</p>
+      <a href="https://www.amazon.com/dp/B0H8M57FBP" class="btn btn-gold" style="margin-top:0.5rem">Buy on Amazon</a>
+    </div>
+    <div class="work-card">
+      <div class="icon">📕</div>
+      <h3>Blood Remembers</h3>
+      <p>Memoir of lineage, place, and what the blood carries across generations.</p>
+      <p class="price">$9.99</p>
+      <a href="https://www.amazon.com/dp/B0H7WQ69N9" class="btn btn-gold" style="margin-top:0.5rem">Buy on Amazon</a>
+    </div>
+    <div class="work-card">
+      <div class="icon">🎬</div>
+      <h3>Season 1 Documentary</h3>
+      <p>16 documentaries. 262 years. From Fort Mose 1738 to today.</p>
+      <p class="price">Coming Sep 5</p>
+      <a href="https://gullahgeecheebiz.com/season-1/" class="btn btn-outline" style="margin-top:0.5rem">See the Season</a>
+    </div>
+    <div class="work-card">
+      <div class="icon">👕</div>
+      <h3>Merch</h3>
+      <p>Tees, totes, mugs — heritage designs printed on demand.</p>
+      <p class="price">From $18.99</p>
+      <a href="https://gullahgeecheebiz.etsy.com" class="btn btn-outline" style="margin-top:0.5rem">Shop Etsy</a>
+    </div>
+  </div>
+</section>
+
+<!-- Countdown -->
+<section class="video-section">
+  <h2>Season 1 Premieres In</h2>
+  <div class="countdown">
+    <div class="countdown-item"><div class="num" id="days">41</div><div class="lbl">Days</div></div>
+    <div class="countdown-item"><div class="num" id="hours">12</div><div class="lbl">Hours</div></div>
+    <div class="countdown-item"><div class="num" id="minutes">53</div><div class="lbl">Minutes</div></div>
+    <div class="countdown-item"><div class="num" id="seconds">28</div><div class="lbl">Seconds</div></div>
+  </div>
+  <a href="https://gullahgeecheebiz.com/season-1/" class="btn btn-gold">See the Full Season</a>
+</section>
+
+<!-- Substack -->
+<section class="guide-section">
+  <h2>Join 305+ Subscribers</h2>
+  <p class="sub">Get weekly stories from the Gullah Geechee Corridor — free.</p>
+  <div class="cta-row">
+    <a href="https://kofigullahgeecheebiz.substack.com/subscribe" class="btn btn-gold">Subscribe Free →</a>
+    <a href="https://kofigullahgeecheebiz.substack.com/subscribe" class="btn btn-outline">$9.99/mo · Paid Membership</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="social-links">
+    <a href="https://www.tiktok.com/@gullahgeecheebiz">TikTok</a>
+    <a href="https://www.pinterest.com/gullahgeecheebiz/">Pinterest</a>
+    <a href="https://kofigullahgeecheebiz.substack.com">Substack</a>
+    <a href="https://gullahgeecheebiz.etsy.com">Etsy</a>
+    <a href="https://github.com/Darrylebrown">GitHub</a>
+  </div>
+  <p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p>
+  <p style="margin-top:0.3rem;font-size:0.7rem;color:rgba(255,255,255,0.2)">Independent · culture first · GitHub Pages</p>
+</footer>
+
+<script>
+// Countdown timer
+function updateCountdown() {
+  const target = new Date('2026-09-05T00:00:00');
+  const now = new Date();
+  const diff = target - now;
+  if (diff > 0) {
+    document.getElementById('days').textContent = Math.floor(diff / (1000*60*60*24));
+    document.getElementById('hours').textContent = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    document.getElementById('minutes').textContent = Math.floor((diff % (1000*60*60)) / (1000*60));
+    document.getElementById('seconds').textContent = Math.floor((diff % (1000*60)) / 1000);
+  }
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
