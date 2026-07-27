@@ -80,3 +80,5 @@ stripe-ops/.env
 stripe-ops/data/
 **/raw_webhooks.jsonl
 **/Orders.jsonl
+stripe-ops/heartbeats.json
+stripe-ops/.publish_pause

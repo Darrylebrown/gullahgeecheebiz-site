@@ -73,3 +73,19 @@ Success/cancel default to `https://gullahgeecheebiz.com/shop.html?checkout=…`
 Override with `STRIPE_SUCCESS_URL` / `STRIPE_CANCEL_URL`.
 
 Metadata on the session is what `webhook_monitor.js` reads on `checkout.session.completed`.
+
+## Bot health watcher (final)
+
+```bash
+# heartbeats.json = array of { bot_id, status, details, ts }
+cp heartbeats.example.json heartbeats.json
+npm run bothealth
+```
+
+- No heartbeat **>20m** → warning  
+- No heartbeat **>40m** → critical  
+- Any critical **or** ≥3 warnings → writes `.publish_pause` + Slack emergency  
+- Other bots should call `writeHeartbeat(bot_id, 'ok')` on each successful cycle  
+- Publishing jobs should check `isPublishPaused()` before posting  
+
+Cron (Hermes): every 10–15 min `npm run bothealth`
