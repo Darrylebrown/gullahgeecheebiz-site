@@ -1,0 +1,14 @@
+{
+  "name": "ggb-stripe-ops",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gullah Geechee Biz Stripe webhook monitor + order log (Publisher_Bot_01)",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "stripe": "^14.25.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
