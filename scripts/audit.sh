@@ -167,6 +167,15 @@ else
   add_alert "ℹ️ $DIRTY_COUNT uncommitted changes in working tree"
 fi
 
+# ── 17. No secrets in git history ─────────────────────────────────
+SECRETS=$(git log --all -p 2>/dev/null | grep -oE '(ghp_[A-Za-z0-9]{30,}|sk_live_[A-Za-z0-9]{20,}|sk_test_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{50,})' | sort -u)
+if [ -z "$SECRETS" ]; then
+  add_pass
+else
+  SECRET_COUNT=$(echo "$SECRETS" | wc -l | tr -d ' ')
+  add_alert "🔴 $SECRET_COUNT secrets found in git history!"
+fi
+
 # ── Summary ──────────────────────────────────────────────────────
 if [ "$FAIL" -eq 0 ]; then
   # All pass — silent (no output, exit 0)
