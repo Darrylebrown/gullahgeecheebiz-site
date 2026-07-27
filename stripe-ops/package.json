@@ -13,7 +13,8 @@
   },
   "scripts": {
     "dev:webhook": "node dev_webhook_server.js",
-    "start:webhook": "node dev_webhook_server.js"
+    "start:webhook": "node dev_webhook_server.js",
+    "checkout": "node create_checkout_cli.js"
   },
   "main": "webhook_monitor.js"
 }

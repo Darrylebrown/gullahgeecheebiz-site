@@ -54,3 +54,22 @@ npm run dev:webhook
 stripe listen --forward-to localhost:9000/webhook
 stripe trigger checkout.session.completed
 ```
+
+## Create Checkout Session (dynamic)
+
+```js
+import { createSession } from './stripe_accounting_webhook.js';
+const url = await createSession('Binyah Tee', 2999, { slug: 'binyah-tee', title: 'Binyah Tee' });
+// redirect customer to url
+```
+
+CLI:
+```bash
+export STRIPE_SECRET_KEY=sk_test_...
+npm run checkout -- "Binyah Tee" 2999 slug=binyah-tee
+```
+
+Success/cancel default to `https://gullahgeecheebiz.com/shop.html?checkout=…`  
+Override with `STRIPE_SUCCESS_URL` / `STRIPE_CANCEL_URL`.
+
+Metadata on the session is what `webhook_monitor.js` reads on `checkout.session.completed`.
