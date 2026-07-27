@@ -10,5 +10,10 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "scripts": {
+    "dev:webhook": "node dev_webhook_server.js",
+    "start:webhook": "node dev_webhook_server.js"
+  },
+  "main": "webhook_monitor.js"
 }

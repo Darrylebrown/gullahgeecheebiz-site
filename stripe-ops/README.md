@@ -39,3 +39,18 @@ On Netlify, `Orders.jsonl` may not persist across invokes. **Slack is the durabl
 
 Gullah Geechee Biz · https://gullahgeecheebiz.com/  
 No secrets in public HTML.
+
+## Local dev server
+
+```bash
+cd stripe-ops && npm i
+export STRIPE_SECRET_KEY=sk_test_...
+export STRIPE_WEBHOOK_SECRET=whsec_...   # from: stripe listen
+export SLACK_WEBHOOK_URL=               # optional
+npm run dev:webhook
+# → http://localhost:9000/webhook
+# health: http://localhost:9000/health
+
+stripe listen --forward-to localhost:9000/webhook
+stripe trigger checkout.session.completed
+```
