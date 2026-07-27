@@ -81,7 +81,7 @@ def deploy():
         log(f"  ❌ Git commit failed: {output}")
         return False
     
-    success, output = run("git push")
+    success, output = run("git push origin main 2>&1 || git push --set-upstream origin main 2>&1")
     if not success:
         log(f"  ❌ Git push failed: {output}")
         return False
