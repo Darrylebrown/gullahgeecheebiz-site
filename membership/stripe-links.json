@@ -6,21 +6,5 @@
     "heritage-pass-yearly": "https://checkout.stripe.com/c/pay/cs_live_a1FUVFqrVxITHkMsMKD9MdzB9ACZ5Su4ei7MpVecHfsklA5iuz69nuHCbk#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl",
     "legacy-pass-monthly": "https://checkout.stripe.com/c/pay/cs_live_a1ViW7mn9KZnl6Utav7j9YkXMMDBPs1ZtsDXCkatz7RCxT8aDyPYD2gtlE#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl",
     "legacy-pass-yearly": "https://checkout.stripe.com/c/pay/cs_live_a11w3s5GsVPehdSwH7OFoElj4KLfPzYXxLQR4399fvQIq82CDymDHpGdAS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
-  },
-  "tiers": [
-    "digital-pass",
-    "heritage-pass",
-    "legacy-pass"
-  ],
-  "prices": {
-    "digital": 9.99,
-    "heritage": 19.99,
-    "legacy": 49.99
-  },
-  "annual_prices": {
-    "digital": 99,
-    "heritage": 199,
-    "legacy": 499
-  },
-  "generated_at": "2026-07-26T22:01:22.305443"
+  }
 }

@@ -5,7 +5,7 @@ Generates the public membership pages for GitHub Pages deployment.
 Internal systems stay on the machine. Only these pages go live.
 """
 
-import os, json, datetime
+import json, os, datetime
 from pathlib import Path
 
 HOME = os.path.expanduser("~")
@@ -15,20 +15,19 @@ ASSETS_DIR = os.path.join(SITE_DIR, "assets")
 os.makedirs(MEMBERSHIP_DIR, exist_ok=True)
 os.makedirs(ASSETS_DIR, exist_ok=True)
 
+# ─── LOAD REAL STRIPE LINKS ───
+links_path = os.path.join(MEMBERSHIP_DIR, "stripe-links.json")
+if os.path.exists(links_path):
+    with open(links_path) as f:
+        stripe_data = json.load(f)
+    STRIPE_LINKS = stripe_data.get("stripe_links", {})
+else:
+    STRIPE_LINKS = {}
+
 # ─── BRAND ───
 NAVY = "#0A1428"
 GOLD = "#D4AF37"
 CREAM = "#F5F0E6"
-
-# ─── STRIPE CHECKOUT LINKS (placeholder — replace with real links) ───
-STRIPE_LINKS = {
-    "digital-pass-monthly": "https://buy.stripe.com/placeholder_digital_monthly",
-    "digital-pass-yearly": "https://buy.stripe.com/placeholder_digital_yearly",
-    "heritage-pass-monthly": "https://buy.stripe.com/placeholder_heritage_monthly",
-    "heritage-pass-yearly": "https://buy.stripe.com/placeholder_heritage_yearly",
-    "legacy-pass-monthly": "https://buy.stripe.com/placeholder_legacy_monthly",
-    "legacy-pass-yearly": "https://buy.stripe.com/placeholder_legacy_yearly",
-}
 
 
 def build_css():
