@@ -176,6 +176,29 @@ else
   add_alert "🔴 $SECRET_COUNT secrets found in git history!"
 fi
 
+# ── 18. Security headers in HTML ──────────────────────────────────
+HTML_WITHOUT_HEADERS=$(find . -name "*.html" -not -path "./node_modules/*" -not -path "./.git/*" -exec grep -L "X-Content-Type-Options" {} \; 2>/dev/null | wc -l | tr -d ' ')
+if [ "$HTML_WITHOUT_HEADERS" -eq 0 ]; then
+  add_pass
+else
+  add_alert "⚠️ $HTML_WITHOUT_HEADERS HTML files missing security headers"
+fi
+
+# ── 19. robots.txt present ────────────────────────────────────────
+if [ -f "robots.txt" ] && grep -q "Sitemap:" robots.txt; then
+  add_pass
+else
+  add_alert "⚠️ robots.txt missing or incomplete"
+fi
+
+# ── 20. Live site security headers ────────────────────────────────
+LIVE_HEADERS=$(curl -sI --max-time 10 https://gullahgeecheebiz.com/ 2>/dev/null)
+if echo "$LIVE_HEADERS" | grep -qi "strict-transport-security"; then
+  add_pass
+else
+  add_alert "⚠️ Live site missing HSTS header"
+fi
+
 # ── Summary ──────────────────────────────────────────────────────
 if [ "$FAIL" -eq 0 ]; then
   # All pass — silent (no output, exit 0)

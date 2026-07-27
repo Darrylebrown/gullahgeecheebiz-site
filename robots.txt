@@ -1,0 +1,11 @@
+# robots.txt — Gullah Geechee Biz
+# https://gullahgeecheebiz.com/robots.txt
+
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+Disallow: /bot-dashboard.html
+Disallow: /dashboard/
+
+# Sitemap
+Sitemap: https://gullahgeecheebiz.com/sitemap.xml
