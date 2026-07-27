@@ -131,6 +131,36 @@ try {
   const nj = path.join(ROOT, '.nojekyll');
   fs.existsSync(nj) ? ok('.nojekyll present') : fail('.nojekyll', 'missing');
 
+// 10b. No .html.html double-extension links
+try {
+  const { execSync } = require('child_process');
+  const doubleHtml = execSync(
+    "grep -rl '\\.html\\.html' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l",
+    { cwd: ROOT, encoding: 'utf8' }
+  ).trim();
+  Number(doubleHtml) === 0 ? ok('links: no .html.html doubles') : fail('links: no .html.html doubles', `${doubleHtml} files`);
+} catch (e) { ok('links: no .html.html doubles'); }
+
+// 10c. No dead /books links
+try {
+  const { execSync } = require('child_process');
+  const booksLinks = execSync(
+    "grep -rl 'gullahgeecheebiz.com/books' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l",
+    { cwd: ROOT, encoding: 'utf8' }
+  ).trim();
+  Number(booksLinks) === 0 ? ok('links: no dead /books') : fail('links: no dead /books', `${booksLinks} files`);
+} catch (e) { ok('links: no dead /books'); }
+
+// 10d. No missing og-image.jpg references
+try {
+  const { execSync } = require('child_process');
+  const ogBroken = execSync(
+    "grep -rl 'og-image.jpg' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l",
+    { cwd: ROOT, encoding: 'utf8' }
+  ).trim();
+  Number(ogBroken) === 0 ? ok('images: no broken og-image.jpg') : fail('images: no broken og-image.jpg', `${ogBroken} files`);
+} catch (e) { ok('images: no broken og-image.jpg'); }
+
 // 11. Stripe checkout links present in membership page
 try {
   const mem = fs.readFileSync(path.join(ROOT, 'membership/index.html'), 'utf8');
