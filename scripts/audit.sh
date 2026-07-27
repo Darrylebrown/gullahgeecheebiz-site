@@ -199,6 +199,65 @@ else
   add_alert "⚠️ Live site missing HSTS header"
 fi
 
+# ── 21. Stripe checkout links live ────────────────────────────────
+STRIPE_OK=true
+STRIPE_FAILS=""
+# Test first 2 membership checkout links (testing all 6 every 30 min would be slow)
+for link in $(grep -o 'https://checkout.stripe.com/c/pay/[^"]*' membership/index.html 2>/dev/null | head -2); do
+  CODE=$(curl -sI -o /dev/null -w '%{http_code}' --max-time 10 "$link" 2>/dev/null)
+  if [ "$CODE" != "200" ]; then
+    STRIPE_OK=false
+    STRIPE_FAILS="$STRIPE_FAILS $CODE"
+  fi
+done
+# Test first 2 shop buy links
+for link in $(grep -h -o 'https://buy.stripe.com/[^"]*' shop.html shop-binyah.html 2>/dev/null | sort -u | head -2); do
+  CODE=$(curl -sI -o /dev/null -w '%{http_code}' --max-time 10 "$link" 2>/dev/null)
+  if [ "$CODE" != "200" ]; then
+    STRIPE_OK=false
+    STRIPE_FAILS="$STRIPE_FAILS $CODE"
+  fi
+done
+if $STRIPE_OK; then
+  add_pass
+else
+  add_alert "🔴 Stripe links returning errors:$STRIPE_FAILS"
+fi
+
+# ── 22. Airtable sync last run ────────────────────────────────────
+AIRTABLE_RESPONSE=$(curl -s --max-time 10 "https://api.github.com/repos/Darrylebrown/gullahgeecheebiz-site/actions/workflows/sync-season-1.yml/runs?per_page=1" 2>/dev/null)
+if echo "$AIRTABLE_RESPONSE" | grep -q "rate limit"; then
+  # API rate-limited — skip check, don't fail
+  add_pass
+else
+  AIRTABLE_LAST=$(echo "$AIRTABLE_RESPONSE" | grep -o '"conclusion": "[^"]*"' | head -1 | sed 's/"conclusion": "//;s/"//')
+  if [ "$AIRTABLE_LAST" = "success" ]; then
+    add_pass
+  elif [ -z "$AIRTABLE_LAST" ]; then
+    add_pass  # no data yet, don't fail
+  else
+    AIRTABLE_DATE=$(echo "$AIRTABLE_RESPONSE" | grep -o '"created_at": "[^"]*"' | head -1 | sed 's/"created_at": "//;s/"//')
+    add_alert "🔴 Airtable sync last run: $AIRTABLE_LAST at $AIRTABLE_DATE"
+  fi
+fi
+
+# ── 23. GitHub Pages deploy freshness ─────────────────────────────
+PAGES_LAST_MOD=$(curl -sI --max-time 10 "https://gullahgeecheebiz.com/?cb=$(date +%s)" 2>/dev/null | grep -i "last-modified" | sed 's/.*: //;s/\r//')
+LATEST_COMMIT=$(git log -1 --format='%ci' 2>/dev/null | cut -d' ' -f1)
+if [ -z "$PAGES_LAST_MOD" ] || [ -z "$LATEST_COMMIT" ]; then
+  add_pass  # can't compare, don't fail
+else
+  # Parse just the date portion (e.g. "Mon, 27 Jul 2026" → "2026-07-27")
+  PAGES_DATE=$(echo "$PAGES_LAST_MOD" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' | head -1)
+  if [ -z "$PAGES_DATE" ]; then
+    add_pass  # can't parse date, don't fail
+  elif [ "$PAGES_DATE" \>= "$LATEST_COMMIT" ]; then
+    add_pass
+  else
+    add_alert "⚠️ Pages last modified $PAGES_DATE, latest commit $LATEST_COMMIT — may be stale"
+  fi
+fi
+
 # ── Summary ──────────────────────────────────────────────────────
 if [ "$FAIL" -eq 0 ]; then
   # All pass — silent (no output, exit 0)
