@@ -1,0 +1,287 @@
+/* Gullah Geechee Biz — Membership Styles */
+:root {
+    --navy: #0A1428;
+    --gold: #D4AF37;
+    --cream: #F5F0E6;
+    --white: #FFFFFF;
+    --dark: #1a1a2e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--navy);
+    color: var(--cream);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ─── HEADER ─── */
+header {
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ─── HERO ─── */
+.hero {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(180deg, #0A1428 0%, #0D1B3E 100%);
+}
+
+.hero h2 {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: var(--cream);
+}
+
+.hero .tagline {
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+/* ─── TIERS ─── */
+.tiers {
+    padding: 60px 0;
+}
+
+.tiers h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 50px;
+}
+
+.tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.tier-card {
+    background: linear-gradient(180deg, #0D1B3E 0%, #0A1428 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.tier-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.tier-card.featured {
+    border: 2px solid var(--gold);
+    position: relative;
+}
+
+.tier-card.featured::before {
+    content: "BEST VALUE";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--navy);
+    padding: 4px 20px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tier-card h3 {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.tier-card .price {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin: 20px 0;
+}
+
+.tier-card .price span {
+    font-size: 1rem;
+    color: var(--cream);
+    opacity: 0.7;
+}
+
+.tier-card .annual {
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.tier-card ul {
+    list-style: none;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.tier-card ul li {
+    padding: 8px 0;
+    color: var(--cream);
+    font-size: 0.95rem;
+}
+
+.tier-card ul li::before {
+    content: "★ ";
+    color: var(--gold);
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: Georgia, serif;
+    transition: opacity 0.3s;
+    margin: 5px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* ─── WHAT'S INSIDE ─── */
+.inside {
+    padding: 60px 0;
+    background: #0D1B3E;
+}
+
+.inside h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 50px;
+}
+
+.inside-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.inside-item {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.inside-item .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.inside-item h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.inside-item p {
+    color: var(--cream);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ─── FAQ ─── */
+.faq {
+    padding: 60px 0;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 40px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 20px;
+}
+
+.faq-item h3 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.faq-item p {
+    color: var(--cream);
+    opacity: 0.8;
+}
+
+/* ─── FOOTER ─── */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+footer p {
+    color: var(--cream);
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+footer .gold {
+    color: var(--gold);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+    .hero h2 { font-size: 2rem; }
+    .tier-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.8rem; }
+}

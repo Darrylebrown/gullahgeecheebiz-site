@@ -68,7 +68,7 @@ elif [ "$DISK" -gt 80 ]; then
 fi
 
 # 5. Check if gateway is running
-if ! pgrep -f "hermes.*gateway" > /dev/null 2>&1; then
+if ! ps aux | grep -v grep | grep -q "gateway run"; then
   ALERTS="$ALERTS\n⚠️ GATEWAY: Hermes gateway is not running"
 fi
 

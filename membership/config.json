@@ -1,0 +1,26 @@
+{
+  "stripe_links": {
+    "digital-pass-monthly": "https://buy.stripe.com/placeholder_digital_monthly",
+    "digital-pass-yearly": "https://buy.stripe.com/placeholder_digital_yearly",
+    "heritage-pass-monthly": "https://buy.stripe.com/placeholder_heritage_monthly",
+    "heritage-pass-yearly": "https://buy.stripe.com/placeholder_heritage_yearly",
+    "legacy-pass-monthly": "https://buy.stripe.com/placeholder_legacy_monthly",
+    "legacy-pass-yearly": "https://buy.stripe.com/placeholder_legacy_yearly"
+  },
+  "tiers": [
+    "digital-pass",
+    "heritage-pass",
+    "legacy-pass"
+  ],
+  "prices": {
+    "digital": 9.99,
+    "heritage": 19.99,
+    "legacy": 49.99
+  },
+  "annual_prices": {
+    "digital": 99,
+    "heritage": 199,
+    "legacy": 499
+  },
+  "generated_at": "2026-07-26T21:24:33.105906"
+}
