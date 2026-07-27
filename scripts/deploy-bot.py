@@ -81,11 +81,17 @@ def deploy():
         log(f"  ❌ Git commit failed: {output}")
         return False
     
-    success, output = run("git push origin main 2>&1 || git push --set-upstream origin main 2>&1")
+    # Ensure upstream tracking is set, then push
+    success, output = run("git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null")
+    if not success:
+        log("  ℹ️  Setting upstream tracking for main...")
+        run("git branch --set-upstream-to=origin/main main 2>/dev/null || git push --set-upstream origin main 2>&1")
+
+    success, output = run("git push origin main 2>&1")
     if not success:
         log(f"  ❌ Git push failed: {output}")
         return False
-    
+
     log("  ✅ Deployed to GitHub Pages")
     return True
 
