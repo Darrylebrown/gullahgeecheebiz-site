@@ -1,0 +1,7 @@
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip1.mp4'
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip2.mp4'
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip3.mp4'
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip4.mp4'
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip5.mp4'
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip6.mp4'
+file '/Users/darrylsmac/gullahgeecheebiz-site/video-scripts/faceless-commercial-1/output/clip7.mp4'
