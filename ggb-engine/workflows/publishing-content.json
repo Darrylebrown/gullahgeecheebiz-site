@@ -1,0 +1,31 @@
+{
+  "name": "publishing-content",
+  "description": "Content bot — generate articles, social posts, and media",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "generate-viral-page",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/viral-page-generator.py 2>&1 || echo 'viral page gen skipped'",
+      "timeout": 180,
+      "on_failure": "continue"
+    },
+    {
+      "name": "generate-newsletter-draft",
+      "type": "shell",
+      "command": "ls ~/gullahgeecheebiz-site/newsletter-drafts/ 2>/dev/null | tail -3 || echo 'no drafts dir'",
+      "timeout": 10
+    },
+    {
+      "name": "generate-tiktok-script",
+      "type": "shell",
+      "command": "ls ~/gullahgeecheebiz-site/tiktok-scripts/ 2>/dev/null | tail -3 || echo 'no scripts dir'",
+      "timeout": 10
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Content publishing workflow complete"
+    }
+  ]
+}

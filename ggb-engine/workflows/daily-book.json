@@ -1,0 +1,26 @@
+{
+  "name": "daily-book",
+  "description": "Generate one Gullah Geechee book per day",
+  "max_retries": 2,
+  "steps": [
+    {
+      "name": "generate-book",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/daily-book-generator.py 2>&1",
+      "timeout": 300,
+      "store": "book_output",
+      "on_failure": "continue"
+    },
+    {
+      "name": "check-output",
+      "type": "shell",
+      "command": "ls -t ~/ebooks/for-upload/ 2>/dev/null | head -3 || echo 'no books generated'",
+      "timeout": 10
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Daily book workflow complete"
+    }
+  ]
+}

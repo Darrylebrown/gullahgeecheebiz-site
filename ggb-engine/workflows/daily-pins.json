@@ -1,0 +1,27 @@
+{
+  "name": "daily-pins",
+  "description": "Generate 100 daily Pinterest pins — replaces Make.com scenario",
+  "max_retries": 2,
+  "steps": [
+    {
+      "name": "generate-pins",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/daily-pin-generator.py",
+      "timeout": 120,
+      "store": "pin_output",
+      "on_failure": "continue"
+    },
+    {
+      "name": "overlay-logos",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && node scripts/overlay-pins.mjs 2>&1 || echo 'overlay skipped'",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Daily pins workflow complete"
+    }
+  ]
+}

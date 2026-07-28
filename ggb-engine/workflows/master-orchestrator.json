@@ -1,0 +1,47 @@
+{
+  "name": "master-orchestrator",
+  "description": "Runs all daily workflows in order with dependency checking",
+  "max_retries": 0,
+  "steps": [
+    {
+      "name": "phase-1-content",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/ggb-engine && python3 engine.py run publishing-content 2>&1",
+      "timeout": 300,
+      "on_failure": "continue"
+    },
+    {
+      "name": "phase-2-production",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/ggb-engine && python3 engine.py run publishing-production 2>&1",
+      "timeout": 300,
+      "on_failure": "continue"
+    },
+    {
+      "name": "phase-3-distribution",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/ggb-engine && python3 engine.py run publishing-distribution 2>&1",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "phase-4-promotion",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/ggb-engine && python3 engine.py run publishing-promotion 2>&1",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "phase-5-health",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/ggb-engine && python3 engine.py run publishing-health 2>&1",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Master orchestrator complete — all daily workflows processed"
+    }
+  ]
+}

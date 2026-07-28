@@ -1,0 +1,27 @@
+{
+  "name": "daily-logo",
+  "description": "Generate fresh Gullah Geechee Biz logos",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "generate-logos",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/daily-logo-generator.py 2>&1",
+      "timeout": 300,
+      "store": "logo_output",
+      "on_failure": "continue"
+    },
+    {
+      "name": "overlay-branding",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && node scripts/overlay-logos.mjs 2>&1 || echo 'overlay skipped'",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Daily logo workflow complete"
+    }
+  ]
+}

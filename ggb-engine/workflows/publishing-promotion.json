@@ -1,0 +1,33 @@
+{
+  "name": "publishing-promotion",
+  "description": "Promotion bot — generate social posts, promotion packages",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "run-promoter-1",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/scripts && bash promoter-1.sh 2>&1",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "run-promoter-2",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/scripts && bash promoter-2.sh 2>&1",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "run-seo-bot",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/scripts && bash seo-bot.sh 2>&1",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Promotion workflow complete"
+    }
+  ]
+}

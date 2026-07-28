@@ -1,0 +1,6 @@
+#!/bin/bash
+# GGB Workflow Runner — CLI entry point
+# Usage: ./ggb list | ./ggb run <name> | ./ggb create <name>
+
+cd "$(dirname "$0")"
+python3 engine.py "$@"

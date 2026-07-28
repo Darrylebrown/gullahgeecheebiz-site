@@ -1,0 +1,46 @@
+{
+  "name": "publishing-distribution",
+  "description": "Distribution bot — deploy site, sync files, push to platforms",
+  "max_retries": 2,
+  "steps": [
+    {
+      "name": "regenerate-sitemap",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/regenerate-sitemap.py 2>&1",
+      "timeout": 30
+    },
+    {
+      "name": "run-smoke-test",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && npm test 2>&1",
+      "timeout": 30,
+      "store": "smoke_test"
+    },
+    {
+      "name": "check-smoke",
+      "type": "condition",
+      "if": "'FAILED' not in context.get('smoke_test', {}).get('stdout', '')",
+      "then": [
+        {
+          "name": "deploy",
+          "type": "shell",
+          "command": "cd ~/gullahgeecheebiz-site && python3 scripts/deploy-bot.py 2>&1",
+          "timeout": 60,
+          "on_failure": "continue"
+        }
+      ],
+      "else": [
+        {
+          "name": "deploy-skip",
+          "type": "log",
+          "message": "Smoke test failed — deploy skipped"
+        }
+      ]
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Distribution workflow complete"
+    }
+  ]
+}

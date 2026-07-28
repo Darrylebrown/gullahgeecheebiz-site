@@ -1,0 +1,33 @@
+{
+  "name": "publishing-production",
+  "description": "Production bot — build books, pins, and media assets",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "build-membership",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/build-membership.py 2>&1",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "generate-pins",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/daily-pin-generator.py 2>&1",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "overlay-pins",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && node scripts/overlay-pins.mjs 2>&1 || echo 'overlay skipped'",
+      "timeout": 120,
+      "on_failure": "continue"
+    },
+    {
+      "name": "log-complete",
+      "type": "log",
+      "message": "Production workflow complete"
+    }
+  ]
+}

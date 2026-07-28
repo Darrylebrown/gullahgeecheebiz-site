@@ -1,0 +1,40 @@
+{
+  "name": "publishing-health",
+  "description": "Health bot — system checks, disk space, security audit",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "check-disk",
+      "type": "shell",
+      "command": "df -h ~ | tail -1 | awk '{print $3 \" used / \" $2 \" total (\" $5 \")\"}'",
+      "timeout": 10,
+      "store": "disk_usage",
+      "store_field": "stdout"
+    },
+    {
+      "name": "check-ollama",
+      "type": "shell",
+      "command": "curl -s --max-time 3 http://localhost:11434/api/tags 2>/dev/null | python3 -c \"import sys,json; d=json.load(sys.stdin); print(f'{len(d.get(\\\"models\\\",[]))} models loaded')\" 2>/dev/null || echo 'ollama not responding'",
+      "timeout": 10,
+      "on_failure": "continue"
+    },
+    {
+      "name": "check-cron-health",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site/scripts && bash security-watchdog.sh 2>&1 | head -20",
+      "timeout": 30,
+      "on_failure": "continue"
+    },
+    {
+      "name": "check-recent-files",
+      "type": "shell",
+      "command": "echo '=== Recent recipes ===' && ls -t ~/gullahgeecheebiz-site/recipes/*.html 2>/dev/null | head -5 && echo '=== Recent pins ===' && ls -t ~/pins-daily/ 2>/dev/null | head -3 && echo '=== Recent ebooks ===' && ls -t ~/ebooks/for-upload/ 2>/dev/null | head -3",
+      "timeout": 10
+    },
+    {
+      "name": "log-report",
+      "type": "log",
+      "message": "Health check: {{disk_usage}}"
+    }
+  ]
+}
