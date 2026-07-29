@@ -6,94 +6,141 @@
   <title>Bookstore Wholesale — Gullah Geechee Biz</title>
   <meta name="description" content="Wholesale Gullah Geechee books for bookstores. 55% off retail, no minimums, print-on-demand. Authentic Lowcountry culture direct from the source.">
   <meta property="og:title" content="Bookstore Wholesale — Gullah Geechee Biz">
-  <meta property="og:description" content="Wholesale Gullah Geechee books for bookstores. 55% off retail, no minimums.">
+  <meta property="og:description" content="Wholesale Gullah Geechee books for bookstores. 55% off retail, no minimums, no returns.">
   <link rel="canonical" href="https://gullahgeecheebiz.com/wholesale/">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a14; color: #f0ede5; line-height: 1.8; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
     h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 2.5em; color: #d4af37; margin-bottom: 10px; }
-    h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6em; color: #d4af37; margin: 40px 0 15px; }
+    h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6em; color: #d4af37; margin: 50px 0 15px; }
     h3 { color: #d4af37; font-size: 1.2em; margin: 25px 0 10px; }
-    p { margin-bottom: 20px; font-size: 1.1em; }
+    p { margin-bottom: 20px; font-size: 1.05em; color: #ccc; }
     .subtitle { color: #888; font-size: 1.1em; margin-bottom: 30px; }
-    .hero { background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%); border: 1px solid #d4af37; border-radius: 16px; padding: 40px; margin: 30px 0; text-align: center; }
-    .hero h2 { margin-top: 0; font-size: 2em; }
-    .hero .big-number { font-size: 3em; color: #d4af37; font-weight: bold; }
-    .hero p { color: #ccc; max-width: 600px; margin: 15px auto; }
-    .cta { display: inline-block; background: #d4af37; color: #0a0a14; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1em; margin: 20px 0; }
-    .cta:hover { background: #e8c84a; }
-    .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
-    .benefit-card { background: #111122; border-radius: 12px; padding: 25px; border-left: 4px solid #d4af37; }
-    .benefit-card h3 { margin-top: 0; }
-    .benefit-card p { color: #aaa; font-size: 0.95em; }
-    .pricing-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    .pricing-table th { background: #d4af37; color: #0a0a14; padding: 12px; text-align: left; font-weight: bold; }
-    .pricing-table td { padding: 12px; border-bottom: 1px solid #1a1a2e; }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%); border: 1px solid #d4af37; border-radius: 16px; padding: 50px 40px; margin: 30px 0; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.03) 0%, transparent 50%); }
+    .hero h2 { margin-top: 0; font-size: 2em; position: relative; }
+    .hero .big-number { font-size: 4em; color: #d4af37; font-weight: bold; line-height: 1; }
+    .hero .big-label { color: #888; font-size: 1em; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
+    .hero p { color: #ccc; max-width: 600px; margin: 15px auto; position: relative; }
+    .cta { display: inline-block; background: #d4af37; color: #0a0a14; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1em; margin: 20px 5px; transition: transform 0.2s; }
+    .cta:hover { background: #e8c84a; transform: translateY(-2px); }
+    .cta-secondary { display: inline-block; background: transparent; color: #d4af37; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1em; margin: 20px 5px; border: 2px solid #d4af37; transition: transform 0.2s; }
+    .cta-secondary:hover { background: rgba(212,175,55,0.1); transform: translateY(-2px); }
+
+    /* Benefits grid */
+    .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; }
+    .benefit-card { background: #111122; border-radius: 12px; padding: 25px; border-left: 4px solid #d4af37; transition: transform 0.2s; }
+    .benefit-card:hover { transform: translateY(-2px); }
+    .benefit-card h3 { margin-top: 0; font-size: 1.1em; }
+    .benefit-card p { color: #999; font-size: 0.9em; margin: 0; }
+
+    /* Pricing */
+    .pricing-table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 12px; overflow: hidden; }
+    .pricing-table th { background: #d4af37; color: #0a0a14; padding: 14px 12px; text-align: left; font-weight: bold; }
+    .pricing-table td { padding: 14px 12px; border-bottom: 1px solid #1a1a2e; }
     .pricing-table tr:hover { background: #111122; }
     .pricing-table .highlight { color: #d4af37; font-weight: bold; }
+    .pricing-table .free { color: #4ade80; font-weight: bold; }
+
+    /* Bulk pricing */
+    .bulk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+    .bulk-tier { background: #111122; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #1a1a2e; }
+    .bulk-tier.featured { border-color: #d4af37; }
+    .bulk-tier .tier-name { color: #d4af37; font-weight: bold; font-size: 1.1em; }
+    .bulk-tier .tier-discount { font-size: 2em; color: #4ade80; font-weight: bold; }
+    .bulk-tier .tier-desc { color: #888; font-size: 0.85em; margin-top: 5px; }
+
+    /* How it works */
     .how-it-works { background: #111122; border-radius: 12px; padding: 30px; margin: 30px 0; }
     .how-it-works ol { list-style: none; padding: 0; counter-reset: step; }
     .how-it-works li { counter-increment: step; padding: 15px 0 15px 50px; position: relative; border-bottom: 1px solid #1a1a2e; }
     .how-it-works li:last-child { border-bottom: none; }
     .how-it-works li::before { content: counter(step); position: absolute; left: 0; top: 15px; background: #d4af37; color: #0a0a14; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+    /* Extra sections */
+    .feature-box { background: #111122; border-radius: 12px; padding: 30px; margin: 20px 0; border: 1px solid #1a1a2e; }
+    .feature-box h3 { margin-top: 0; }
+    .feature-box p { color: #999; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+    .feature-item { background: #0a0a14; border-radius: 10px; padding: 20px; border: 1px solid #1a1a2e; }
+    .feature-item h4 { color: #d4af37; margin-bottom: 8px; }
+    .feature-item p { color: #888; font-size: 0.9em; margin: 0; }
+
+    /* Store list */
     .store-list { columns: 2; column-gap: 30px; margin: 20px 0; }
-    .store-list .state { color: #d4af37; font-weight: bold; margin-top: 15px; break-inside: avoid; }
-    .store-list .store { color: #aaa; padding-left: 10px; }
+    .store-list .state { color: #d4af37; font-weight: bold; margin-top: 15px; break-inside: avoid; font-size: 1.1em; }
+    .store-list .store { color: #aaa; padding-left: 10px; font-size: 0.95em; }
+
+    /* Ambassador section */
+    .ambassador-badge { display: inline-block; background: #d4af37; color: #0a0a14; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-bottom: 10px; }
+
+    /* Form */
     .contact-form { background: #111122; border-radius: 12px; padding: 30px; margin: 30px 0; }
     .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px; margin-bottom: 15px; background: #0a0a14; border: 1px solid #333; border-radius: 8px; color: #f0ede5; font-size: 1em; }
     .contact-form input:focus, .contact-form textarea:focus { border-color: #d4af37; outline: none; }
     .contact-form label { display: block; margin-bottom: 5px; color: #d4af37; font-weight: bold; }
-    .contact-form button { background: #d4af37; color: #0a0a14; padding: 14px 30px; border: none; border-radius: 30px; font-weight: bold; font-size: 1.1em; cursor: pointer; }
-    .contact-form button:hover { background: #e8c84a; }
-    .links { margin-top: 40px; padding-top: 30px; border-top: 1px solid #333; }
+    .contact-form .half { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .contact-form button { background: #d4af37; color: #0a0a14; padding: 14px 30px; border: none; border-radius: 30px; font-weight: bold; font-size: 1.1em; cursor: pointer; transition: transform 0.2s; }
+    .contact-form button:hover { background: #e8c84a; transform: translateY(-2px); }
+
+    .links { margin-top: 50px; padding-top: 30px; border-top: 1px solid #333; }
     .links a { display: block; color: #d4af37; text-decoration: none; margin-bottom: 10px; }
     .links a:hover { text-decoration: underline; }
     .brand { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #333; }
     .brand p { color: #d4af37; font-size: 0.9em; letter-spacing: 2px; }
-    @media (max-width: 600px) { h1 { font-size: 1.8em; } .store-list { columns: 1; } .hero { padding: 25px; } }
+
+    @media (max-width: 600px) { h1 { font-size: 1.8em; } .store-list { columns: 1; } .hero { padding: 25px; } .contact-form .half { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>📚 Bookstore Wholesale</h1>
-    <p class="subtitle">Authentic Gullah Geechee books — direct from the Lowcountry to your shelves.</p>
 
+    <h1>📚 Bookstore Wholesale</h1>
+    <p class="subtitle">Authentic Gullah Geechee books — direct from the Lowcountry to your shelves. No middleman, no minimums, no returns.</p>
+
+    <!-- Hero -->
     <div class="hero">
+      <div class="big-label">Your Margin</div>
       <div class="big-number">55%</div>
-      <h2>Off Retail — Highest Margins in the Industry</h2>
-      <p>No minimums. No returns. Print-on-demand. You stock what sells, we handle the rest.</p>
-      <a href="#order" class="cta">Start Your Order →</a>
+      <h2>Off Retail — The Best Deal in Bookselling</h2>
+      <p>You keep more per book than any distributor offers. Print-on-demand means zero inventory risk. Net-30 terms mean you pay after you sell.</p>
+      <a href="#order" class="cta">Place Your First Order →</a>
+      <a href="#ambassador" class="cta-secondary">Become an Ambassador →</a>
     </div>
 
+    <!-- Benefits -->
     <h2>Why Stock Gullah Geechee Books?</h2>
     <div class="benefits">
       <div class="benefit-card">
         <h3>🌊 Authentic Content</h3>
-        <p>Gullah Geechee culture, history, food, and stories — written by someone who lives it. No one else has this.</p>
+        <p>Gullah Geechee culture, history, food, and stories — written by someone who lives it. No one else has this catalog.</p>
       </div>
       <div class="benefit-card">
         <h3>📈 Regional Demand</h3>
-        <p>Tourists and locals in Charleston, Savannah, Hilton Head, Beaufort — your customers are already looking for this.</p>
+        <p>Tourists and locals in Charleston, Savannah, Hilton Head, Beaufort — your customers are already looking for this content.</p>
       </div>
       <div class="benefit-card">
         <h3>💰 55% Margins</h3>
-        <p>Keep $8+ per paperback, $13+ per hardcover. Higher than any distributor offers.</p>
+        <p>Keep $8+ per paperback, $13+ per hardcover. Higher than Ingram, Baker & Taylor, or any distributor.</p>
       </div>
       <div class="benefit-card">
-        <h3>📦 No Inventory Risk</h3>
-        <p>Print-on-demand means you order what sells. No minimums, no returns, no warehouse space.</p>
+        <h3>📦 Zero Inventory Risk</h3>
+        <p>Print-on-demand means you order what sells. No minimums, no returns, no warehouse space, no unsold stock.</p>
       </div>
       <div class="benefit-card">
-        <h3>🚚 Direct Ship</h3>
-        <p>Books ship to your store within 5-7 business days. No middleman, no delays.</p>
+        <h3>🚚 Free Shipping (First Order)</h3>
+        <p>Your first wholesale order ships free. After that, shipping is a flat $5 — no matter how many books.</p>
       </div>
       <div class="benefit-card">
         <h3>🤝 Net-30 Terms</h3>
-        <p>Pay after you sell. We invoice on net-30 — you don't pay until the books move.</p>
+        <p>Pay after you sell. We invoice on net-30 — you don't pay until the books have been on your shelf for a month.</p>
       </div>
     </div>
 
+    <!-- Pricing -->
     <h2>Pricing</h2>
     <table class="pricing-table">
       <tr>
@@ -101,54 +148,225 @@
         <th>Retail Price</th>
         <th>Your Cost (55% off)</th>
         <th>Your Profit</th>
+        <th>Shipping</th>
       </tr>
       <tr>
         <td>Paperback</td>
         <td>$14.99</td>
         <td class="highlight">$6.75</td>
         <td>$8.24</td>
+        <td class="free">FREE (1st order)</td>
       </tr>
       <tr>
         <td>Hardcover</td>
         <td>$24.99</td>
         <td class="highlight">$11.25</td>
         <td>$13.74</td>
+        <td class="free">FREE (1st order)</td>
       </tr>
       <tr>
-        <td>Ebook (gift card)</td>
+        <td>Ebook Gift Card</td>
         <td>$9.99</td>
         <td class="highlight">$4.50</td>
         <td>$5.49</td>
+        <td class="free">Digital</td>
       </tr>
     </table>
 
-    <h2>Available Titles</h2>
-    <p>Our catalog covers Gullah Geechee history, food, culture, biographies, and the encyclopedia series. New titles added monthly.</p>
-    <p><a href="https://gullahgeecheebiz.com/shop.html" style="color:#d4af37;">View full catalog →</a></p>
+    <!-- Bulk Discounts -->
+    <h2>Bulk Pricing</h2>
+    <p>The more you stock, the more you keep.</p>
+    <div class="bulk-grid">
+      <div class="bulk-tier">
+        <div class="tier-name">Starter</div>
+        <div class="tier-discount">55%</div>
+        <div class="tier-desc">1-9 copies per title</div>
+      </div>
+      <div class="bulk-tier featured">
+        <div class="tier-name">📦 Case Pack</div>
+        <div class="tier-discount">60%</div>
+        <div class="tier-desc">10-49 copies per title</div>
+      </div>
+      <div class="bulk-tier">
+        <div class="tier-name">🏪 Flagship</div>
+        <div class="tier-discount">65%</div>
+        <div class="tier-desc">50+ copies per title</div>
+      </div>
+      <div class="bulk-tier">
+        <div class="tier-name">📚 School/Library</div>
+        <div class="tier-discount">65%</div>
+        <div class="tier-desc">Any quantity, net-60 terms</div>
+      </div>
+    </div>
 
+    <!-- How It Works -->
     <h2>How It Works</h2>
     <div class="how-it-works">
       <ol>
         <li><strong>Email your order</strong> — title, format, quantity. No minimum. Even 1 book works.</li>
-        <li><strong>We process</strong> — your order goes to our print-on-demand partner within 24 hours.</li>
-        <li><strong>Books ship</strong> — direct to your store in 5-7 business days. Tracking provided.</li>
-        <li><strong>You sell</strong> — at full retail price. Your customers get authentic Gullah Geechee content.</li>
-        <li><strong>You pay</strong> — net-30 terms. Invoice due 30 days after delivery. No interest.</li>
+        <li><strong>We process within 24 hours</strong> — your order goes to our print-on-demand partner.</li>
+        <li><strong>Books ship in 5-7 business days</strong> — direct to your store with tracking. First order ships free.</li>
+        <li><strong>You sell at full retail</strong> — your customers get authentic Gullah Geechee content. You keep 55-65%.</li>
+        <li><strong>You pay on net-30</strong> — invoice due 30 days after delivery. No interest, no pressure.</li>
       </ol>
     </div>
 
-    <h2>Target Stores</h2>
+    <!-- Bookstore Ambassador Program -->
+    <h2 id="ambassador">⭐ Bookstore Ambassador Program</h2>
+    <div class="feature-box">
+      <span class="ambassador-badge">NEW</span>
+      <h3>Carry our books, grow with us</h3>
+      <p>Stores that stock Gullah Geechee Biz books become official Ambassadors. Here's what you get:</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>🏆 Featured on Our Site</h4>
+          <p>Your store gets a dedicated page on gullahgeecheebiz.com with a map pin, photos, and a link to your website.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📢 Social Shoutouts</h4>
+          <p>We feature your store on our Substack (305 subscribers), Pinterest, and social channels. Free promotion.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🎤 Author Events</h4>
+          <p>Priority booking for in-store author events, readings, and signings. We bring the audience.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📖 Exclusive Pre-Release Access</h4>
+          <p>Get new titles 2 weeks before general release. First to stock, first to sell.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📦 Ambassador-Only Discounts</h4>
+          <p>Permanent 60% off retail for Ambassador stores. No minimums, no expiration.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🗺️ Store Map</h4>
+          <p>All Ambassador stores appear on our interactive map — helping tourists and locals find you.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book Club Kits -->
+    <h2>📖 Lowcountry Book Club Kits</h2>
+    <div class="feature-box">
+      <p>Host a Gullah Geechee book club night. Each kit includes:</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>📚 8 Copies of the Book</h4>
+          <p>Paperback or hardcover, your choice. At 60% off retail.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📋 Discussion Guide</h4>
+          <p>10-15 discussion questions, historical context notes, and suggested readings.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🍳 Recipe Card Set</h4>
+          <p>Gullah Geechee recipes tied to the book's themes. Printable for club members.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🎥 Author Q&A Video</h4>
+          <p>Exclusive 15-minute video where the author answers common reader questions.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📸 Social Media Kit</h4>
+          <p>Ready-to-post graphics and captions for promoting your book club event.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🏷️ Shelf Talkers</h4>
+          <p>Printable cards for your display. "Staff Pick" and "Local Author" designs included.</p>
+        </div>
+      </div>
+      <p style="margin-top:20px;"><strong>Kit price:</strong> $54 for 8 paperbacks (60% off) — includes all materials. <a href="#order" style="color:#d4af37;">Order a kit →</a></p>
+    </div>
+
+    <!-- Author Events -->
+    <h2>🎤 Author Events & Signings</h2>
+    <div class="feature-box">
+      <p>Darryl Elliott Brown is available for in-store and virtual events. We make it easy:</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>📅 In-Store Readings</h4>
+          <p>60-minute event: reading, Q&A, signing. We bring books — you keep 100% of sales.</p>
+        </div>
+        <div class="feature-item">
+          <h4>💻 Virtual Events</h4>
+          <p>45-minute Zoom: author talk + audience Q&A. No travel, no logistics. We handle promotion.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📝 Co-op Marketing</h4>
+          <p>We split the cost of local ads, flyers, and email blasts 50/50. More butts in seats.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🎯 Themed Events</h4>
+          <p>Gullah Geechee food tasting + book signing. History lecture + book signing. Sweetgrass basket demo + book signing.</p>
+        </div>
+      </div>
+      <p style="margin-top:20px;"><a href="#order" style="color:#d4af37;">Book an event →</a></p>
+    </div>
+
+    <!-- Shelf Talkers & Marketing Materials -->
+    <h2>🏷️ Free Marketing Materials</h2>
+    <div class="feature-box">
+      <p>Every wholesale order includes free printable marketing materials. No extra cost, no extra shipping.</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>🏷️ Shelf Talkers</h4>
+          <p>Printable 4x6 cards: "Local Author," "Staff Pick," "Gullah Geechee Culture." Ready to display.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📄 Bookmark Samplers</h4>
+          <p>Double-sided bookmarks with cover art and a sample chapter QR code. Give them away at the register.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🖼️ Poster</h4>
+          <p>11x17 poster featuring the full Gullah Geechee Biz catalog. Perfect for a dedicated display.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📧 Email Blurb</h4>
+          <p>Pre-written newsletter copy. Drop it into your store's email and start promoting immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schools & Libraries -->
+    <h2>🏫 Schools & Libraries</h2>
+    <div class="feature-box">
+      <p>Special pricing for educational institutions. Gullah Geechee history is South Carolina and Georgia state curriculum — our books are a natural fit.</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>📚 Bulk Orders</h4>
+          <p>65% off retail for classroom sets of 10+. Net-60 payment terms for public institutions.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📖 Curriculum-Aligned</h4>
+          <p>Our history books align with SC and GA social studies standards. Discussion guides included.</p>
+        </div>
+        <div class="feature-item">
+          <h4>🎓 Author Visits</h4>
+          <p>School assembly programs available. Virtual visits are free. In-person visits at cost.</p>
+        </div>
+        <div class="feature-item">
+          <h4>📋 Purchase Orders Accepted</h4>
+          <p>We accept school and library POs. Net-60 terms. No credit card needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Target Stores -->
+    <h2>📍 Target Stores</h2>
     <p>We're actively seeking partnerships with independent bookstores, especially in the Gullah Geechee Corridor and Black-owned bookstores nationwide.</p>
     <div class="store-list">
       <div class="state">South Carolina</div>
       <div class="store">Buxton Books — Charleston</div>
       <div class="store">Blue Bicycle Books — Charleston</div>
       <div class="store">Turning Page Bookshop — Charleston</div>
+      <div class="store">Itinerant Literate — Charleston</div>
       <div class="store">NeverMore Books — Beaufort</div>
       <div class="store">Beaufort Bookstore — Beaufort</div>
       <div class="store">The Island Bookstore — Hilton Head</div>
       <div class="store">All Good Books — Columbia</div>
+      <div class="store">Happy Bookseller — Columbia</div>
       <div class="store">M. Judson Booksellers — Greenville</div>
+      <div class="store">The Book Nook — Georgetown</div>
 
       <div class="state">Georgia</div>
       <div class="store">The Book Lady — Savannah</div>
@@ -161,36 +379,58 @@
       <div class="state">North Carolina</div>
       <div class="store">Park Road Books — Charlotte</div>
       <div class="store">Quail Ridge Books — Raleigh</div>
+      <div class="store">Old Books on Front Street — Wilmington</div>
 
-      <div class="state">Black-Owned Bookstores</div>
+      <div class="state">Black-Owned (National)</div>
       <div class="store">MahoganyBooks — Washington DC</div>
+      <div class="store">Cafe Con Libros — Brooklyn</div>
       <div class="store">Source Booksellers — Detroit</div>
       <div class="store">Reparations Club — Los Angeles</div>
       <div class="store">Marcus Books — Oakland</div>
+      <div class="store">Semicolon Bookstore — Chicago</div>
     </div>
 
+    <!-- Order Form -->
     <h2 id="order">Place a Wholesale Order</h2>
     <div class="contact-form">
       <form action="https://formspree.io/f/your-form-id" method="POST">
-        <label for="store">Store Name *</label>
-        <input type="text" id="store" name="store" required>
+        <div class="half">
+          <div>
+            <label for="store">Store Name *</label>
+            <input type="text" id="store" name="store" required>
+          </div>
+          <div>
+            <label for="contact">Contact Name *</label>
+            <input type="text" id="contact" name="contact" required>
+          </div>
+        </div>
+        <div class="half">
+          <div>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
 
-        <label for="contact">Contact Name *</label>
-        <input type="text" id="contact" name="contact" required>
-
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone">
+        <label for="order-type">I'm interested in:</label>
+        <select id="order-type" name="order-type">
+          <option>Wholesale order</option>
+          <option>Book club kit</option>
+          <option>Author event booking</option>
+          <option>Ambassador program</option>
+          <option>School/library order</option>
+        </select>
 
         <label for="titles">Titles & Quantities *</label>
         <textarea id="titles" name="titles" rows="5" placeholder="e.g.&#10;Roots & Rivers Beaufort — 5 paperback, 2 hardcover&#10;Gullah Geechee Food History — 3 paperback&#10;Sweetgrass Basket Enterprise — 2 paperback" required></textarea>
 
-        <label for="notes">Notes</label>
-        <textarea id="notes" name="notes" rows="3" placeholder="Special requests, delivery preferences, etc."></textarea>
+        <label for="notes">Notes or Questions</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Special requests, event ideas, questions about the program..."></textarea>
 
-        <button type="submit">Submit Order →</button>
+        <button type="submit">Submit →</button>
       </form>
       <p style="color:#888; font-size:0.85em; margin-top:15px;">Or email your order directly to <a href="mailto:wholesale@gullahgeecheebiz.com" style="color:#d4af37;">wholesale@gullahgeecheebiz.com</a></p>
     </div>
@@ -199,6 +439,7 @@
       <strong style="color: #d4af37;">More:</strong>
       <a href="https://gullahgeecheebiz.com/shop.html">📖 Browse our books →</a>
       <a href="https://gullahgeecheebiz.com/membership/">⭐ Membership tiers →</a>
+      <a href="https://gullahgeecheebiz.com/recipes/">🍽️ Gullah Geechee recipes →</a>
       <a href="https://gullahgeecheebiz.com">🏠 Home →</a>
     </div>
 
