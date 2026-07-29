@@ -43,6 +43,24 @@ BOTS = {
         "name": "IngramSpark",
         "script": str(SITE_DIR / "scripts" / "distribute-ingram.py"),
         "description": "Submit to IngramSpark for bookstore distribution",
+        "enabled": False
+    },
+    "bot-6-acx": {
+        "name": "ACX (Audiobooks)",
+        "script": str(SITE_DIR / "scripts" / "distribute-acx.py"),
+        "description": "Submit audiobooks to ACX for Audible/iTunes",
+        "enabled": True
+    },
+    "bot-7-distrokid": {
+        "name": "DistroKid",
+        "script": str(SITE_DIR / "scripts" / "distribute-distrokid.py"),
+        "description": "Submit music/audio to streaming platforms",
+        "enabled": True
+    },
+    "bot-8-spotify": {
+        "name": "Spotify",
+        "script": str(SITE_DIR / "scripts" / "distribute-spotify.py"),
+        "description": "Submit podcasts/audio to Spotify",
         "enabled": True
     }
 }
