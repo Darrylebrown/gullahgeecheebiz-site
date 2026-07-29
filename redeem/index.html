@@ -46,8 +46,8 @@
       <h3>How it works</h3>
       <p>1. Enter the code from your bookstore purchase</p>
       <p>2. Enter your email address</p>
-      <p>3. We'll verify your code and email you the download link within 24 hours</p>
-      <p>4. Download your ebook and enjoy</p>
+      <p>3. Your code is verified instantly — download starts immediately</p>
+      <p>4. Save your ebook and enjoy</p>
     </div>
 
     <div class="brand">Gullah Geechee Biz</div>
@@ -89,21 +89,19 @@
       msg.textContent = 'Sending your redemption request...';
 
       try {
-        const resp = await fetch('https://formspree.io/f/your-form-id', {
+        const resp = await fetch('http://localhost:8765/redeem', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            code: code,
-            email: email,
-            _subject: 'Ebook Redemption Request - ' + code
-          })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code, email: email })
         });
+        const data = await resp.json();
 
-        if (resp.ok) {
+        if (data.success) {
           msg.className = 'message success';
-          msg.innerHTML = '✅ Request received!<br><br>We\'ll verify your code and send the download link to <strong>' + email + '</strong> within 24 hours.';
+          msg.innerHTML = '✅ Code redeemed!<br><br><strong>' + data.title + '</strong><br><br>Your download should start automatically.<br><br><a href="' + data.download_url + '" style="color:#d4af37;font-weight:bold;" download>📥 Download Now</a>';
         } else {
-          throw new Error('Form submission failed');
+          msg.className = 'message error';
+          msg.textContent = data.error || 'Invalid or already redeemed code.';
         }
       } catch (err) {
         msg.className = 'message error';

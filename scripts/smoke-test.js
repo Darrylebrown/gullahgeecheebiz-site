@@ -164,7 +164,7 @@ try {
 // 11. Stripe checkout links present in membership page
 try {
   const mem = fs.readFileSync(path.join(ROOT, 'membership/index.html'), 'utf8');
-  const stripeLinks = (mem.match(/checkout\.stripe\.com/g) || []).length;
+  const stripeLinks = (mem.match(/buy\.stripe\.com/g) || []).length;
   stripeLinks >= 6 ? ok(`Stripe: ${stripeLinks} checkout links`) : fail('Stripe', `only ${stripeLinks} links (expected 6+)`);
 } catch (e) {
   fail('Stripe', e.message);

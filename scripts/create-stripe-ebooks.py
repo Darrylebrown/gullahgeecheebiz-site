@@ -12,6 +12,15 @@ HOME = os.path.expanduser("~")
 SITE_DIR = os.path.join(HOME, "gullahgeecheebiz-site")
 STRIPE_SECRET = os.environ.get("STRIPE_SECRET_KEY")
 
+# Also check .hermes/.env
+if not STRIPE_SECRET:
+    env_path = os.path.join(HOME, ".hermes", ".env")
+    if os.path.exists(env_path):
+        with open(env_path) as f:
+            for line in f:
+                if line.startswith("STRIPE_SECRET_KEY="):
+                    STRIPE_SECRET = line.strip().split("=", 1)[1].strip().strip('"').strip("'")
+
 EBOOKS = [
     {"slug": "gullah-resilience", "title": "The Gullah Geechee Guide to Resilience", "price": 999},
     {"slug": "gullah-mindset", "title": "The Gullah Geechee Mindset", "price": 999},
