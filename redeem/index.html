@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redeem Your Ebook — Gullah Geechee Biz</title>
+  <meta name="description" content="Enter your download code to redeem your Gullah Geechee Biz ebook.">
+  <link rel="canonical" href="https://gullahgeecheebiz.com/redeem/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a14; color: #f0ede5; line-height: 1.7; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .container { max-width: 500px; width: 100%; padding: 40px 20px; text-align: center; }
+    h1 { font-family: Georgia, serif; font-size: 2em; color: #d4af37; margin-bottom: 8px; }
+    p { color: #999; margin-bottom: 30px; }
+    .code-input { width: 100%; padding: 16px; background: #111122; border: 2px solid #333; border-radius: 12px; color: #f0ede5; font-size: 1.3em; text-align: center; letter-spacing: 3px; text-transform: uppercase; font-family: monospace; transition: border-color 0.3s; }
+    .code-input:focus { border-color: #d4af37; outline: none; }
+    .email-input { width: 100%; padding: 14px; margin-top: 12px; background: #111122; border: 2px solid #333; border-radius: 12px; color: #f0ede5; font-size: 1em; text-align: center; transition: border-color 0.3s; }
+    .email-input:focus { border-color: #d4af37; outline: none; }
+    .btn { display: inline-block; background: #d4af37; color: #0a0a14; padding: 14px 40px; border: none; border-radius: 30px; font-weight: bold; font-size: 1.1em; cursor: pointer; margin-top: 20px; transition: transform 0.2s; width: 100%; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .message { margin-top: 20px; padding: 15px; border-radius: 10px; display: none; }
+    .message.success { display: block; background: rgba(74, 222, 128, 0.1); border: 1px solid #4ade80; color: #4ade80; }
+    .message.error { display: block; background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; color: #ff4d4d; }
+    .brand { margin-top: 40px; color: #d4af37; font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; }
+    .back { display: block; margin-top: 20px; color: #666; text-decoration: none; font-size: 0.9em; }
+    .back:hover { color: #d4af37; }
+    .how { margin-top: 30px; padding: 20px; background: #111122; border-radius: 12px; text-align: left; }
+    .how h3 { color: #d4af37; font-size: 1em; margin-bottom: 10px; }
+    .how p { color: #888; font-size: 0.85em; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📖 Redeem Your Ebook</h1>
+    <p>Enter the code from your bookstore purchase and your email to receive your download.</p>
+
+    <input type="text" class="code-input" id="code" placeholder="GGB-XXXX-XXXX-XXXX" maxlength="19" autocomplete="off">
+    <input type="email" class="email-input" id="email" placeholder="your@email.com">
+
+    <button class="btn" id="redeem-btn" onclick="redeemCode()">Redeem &amp; Get Download</button>
+
+    <div class="message" id="message"></div>
+
+    <div class="how">
+      <h3>How it works</h3>
+      <p>1. Enter the code from your bookstore purchase</p>
+      <p>2. Enter your email address</p>
+      <p>3. We'll verify your code and email you the download link within 24 hours</p>
+      <p>4. Download your ebook and enjoy</p>
+    </div>
+
+    <div class="brand">Gullah Geechee Biz</div>
+    <a href="https://gullahgeecheebiz.com/shop.html" class="back">← Back to shop</a>
+  </div>
+
+  <script>
+    document.getElementById('code').addEventListener('input', function(e) {
+      let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (val.length > 4) val = val.slice(0,4) + '-' + val.slice(4);
+      if (val.length > 9) val = val.slice(0,9) + '-' + val.slice(9);
+      if (val.length > 14) val = val.slice(0,14) + '-' + val.slice(14);
+      e.target.value = val.slice(0,19);
+    });
+
+    async function redeemCode() {
+      const code = document.getElementById('code').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const btn = document.getElementById('redeem-btn');
+      const msg = document.getElementById('message');
+
+      if (!code || code.length < 19) {
+        msg.className = 'message error';
+        msg.textContent = 'Please enter a valid 19-character code (GGB-XXXX-XXXX-XXXX)';
+        return;
+      }
+      if (!email || !email.includes('@')) {
+        msg.className = 'message error';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      btn.disabled = true;
+      msg.className = 'message';
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(212,175,55,0.1)';
+      msg.style.border = '1px solid #d4af37';
+      msg.style.color = '#d4af37';
+      msg.textContent = 'Sending your redemption request...';
+
+      try {
+        const resp = await fetch('https://formspree.io/f/your-form-id', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            code: code,
+            email: email,
+            _subject: 'Ebook Redemption Request - ' + code
+          })
+        });
+
+        if (resp.ok) {
+          msg.className = 'message success';
+          msg.innerHTML = '✅ Request received!<br><br>We\'ll verify your code and send the download link to <strong>' + email + '</strong> within 24 hours.';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        msg.className = 'message error';
+        msg.textContent = 'Connection error. Please email your code to redeem@gullahgeecheebiz.com';
+      }
+
+      btn.disabled = false;
+    }
+  </script>
+</body>
+</html>
