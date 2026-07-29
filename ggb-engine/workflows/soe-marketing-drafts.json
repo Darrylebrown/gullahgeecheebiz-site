@@ -1,0 +1,31 @@
+{
+  "name": "soe-marketing-drafts",
+  "description": "SOE visibility/marketing DRAFTS only — no send, no post, no Stripe. Owner lock 2026-07-28.",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "lock-reminder",
+      "type": "log",
+      "message": "SOE marketing: drafts only. No auto-email, auto-post, or charges. CTA wholesale + site."
+    },
+    {
+      "name": "promotion-package-if-present",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && ls promotion-packages 2>/dev/null | tail -5; test -f scripts/regenerate-sitemap.py && python3 scripts/regenerate-sitemap.py 2>&1 | tail -3 || true",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "wholesale-pitch-drafts-if-books-repo",
+      "type": "shell",
+      "command": "if [ -d ~/ggb-books/tools/wholesale_bookstore ]; then cd ~/ggb-books/tools/wholesale_bookstore && python3 generate_pitches.py --priority 1 2>&1 | tail -5; else echo 'wholesale_bookstore path not on this machine — skip'; fi",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "done",
+      "type": "log",
+      "message": "SOE marketing drafts pass complete — human review before any send/post"
+    }
+  ]
+}
