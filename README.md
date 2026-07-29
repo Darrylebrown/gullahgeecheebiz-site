@@ -29,7 +29,7 @@ Gullah Geechee Biz is a culture-first project dedicated to preserving and sharin
 ## 🛍️ Merch
 
 Heritage designs on Printful — tees, totes, mugs, and more.
-[Shop on Etsy](https://gullahgeecheebiz.etsy.com)
+[Shop merch](https://gullahgeecheebiz.com/shop/)
 
 ## 📧 Subscribe
 
@@ -39,7 +39,7 @@ Heritage designs on Printful — tees, totes, mugs, and more.
 ## 🤝 Support
 
 - [GitHub Sponsors](https://github.com/sponsors/Darrylebrown)
-- [Shop merch](https://gullahgeecheebiz.etsy.com)
+- [Shop merch](https://gullahgeecheebiz.com/shop/)
 - [Subscribe on Substack](https://kofigullahgeecheebiz.substack.com)
 
 ## 🔗 Connect
@@ -47,7 +47,7 @@ Heritage designs on Printful — tees, totes, mugs, and more.
 - [TikTok](https://www.tiktok.com/@gullahgeecheebiz)
 - [Pinterest](https://www.pinterest.com/gullahgeecheebiz/)
 - [Substack](https://kofigullahgeecheebiz.substack.com)
-- [Etsy](https://gullahgeecheebiz.etsy.com)
+- [Merch shop](https://gullahgeecheebiz.com/shop/)
 - [Website](https://gullahgeecheebiz.com)
 
 ---
