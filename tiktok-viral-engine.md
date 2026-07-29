@@ -124,3 +124,10 @@
 - Every TikTok → Link in bio → GullahGeecheeBiz.com
 - Every TikTok → "Full story in the documentary" → Heirs Property doc
 - Every TikTok → "Book link in bio" → Roots & Rivers / Blood Remembers
+
+### Posting Log
+| Date | Video | Thumbnail | Status |
+|------|-------|-----------|--------|
+| 2026-07-26 (Sun) | Marsh Sunset | marsh-sunset-2026-07-26.jpg | ✅ Posted |
+| 2026-07-28 (Tue) | Blue Heron | blue-heron-2026-07-28.jpg | ✅ Posted |
+| 2026-07-29 (Wed) | Blue Crab | blue-crab-2026-07-29.png | ✅ Posted |
