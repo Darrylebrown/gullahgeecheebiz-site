@@ -10,26 +10,7 @@ from pathlib import Path
 
 HOME = os.path.expanduser("~")
 SITE_DIR = os.path.join(HOME, "gullahgeecheebiz-site")
-STRIPE_SECRET = None
-
-# Try to get Stripe key
-env_path = os.path.join(HOME, ".hermes", ".env")
-if os.path.exists(env_path):
-    with open(env_path) as f:
-        for line in f:
-            if line.startswith("STRIPE_SECRET_KEY="):
-                STRIPE_SECRET = line.strip().split("=", 1)[1].strip().strip('"').strip("'")
-
-if not STRIPE_SECRET:
-    # Try publish-automation env
-    env_path2 = os.path.join(HOME, "publish-automation", ".env")
-    if os.path.exists(env_path2):
-        with open(env_path2) as f:
-            for line in f:
-                if "STRIPE" in line and "sk_live" in line:
-                    parts = line.strip().split("=", 1)
-                    if len(parts) > 1:
-                        STRIPE_SECRET = parts[1].strip().strip('"').strip("'")
+STRIPE_SECRET = os.environ.get("STRIPE_SECRET_KEY")
 
 EBOOKS = [
     {"slug": "gullah-resilience", "title": "The Gullah Geechee Guide to Resilience", "price": 999},
@@ -175,21 +156,30 @@ def create_checkout_link(price_id, book):
     if not price_id or not STRIPE_SECRET:
         return None
     
+    success_url = f"https://gullahgeecheebiz.com/ebooks/success.html?session_id={{CHECKOUT_SESSION_ID}}%26ebook={book['slug']}"
+    
     result = subprocess.run([
         "curl", "-s", "-X", "POST", "https://api.stripe.com/v1/checkout/sessions",
         "-u", f"{STRIPE_SECRET}:",
         "-d", "mode=payment",
         "-d", f"line_items[0][price]={price_id}",
         "-d", "line_items[0][quantity]=1",
-        "-d", "success_url=https://gullahgeecheebiz.com/redeem/success.html?session_id={CHECKOUT_SESSION_ID}&ebook=" + book['slug'],
-        "-d", "cancel_url=https://gullahgeecheebiz.com/shop.html",
+        "-d", f"success_url={success_url}",
+        "-d", "cancel_url=https://gullahgeecheebiz.com/ebooks/",
         "-d", f"metadata[ebook_slug]={book['slug']}"
     ], capture_output=True, text=True)
     
     try:
         session = json.loads(result.stdout)
-        return session.get("url")
-    except:
+        url = session.get("url")
+        if url:
+            return url
+        # Log the error
+        err = session.get("error", {}).get("message", "unknown")
+        print(f"⚠️  Stripe error: {err}")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"⚠️  JSON error: {e}")
         return None
 
 def main():
