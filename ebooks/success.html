@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Your Ebook — Gullah Geechee Biz</title>
+  <link rel="canonical" href="https://gullahgeecheebiz.com/ebooks/success.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a14; color: #f0ede5; line-height: 1.7; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .container { max-width: 500px; width: 100%; padding: 40px 20px; text-align: center; }
+    h1 { font-family: Georgia, serif; font-size: 2em; color: #4ade80; margin-bottom: 10px; }
+    .check { font-size: 4em; margin-bottom: 10px; }
+    p { color: #999; margin-bottom: 20px; }
+    .email-input { width: 100%; padding: 14px; background: #111122; border: 2px solid #333; border-radius: 12px; color: #f0ede5; font-size: 1em; text-align: center; transition: border-color 0.3s; }
+    .email-input:focus { border-color: #d4af37; outline: none; }
+    .btn { display: inline-block; background: #d4af37; color: #0a0a14; padding: 14px 40px; border: none; border-radius: 30px; font-weight: bold; font-size: 1.1em; cursor: pointer; margin-top: 15px; transition: transform 0.2s; width: 100%; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .message { margin-top: 20px; padding: 15px; border-radius: 10px; display: none; }
+    .message.success { display: block; background: rgba(74, 222, 128, 0.1); border: 1px solid #4ade80; color: #4ade80; }
+    .message.error { display: block; background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; color: #ff4d4d; }
+    .brand { margin-top: 40px; color: #d4af37; font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="check">✅</div>
+    <h1>Payment Confirmed!</h1>
+    <p id="ebook-name">Your purchase was successful. Enter your email to receive the download link.</p>
+
+    <input type="email" class="email-input" id="email" placeholder="your@email.com">
+    <button class="btn" id="send-btn" onclick="sendDownload()">Send My Download</button>
+
+    <div class="message" id="message"></div>
+
+    <div class="brand">Gullah Geechee Biz</div>
+  </div>
+
+  <script>
+    // Get ebook slug from URL
+    const params = new URLSearchParams(window.location.search);
+    const ebookSlug = params.get('ebook') || 'gullah-resilience';
+    const title = ebookSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+    document.getElementById('ebook-name').textContent = `Your purchase of "${title}" was successful. Enter your email to receive the download link.`;
+
+    async function sendDownload() {
+      const email = document.getElementById('email').value.trim();
+      const btn = document.getElementById('send-btn');
+      const msg = document.getElementById('message');
+
+      if (!email || !email.includes('@')) {
+        msg.className = 'message error';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      btn.disabled = true;
+      msg.className = 'message';
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(212,175,55,0.1)';
+      msg.style.border = '1px solid #d4af37';
+      msg.style.color = '#d4af37';
+      msg.textContent = 'Sending...';
+
+      try {
+        const resp = await fetch('https://formspree.io/f/your-form-id', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            ebook: ebookSlug,
+            _subject: `Ebook Download - ${title}`
+          })
+        });
+
+        if (resp.ok) {
+          msg.className = 'message success';
+          msg.innerHTML = `✅ Check your email!<br><br>We've sent the download link for <strong>${title}</strong> to <strong>${email}</strong>.`;
+        } else {
+          throw new Error('Failed');
+        }
+      } catch (err) {
+        msg.className = 'message error';
+        msg.textContent = 'Error sending. Email us at hello@gullahgeecheebiz.com with your order details.';
+      }
+
+      btn.disabled = false;
+    }
+  </script>
+</body>
+</html>
