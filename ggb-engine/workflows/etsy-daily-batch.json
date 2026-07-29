@@ -1,0 +1,19 @@
+{
+  "name": "etsy-daily-batch",
+  "description": "11am ET style: print today's 3 Etsy manifests. NO auto-upload. Real PDFs only. $4.99.",
+  "max_retries": 1,
+  "steps": [
+    {
+      "name": "daily-batch",
+      "type": "shell",
+      "command": "cd ~/gullahgeecheebiz-site && python3 scripts/etsy-daily-batch.py 2>&1 | tee ~/etsy-products/last-batch.txt | tail -40",
+      "timeout": 60,
+      "on_failure": "continue"
+    },
+    {
+      "name": "reminder",
+      "type": "log",
+      "message": "Etsy: upload ONLY the 3 manifests printed. Manual browser. No bulk. Shop https://gullahgeecheebiz.etsy.com"
+    }
+  ]
+}

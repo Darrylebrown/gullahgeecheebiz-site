@@ -3,7 +3,7 @@
   <url><loc>https://gullahgeecheebiz.com/</loc><priority>1.0</priority></url>
   <url><loc>https://gullahgeecheebiz.com/shop.html</loc><priority>0.8</priority></url>
   <url><loc>https://gullahgeecheebiz.com/shop-binyah.html</loc><priority>0.8</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/bot-dashboard.html</loc><priority>0.5</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/bot-dashboard.html</loc><priority>0.8</priority></url>
   <url><loc>https://gullahgeecheebiz.com/membership/</loc><priority>0.9</priority></url>
   <url><loc>https://gullahgeecheebiz.com/season-1/</loc><priority>0.9</priority></url>
   <url><loc>https://gullahgeecheebiz.com/guide/</loc><priority>0.9</priority></url>
@@ -12,6 +12,12 @@
   <url><loc>https://gullahgeecheebiz.com/viral/</loc><priority>0.9</priority></url>
   <url><loc>https://gullahgeecheebiz.com/trending/</loc><priority>0.9</priority></url>
   <url><loc>https://gullahgeecheebiz.com/recipes/</loc><priority>0.9</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/ebooks/</loc><priority>0.9</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/wholesale/</loc><priority>0.9</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/shop/</loc><priority>0.9</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/encyclopedia/</loc><priority>0.9</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/ggb-engine/</loc><priority>0.9</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/redeem/</loc><priority>0.9</priority></url>
   <url><loc>https://gullahgeecheebiz.com/viral/combahee-river-raid-es</loc><priority>0.7</priority></url>
   <url><loc>https://gullahgeecheebiz.com/viral/combahee-river-raid</loc><priority>0.7</priority></url>
   <url><loc>https://gullahgeecheebiz.com/viral/gullah-geechee-food-history-es</loc><priority>0.7</priority></url>
@@ -126,6 +132,17 @@
   <url><loc>https://gullahgeecheebiz.com/season-1/sea-islands-language</loc><priority>0.6</priority></url>
   <url><loc>https://gullahgeecheebiz.com/season-1/sweetgrass-basket-tradition</loc><priority>0.6</priority></url>
   <url><loc>https://gullahgeecheebiz.com/season-1/weeping-time-1859</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-african-american-genealogy-workbook</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-african-dna-ancestry-kit</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-african-mudcloth-throw-blanket</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-black-history-365-day-calendar</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-cast-iron-dutch-oven</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-gullah-geechee-cookbook</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-handwoven-sweetgrass-coaster-set</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-lowcountry-marsh-candle</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-soul-food-seasoning-set</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/trending/trending-wireless-bluetooth-turntable</loc><priority>0.6</priority></url>
+  <url><loc>https://gullahgeecheebiz.com/ebooks/success</loc><priority>0.8</priority></url>
   <url><loc>https://gullahgeecheebiz.com/tools/gullah-geechee-quiz/</loc><priority>0.7</priority></url>
   <url><loc>https://gullahgeecheebiz.com/tools/gullah-genealogy-tracker/</loc><priority>0.7</priority></url>
   <url><loc>https://gullahgeecheebiz.com/tools/gullah-language-translator/</loc><priority>0.7</priority></url>
@@ -141,15 +158,4 @@
   <url><loc>https://gullahgeecheebiz.com/tools/sea-island-distance-calculator/</loc><priority>0.7</priority></url>
   <url><loc>https://gullahgeecheebiz.com/tools/sea-level-rise-calculator/</loc><priority>0.7</priority></url>
   <url><loc>https://gullahgeecheebiz.com/tools/sweetgrass-basket-pricer/</loc><priority>0.7</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/index</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-african-american-genealogy-workbook</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-african-dna-ancestry-kit</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-african-mudcloth-throw-blanket</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-black-history-365-day-calendar</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-cast-iron-dutch-oven</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-gullah-geechee-cookbook</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-handwoven-sweetgrass-coaster-set</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-lowcountry-marsh-candle</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-soul-food-seasoning-set</loc><priority>0.6</priority></url>
-  <url><loc>https://gullahgeecheebiz.com/trending/trending-wireless-bluetooth-turntable</loc><priority>0.6</priority></url>
 </urlset>
