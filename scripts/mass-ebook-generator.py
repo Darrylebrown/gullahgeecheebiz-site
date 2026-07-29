@@ -305,6 +305,282 @@ SELF_HELP_BOOKS = [
             "Conclusion: Honoring the Mothers"
         ]
     },
+    {
+        "slug": "gullah-forgiveness",
+        "title": "Gullah Geechee Forgiveness",
+        "subtitle": "Letting Go the Lowcountry Way",
+        "chapters": [
+            "Introduction: The Weight of Unforgiveness",
+            "The Gullah Geechee Understanding of Forgiveness",
+            "Forgiveness in the Family: Healing Generational Wounds",
+            "Forgiveness in the Community: Restoring Relationships",
+            "Forgiveness of Self: The Hardest Kind",
+            "The Role of Faith in Forgiveness",
+            "Stories of Forgiveness from the Sea Islands",
+            "The Practice of Forgiveness: Daily Rituals",
+            "Teaching Forgiveness to Children",
+            "Conclusion: Freedom Through Forgiveness"
+        ]
+    },
+    {
+        "slug": "gullah-hope",
+        "title": "Gullah Geechee Hope",
+        "subtitle": "Finding Light in Dark Times",
+        "chapters": [
+            "Introduction: Hope in the Gullah Geechee Tradition",
+            "The Spirituals: Songs of Hope",
+            "Hope in the Midst of Slavery",
+            "Hope Through Reconstruction and Jim Crow",
+            "Hope in the Civil Rights Movement",
+            "Hope in the Preservation of Culture",
+            "Hope for the Next Generation",
+            "The Practice of Hope: Daily Habits",
+            "Stories of Hope from the Lowcountry",
+            "Conclusion: Hope is a Choice"
+        ]
+    },
+    {
+        "slug": "gullah-elders",
+        "title": "Honoring Gullah Geechee Elders",
+        "subtitle": "Wisdom, Respect, and the Art of Aging Well",
+        "chapters": [
+            "Introduction: The Value of Elders",
+            "The Role of Elders in Gullah Geechee Society",
+            "Learning from the Elders: A Practical Guide",
+            "Caring for Aging Parents: The Gullah Geechee Way",
+            "The Wisdom of the Elders: Stories and Lessons",
+            "Elders as Community Leaders",
+            "Passing Down Traditions: The Elder's Role",
+            "Aging with Grace: Gullah Geechee Perspectives",
+            "Creating Elder-Friendly Communities",
+            "Conclusion: Honor Your Elders"
+        ]
+    },
+    {
+        "slug": "gullah-marriage",
+        "title": "Gullah Geechee Marriage",
+        "subtitle": "Building a Strong Union the Lowcountry Way",
+        "chapters": [
+            "Introduction: Marriage in the Gullah Geechee Tradition",
+            "The History of Gullah Geechee Marriage",
+            "Choosing a Partner: Wisdom from the Elders",
+            "Communication: The Gullah Geechee Way",
+            "Working Together: Partnership in Marriage",
+            "Faith and Marriage: The Spiritual Foundation",
+            "Raising Children Together",
+            "Weathering Storms: Resilience in Marriage",
+            "Growing Old Together: The Gift of a Lifetime",
+            "Conclusion: Love is a Verb"
+        ]
+    },
+    {
+        "slug": "gullah-grandparenting",
+        "title": "Gullah Geechee Grandparenting",
+        "subtitle": "The Joy of Passing Down Traditions",
+        "chapters": [
+            "Introduction: The Grandparent's Role",
+            "The Gullah Geechee Grandparent as Storyteller",
+            "Teaching Grandchildren About Heritage",
+            "Cooking with Grandchildren: Passing Down Recipes",
+            "Crafting with Grandchildren: Sweetgrass and More",
+            "The Spiritual Role of Grandparents",
+            "Grandparenting from a Distance",
+            "The Joy of Being a Grandparent",
+            "Leaving a Legacy",
+            "Conclusion: Grandparents are Treasures"
+        ]
+    },
+    {
+        "slug": "gullah-aging",
+        "title": "Gullah Geechee Guide to Aging Well",
+        "subtitle": "Growing Older with Grace and Purpose",
+        "chapters": [
+            "Introduction: Aging in the Gullah Geechee Tradition",
+            "The Wisdom of the Elders: What They Taught Us",
+            "Staying Active: Gullah Geechee Approaches to Health",
+            "Eating Well: The Lowcountry Diet for Longevity",
+            "Staying Connected: Community in Later Years",
+            "Finding Purpose After Retirement",
+            "Passing Down Your Legacy",
+            "Aging with Dignity: The Gullah Geechee Way",
+            "Preparing for the End of Life",
+            "Conclusion: Age is a Gift"
+        ]
+    },
+    {
+        "slug": "gullah-mental-health",
+        "title": "Gullah Geechee Guide to Mental Health",
+        "subtitle": "Healing the Mind Through Culture and Community",
+        "chapters": [
+            "Introduction: Mental Health in the Gullah Geechee Community",
+            "The Stigma of Mental Health: Breaking the Silence",
+            "The Role of Community in Mental Wellness",
+            "Faith and Mental Health: The Spiritual Dimension",
+            "Nature as Therapy: The Healing Power of the Lowcountry",
+            "Food and Mood: The Gullah Geechee Connection",
+            "Exercise and Movement: Gullah Geechee Traditions",
+            "Finding Help: Resources and Support",
+            "Supporting Loved Ones with Mental Health Challenges",
+            "Conclusion: You Are Not Alone"
+        ]
+    },
+    {
+        "slug": "gullah-sabbath",
+        "title": "The Gullah Geechee Sabbath",
+        "subtitle": "The Art of Rest and Renewal",
+        "chapters": [
+            "Introduction: The Lost Art of Rest",
+            "The Gullah Geechee Sunday Tradition",
+            "Rest as Resistance: The History of Sabbath",
+            "Creating a Sabbath Practice",
+            "Rest and Community: The Gullah Geechee Way",
+            "The Spiritual Dimension of Rest",
+            "Rest and Creativity: Why We Need Downtime",
+            "Teaching Children to Rest",
+            "Sabbath in a Busy World",
+            "Conclusion: Rest is Sacred"
+        ]
+    },
+    {
+        "slug": "gullah-relationships",
+        "title": "Gullah Geechee Relationships",
+        "subtitle": "Building Strong Bonds the Lowcountry Way",
+        "chapters": [
+            "Introduction: Relationships in the Gullah Geechee Tradition",
+            "Family Relationships: The Foundation",
+            "Friendships: The Chosen Family",
+            "Romantic Relationships: Love the Gullah Way",
+            "Community Relationships: We Are Because You Are",
+            "Healing Broken Relationships",
+            "Setting Boundaries: The Gullah Geechee Way",
+            "Teaching Children About Relationships",
+            "Maintaining Long-Distance Relationships",
+            "Conclusion: Relationships are Everything"
+        ]
+    },
+    {
+        "slug": "gullah-gratitude-journal",
+        "title": "The Gullah Geechee Gratitude Journal",
+        "subtitle": "A 90-Day Practice of Thankfulness",
+        "chapters": [
+            "Introduction: How to Use This Journal",
+            "Week 1: Gratitude for the Land",
+            "Week 2: Gratitude for the Water",
+            "Week 3: Gratitude for the Harvest",
+            "Week 4: Gratitude for the Elders",
+            "Week 5: Gratitude for the Children",
+            "Week 6: Gratitude for the Table",
+            "Week 7: Gratitude for the Stories",
+            "Week 8: Gratitude for the Songs",
+            "Week 9: Gratitude for the Hands That Built",
+            "Week 10: Gratitude for the Community",
+            "Week 11: Gratitude for the Ancestors",
+            "Week 12: Gratitude for You",
+            "Conclusion: A Grateful Heart"
+        ]
+    },
+    {
+        "slug": "gullah-morning",
+        "title": "Gullah Geechee Morning Rituals",
+        "subtitle": "Starting Each Day with Intention",
+        "chapters": [
+            "Introduction: The Morning is Sacred",
+            "The Gullah Geechee Morning Tradition",
+            "Waking with Gratitude",
+            "Morning Prayer and Meditation",
+            "The Morning Meal: Breakfast the Lowcountry Way",
+            "Setting Intentions for the Day",
+            "Morning Movement: Gullah Geechee Exercises",
+            "Connecting with Nature in the Morning",
+            "The Morning Routine: A Step-by-Step Guide",
+            "Conclusion: How You Start Your Day Matters"
+        ]
+    },
+    {
+        "slug": "gullah-bedtime",
+        "title": "Gullah Geechee Bedtime Rituals",
+        "subtitle": "Ending Each Day with Peace",
+        "chapters": [
+            "Introduction: The Evening Wind-Down",
+            "The Gullah Geechee Evening Tradition",
+            "Evening Prayer and Reflection",
+            "Gratitude Practice: Counting Your Blessings",
+            "The Evening Meal: Dinner the Lowcountry Way",
+            "Family Time: Connecting Before Bed",
+            "Preparing for the Next Day",
+            "The Power of a Good Night's Sleep",
+            "Creating Your Evening Routine",
+            "Conclusion: Rest Well"
+        ]
+    },
+    {
+        "slug": "gullah-spring",
+        "title": "Gullah Geechee Spring",
+        "subtitle": "Renewal, Rebirth, and New Beginnings",
+        "chapters": [
+            "Introduction: The Season of Renewal",
+            "Spring in the Lowcountry: A Natural Wonder",
+            "Spring Cleaning: The Gullah Geechee Way",
+            "Planting the Garden: Seeds of Hope",
+            "Spring Foods: What's in Season",
+            "Spring Celebrations: Easter and More",
+            "Spring Cleaning the Spirit: Renewal Practices",
+            "Spring with Children: Teaching About Growth",
+            "Spring Projects: Starting Something New",
+            "Conclusion: Spring is a Promise"
+        ]
+    },
+    {
+        "slug": "gullah-summer",
+        "title": "Gullah Geechee Summer",
+        "subtitle": "Heat, Harvest, and the Joy of the Season",
+        "chapters": [
+            "Introduction: The Lowcountry Summer",
+            "Summer in the Sea Islands: A Way of Life",
+            "Summer Foods: What's in Season",
+            "Summer Celebrations: Fourth of July and More",
+            "Beating the Heat: Gullah Geechee Wisdom",
+            "Summer with Children: Making Memories",
+            "Summer Gardening: The Peak of the Harvest",
+            "Summer Evenings: The Magic of Sunset",
+            "Summer Projects: Making the Most of Long Days",
+            "Conclusion: Summer is a Gift"
+        ]
+    },
+    {
+        "slug": "gullah-autumn",
+        "title": "Gullah Geechee Autumn",
+        "subtitle": "Harvest, Gratitude, and the Turning Season",
+        "chapters": [
+            "Introduction: The Season of Harvest",
+            "Autumn in the Lowcountry: A Time of Change",
+            "Autumn Foods: What's in Season",
+            "Autumn Celebrations: Thanksgiving and More",
+            "The Harvest: Reaping What You've Sown",
+            "Autumn with Children: Teaching About Gratitude",
+            "Preparing for Winter: The Gullah Geechee Way",
+            "Autumn Reflection: Taking Stock",
+            "Autumn Projects: Finishing What You Started",
+            "Conclusion: Gratitude for the Harvest"
+        ]
+    },
+    {
+        "slug": "gullah-winter",
+        "title": "Gullah Geechee Winter",
+        "subtitle": "Rest, Reflection, and the Promise of Spring",
+        "chapters": [
+            "Introduction: The Season of Rest",
+            "Winter in the Lowcountry: A Quieter Time",
+            "Winter Foods: Comfort and Warmth",
+            "Winter Celebrations: Christmas and Kwanzaa",
+            "The Art of Rest: Why Winter Matters",
+            "Winter with Children: Indoor Activities",
+            "Winter Reflection: Looking Back and Forward",
+            "Preparing for Spring: The Quiet Work",
+            "Winter Projects: Creative Pursuits",
+            "Conclusion: Winter is a Time of Promise"
+        ]
+    },
 ]
 
 # ─── CATEGORY 2: BUSINESS & MONEY ────────────────────────────────────────────
@@ -810,9 +1086,259 @@ COOKING_BOOKS = [
     },
 ]
 
+# ─── EXTRA BUSINESS BOOKS ────────────────────────────────────────────────────
+
+EXTRA_BUSINESS_BOOKS = [
+    {
+        "slug": "gullah-consulting",
+        "title": "The Gullah Geechee Consultant",
+        "subtitle": "Turning Expertise into Income",
+        "chapters": ["Introduction: You Already Know Enough","Identifying Your Expertise","Packaging Your Knowledge","Setting Your Rates","Finding Clients","Delivering Value","Scaling Your Practice","Building a Reputation","The Gullah Geechee Approach to Consulting","Conclusion: Your Knowledge is Valuable"]
+    },
+    {
+        "slug": "gullah-remote-work",
+        "title": "Gullah Geechee Guide to Remote Work",
+        "subtitle": "Working from Home the Lowcountry Way",
+        "chapters": ["Introduction: The New Way of Working","Setting Up Your Home Office","Managing Your Time","Staying Connected","Avoiding Burnout","The Gullah Geechee Work-Life Balance","Building a Remote Career","Remote Work Tools and Tips","Thriving as a Remote Worker","Conclusion: Work Anywhere, Live Everywhere"]
+    },
+    {
+        "slug": "gullah-budget",
+        "title": "The Gullah Geechee Budget",
+        "subtitle": "A Simple System for Managing Your Money",
+        "chapters": ["Introduction: Every Dollar Has a Purpose","Tracking Your Spending","Creating a Budget That Works","The Envelope System: Gullah Geechee Style","Saving for Emergencies","Paying Off Debt","Investing for the Future","Teaching Your Family About Money","Sticking with It","Conclusion: Financial Peace"]
+    },
+    {
+        "slug": "gullah-credit",
+        "title": "Gullah Geechee Guide to Credit",
+        "subtitle": "Building and Repairing Your Credit Score",
+        "chapters": ["Introduction: Why Credit Matters","Understanding Your Credit Score","Building Credit from Scratch","Repairing Damaged Credit","Credit Cards: Using Them Wisely","Loans and Borrowing","Protecting Your Identity","Credit and Your Community","Teaching the Next Generation","Conclusion: Credit is a Tool"]
+    },
+    {
+        "slug": "gullah-debt",
+        "title": "Gullah Geechee Guide to Debt Freedom",
+        "subtitle": "Breaking Free from What You Owe",
+        "chapters": ["Introduction: Debt is a Chain","Understanding Your Debt","The Debt Snowball: Gullah Geechee Style","Negotiating with Creditors","Cutting Expenses","Increasing Income","Staying Motivated","Life After Debt","Helping Others Find Freedom","Conclusion: Free at Last"]
+    },
+    {
+        "slug": "gullah-retirement",
+        "title": "Gullah Geechee Guide to Retirement",
+        "subtitle": "Planning for Your Golden Years",
+        "chapters": ["Introduction: Retirement the Gullah Way","Understanding Retirement Accounts","How Much You Need","Saving at Every Age","Investing for Retirement","Social Security and Pensions","Retirement and Community","Retirement in the Lowcountry","Leaving a Legacy","Conclusion: Your Future is Bright"]
+    },
+    {
+        "slug": "gullah-taxes",
+        "title": "Gullah Geechee Guide to Taxes",
+        "subtitle": "Understanding and Managing Your Taxes",
+        "chapters": ["Introduction: Taxes and Your Community","Understanding the Tax System","Filing Your Taxes","Deductions and Credits","Taxes for Small Business Owners","Working with a Tax Professional","Planning for Tax Season","Common Mistakes to Avoid","Teaching Your Family About Taxes","Conclusion: Taxes are Part of Life"]
+    },
+    {
+        "slug": "gullah-insurance",
+        "title": "Gullah Geechee Guide to Insurance",
+        "subtitle": "Protecting What Matters Most",
+        "chapters": ["Introduction: Insurance as Protection","Health Insurance","Life Insurance","Home and Property Insurance","Auto Insurance","Business Insurance","Understanding Your Policies","Choosing the Right Coverage","Saving on Insurance","Conclusion: Peace of Mind"]
+    },
+    {
+        "slug": "gullah-estate",
+        "title": "Gullah Geechee Guide to Estate Planning",
+        "subtitle": "Protecting Your Legacy",
+        "chapters": ["Introduction: Planning for Tomorrow","Wills and Trusts","Heirs Property: A Gullah Geechee Guide","Power of Attorney","Healthcare Directives","Passing Down Property","Minimizing Estate Taxes","Talking to Your Family About Estate Planning","Working with an Attorney","Conclusion: Your Legacy Matters"]
+    },
+    {
+        "slug": "gullah-farming",
+        "title": "The Gullah Geechee Farmer",
+        "subtitle": "Starting a Farm or Garden Business",
+        "chapters": ["Introduction: The Land Provides","The History of Gullah Geechee Farming","Choosing Your Land","What to Grow","Farming Methods","Bringing Your Products to Market","Community Supported Agriculture","Farm-to-Table Partnerships","Scaling Your Farm","Conclusion: Feed Your Community"]
+    },
+    {
+        "slug": "gullah-fishing",
+        "title": "The Gullah Geechee Fisherman",
+        "subtitle": "Building a Commercial Fishing Business",
+        "chapters": ["Introduction: The Water Provides","The History of Gullah Geechee Fishing","Licenses and Regulations","Boats and Equipment","What to Catch","Selling Your Catch","Direct-to-Consumer Sales","Restaurant Partnerships","Sustainability","Conclusion: The Sea is Your Partner"]
+    },
+    {
+        "slug": "gullah-catering",
+        "title": "Starting a Gullah Geechee Catering Business",
+        "subtitle": "From Home Kitchen to Event Service",
+        "chapters": ["Introduction: Cooking for Others","Licensing and Permits","Developing Your Menu","Pricing Your Services","Finding Clients","Event Planning","Scaling Your Business","Building a Team","Marketing Your Catering Business","Conclusion: Feed the People"]
+    },
+    {
+        "slug": "gullah-bed-breakfast",
+        "title": "Starting a Gullah Geechee Bed and Breakfast",
+        "subtitle": "Hospitality the Lowcountry Way",
+        "chapters": ["Introduction: Welcoming Guests","Finding Your Property","Licensing and Regulations","Designing the Experience","Marketing Your B&B","Managing Bookings","Creating Memorable Stays","Pricing and Profitability","Scaling Your Hospitality Business","Conclusion: Make Them Feel at Home"]
+    },
+    {
+        "slug": "gullah-art-gallery",
+        "title": "Starting a Gullah Geechee Art Gallery",
+        "subtitle": "Showcasing Lowcountry Artists",
+        "chapters": ["Introduction: Art is Culture","Finding Your Space","Representing Artists","Pricing Artwork","Marketing Your Gallery","Hosting Events","Building a Collector Base","Online Sales","Community Partnerships","Conclusion: Art Matters"]
+    },
+    {
+        "slug": "gullah-museum",
+        "title": "Starting a Gullah Geechee Museum",
+        "subtitle": "Preserving and Sharing History",
+        "chapters": ["Introduction: History Matters","Finding Your Space","Building a Collection","Designing Exhibits","Educational Programs","Funding Your Museum","Marketing and Outreach","Community Partnerships","Sustainability","Conclusion: Preserve the Story"]
+    },
+    {
+        "slug": "gullah-podcast",
+        "title": "Starting a Gullah Geechee Podcast",
+        "subtitle": "Sharing Stories with the World",
+        "chapters": ["Introduction: Your Voice Matters","Choosing Your Format","Equipment and Setup","Recording and Editing","Publishing Your Episodes","Growing Your Audience","Monetizing Your Podcast","Interviewing Guests","Building a Community","Conclusion: Keep Talking"]
+    },
+    {
+        "slug": "gullah-youtube",
+        "title": "Starting a Gullah Geechee YouTube Channel",
+        "subtitle": "Sharing Culture Through Video",
+        "chapters": ["Introduction: Video is Powerful","Finding Your Niche","Equipment and Setup","Filming and Editing","Growing Your Channel","Monetizing Your Content","Building a Community","Collaborating with Others","Staying Consistent","Conclusion: Your Story Matters"]
+    },
+    {
+        "slug": "gullah-newsletter",
+        "title": "Starting a Gullah Geechee Newsletter",
+        "subtitle": "Building an Audience Through Email",
+        "chapters": ["Introduction: Email is Personal","Choosing Your Platform","Finding Your Voice","Growing Your Subscriber List","Writing Engaging Content","Monetizing Your Newsletter","Building Community","Guest Writers and Collaborations","Staying Consistent","Conclusion: Your Words Matter"]
+    },
+    {
+        "slug": "gullah-etsy",
+        "title": "Selling Gullah Geechee Products on Etsy",
+        "subtitle": "A Complete Guide to the Marketplace",
+        "chapters": ["Introduction: Etsy and the Gullah Geechee Maker","Setting Up Your Shop","Product Photography","Writing Descriptions That Sell","Pricing for Profit","Shipping and Fulfillment","Getting Reviews","Marketing Your Etsy Shop","Scaling Your Business","Conclusion: Share Your Craft"]
+    },
+    {
+        "slug": "gullah-wholesale",
+        "title": "The Gullah Geechee Guide to Wholesale",
+        "subtitle": "Selling Your Products to Stores",
+        "chapters": ["Introduction: Wholesale is a Partnership","Creating a Sell Sheet","Pricing for Wholesale","Finding Retail Partners","Making the Pitch","Fulfilling Orders","Managing Relationships","Trade Shows and Markets","Scaling Your Wholesale Business","Conclusion: Grow Together"]
+    },
+]
+
+# ─── EXTRA COOKING BOOKS ─────────────────────────────────────────────────────
+
+EXTRA_COOKING_BOOKS = [
+    {
+        "slug": "gullah-rice",
+        "title": "Gullah Geechee Rice Cookbook",
+        "subtitle": "The Grain That Built a Culture",
+        "chapters": ["Introduction: Rice is Life","Red Rice: The Signature Dish","Perloo: One-Pot Perfection","Hoppin' John: Tradition and Flavor","Limpin' Susan: The Quick Version","Crab Rice: Coastal Treasure","Rice Pudding: Sweet Comfort","Rice and Beans: Simple and Satisfying","Fried Rice: Gullah Geechee Style","Conclusion: Every Grain Tells a Story"]
+    },
+    {
+        "slug": "gullah-cast-iron",
+        "title": "Gullah Geechee Cast Iron Cooking",
+        "subtitle": "One Skillet, Endless Possibilities",
+        "chapters": ["Introduction: The Cast Iron Tradition","Seasoning Your Skillet","Red Rice in Cast Iron","Skillet Cornbread","Fried Fish","Smothered Pork Chops","Skillet Peach Cobbler","Cast Iron Grits","One-Pan Meals","Conclusion: A Skillet for Life"]
+    },
+    {
+        "slug": "gullah-slow-cooker",
+        "title": "Gullah Geechee Slow Cooker Recipes",
+        "subtitle": "Set It and Forget It, Lowcountry Style",
+        "chapters": ["Introduction: Low and Slow","Collard Greens","Red Beans and Rice","Chicken Perloo","Okra Soup","Pot Roast","Barbecue Pulled Pork","Gumbo","Hoppin' John","Conclusion: Let the Pot Do the Work"]
+    },
+    {
+        "slug": "gullah-30-minute",
+        "title": "Gullah Geechee 30-Minute Meals",
+        "subtitle": "Quick and Delicious Lowcountry Cooking",
+        "chapters": ["Introduction: Fast Doesn't Mean Less Flavor","Quick Shrimp and Grits","Fast Fried Fish","Speedy Okra and Tomatoes","15-Minute Benne Chicken","Quick Collard Greens","Rapid Red Rice","Instant Gumbo","Express Peach Cobbler","Conclusion: Good Food Doesn't Take All Day"]
+    },
+    {
+        "slug": "gullah-meal-prep",
+        "title": "Gullah Geechee Meal Prep",
+        "subtitle": "Cook Once, Eat All Week",
+        "chapters": ["Introduction: The Gullah Geechee Approach to Meal Prep","Sunday Prep: The Gullah Way","Rice and Grains","Proteins","Vegetables","Sauces and Seasonings","Assembly","Storage and Reheating","Sample Weekly Plans","Conclusion: Prepared is Peaceful"]
+    },
+    {
+        "slug": "gullah-kids-cook",
+        "title": "Gullah Geechee Kids Cookbook",
+        "subtitle": "Teaching Children to Cook the Lowcountry Way",
+        "chapters": ["Introduction: Kitchen Skills for Life","Safety First","Simple Rice Dishes","Easy Vegetables","Fun with Cornbread","Making Benne Wafers","Fruit Desserts","Breakfast Basics","Family Cooking Night","Conclusion: Cook Together, Stay Together"]
+    },
+    {
+        "slug": "gullah-appetizers",
+        "title": "Gullah Geechee Appetizers",
+        "subtitle": "Small Bites, Big Flavor",
+        "chapters": ["Introduction: The Art of the Appetizer","Deviled Crabs","Pimento Cheese","Pickled Shrimp","Crab Cakes","Okra Fries","Benne Wafers","Stuffed Peppers","Shrimp Cocktail","Conclusion: Start Strong"]
+    },
+    {
+        "slug": "gullah-summer-cooking",
+        "title": "Gullah Geechee Summer Cooking",
+        "subtitle": "Light, Fresh, and Seasonal",
+        "chapters": ["Introduction: Summer in the Lowcountry","Summer Salads","Grilled Seafood","Fresh Vegetables","Cold Soups","Summer Fruits","No-Bake Desserts","Refreshing Drinks","Picnic Favorites","Conclusion: Taste the Season"]
+    },
+    {
+        "slug": "gullah-winter-cooking",
+        "title": "Gullah Geechee Winter Cooking",
+        "subtitle": "Hearty, Warm, and Comforting",
+        "chapters": ["Introduction: Winter in the Lowcountry","Hearty Soups","Warming Stews","Roasted Vegetables","Comforting Casseroles","Winter Grains","Hot Drinks","Baked Desserts","Holiday Favorites","Conclusion: Warmth from the Inside"]
+    },
+    {
+        "slug": "gullah-cajun",
+        "title": "Gullah Geechee and Cajun Cooking",
+        "subtitle": "Two Great Traditions, One Table",
+        "chapters": ["Introduction: Cousins in the Kitchen","Gumbo: Two Traditions","Jambalaya and Perloo","Crawfish and Crab","Rice Dishes","Sausage and Seafood","Spice Blends","Festival Foods","Community Feasts","Conclusion: More Alike Than Different"]
+    },
+    {
+        "slug": "gullah-caribbean",
+        "title": "Gullah Geechee and Caribbean Cooking",
+        "subtitle": "Island Flavors, Shared Roots",
+        "chapters": ["Introduction: The Island Connection","Rice and Peas","Seafood Stews","Fried Fish","Plantains and Okra","Spice Traditions","Festival Foods","Sweet Treats","Drinks and Refreshments","Conclusion: One Ocean, Many Tables"]
+    },
+    {
+        "slug": "gullah-west-african",
+        "title": "Gullah Geechee and West African Cooking",
+        "subtitle": "The Food of Our Ancestors",
+        "chapters": ["Introduction: The Mother Cuisine","Jollof and Red Rice","Okra: The Shared Ingredient","Rice Traditions","Peanut Stews","Seafood","Leafy Greens","Spices and Seasonings","Festival Foods","Conclusion: The Food Remembers"]
+    },
+    {
+        "slug": "gullah-fermentation",
+        "title": "Gullah Geechee Fermentation",
+        "subtitle": "Traditional Pickling and Preserving",
+        "chapters": ["Introduction: The Art of Fermentation","Pickled Shrimp","Pickled Okra","Sauerkraut the Gullah Way","Fermented Hot Sauce","Kombucha","Sourdough Cornbread","Fermented Vegetables","Traditional Preserves","Conclusion: Preserve the Tradition"]
+    },
+    {
+        "slug": "gullah-gluten-free",
+        "title": "Gullah Geechee Gluten-Free Cooking",
+        "subtitle": "Lowcountry Flavors Without the Gluten",
+        "chapters": ["Introduction: Everyone Deserves Good Food","Gluten-Free Cornbread","Rice-Based Dishes","Seafood and Vegetables","Soups and Stews","Gluten-Free Desserts","Flour Alternatives","Dining Out","Meal Planning","Conclusion: Delicious Without Compromise"]
+    },
+    {
+        "slug": "gullah-vegan",
+        "title": "Gullah Geechee Vegan Cooking",
+        "subtitle": "Plant-Based Lowcountry Classics",
+        "chapters": ["Introduction: Vegan the Gullah Way","Vegan Red Rice","Collard Greens Without Meat","Bean and Rice Bowls","Vegan Gumbo","Sweet Potato Dishes","Cornbread Without Eggs","Vegan Desserts","Seasonal Vegetables","Conclusion: Plants are Powerful"]
+    },
+    {
+        "slug": "gullah-keto",
+        "title": "Gullah Geechee Keto Cooking",
+        "subtitle": "Low-Carb Lowcountry",
+        "chapters": ["Introduction: Keto the Gullah Way","Keto Seafood Dishes","Low-Carb Vegetables","Cauliflower Rice Alternatives","Keto Soups and Stews","Meat and Poultry","Keto Desserts","Fats and Oils","Meal Planning","Conclusion: Healthy and Delicious"]
+    },
+    {
+        "slug": "gullah-paleo",
+        "title": "Gullah Geechee Paleo Cooking",
+        "subtitle": "Whole Foods, Lowcountry Style",
+        "chapters": ["Introduction: Paleo the Gullah Way","Grilled Meats and Seafood","Roasted Vegetables","Paleo Soups","Fresh Salads","Fruit-Based Desserts","Healthy Fats","Seasonal Eating","Meal Planning","Conclusion: Eat Like Your Ancestors"]
+    },
+    {
+        "slug": "gullah-air-fryer",
+        "title": "Gullah Geechee Air Fryer Recipes",
+        "subtitle": "Crispy, Healthy, and Fast",
+        "chapters": ["Introduction: The Air Fryer Revolution","Air Fryer Fried Fish","Crispy Okra","Air Fryer Chicken","Vegetable Medleys","Air Fryer Seafood","Snacks and Appetizers","Desserts","Meal Planning","Conclusion: Crispy Without the Guilt"]
+    },
+    {
+        "slug": "gullah-instant-pot",
+        "title": "Gullah Geechee Instant Pot Recipes",
+        "subtitle": "Pressure Cooker Lowcountry Classics",
+        "chapters": ["Introduction: Fast and Flavorful","Instant Pot Red Rice","Pressure Cooker Collards","Quick Gumbo","Beans and Rice","Soups and Stews","Meat and Poultry","Desserts","Meal Planning","Conclusion: Set It and Forget It"]
+    },
+    {
+        "slug": "gullah-camping",
+        "title": "Gullah Geechee Camp Cooking",
+        "subtitle": "Cooking Over the Fire",
+        "chapters": ["Introduction: Cooking in the Wild","Campfire Seafood","Foil Packet Meals","One-Pot Camp Cooking","Campfire Breads","Campfire Desserts","Morning Meals","Coffee and Drinks","Packing Your Camp Kitchen","Conclusion: The Best Food is Cooked Outside"]
+    },
+]
+
 # ─── ALL BOOKS ────────────────────────────────────────────────────────────────
 
-ALL_BOOKS = SELF_HELP_BOOKS + BUSINESS_BOOKS + COOKING_BOOKS
+ALL_BOOKS = SELF_HELP_BOOKS + BUSINESS_BOOKS + COOKING_BOOKS + EXTRA_BUSINESS_BOOKS + EXTRA_COOKING_BOOKS
 
 # ─── DOCX GENERATION ──────────────────────────────────────────────────────────
 
@@ -1023,8 +1549,8 @@ def main():
     print(f"📚 Gullah Geechee Mass Ebook Generator")
     print(f"📊 Total books in database: {len(ALL_BOOKS)}")
     print(f"   Self-Help: {len(SELF_HELP_BOOKS)}")
-    print(f"   Business:  {len(BUSINESS_BOOKS)}")
-    print(f"   Cooking:   {len(COOKING_BOOKS)}")
+    print(f"   Business:  {len(BUSINESS_BOOKS) + len(EXTRA_BUSINESS_BOOKS)}")
+    print(f"   Cooking:   {len(COOKING_BOOKS) + len(EXTRA_COOKING_BOOKS)}")
     print()
     
     # Check which books already exist
@@ -1046,7 +1572,7 @@ def main():
         # Determine category
         if book in SELF_HELP_BOOKS:
             category = "Self-Help"
-        elif book in BUSINESS_BOOKS:
+        elif book in BUSINESS_BOOKS or book in EXTRA_BUSINESS_BOOKS:
             category = "Business"
         else:
             category = "Cooking"
