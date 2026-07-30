@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search — Gullah Geechee Biz</title>
+<link rel="canonical" href="https://gullahgeecheebiz.com/search/">
+<meta property="og:title" content="Search — Gullah Geechee Biz">
+<meta property="og:description" content="Search 158 pages of Gullah Geechee content — recipes, ebooks, history, and culture.">
+<meta property="og:url" content="https://gullahgeecheebiz.com/search/">
+<meta property="og:type" content="website">
+<meta name="description" content="Search 158 pages of Gullah Geechee content — recipes, ebooks, history, and culture.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a14;color:#f0ede5;line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{font-family:Georgia,serif;color:#d4af37;font-size:2em;margin-bottom:5px}
+.subtitle{color:#888;margin-bottom:30px}
+.search-box{display:flex;gap:10px;margin-bottom:30px}
+.search-box input{flex:1;background:#111122;border:1px solid #d4af37;color:#f0ede5;padding:10px 16px;border-radius:25px;font-size:1rem;outline:none}
+.search-box input:focus{border-color:#e8c84a}
+.search-box button{background:#d4af37;color:#0a0a14;border:none;padding:10px 24px;border-radius:25px;font-size:1rem;cursor:pointer;font-weight:bold}
+.search-box button:hover{background:#e8c84a}
+.result{margin-bottom:20px;padding:16px;background:#111122;border-radius:10px;border:1px solid #1a1a2e;transition:border-color 0.2s}
+.result:hover{border-color:#d4af37}
+.result h3{margin-bottom:4px}
+.result h3 a{color:#d4af37;text-decoration:none}
+.result h3 a:hover{text-decoration:underline}
+.result .meta{color:#888;font-size:0.85em;margin-bottom:6px}
+.result .snippet{color:#ccc;font-size:0.9em}
+.result .badge{display:inline-block;padding:1px 8px;border-radius:8px;font-size:0.75em;margin-right:4px}
+.badge-recipe{background:#2d5016;color:#a8e06b}
+.badge-ebook{background:#1a3a5c;color:#6bb8e0}
+.badge-membership{background:#5c1a1a;color:#e06b6b}
+.badge-shop{background:#5c4a1a;color:#e0c06b}
+.badge-page{background:#1a1a2e;color:#888}
+.stats{color:#555;font-size:0.85em;margin-bottom:20px}
+.no-results{text-align:center;padding:60px 20px;color:#555}
+.no-results .big{font-size:3em;margin-bottom:10px}
+.back-link{display:inline-block;margin-top:30px;color:#d4af37;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔍 Search</h1>
+<p class="subtitle">Gullah Geechee Biz — 158 pages of content</p>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search recipes, ebooks, history..." onkeydown="if(event.key==='Enter')doSearch()">
+<button onclick="doSearch()">Search</button>
+</div>
+
+<div id="results">
+<div class="no-results">
+<div class="big">🔍</div>
+<p>Enter a search term above to find content across the site.</p>
+<p style="margin-top:10px;color:#888;font-size:0.9em">Try: red rice, resilience, entrepreneur, sweetgrass, membership</p>
+</div>
+</div>
+
+<a href="/" class="back-link">← Back to home</a>
+</div>
+
+<script>
+let searchIndex = null;
+
+async function loadIndex() {
+    if (searchIndex) return;
+    const resp = await fetch('/search-index.json');
+    searchIndex = await resp.json();
+}
+
+function highlight(text, query) {
+    const words = query.split(/\s+/).filter(w => w.length > 1);
+    let result = text;
+    for (const word of words) {
+        const re = new RegExp('(' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+        result = result.replace(re, '<mark style="background:#d4af37;color:#0a0a14;padding:0 2px;border-radius:2px">$1</mark>');
+    }
+    return result;
+}
+
+function getBadge(type) {
+    const badges = {
+        'recipe': '<span class="badge badge-recipe">Recipe</span>',
+        'ebook': '<span class="badge badge-ebook">Ebook</span>',
+        'membership': '<span class="badge badge-membership">Membership</span>',
+        'shop': '<span class="badge badge-shop">Shop</span>'
+    };
+    return badges[type] || '<span class="badge badge-page">Page</span>';
+}
+
+function doSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (!query) return;
+    
+    const resultsDiv = document.getElementById('results');
+    const url = new URL(window.location);
+    url.searchParams.set('q', query);
+    window.history.replaceState({}, '', url);
+    
+    loadIndex().then(() => {
+        const words = query.toLowerCase().split(/\s+/).filter(w => w.length > 1);
+        
+        // Score each page
+        const scored = searchIndex.pages.map(page => {
+            let score = 0;
+            const titleLower = page.title.toLowerCase();
+            const textLower = page.text.toLowerCase();
+            const descLower = (page.description || '').toLowerCase();
+            
+            for (const word of words) {
+                // Title matches are worth more
+                if (titleLower.includes(word)) score += 10;
+                // Description matches
+                if (descLower.includes(word)) score += 5;
+                // Body text matches
+                const count = (textLower.match(new RegExp(word, 'g')) || []).length;
+                score += count;
+            }
+            
+            return { ...page, score };
+        });
+        
+        // Filter and sort
+        const results = scored.filter(p => p.score > 0).sort((a, b) => b.score - a.score);
+        
+        if (results.length === 0) {
+            resultsDiv.innerHTML = `
+                <div class="no-results">
+                    <div class="big">🔍</div>
+                    <h3 style="color:#d4af37;margin-bottom:10px">No results found</h3>
+                    <p>Try different keywords, or browse the site directly.</p>
+                    <p style="margin-top:10px;color:#888;font-size:0.9em">Suggestions: red rice, resilience, entrepreneur, sweetgrass, membership</p>
+                </div>
+            `;
+            return;
+        }
+        
+        let html = `<div class="stats">Found ${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"</div>`;
+        
+        for (const result of results.slice(0, 30)) {
+            const snippet = result.text.substring(0, 200);
+            html += `
+                <div class="result">
+                    <div class="meta">${getBadge(result.type)} ${result.category}</div>
+                    <h3><a href="${result.url}">${highlight(result.title, query)}</a></h3>
+                    ${result.description ? `<div class="snippet">${highlight(result.description.substring(0, 150), query)}</div>` : ''}
+                    <div class="snippet" style="margin-top:4px;color:#666;font-size:0.85em">${highlight(snippet, query)}</div>
+                </div>
+            `;
+        }
+        
+        resultsDiv.innerHTML = html;
+    });
+}
+
+// Auto-search on page load if query param exists
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q) {
+        document.getElementById('searchInput').value = q;
+        doSearch();
+    }
+});
+</script>
+</body>
+</html>
