@@ -69,6 +69,12 @@ def deploy():
         log("  ℹ️  No changes to deploy")
         return True
     
+    # Pull latest from remote first (avoid push rejection)
+    log("  ℹ️  Pulling latest from remote...")
+    success, output = run("git pull --rebase origin main 2>&1")
+    if not success:
+        log(f"  ⚠️  Pull had issues (may be fine): {output[:200]}")
+    
     # Add, commit, push
     success, output = run("git add -A")
     if not success:
