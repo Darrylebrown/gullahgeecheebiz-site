@@ -131,3 +131,4 @@
 | 2026-07-26 (Sun) | Marsh Sunset | marsh-sunset-2026-07-26.jpg | ✅ Posted |
 | 2026-07-28 (Tue) | Blue Heron | blue-heron-2026-07-28.jpg | ✅ Posted |
 | 2026-07-29 (Wed) | Blue Crab | blue-crab-2026-07-29.png | ✅ Posted |
+| 2026-07-30 (Thu) | Dolphins | dolphins-2026-07-30.png | ✅ Posted |
