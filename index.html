@@ -187,7 +187,7 @@ footer a { color: #D4AF37; text-decoration: none; }
   <p>Now it's your turn. Explore 300 years of Gullah Geechee history — books, audiobooks, documentaries, and the free Corridor Guide.</p>
   
   <div class="social-proof">
-    <div class="stat"><div class="number" id="visitorCount">—</div><div class="label">Visitors</div></div>
+    <div class="stat"><div class="number">159</div><div class="label">Pages</div></div>
     <div class="stat"><div class="number">500K+</div><div class="label">TikTok Views</div></div>
     <div class="stat"><div class="number">305</div><div class="label">Subscribers</div></div>
     <div class="stat"><div class="number">1,740+</div><div class="label">Pinterest Impressions</div></div>
@@ -295,29 +295,17 @@ footer a { color: #D4AF37; text-decoration: none; }
   </div>
   <p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p>
   <p style="margin-top:0.3rem;font-size:0.7rem;color:rgba(255,255,255,0.2)">Independent · culture first · GitHub Pages</p>
+  <div style="margin-top:1rem">
+    <form action="/search/" method="get" style="display:inline-block">
+      <input type="text" name="q" placeholder="Search 158 pages..." 
+             style="background:#111122;border:1px solid #d4af37;color:#f0ede5;padding:6px 12px;border-radius:20px;font-size:0.8rem;width:200px;outline:none">
+      <button type="submit" style="background:#d4af37;color:#0a0a14;border:none;padding:6px 14px;border-radius:20px;font-size:0.8rem;cursor:pointer;font-weight:bold">Search</button>
+    </form>
+  </div>
 </footer>
+<img src="http://localhost:8767/track?page=/&ref=" width="1" height="1" alt="" style="position:absolute;left:-9999px" />
 
 <script>
-// Visitor counter - uses free API for global count
-fetch('https://api.countapi.xyz/hit/gullahgeecheebiz.com/visitors')
-  .then(r => r.json())
-  .then(d => {
-    const el = document.getElementById('visitorCount');
-    if (el) {
-      const v = d.value;
-      el.textContent = v >= 1000 ? (v/1000).toFixed(1) + 'K' : v;
-    }
-  })
-  .catch(() => {
-    // Fallback to local count
-    const key = 'ggb_visitor_count';
-    let c = parseInt(localStorage.getItem(key)) || 0;
-    c++;
-    localStorage.setItem(key, c);
-    const el = document.getElementById('visitorCount');
-    if (el) el.textContent = c;
-  });
-
 // Countdown timer
 function updateCountdown() {
   const target = new Date('2026-09-05T00:00:00');

@@ -22,7 +22,7 @@ for p in ["shop.html", "shop-binyah.html", "bot-dashboard.html"]:
 for section in [
     "membership", "season-1", "guide", "services", "dashboard", "viral",
     "trending", "tools", "recipes", "ebooks", "wholesale", "shop",
-    "encyclopedia", "ggb-engine", "redeem", "merch",
+    "encyclopedia", "ggb-engine", "redeem", "merch", "search",
 ]:
     if (SITE_DIR / section / "index.html").exists():
         add(f"{section}/", "0.9")
