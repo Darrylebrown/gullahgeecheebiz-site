@@ -60,11 +60,14 @@ jobs:
       # `latest`. Pinning only the action pins the shell script and leaves the scanner
       # itself floating.
       #
+      # The registry tag is `3.96.0` with no leading `v`, though the git tag is `v3.96.0`.
+      # `v3.96.0` is not a tag in GHCR and docker fails with `manifest unknown`.
+      #
       # --fail is NOT passed here. The action's own command line already includes it, and
       # a second one makes the CLI exit 1 with "flag 'fail' cannot be repeated" before it
       # scans anything — a secret-scanning job that fails for a reason unrelated to secrets
       # and would keep failing identically if a real one were committed.
       - uses: trufflesecurity/trufflehog@6f3c981e7b77f235fd2702dd74af25fc4b72bf11 # v3.96.0
         with:
-          version: v3.96.0
+          version: 3.96.0
           extra_args: --results=verified,unknown
