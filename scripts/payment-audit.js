@@ -186,14 +186,14 @@ console.log(`\nPages found: ${pages.length}  |  Documented exceptions: ${Object.
   !/buy\.stripe\.com|checkout\.stripe\.com/.test(ebooks)
     ? ok('ebooks: no Stripe checkout claimed for the catalog')
     : fail('ebooks', 'a Stripe checkout URL is present on the ebook page');
-  !ebooks.includes('myshopify.com')
-    ? ok('ebooks: no checkout routed to the unstocked Shopify store')
-    : fail('ebooks', 'links the Shopify store, which has no published products');
-  /Single-title checkout is not open yet/.test(ebooks)
-    ? ok('ebooks: availability stated plainly')
-    : fail('ebooks', 'availability notice missing');
+  ebooks.includes('gullahgeecheebiz.myshopify.com/collections/roots-rivers-encyclopedia')
+    ? ok('ebooks: Roots & Rivers single-title checkout routes to the live Shopify collection')
+    : fail('ebooks', 'missing live Roots & Rivers Shopify collection link');
+  !/checkout\.stripe\.com|cs_live_/.test(ebooks)
+    ? ok('ebooks: no expired Stripe session URLs')
+    : fail('ebooks', 'expired Stripe session URL present');
   ebooks.includes('/membership/')
-    ? ok('ebooks: routed to membership, the lane that can actually deliver')
+    ? ok('ebooks: membership lane still offered for the catalog library')
     : fail('ebooks', 'no membership route');
   // Whole file, not just the static markup: the 100 cards are built by an
   // inline <script>, so a price restored to that template must fail too.
