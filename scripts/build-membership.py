@@ -5,29 +5,103 @@ Generates the public membership pages for GitHub Pages deployment.
 Internal systems stay on the machine. Only these pages go live.
 """
 
-import json, os, datetime
+import argparse
+import datetime
+import json
+import re
+import subprocess
+import sys
 from pathlib import Path
 
-HOME = os.path.expanduser("~")
-SITE_DIR = os.path.join(HOME, "gullahgeecheebiz-site")
-MEMBERSHIP_DIR = os.path.join(SITE_DIR, "membership")
-ASSETS_DIR = os.path.join(SITE_DIR, "assets")
-os.makedirs(MEMBERSHIP_DIR, exist_ok=True)
-os.makedirs(ASSETS_DIR, exist_ok=True)
+ROOT = Path(__file__).resolve().parents[1]
+MEMBERSHIP_DIR = ROOT / "membership"
+ASSETS_DIR = ROOT / "assets"
+MEMBERSHIP_DIR.mkdir(exist_ok=True)
+ASSETS_DIR.mkdir(exist_ok=True)
 
-# ─── LOAD REAL STRIPE LINKS ───
-links_path = os.path.join(MEMBERSHIP_DIR, "stripe-links.json")
-if os.path.exists(links_path):
-    with open(links_path) as f:
+SUPPORT_LANES_START = "<!-- GGB_SUPPORT_LANES:START -->"
+SUPPORT_LANES_END = "<!-- GGB_SUPPORT_LANES:END -->"
+SUPPORT_LANES_STYLESHEET_RE = re.compile(
+    r"\n?\s*<link rel=\"stylesheet\" href=\"/assets/support-lanes\.css\">\n",
+    re.MULTILINE,
+)
+SUPPORT_LANES_BLOCK_RE = re.compile(
+    re.escape(SUPPORT_LANES_START) + r".*?" + re.escape(SUPPORT_LANES_END) + r"\n?",
+    re.DOTALL,
+)
+REQUIRED_STRIPE_LINKS = {
+    "digital-pass-monthly",
+    "digital-pass-yearly",
+    "heritage-pass-monthly",
+    "heritage-pass-yearly",
+    "legacy-pass-monthly",
+    "legacy-pass-yearly",
+}
+
+
+def load_stripe_links():
+    """Load and validate durable Stripe Payment Links from the repo."""
+    links_path = MEMBERSHIP_DIR / "stripe-links.json"
+    if not links_path.exists():
+        raise SystemExit(
+            "Missing membership/stripe-links.json. "
+            "Populate the verified buy.stripe.com Payment Links before generating."
+        )
+
+    with links_path.open(encoding="utf-8") as f:
         stripe_data = json.load(f)
-    STRIPE_LINKS = stripe_data.get("stripe_links", {})
-else:
-    STRIPE_LINKS = {}
+
+    links = stripe_data.get("stripe_links", {})
+    missing = sorted(REQUIRED_STRIPE_LINKS - set(links))
+    if missing:
+        raise SystemExit(
+            "Missing Stripe Payment Links in membership/stripe-links.json: "
+            + ", ".join(missing)
+        )
+    return links
+
+
+STRIPE_LINKS = load_stripe_links()
 
 # ─── BRAND ───
 NAVY = "#0A1428"
 GOLD = "#D4AF37"
 CREAM = "#F5F0E6"
+
+
+def membership_config_payload():
+    """Stable membership config without volatile timestamp metadata."""
+    return {
+        "stripe_links": STRIPE_LINKS,
+        "tiers": ["digital-pass", "heritage-pass", "legacy-pass"],
+        "prices": {"digital": 9.99, "heritage": 19.99, "legacy": 49.99},
+        "annual_prices": {"digital": 99.99, "heritage": 199.99, "legacy": 499.99},
+    }
+
+
+def strip_support_lanes(html):
+    """Remove the generated support-lanes block before comparing builders."""
+    html = SUPPORT_LANES_STYLESHEET_RE.sub("\n", html, count=1)
+    html = SUPPORT_LANES_BLOCK_RE.sub("", html)
+    return html.strip()
+
+
+def config_matches(path, payload):
+    """Compare config.json while ignoring generated_at churn."""
+    if not path.exists():
+        return False
+    with path.open(encoding="utf-8") as f:
+        existing = json.load(f)
+    existing.pop("generated_at", None)
+    return existing == payload
+
+
+def write_text_if_changed(path, content):
+    """Write only when the on-disk file differs."""
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return False
+    path.write_text(content, encoding="utf-8")
+    return True
 
 
 def build_css():
@@ -180,6 +254,14 @@ header p {{
     margin-bottom: 20px;
 }}
 
+.trust-line {{
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.9rem;
+    color: var(--cream);
+    opacity: 0.72;
+}}
+
 .tier-card ul {{
     list-style: none;
     text-align: left;
@@ -329,7 +411,7 @@ def build_membership_page():
             "name": "Digital Pass",
             "price": "$9.99",
             "period": "/month",
-            "annual": "$99/year ($8.25/mo)",
+            "annual": "$99.99/year ($8.33/mo)",
             "annual_link": STRIPE_LINKS["digital-pass-yearly"],
             "monthly_link": STRIPE_LINKS["digital-pass-monthly"],
             "features": [
@@ -346,7 +428,7 @@ def build_membership_page():
             "name": "Heritage Pass",
             "price": "$19.99",
             "period": "/month",
-            "annual": "$199/year ($16.58/mo)",
+            "annual": "$199.99/year ($16.67/mo)",
             "annual_link": STRIPE_LINKS["heritage-pass-yearly"],
             "monthly_link": STRIPE_LINKS["heritage-pass-monthly"],
             "features": [
@@ -363,7 +445,7 @@ def build_membership_page():
             "name": "Legacy Pass",
             "price": "$49.99",
             "period": "/month",
-            "annual": "$499/year ($41.58/mo)",
+            "annual": "$499.99/year ($41.67/mo)",
             "annual_link": STRIPE_LINKS["legacy-pass-yearly"],
             "monthly_link": STRIPE_LINKS["legacy-pass-monthly"],
             "features": [
@@ -411,8 +493,8 @@ def build_membership_page():
                 <ul>
                     {features}
                 </ul>
-                <a href="{tier['monthly_link']}" class="btn">Subscribe Monthly</a>
-                <a href="{tier['annual_link']}" class="btn btn-outline">Subscribe Annual</a>
+                <a href="{tier['monthly_link']}" class="btn" aria-label="Subscribe to {tier['name']} monthly, {tier['price']} per month">Subscribe Monthly</a>
+                <a href="{tier['annual_link']}" class="btn btn-outline" aria-label="Subscribe to {tier['name']} annually, {tier['annual']}">Subscribe Annual</a>
             </div>"""
 
     inside_items_html = "\n".join(
@@ -463,6 +545,7 @@ def build_membership_page():
             <div class="tier-grid">
                 {tier_cards}
             </div>
+            <p class="trust-line">Secure payment via Stripe. Cancel anytime from the Stripe customer portal.</p>
         </div>
     </section>
 
@@ -493,45 +576,83 @@ def build_membership_page():
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Exit non-zero if the committed membership assets are out of date.",
+    )
+    args = parser.parse_args()
+
     print("=" * 60)
     print("  GULLAH GEECHEE BIZ — MEMBERSHIP SITE BUILDER")
     print("=" * 60)
     print()
-    
-    # Write CSS
-    css_path = os.path.join(ASSETS_DIR, "membership.css")
-    with open(css_path, "w") as f:
-        f.write(build_css())
-    print(f"  ✅ CSS: {css_path}")
-    
-    # Write membership page
-    html_path = os.path.join(MEMBERSHIP_DIR, "index.html")
-    with open(html_path, "w") as f:
-        f.write(build_membership_page())
-    print(f"  ✅ Page: {html_path}")
-    
-    # Write config for deploy bot
-    config = {
-        "stripe_links": STRIPE_LINKS,
-        "tiers": ["digital-pass", "heritage-pass", "legacy-pass"],
-        "prices": {"digital": 9.99, "heritage": 19.99, "legacy": 49.99},
-        "annual_prices": {"digital": 99, "heritage": 199, "legacy": 499},
-        "generated_at": datetime.datetime.now().isoformat(),
-    }
-    config_path = os.path.join(MEMBERSHIP_DIR, "config.json")
-    with open(config_path, "w") as f:
-        json.dump(config, f, indent=2)
-    print(f"  ✅ Config: {config_path}")
-    
+
+    css_path = ASSETS_DIR / "membership.css"
+    html_path = MEMBERSHIP_DIR / "index.html"
+    config_path = MEMBERSHIP_DIR / "config.json"
+
+    css = build_css()
+    html = build_membership_page()
+    config = membership_config_payload()
+
+    stale = []
+
+    css_changed = css_path.exists() is False or css_path.read_text(encoding="utf-8") != css
+    if css_changed:
+        stale.append("assets/membership.css")
+        if not args.check:
+            write_text_if_changed(css_path, css)
+    print(f"  {'⚠️' if css_changed and args.check else '✅'} CSS: {css_path}")
+
+    committed_html = html_path.read_text(encoding="utf-8") if html_path.exists() else ""
+    html_changed = not html_path.exists() or strip_support_lanes(committed_html) != html.strip()
+    if html_changed:
+        stale.append("membership/index.html")
+        if not args.check:
+            write_text_if_changed(html_path, html)
+            subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "build-support-lanes.py")],
+                check=True,
+                cwd=ROOT,
+            )
+    print(f"  {'⚠️' if html_changed and args.check else '✅'} Page: {html_path}")
+
+    config_changed = not config_matches(config_path, config)
+    if config_changed:
+        stale.append("membership/config.json")
+        if not args.check:
+            payload = dict(config)
+            payload["generated_at"] = datetime.datetime.now().isoformat()
+            config_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(f"  {'⚠️' if config_changed and args.check else '✅'} Config: {config_path}")
+
     print()
-    print(f"  📁 Membership pages ready at:")
+    print("  pages ready at:")
     print(f"     {MEMBERSHIP_DIR}/")
     print(f"     {css_path}")
+
+    if args.check:
+        if stale:
+            print()
+            print("  Out of date:")
+            for rel in stale:
+                print(f"     {rel}")
+            print()
+            print("  Run: python3 scripts/build-membership.py")
+            print("=" * 60)
+            return 1
+        print()
+        print("  Membership assets are in sync.")
+        print("=" * 60)
+        return 0
+
     print()
-    print("  ⚡ Next: Set up Stripe products and update STRIPE_LINKS")
-    print("  ⚡ Then: Deploy bot pushes to GitHub Pages")
+    print("  Membership pages regenerated from membership/stripe-links.json")
     print("=" * 60)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
