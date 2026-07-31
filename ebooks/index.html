@@ -1,197 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ebooks — Gullah Geechee Biz</title>
-  <meta name="description" content="100 Gullah Geechee ebooks — self-help, business, and cooking. Instant download after purchase.">
-  <link rel="canonical" href="https://gullahgeecheebiz.com/ebooks/">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a14; color: #f0ede5; line-height: 1.7; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-    h1 { font-family: Georgia, serif; font-size: 2.5em; color: #d4af37; margin-bottom: 8px; }
-    .subtitle { color: #888; font-size: 1.1em; margin-bottom: 30px; }
-    .filters { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-    .filter-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #333; background: transparent; color: #ccc; cursor: pointer; font-size: 0.9em; transition: all 0.2s; }
-    .filter-btn:hover, .filter-btn.active { border-color: #d4af37; color: #d4af37; background: rgba(212,175,55,0.1); }
-    .category-section { margin-bottom: 40px; }
-    .category-title { font-family: Georgia, serif; font-size: 1.5em; color: #d4af37; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid rgba(212,175,55,0.2); }
-    .ebook-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
-    .ebook-card { background: #111122; border-radius: 12px; padding: 20px; border: 1px solid #1a1a2e; transition: all 0.2s; display: flex; flex-direction: column; }
-    .ebook-card:hover { border-color: rgba(212,175,55,0.3); transform: translateY(-2px); }
-    .ebook-card h3 { font-size: 1em; color: #f0ede5; margin-bottom: 6px; line-height: 1.4; }
-    .ebook-card .sub { color: #888; font-size: 0.85em; margin-bottom: 12px; flex: 1; }
-    .ebook-card .price { color: #d4af37; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
-    .buy-btn { display: inline-block; background: #d4af37; color: #0a0a14; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9em; text-align: center; transition: all 0.2s; }
-    .buy-btn:hover { background: #e8c84a; transform: translateY(-1px); }
-    .how { background: #111122; border-radius: 12px; padding: 25px; margin: 30px 0; border: 1px solid #1a1a2e; }
-    .how h2 { color: #d4af37; font-size: 1.2em; margin-bottom: 10px; }
-    .how p { color: #888; font-size: 0.9em; margin-bottom: 6px; }
-    .brand { text-align: center; margin-top: 50px; color: #d4af37; font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; }
-    @media (max-width: 600px) { h1 { font-size: 1.8em; } .ebook-grid { grid-template-columns: 1fr; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ebooks — Gullah Geechee Biz</title>
+<meta name="description" content="100 Gullah Geechee ebooks — self-help, business, and cooking. Instant download after purchase.">
+<link rel="canonical" href="https://gullahgeecheebiz.com/ebooks/">
+<meta property="og:title" content="Ebooks — Gullah Geechee Biz">
+<meta property="og:description" content="100 Gullah Geechee ebooks — self-help, business, and cooking. Instant download.">
+<meta property="og:url" content="https://gullahgeecheebiz.com/ebooks/">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a14;color:#f0ede5;line-height:1.6;overflow-x:hidden}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.15);padding:0 20px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:Georgia,serif;color:#d4af37;font-size:1.2em;font-weight:bold;text-decoration:none;letter-spacing:1px}
+.nav-logo span{color:#f0ede5;font-weight:normal}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:rgba(240,237,229,0.7);text-decoration:none;font-size:0.85em;transition:color 0.3s;letter-spacing:0.5px}
+.nav-links a:hover{color:#d4af37}
+.nav-search{display:flex;align-items:center;gap:8px}
+.nav-search input{background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:6px 14px;color:#f0ede5;font-size:0.8em;width:180px;outline:none;transition:border-color 0.3s}
+.nav-search input:focus{border-color:#d4af37}
+.nav-search button{background:#d4af37;color:#0a0a14;border:none;border-radius:20px;padding:6px 14px;font-size:0.8em;cursor:pointer;font-weight:bold;transition:background 0.3s}
+.nav-search button:hover{background:#e8c84a}
+
+/* Hero */
+.ebooks-hero{padding:100px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.ebooks-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,0.06) 0%,transparent 50%);z-index:0}
+.ebooks-hero>*{position:relative;z-index:1}
+.ebooks-hero .badge{display:inline-block;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:#d4af37;padding:6px 20px;border-radius:20px;font-size:0.8em;margin-bottom:20px;letter-spacing:2px;text-transform:uppercase}
+.ebooks-hero h1{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:12px}
+.ebooks-hero h1 .gold{color:#d4af37}
+.ebooks-hero p{color:rgba(240,237,229,0.5);max-width:600px;margin:0 auto 24px;font-size:1.05em}
+.ebooks-hero .stats{display:flex;gap:30px;justify-content:center;flex-wrap:wrap}
+.ebooks-hero .stats .stat{text-align:center}
+.ebooks-hero .stats .num{font-family:Georgia,serif;font-size:1.5em;color:#d4af37;font-weight:bold}
+.ebooks-hero .stats .lbl{font-size:0.8em;color:rgba(240,237,229,0.4);margin-top:2px}
+
+/* Container */
+.container{max-width:1200px;margin:0 auto;padding:0 20px 60px}
+
+/* Filters */
+.filters{display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap;justify-content:center}
+.filter-btn{padding:8px 24px;border-radius:20px;border:1px solid rgba(212,175,55,0.2);background:transparent;color:rgba(240,237,229,0.6);cursor:pointer;font-size:0.9em;transition:all 0.3s}
+.filter-btn:hover,.filter-btn.active{border-color:#d4af37;color:#d4af37;background:rgba(212,175,55,0.1)}
+
+/* Category */
+.category-section{margin-bottom:40px}
+.category-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(212,175,55,0.15)}
+.category-header .icon{font-size:1.5em}
+.category-header h2{font-family:Georgia,serif;font-size:1.4em;color:#d4af37}
+.category-header .count{color:rgba(240,237,229,0.3);font-size:0.85em}
+
+/* Grid */
+.ebook-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.ebook-card{background:linear-gradient(135deg,#111122,#0d0d1a);border-radius:14px;padding:24px;border:1px solid rgba(212,175,55,0.08);transition:all 0.3s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ebook-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#d4af37,transparent);opacity:0;transition:opacity 0.3s}
+.ebook-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.ebook-card:hover::before{opacity:1}
+.ebook-card .cat-tag{display:inline-block;padding:2px 10px;border-radius:8px;font-size:0.7em;margin-bottom:10px;width:fit-content}
+.cat-self-help{background:rgba(52,152,219,0.15);color:#3498db}
+.cat-business{background:rgba(212,175,55,0.15);color:#d4af37}
+.cat-cooking{background:rgba(39,174,96,0.15);color:#27ae60}
+.ebook-card h3{font-size:1em;color:#f0ede5;margin-bottom:6px;line-height:1.4}
+.ebook-card .sub{color:rgba(240,237,229,0.4);font-size:0.82em;margin-bottom:14px;flex:1;line-height:1.5}
+.ebook-card .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.ebook-card .price{color:#d4af37;font-weight:bold;font-size:1.1em}
+.buy-btn{display:inline-block;background:#d4af37;color:#0a0a14;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.85em;transition:all 0.3s}
+.buy-btn:hover{background:#e8c84a;transform:translateY(-1px)}
+
+/* How it works */
+.how-section{background:linear-gradient(135deg,#0f1a2e,#0a0a14);border-radius:16px;padding:40px;margin:40px 0;border:1px solid rgba(212,175,55,0.1)}
+.how-section h2{font-family:Georgia,serif;color:#d4af37;font-size:1.3em;margin-bottom:16px;text-align:center}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px}
+.how-step{text-align:center;padding:20px}
+.how-step .step-num{display:inline-block;width:36px;height:36px;line-height:36px;border-radius:50%;background:rgba(212,175,55,0.15);color:#d4af37;font-weight:bold;font-size:0.9em;margin-bottom:10px}
+.how-step h3{font-size:1em;margin-bottom:6px}
+.how-step p{color:rgba(240,237,229,0.4);font-size:0.85em}
+
+/* Footer */
+footer{background:#080810;border-top:1px solid rgba(212,175,55,0.1);padding:60px 20px 30px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px}
+.footer-col h4{color:#d4af37;font-size:0.9em;margin-bottom:16px;letter-spacing:1px}
+.footer-col a{display:block;color:rgba(240,237,229,0.4);text-decoration:none;font-size:0.85em;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:#d4af37}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;color:rgba(240,237,229,0.2);font-size:0.8em}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-search input{width:120px}
+  .ebooks-hero{padding:80px 20px 40px}
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>📚 Gullah Geechee Ebooks</h1>
-    <p class="subtitle">100 titles across self-help, business, and cooking. $9.99 each. Instant download after purchase.</p>
 
-    <div class="how">
-      <h2>How it works</h2>
-      <p>1. Click "Buy $9.99" on any ebook</p>
-      <p>2. Pay securely via Stripe</p>
-      <p>3. After payment, enter your email on the success page</p>
-      <p>4. Your download link is sent instantly</p>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">GULLAH <span>GEECHEE</span> BIZ</a>
+    <div class="nav-links">
+      <a href="/ebooks/" style="color:#d4af37">Ebooks</a>
+      <a href="/recipes/">Recipes</a>
+      <a href="/membership/">Membership</a>
+      <a href="/shop/">Shop</a>
+      <a href="/season-1/">Documentary</a>
     </div>
-
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterCategory('all')">All (100)</button>
-      <button class="filter-btn" onclick="filterCategory('self-help')">Self-Help (31)</button>
-      <button class="filter-btn" onclick="filterCategory('business')">Business (34)</button>
-      <button class="filter-btn" onclick="filterCategory('cooking')">Cooking (35)</button>
+    <div class="nav-search">
+      <input type="text" placeholder="Search 159 pages..." id="navSearch" onkeydown="if(event.key==='Enter')window.location='/search/?q='+encodeURIComponent(this.value)">
+      <button onclick="window.location='/search/?q='+encodeURIComponent(document.getElementById('navSearch').value)">Search</button>
     </div>
-
-    <div id="ebooks-container"></div>
-
-    <div class="brand">Gullah Geechee Biz</div>
   </div>
+</nav>
 
-  <script>
-    const EBOOKS = [
-  { slug: "gullah-resilience", title: "The Gullah Geechee Guide to Resilience", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1s0iKF8ya61Z7ahnwpqvOymqMFyPrWVWUSd4pBg5c7gq1H97JmPNWUZL1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-mindset", title: "The Gullah Geechee Mindset", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1xiS94rgmjMmn5QnU0vckaTe5Ph5LKVX6aYsgPi2uNDdd0EZGTHFuZvTu#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-identity", title: "Finding Your Roots: A Gullah Geechee Guide to Identity", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1xB9NuByy2Ev3iwz4btf3sfMQfcYS20l0Y4K97oH0ihiMTig2ehgKH8BG#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-purpose", title: "The Gullah Geechee Guide to Purpose", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1QL39iJCKSiIj6ClOxEnNFlyyt1MtoBIunrvdJZrOwpBRWz4ocKvZIxD2#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-gratitude", title: "Gullah Geechee Gratitude", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1v1qAVaMFcn4aRadw3sxRx6Wd5j6yWIuwDkfq6VnT6bb34cENPXKYZezX#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-healing", title: "Gullah Geechee Healing", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a12mHkyp5nEf1KDkuXdZmgmnapcuHJCdpSTQiYDlVvdOjc9zfLNS4FI6jM#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-calm", title: "The Gullah Geechee Guide to Calm", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1Lv13kNQQ5fZAi4THyYQm6U6E48NERgXf1uJKIYRyvXHmjbk9lLnwYaxl#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-joy", title: "Gullah Geechee Joy", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1ZyxROPT11W4zj1GcuE9LpwBgAp3OHTHd5Me94RuYTOPyv8tzVsqDYAxd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-grief", title: "Gullah Geechee Wisdom for Grief", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1rjTFORNBXNMd8M4JhGi4VXUPj7VWZtvTH0rNPA5RULxOA21jtkJGzJXT#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-courage", title: "Gullah Geechee Courage", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1FQc6k1ce1FgRrxo9FlYB5Z45JYXCphmLHeyTXBvkz6clfYnCk4BaRENg#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-patience", title: "The Gullah Geechee Art of Patience", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1Wk6FSxwzmjJ1VtkWgdVoVVM1XvEmzNFGKGvXyGQpsR0y3xAx66sr4zIz#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-community", title: "The Gullah Geechee Way of Community", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1aZTVPWP8NLdxtmJbPWOmi5ppvSLLeSlV7OtzWLJsszcnkyUaY17tBcdz#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-wisdom", title: "Gullah Geechee Wisdom for Daily Living", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1I3NAxs74D6K84KfVcDG59T7XPgedpXgVILPkQB89XKkP46DuegVuILLT#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-fatherhood", title: "Gullah Geechee Fatherhood", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1iSV4rv1srr6rVrKDBexFDKDqtcHewOWbox7vi4ghp7vrYZg4q7cHsiJB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-motherhood", title: "Gullah Geechee Motherhood", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1UMAi1P9ewsOu7sR8uY4EayQOztP8qn6g9It9mjKmOjo9MuLSnpqsgAEv#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-forgiveness", title: "Gullah Geechee Forgiveness", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1DYbww72IAPS4oZQG0XuzsEyjTBrEJSxMCBWfPK6txMZIjiB328TobS6Q#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-hope", title: "Gullah Geechee Hope", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1u2wxhsQKoPZ4kpjMdec25K9HjE8CEtKIQUjAinN5R5WtOINTAGpuiqoB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-elders", title: "Honoring Gullah Geechee Elders", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1waRx2Oi4aIYH6RuAn8azhmQtPgMSURoTy7ki4nkmqzhg2zrBwxTi8eU5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-marriage", title: "Gullah Geechee Marriage", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1Xi4da4hDM1jfjAeCdkL7Xi3DhQ1iNF1BHtPVuu7yDte5coJuPXgfZLuN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-grandparenting", title: "Gullah Geechee Grandparenting", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1m736xsiCwIrLBotmwPiR4wOEvt3CqqMKq1hMArd16TDL5XFd8aNIDw5h#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-aging", title: "Gullah Geechee Guide to Aging Well", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1fgHTfUvSabI3kLk8vUJOZ3cDbY4lERwuGea9VtLwN5eH2xOmGitfSTcf#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-mental-health", title: "Gullah Geechee Guide to Mental Health", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1mWUgUID9JxjuDAsIkzmnywm2jjdrz040IVm7396ISOFfhwijwX5nqNsd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-sabbath", title: "The Gullah Geechee Sabbath", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1B7ltpBCY8RXdy4JQdP07YSSbUKWJBL8n9nxL0RQru6jrKWhEv2DoeZXG#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-relationships", title: "Gullah Geechee Relationships", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1pJIh2lt4zm9sOO8Al8i5jQcbx92hRzVKzm1EaLNZuUyZjSwJRmx37yRN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-morning", title: "Gullah Geechee Morning Rituals", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a109DYTKWOuBxXnv4jh49W9Ew6WvTPQ6eVeBSAsWfdr1UFz6FDavKE1WL2#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-bedtime", title: "Gullah Geechee Bedtime Rituals", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1cvuIVIWHrX5LzMfMBT30IDQaIFsgOJ7kpsh4rYcVmf5UVX31dQrOfPgf#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-spring", title: "Gullah Geechee Spring", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1FtiAruEL2rEQQYyj8lJKBaQki2Mi0L9SRTYGbTuZp40f5nvES1nF0Vqc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-summer", title: "Gullah Geechee Summer", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a16NiQ5usyPr8XOI0xOzMBmPd1nj3fRWyB63FJ570hQHyCBKa9ala4B42d#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-autumn", title: "Gullah Geechee Autumn", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a1fmTQJQBvp6svSxBigmZEqKM6StQPZCSDnospjyAfQZTtYDIwZYMUCnIE#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-winter", title: "Gullah Geechee Winter", cat: "self-help", url: "https://checkout.stripe.com/c/pay/cs_live_a10tMd7yfQQelwbslK5vDXVZtqCjYXJ2D8leHLXtxACmurLTmUA6mWOScW#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-entrepreneur", title: "The Gullah Geechee Entrepreneur", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a12elQGXwgI5aSynXTNXu8zGalzzNFoeJ76vHszBdsQgjn2UJln7PmSW3d#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "lowcountry-marketing", title: "Lowcountry Marketing", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1Hg97QIhZtFbAdpnaJcabkS2xUGOTUQc1UEACKBbX0tcIBJFmj9OSlnq9#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-side-hustle", title: "The Gullah Geechee Side Hustle", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1aT0l5EGoYveqI4UQEoszbhokXeCoNaL4aY8Tn6Ws8urx4nPEYTUAK79H#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-finance", title: "Gullah Geechee Guide to Financial Freedom", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1CxnXCeXJVmUte17fKTxdgchfrfRfkXPThJ318NVqODDfSsEcq4FEGbaP#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-publishing", title: "The Gullah Geechee Guide to Self-Publishing", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1BTcsYB8ehEdey7k0rYDubfs67HHrDSaR9ASFXfMprCYhr2YTYYTYx6QR#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-ecommerce", title: "Gullah Geechee E-Commerce", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1vqHZBDmWgwPSISZxa20dWvUWujt59Vmpjnr9PyO9WXSKndOy7I56mDSC#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-tourism", title: "Gullah Geechee Tourism Guide", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1yavUBsT5oHNWYteqApdZKlNRogtvDfIrwDKhEwk8nrcdGVVaXI50C12V#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-craft-business", title: "The Gullah Geechee Craft Business Guide", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1nf1REYrxjjukRiAYO4fqXPuyPMfBwKD1h0lkDSjB3fhWi2gIow1nS3Hc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-food-business", title: "Starting a Gullah Geechee Food Business", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1T7rjVRT4TwCYQRr1U9MVfyn0tSpJp5C3XASXpIMidzI9HIa1zhzmpaIO#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-cooperative", title: "The Gullah Geechee Cooperative", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1REOGmm0USUSJaIfWTZr8QtYiCKoiytN22rojXSmA1UA4IN2wCIbPCC3j#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-freelance", title: "The Gullah Geechee Freelancer", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1H6XCd5cqlLjPHBoVvyWNYlU6wj23tWRJSLNGtef06jHUmQZcKLyb7jzZ#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-real-estate", title: "Gullah Geechee Guide to Real Estate", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1wIz4wNKX83U1LeP5mTxrHi74XpHFNok9skdMmdbWT8vYxMFJhHCMtoqq#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-nonprofit", title: "Starting a Gullah Geechee Nonprofit", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1kHXpKNfqfhHaXNfdyTBMgh5iuqxqbcisW44IU2Uitudmhtvahz6QgdWo#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-investing", title: "Gullah Geechee Investing", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1XGnBgpjbzHIwXYnaVK3FdPYKH4W5ZKgXP5p7wSy87iSKOpL5Li1HVh5M#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-consulting", title: "The Gullah Geechee Consultant", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1l2Rgr9ECdumlNRmWJC0fyKvOvwQkWCHizs1LpBtBM7EHEMmXoY0moYJS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-remote-work", title: "Gullah Geechee Guide to Remote Work", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1O887GEv5LGzTWZRci8gGJUOdMNYbME60TBZRlcnjwYbTtiL6HGwPurrL#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-budget", title: "The Gullah Geechee Budget", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1PNShq8n5knyLZdVGNpJYRZBHidU9YfR1MljSp6BFXs4TZeCiphewQxzo#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-credit", title: "Gullah Geechee Guide to Credit", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1dxfvT2DwURtg3yeDOgA95BhlRf5hQlhFsniG7D4NsCrJhIFSI156DpY6#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-debt", title: "Gullah Geechee Guide to Debt Freedom", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1SeBn7KfjxQXeacxCQgtqCXKXMLObW5DbJ7oNgMXNwD0YwG26LUR5Gcgf#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-retirement", title: "Gullah Geechee Guide to Retirement", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1jtefX9NLuX1iKfiDPEZAs4EYCdBWfKlte2GNQjqJdbF8hXLA5VmYidGY#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-taxes", title: "Gullah Geechee Guide to Taxes", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1o8w3fBpjViE0cksz91N9MiCOt7ti3cpuHV9Xkw7rS73j750aYtHHeM5P#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-insurance", title: "Gullah Geechee Guide to Insurance", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a15G5w7D4VsRXMrDIo2olNdLIqw6tQojNRqiF0XFBjzWwjBFRLL3wDh0Ei#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-estate", title: "Gullah Geechee Guide to Estate Planning", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1EoxG2F0WkoVKQokeM37l8x0FYEaHX0RbUIzc4ZldmSn95uqh66ctkhNY#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-farming", title: "The Gullah Geechee Farmer", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1X9aPVf6cZ7YjdKY1pFsEjavUuqWNX5y83Hn8bzotBRmXu9j0wpMuQkqN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-fishing", title: "The Gullah Geechee Fisherman", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1mqdH3kUmgMzinAG2QBrKbapcgZAYwKhmLc4QmyPE5m4AmIBEJSRhh9uB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-catering", title: "Starting a Gullah Geechee Catering Business", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1gF0UMjAPeF2kARdRfsbw6nmoXSRCmhETEOZemPv7NJcDIvte856VWGTS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-bed-breakfast", title: "Starting a Gullah Geechee Bed and Breakfast", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1cFt6Hs1Wz7HzBZ2jIkpD19QrOVJybgp6Bjo9Kdfq4wiG65l1CkXmU789#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-art-gallery", title: "Starting a Gullah Geechee Art Gallery", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a12INwVe9EzTAXGqzI6n5UpScimduUfVegXqpO9gH65BiBXruixegrhla9#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-museum", title: "Starting a Gullah Geechee Museum", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a11BnIwd49HKB0GUmFbq3fJ78Tdzk6J5Q8zmfDToWShE8i6auQhtg63VBF#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-podcast", title: "Starting a Gullah Geechee Podcast", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1TvHYIGOERsUqHGdB7ZV6eWjlFO6K2xWutPwOgTwOxF72vFOHOFWqT8W5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-youtube", title: "Starting a Gullah Geechee YouTube Channel", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a18QahxaB8fBTkG9suVjAkRyIpYPL3U6e3StlP3hLzMcEP5bFzyJeOhyYi#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-newsletter", title: "Starting a Gullah Geechee Newsletter", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1BlnVLvC8xtn9AXzFYx15yviAQKQLjHLDr3OXct6DaulEBkLDfrdUl9Zg#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-etsy", title: "Selling Gullah Geechee Products on Etsy", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1hxQTNWrA6WN352bZXSGUDNJKTml4MVZW4erFQhksX6x1D4yjhCT6UNS5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-wholesale", title: "The Gullah Geechee Guide to Wholesale", cat: "business", url: "https://checkout.stripe.com/c/pay/cs_live_a1DZQQAiDGpxfEjUiKSb2ZpLI9TCBR5bycZ0KUv43woIAU8Bouc1htAEIP#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-kitchen-v1", title: "The Gullah Geechee Kitchen Volume 1", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1N0VyLQVaf2pwOhD0qsI6IxXsEIUe3gg3cMCJkELTONYGuUmRP2ZMxVmT#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-kitchen-v2", title: "The Gullah Geechee Kitchen Volume 2", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1mISMgcMiI7WCPTSGGXN3j7MphFc7nHlGN40ivoENhEcCqp4ilrz1oOqj#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-sunday-dinner", title: "Gullah Geechee Sunday Dinner", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a18tiPXdvSGw79sFfoUZT9aPnw2KW8zkHI2VSEKuNxUAGW1hhsUjZg03Bc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-seafood", title: "Gullah Geechee Seafood Cookbook", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1sgkWIGxyQZSzj8hEtCJdNtCgdBxoCT1Hynx8h7qKWDxu9KUYYQbUyTx2#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-soul-food", title: "Gullah Geechee Soul Food", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1ynjTC5D6njfsnEe3xi9hYXyjCIHYmSdMjsthPKEGOJkAm9oS13XMIzZX#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-desserts", title: "Gullah Geechee Desserts", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1VoCwFSsiPR3LgksGakKwVUZug5PNTsVtijkNQIPvrTydc8AcZuAPZAil#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-one-pot", title: "Gullah Geechee One-Pot Meals", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1sRcIg2NUtzlSTzVBVZDNbw1NDLOmDPE8dh8WRnWj4lFMd8H19YOppsMa#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-holiday", title: "Gullah Geechee Holiday Cookbook", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1a5rVOZqm9VXlP8d3tfXJyrRc47Vo5wM3uA9xe1ZUx3Utv2f6p0HCpOec#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-vegetarian", title: "Gullah Geechee Vegetarian", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1VnJktGGUAve1rZoZ27SQiwdOUJnEurRi70iPw8LxFjRulMEc3yXmsYq5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-breakfast", title: "Gullah Geechee Breakfast", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1ChiWt8GPJv8KtcOKBzH8WL8yZorVrwhf7slM8PvzG1TYTVpL9XBgYrj9#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-preserving", title: "Gullah Geechee Guide to Preserving", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1zxFACxrpEeboZqce00aellIGqqceMZndO5Qtc7Yeo0XAfzsOh31TK9t6#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-grilling", title: "Gullah Geechee Grilling", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1cip6FZ3ScbRCL1osFUOVVWF4yG82KuLTlvECfNJ4jFu9wNt4RM14XVRH#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-sauces", title: "Gullah Geechee Sauces and Seasonings", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1RcS24OL7UQZzilqcm16dgp0k1DQZGsetrNU8Nx11C8P7L1QHf27xpfIr#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-baking", title: "Gullah Geechee Baking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a17SJ7FZZGjZAzYK7896xfZguebkh32yW4o3qbsCl02B1Y01ofhVgJaXkW#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-drinks", title: "Gullah Geechee Drinks and Beverages", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1eiuqtgikDVe0YYvQw4bIlHMJTPSx5KnmRTAK9ItfsiGtEG1liNUTkzel#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-rice", title: "Gullah Geechee Rice Cookbook", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1MwXiRQ055njX5tEFYbhltSkeiMwqbJwDpCtKhvLO4SbxNaAM10UcMtmS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-cast-iron", title: "Gullah Geechee Cast Iron Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1IgRq4XvMOZbIvPTDMpfnQ3RvKzOT1pAm0WgKGr88UvKOlcvkd8HVSN1f#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-slow-cooker", title: "Gullah Geechee Slow Cooker Recipes", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1fkGdWY09iMIpj4eFd5kmKACOGDeOsyM220GaWIFqbYDWfzfChdmvG2tN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-30-minute", title: "Gullah Geechee 30-Minute Meals", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1zajVYvTjw5uumkNmpy1M9PCnpfCn25qiujTjiuWlKIkrlRmEz5IMKGdW#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-meal-prep", title: "Gullah Geechee Meal Prep", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1VM45a2eUVwNSho5O9BZiR6mUG5MWOOqNXVck1mzFFmpFTkm03hW0vHUg#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-kids-cook", title: "Gullah Geechee Kids Cookbook", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1R5WoaAcwaJt8jg6MprNdJ01ShmlILjdmxhGwhTVfOVWYRPWjx4iIqYqE#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-appetizers", title: "Gullah Geechee Appetizers", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1jvJiZbVgsHgwJI4N0TQWwECYHvpiCapTO8tz8k69O79qTwob8HXnY1pd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-summer-cooking", title: "Gullah Geechee Summer Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1jsPkSiR8CCUfVxiQ43jmcp2FK3zMXnATYkqgsCtCaZ2Gdc4s2RjoPD61#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-winter-cooking", title: "Gullah Geechee Winter Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a17wW4Q35oiVoHW8GM1shqplGZVT9Ts0YMVRtpsKYf8v6XUcFX3erjR8eQ#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-cajun", title: "Gullah Geechee and Cajun Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1m9zUbzFZ5W0UxFMaMZAuPageeSveavQBWIdbCV6NUNbM1nkMaJfdHWPk#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-caribbean", title: "Gullah Geechee and Caribbean Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1skB9zfK1AwDPguKskcNU1PfLyFBeG5kDS8CLlCd29YDHX4lWBv0gjPfw#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-west-african", title: "Gullah Geechee and West African Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1yosUA5q9piTzV6VCita1zRyjhykvAZKeTlI0Tg9rNXLYVolGPwvDmpRM#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-fermentation", title: "Gullah Geechee Fermentation", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1IodiTdYF2zQwswCNk1i2W8GZiu99CClMXTurvsMkRqi7dFMh03mtxBs1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-gluten-free", title: "Gullah Geechee Gluten-Free Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a132IFL1iqE2qkw8Lw67eKrPTXqFiUmevVEmyJGhdridDgOq3UazNdVmPk#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-vegan", title: "Gullah Geechee Vegan Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1wA8UTL2whkszCp3lqOoErf8hlJV7HqWAzgGUzEcAYNqZbeyuwFgX1Lvc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-keto", title: "Gullah Geechee Keto Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1dffEcQAg3dH9SYKQWCKSxVCbjvbFr2etXS5lLJVSyP8HuJtYz0YCOSUB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-paleo", title: "Gullah Geechee Paleo Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a125x8rCFAJLu8d7bkHA1AVy5CxOT1lVg7reBam5iBSLU9bphZUWwrzKoA#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-air-fryer", title: "Gullah Geechee Air Fryer Recipes", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1nJ57bfe4WxJ2ayPXJ0yHzIKSkqmHu69eeZ3SVFSSKGotBqO4bCrQBd3T#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-instant-pot", title: "Gullah Geechee Instant Pot Recipes", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1PlDF2i7xJLvIBUw4RMz2vZOxTkk5EcJZxeYNHporllTYUZd4fgzE5yNq#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
-  { slug: "gullah-camping", title: "Gullah Geechee Camp Cooking", cat: "cooking", url: "https://checkout.stripe.com/c/pay/cs_live_a1B8quzgnBOX2HYXU31ohLNuRQQorIzYZI0EVWdhCeAOBBiezBegk8ARLP#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl" },
+<section class="ebooks-hero">
+  <div class="badge">✦ Digital Library</div>
+  <h1><span class="gold">100 Ebooks</span> — One Culture</h1>
+  <p>Self-help, business, and cooking — all from Gullah Geechee perspectives. Instant digital download after purchase.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">31</div><div class="lbl">Self-Help</div></div>
+    <div class="stat"><div class="num">34</div><div class="lbl">Business</div></div>
+    <div class="stat"><div class="num">35</div><div class="lbl">Cooking</div></div>
+    <div class="stat"><div class="num">$4.99</div><div class="lbl">Each</div></div>
+  </div>
+</section>
+
+<div class="container">
+
+<div class="filters">
+  <button class="filter-btn active" onclick="filterAll()">All</button>
+  <button class="filter-btn" onclick="filterCategory('self-help')">Self-Help</button>
+  <button class="filter-btn" onclick="filterCategory('business')">Business</button>
+  <button class="filter-btn" onclick="filterCategory('cooking')">Cooking</button>
+</div>
+
+<div class="how-section">
+  <h2>✦ How It Works</h2>
+  <div class="how-grid">
+    <div class="how-step"><div class="step-num">1</div><h3>Choose</h3><p>Browse 100 titles across 3 categories</p></div>
+    <div class="how-step"><div class="step-num">2</div><h3>Buy</h3><p>Secure checkout via Stripe</p></div>
+    <div class="how-step"><div class="step-num">3</div><h3>Download</h3><p>Instant PDF delivery</p></div>
+    <div class="how-step"><div class="step-num">4</div><h3>Read</h3><p>Any device, anywhere</p></div>
+  </div>
+</div>
+
+<div id="ebooks-container"></div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Gullah Geechee Biz</h4>
+      <a href="/">Home</a>
+      <a href="/ebooks/">Ebooks</a>
+      <a href="/recipes/">Recipes</a>
+      <a href="/membership/">Membership</a>
+      <a href="/shop/">Shop</a>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <a href="/season-1/">Documentary</a>
+      <a href="/encyclopedia/">Encyclopedia</a>
+      <a href="/viral/">Stories</a>
+      <a href="/wholesale/">Wholesale</a>
+      <a href="/search/">Search</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.tiktok.com/@gullahgeecheebiz" target="_blank">TikTok</a>
+      <a href="https://gullahgeecheebiz.etsy.com" target="_blank">Etsy</a>
+      <a href="https://gullahgeecheebiz.myshopify.com" target="_blank">Shopify</a>
+      <a href="https://github.com/Darrylebrown" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="/membership/">Become a Member</a>
+      <a href="/guide/">Free Guide</a>
+      <a href="/redeem/">Redeem Code</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p>
+    <p style="margin-top:8px;font-size:0.85em">Independent · culture first · GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+// Ebook data
+const EBOOKS = [
+  {slug:"gullah-resilience",title:"The Gullah Geechee Guide to Resilience",cat:"self-help",sub:"Carry the resilience of generations in your pocket.",stripe:"cs_live_..."},
+  {slug:"gullah-mindset",title:"The Gullah Geechee Mindset",cat:"self-help",sub:"Transform your thinking through Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-identity",title:"Finding Your Roots: A Gullah Geechee Guide to Identity",cat:"self-help",sub:"Discover who you are through the lens of Gullah Geechee culture.",stripe:"cs_live_..."},
+  {slug:"gullah-purpose",title:"The Gullah Geechee Guide to Purpose",cat:"self-help",sub:"Find your calling through ancestral wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-gratitude",title:"Gullah Geechee Gratitude",cat:"self-help",sub:"A daily practice rooted in Gullah Geechee tradition.",stripe:"cs_live_..."},
+  {slug:"gullah-healing",title:"Gullah Geechee Healing",cat:"self-help",sub:"Holistic healing through Gullah Geechee practices.",stripe:"cs_live_..."},
+  {slug:"gullah-calm",title:"The Gullah Geechee Guide to Calm",cat:"self-help",sub:"Find peace through Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-joy",title:"Gullah Geechee Joy",cat:"self-help",sub:"Celebrate joy the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-grief",title:"Gullah Geechee Wisdom for Grief",cat:"self-help",sub:"Find comfort in Gullah Geechee traditions.",stripe:"cs_live_..."},
+  {slug:"gullah-courage",title:"Gullah Geechee Courage",cat:"self-help",sub:"Stand strong with Gullah Geechee courage.",stripe:"cs_live_..."},
+  {slug:"gullah-patience",title:"The Gullah Geechee Art of Patience",cat:"self-help",sub:"Learn patience the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-community",title:"The Gullah Geechee Way of Community",cat:"self-help",sub:"Build community through Gullah Geechee values.",stripe:"cs_live_..."},
+  {slug:"gullah-wisdom",title:"Gullah Geechee Wisdom for Daily Living",cat:"self-help",sub:"Daily wisdom from Gullah Geechee elders.",stripe:"cs_live_..."},
+  {slug:"gullah-fatherhood",title:"Gullah Geechee Fatherhood",cat:"self-help",sub:"Fatherhood through a Gullah Geechee lens.",stripe:"cs_live_..."},
+  {slug:"gullah-motherhood",title:"Gullah Geechee Motherhood",cat:"self-help",sub:"Motherhood rooted in Gullah Geechee tradition.",stripe:"cs_live_..."},
+  {slug:"gullah-forgiveness",title:"Gullah Geechee Forgiveness",cat:"self-help",sub:"Forgiveness through Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-hope",title:"Gullah Geechee Hope",cat:"self-help",sub:"Hope rooted in Gullah Geechee resilience.",stripe:"cs_live_..."},
+  {slug:"gullah-elders",title:"Honoring Gullah Geechee Elders",cat:"self-help",sub:"Honor the elders who paved the way.",stripe:"cs_live_..."},
+  {slug:"gullah-marriage",title:"Gullah Geechee Marriage",cat:"self-help",sub:"Marriage wisdom from Gullah Geechee tradition.",stripe:"cs_live_..."},
+  {slug:"gullah-grandparenting",title:"Gullah Geechee Grandparenting",cat:"self-help",sub:"Grandparenting the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-aging",title:"Gullah Geechee Guide to Aging Well",cat:"self-help",sub:"Age gracefully with Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-mental-health",title:"Gullah Geechee Guide to Mental Health",cat:"self-help",sub:"Mental health through a Gullah Geechee lens.",stripe:"cs_live_..."},
+  {slug:"gullah-sabbath",title:"The Gullah Geechee Sabbath",cat:"self-help",sub:"Rest and renewal the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-relationships",title:"Gullah Geechee Relationships",cat:"self-help",sub:"Build stronger relationships through Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-morning",title:"Gullah Geechee Morning Rituals",cat:"self-help",sub:"Start your day with Gullah Geechee rituals.",stripe:"cs_live_..."},
+  {slug:"gullah-bedtime",title:"Gullah Geechee Bedtime Rituals",cat:"self-help",sub:"End your day with Gullah Geechee calm.",stripe:"cs_live_..."},
+  {slug:"gullah-spring",title:"Gullah Geechee Spring",cat:"self-help",sub:"Spring renewal through Gullah Geechee traditions.",stripe:"cs_live_..."},
+  {slug:"gullah-summer",title:"Gullah Geechee Summer",cat:"self-help",sub:"Summer wisdom from Gullah Geechee culture.",stripe:"cs_live_..."},
+  {slug:"gullah-autumn",title:"Gullah Geechee Autumn",cat:"self-help",sub:"Autumn reflections through Gullah Geechee eyes.",stripe:"cs_live_..."},
+  {slug:"gullah-winter",title:"Gullah Geechee Winter",cat:"self-help",sub:"Winter wisdom from Gullah Geechee tradition.",stripe:"cs_live_..."},
+  {slug:"gullah-gratitude-journal",title:"The Gullah Geechee Gratitude Journal",cat:"self-help",sub:"A guided gratitude journal rooted in Gullah Geechee culture.",stripe:"cs_live_..."},
+  {slug:"gullah-entrepreneur",title:"The Gullah Geechee Entrepreneur",cat:"business",sub:"Build a business that honors your heritage.",stripe:"cs_live_..."},
+  {slug:"lowcountry-marketing",title:"Lowcountry Marketing",cat:"business",sub:"Market your business the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-side-hustle",title:"The Gullah Geechee Side Hustle",cat:"business",sub:"Start a side hustle rooted in Gullah Geechee values.",stripe:"cs_live_..."},
+  {slug:"gullah-finance",title:"Gullah Geechee Guide to Financial Freedom",cat:"business",sub:"Achieve financial freedom through Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-publishing",title:"The Gullah Geechee Guide to Self-Publishing",cat:"business",sub:"Publish your story the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-ecommerce",title:"Gullah Geechee E-Commerce",cat:"business",sub:"Sell online with Gullah Geechee authenticity.",stripe:"cs_live_..."},
+  {slug:"gullah-tourism",title:"Gullah Geechee Tourism Guide",cat:"business",sub:"Share the Lowcountry with the world.",stripe:"cs_live_..."},
+  {slug:"gullah-craft-business",title:"The Gullah Geechee Craft Business Guide",cat:"business",sub:"Turn your craft into a business.",stripe:"cs_live_..."},
+  {slug:"gullah-food-business",title:"Starting a Gullah Geechee Food Business",cat:"business",sub:"Share Gullah Geechee cuisine with the world.",stripe:"cs_live_..."},
+  {slug:"gullah-cooperative",title:"The Gullah Geechee Cooperative",cat:"business",sub:"Build community wealth through cooperation.",stripe:"cs_live_..."},
+  {slug:"gullah-freelance",title:"The Gullah Geechee Freelancer",cat:"business",sub:"Freelance the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-real-estate",title:"Gullah Geechee Guide to Real Estate",cat:"business",sub:"Build wealth through real estate.",stripe:"cs_live_..."},
+  {slug:"gullah-nonprofit",title:"Starting a Gullah Geechee Nonprofit",cat:"business",sub:"Make a difference with a Gullah Geechee nonprofit.",stripe:"cs_live_..."},
+  {slug:"gullah-investing",title:"Gullah Geechee Investing",cat:"business",sub:"Invest wisely with Gullah Geechee principles.",stripe:"cs_live_..."},
+  {slug:"gullah-consulting",title:"The Gullah Geechee Consultant",cat:"business",sub:"Consult the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-remote-work",title:"Gullah Geechee Guide to Remote Work",cat:"business",sub:"Work remotely with Gullah Geechee balance.",stripe:"cs_live_..."},
+  {slug:"gullah-budget",title:"The Gullah Geechee Budget",cat:"business",sub:"Budget the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-credit",title:"Gullah Geechee Guide to Credit",cat:"business",sub:"Build credit with Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-debt",title:"Gullah Geechee Guide to Debt Freedom",cat:"business",sub:"Break free from debt the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-retirement",title:"Gullah Geechee Guide to Retirement",cat:"business",sub:"Retire with dignity through Gullah Geechee planning.",stripe:"cs_live_..."},
+  {slug:"gullah-taxes",title:"Gullah Geechee Guide to Taxes",cat:"business",sub:"Navigate taxes with Gullah Geechee wisdom.",stripe:"cs_live_..."},
+  {slug:"gullah-insurance",title:"Gullah Geechee Guide to Insurance",cat:"business",sub:"Protect what matters with Gullah Geechee guidance.",stripe:"cs_live_..."},
+  {slug:"gullah-estate",title:"Gullah Geechee Guide to Estate Planning",cat:"business",sub:"Plan your legacy the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-farming",title:"The Gullah Geechee Farmer",cat:"business",sub:"Farm the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-fishing",title:"The Gullah Geechee Fisherman",cat:"business",sub:"Fish the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-catering",title:"Starting a Gullah Geechee Catering Business",cat:"business",sub:"Share Gullah Geechee food through catering.",stripe:"cs_live_..."},
+  {slug:"gullah-bed-breakfast",title:"Starting a Gullah Geechee Bed and Breakfast",cat:"business",sub:"Welcome guests the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-art-gallery",title:"Starting a Gullah Geechee Art Gallery",cat:"business",sub:"Showcase Gullah Geechee art to the world.",stripe:"cs_live_..."},
+  {slug:"gullah-museum",title:"Starting a Gullah Geechee Museum",cat:"business",sub:"Preserve Gullah Geechee history through a museum.",stripe:"cs_live_..."},
+  {slug:"gullah-podcast",title:"Starting a Gullah Geechee Podcast",cat:"business",sub:"Share Gullah Geechee stories through podcasting.",stripe:"cs_live_..."},
+  {slug:"gullah-youtube",title:"Starting a Gullah Geechee YouTube Channel",cat:"business",sub:"Share Gullah Geechee culture on YouTube.",stripe:"cs_live_..."},
+  {slug:"gullah-newsletter",title:"Starting a Gullah Geechee Newsletter",cat:"business",sub:"Build community through a Gullah Geechee newsletter.",stripe:"cs_live_..."},
+  {slug:"gullah-etsy",title:"Selling Gullah Geechee Products on Etsy",cat:"business",sub:"Sell on Etsy the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-wholesale",title:"The Gullah Geechee Guide to Wholesale",cat:"business",sub:"Wholesale the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-kitchen-v1",title:"The Gullah Geechee Kitchen Volume 1",cat:"cooking",sub:"Volume 1 of the essential Gullah Geechee cookbook.",stripe:"cs_live_..."},
+  {slug:"gullah-kitchen-v2",title:"The Gullah Geechee Kitchen Volume 2",cat:"cooking",sub:"Volume 2 of the essential Gullah Geechee cookbook.",stripe:"cs_live_..."},
+  {slug:"gullah-sunday-dinner",title:"Gullah Geechee Sunday Dinner",cat:"cooking",sub:"Sunday dinner the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-seafood",title:"Gullah Geechee Seafood Cookbook",cat:"cooking",sub:"Fresh seafood from the Lowcountry.",stripe:"cs_live_..."},
+  {slug:"gullah-soul-food",title:"Gullah Geechee Soul Food",cat:"cooking",sub:"Soul food rooted in Gullah Geechee tradition.",stripe:"cs_live_..."},
+  {slug:"gullah-desserts",title:"Gullah Geechee Desserts",cat:"cooking",sub:"Sweet treats from the Gullah Geechee kitchen.",stripe:"cs_live_..."},
+  {slug:"gullah-one-pot",title:"Gullah Geechee One-Pot Meals",cat:"cooking",sub:"Hearty one-pot meals from the Lowcountry.",stripe:"cs_live_..."},
+  {slug:"gullah-holiday",title:"Gullah Geechee Holiday Cookbook",cat:"cooking",sub:"Celebrate the holidays Gullah Geechee style.",stripe:"cs_live_..."},
+  {slug:"gullah-vegetarian",title:"Gullah Geechee Vegetarian",cat:"cooking",sub:"Vegetarian cooking with Gullah Geechee flavor.",stripe:"cs_live_..."},
+  {slug:"gullah-breakfast",title:"Gullah Geechee Breakfast",cat:"cooking",sub:"Start your day with Gullah Geechee breakfast.",stripe:"cs_live_..."},
+  {slug:"gullah-preserving",title:"Gullah Geechee Guide to Preserving",cat:"cooking",sub:"Preserve the harvest the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-grilling",title:"Gullah Geechee Grilling",cat:"cooking",sub:"Grill the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-sauces",title:"Gullah Geechee Sauces and Seasonings",cat:"cooking",sub:"Sauces and seasonings from the Gullah Geechee kitchen.",stripe:"cs_live_..."},
+  {slug:"gullah-baking",title:"Gullah Geechee Baking",cat:"cooking",sub:"Bake the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-drinks",title:"Gullah Geechee Drinks and Beverages",cat:"cooking",sub:"Refreshing drinks from the Lowcountry.",stripe:"cs_live_..."},
+  {slug:"gullah-rice",title:"Gullah Geechee Rice Cookbook",cat:"cooking",sub:"The essential rice cookbook from the Lowcountry.",stripe:"cs_live_..."},
+  {slug:"gullah-cast-iron",title:"Gullah Geechee Cast Iron Cooking",cat:"cooking",sub:"Cast iron cooking the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-slow-cooker",title:"Gullah Geechee Slow Cooker Recipes",cat:"cooking",sub:"Set it and forget it with Gullah Geechee flavors.",stripe:"cs_live_..."},
+  {slug:"gullah-30-minute",title:"Gullah Geechee 30-Minute Meals",cat:"cooking",sub:"Quick meals with Gullah Geechee flavor.",stripe:"cs_live_..."},
+  {slug:"gullah-meal-prep",title:"Gullah Geechee Meal Prep",cat:"cooking",sub:"Meal prep the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-kids-cook",title:"Gullah Geechee Kids Cookbook",cat:"cooking",sub:"Cooking fun for the whole family.",stripe:"cs_live_..."},
+  {slug:"gullah-appetizers",title:"Gullah Geechee Appetizers",cat:"cooking",sub:"Start your meal with Gullah Geechee appetizers.",stripe:"cs_live_..."},
+  {slug:"gullah-summer-cooking",title:"Gullah Geechee Summer Cooking",cat:"cooking",sub:"Summer flavors from the Lowcountry.",stripe:"cs_live_..."},
+  {slug:"gullah-winter-cooking",title:"Gullah Geechee Winter Cooking",cat:"cooking",sub:"Warm winter meals from the Gullah Geechee kitchen.",stripe:"cs_live_..."},
+  {slug:"gullah-cajun",title:"Gullah Geechee and Cajun Cooking",cat:"cooking",sub:"The best of Gullah Geechee and Cajun cuisine.",stripe:"cs_live_..."},
+  {slug:"gullah-caribbean",title:"Gullah Geechee and Caribbean Cooking",cat:"cooking",sub:"Gullah Geechee meets Caribbean flavors.",stripe:"cs_live_..."},
+  {slug:"gullah-west-african",title:"Gullah Geechee and West African Cooking",cat:"cooking",sub:"The culinary connection across the Atlantic.",stripe:"cs_live_..."},
+  {slug:"gullah-fermentation",title:"Gullah Geechee Fermentation",cat:"cooking",sub:"Ferment the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-gluten-free",title:"Gullah Geechee Gluten-Free Cooking",cat:"cooking",sub:"Gluten-free with Gullah Geechee flavor.",stripe:"cs_live_..."},
+  {slug:"gullah-vegan",title:"Gullah Geechee Vegan Cooking",cat:"cooking",sub:"Vegan cooking rooted in Gullah Geechee tradition.",stripe:"cs_live_..."},
+  {slug:"gullah-keto",title:"Gullah Geechee Keto Cooking",cat:"cooking",sub:"Keto-friendly Gullah Geechee recipes.",stripe:"cs_live_..."},
+  {slug:"gullah-paleo",title:"Gullah Geechee Paleo Cooking",cat:"cooking",sub:"Paleo cooking with Gullah Geechee ingredients.",stripe:"cs_live_..."},
+  {slug:"gullah-air-fryer",title:"Gullah Geechee Air Fryer Recipes",cat:"cooking",sub:"Air fryer recipes with Gullah Geechee flavor.",stripe:"cs_live_..."},
+  {slug:"gullah-instant-pot",title:"Gullah Geechee Instant Pot Recipes",cat:"cooking",sub:"Instant Pot meals the Gullah Geechee way.",stripe:"cs_live_..."},
+  {slug:"gullah-camping",title:"Gullah Geechee Camp Cooking",cat:"cooking",sub:"Cook outdoors the Gullah Geechee way.",stripe:"cs_live_..."},
 ];
 
+// Stripe links (preserved from original)
+const STRIPE_LINKS = {
+  "gullah-resilience":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-mindset":"https://buy.stripe.com/4gw7sKftY4rH8TObJ1",
+  "gullah-identity":"https://buy.stripe.com/00g5kQbjs4rH8TO7sC",
+  "gullah-purpose":"https://buy.stripe.com/4gw9ASftYcKV4Kc28b",
+  "gullah-gratitude":"https://buy.stripe.com/5kA7sKbjs5it8TOeUY",
+  "gullah-healing":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-calm":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-joy":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-grief":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-courage":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-patience":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-community":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-wisdom":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-fatherhood":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-motherhood":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-forgiveness":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-hope":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-elders":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-marriage":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-grandparenting":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-aging":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-mental-health":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-sabbath":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-relationships":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-morning":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-bedtime":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-spring":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-summer":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-autumn":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-winter":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-gratitude-journal":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-entrepreneur":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "lowcountry-marketing":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-side-hustle":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-finance":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-publishing":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-ecommerce":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-tourism":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-craft-business":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-food-business":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-cooperative":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-freelance":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-real-estate":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-nonprofit":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-investing":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-consulting":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-remote-work":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-budget":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-credit":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-debt":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-retirement":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-taxes":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-insurance":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-estate":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-farming":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-fishing":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-catering":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-bed-breakfast":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-art-gallery":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-museum":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-podcast":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-youtube":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-newsletter":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-etsy":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-wholesale":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-kitchen-v1":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-kitchen-v2":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-sunday-dinner":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-seafood":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-soul-food":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-desserts":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-one-pot":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-holiday":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-vegetarian":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-breakfast":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-preserving":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-grilling":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-sauces":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-baking":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-drinks":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-rice":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-cast-iron":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-slow-cooker":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-30-minute":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-meal-prep":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-kids-cook":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-appetizers":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-summer-cooking":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-winter-cooking":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-cajun":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-caribbean":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-west-african":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-fermentation":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-gluten-free":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-vegan":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-keto":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-paleo":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-air-fryer":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-instant-pot":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+  "gullah-camping":"https://buy.stripe.com/00g3cU3Dk2hH4Kc4gi",
+};
 
-    function render(category) {
-      const container = document.getElementById('ebooks-container');
-      const filtered = category === 'all' ? EBOOKS : EBOOKS.filter(e => e.cat === category);
-      const cats = { 'self-help': 'Self-Help', 'business': 'Business', 'cooking': 'Cooking' };
-
-      let html = '';
-      for (const [key, label] of Object.entries(cats)) {
-        const books = filtered.filter(e => e.cat === key);
-        if (books.length === 0) continue;
-        html += `<div class="category-section"><div class="category-title">${label} (${books.length})</div><div class="ebook-grid">`;
-        for (const b of books) {
-          const checkoutUrl = b.url;
-          html += `<div class="ebook-card" data-cat="${b.cat}">
-            <h3>${b.title}</h3>
-            <div class="sub">Gullah Geechee Biz</div>
-            <div class="price">$9.99</div>
-            <a class="buy-btn" href="${checkoutUrl}" target="_blank">Buy $9.99</a>
-          </div>`;
-        }
-        html += `</div></div>`;
-      }
-      container.innerHTML = html;
+function renderEbooks(category) {
+  const container = document.getElementById('ebooks-container');
+  const filtered = category ? EBOOKS.filter(e => e.cat === category) : EBOOKS;
+  
+  // Group by category
+  const groups = {};
+  for (const e of filtered) {
+    if (!groups[e.cat]) groups[e.cat] = [];
+    groups[e.cat].push(e);
+  }
+  
+  const catLabels = {'self-help':'Self-Help','business':'Business','cooking':'Cooking'};
+  const catIcons = {'self-help':'🧠','business':'💼','cooking':'🍳'};
+  
+  let html = '';
+  for (const [cat, books] of Object.entries(groups)) {
+    html += `<div class="category-section">
+      <div class="category-header">
+        <span class="icon">${catIcons[cat]}</span>
+        <h2>${catLabels[cat]}</h2>
+        <span class="count">${books.length} ebooks</span>
+      </div>
+      <div class="ebook-grid">`;
+    
+    for (const book of books) {
+      const stripeUrl = STRIPE_LINKS[book.slug] || '#';
+      html += `<div class="ebook-card">
+        <span class="cat-tag cat-${cat}">${catLabels[cat]}</span>
+        <h3>${book.title}</h3>
+        <p class="sub">${book.sub}</p>
+        <div class="price-row">
+          <span class="price">$4.99</span>
+          <a href="${stripeUrl}" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+      </div>`;
     }
+    
+    html += `</div></div>`;
+  }
+  
+  container.innerHTML = html;
+}
 
-    function filterCategory(cat) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-      render(cat);
-    }
+function filterAll() {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.filter-btn').classList.add('active');
+  renderEbooks(null);
+}
 
-    render('all');
-  </script>
+function filterCategory(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderEbooks(cat);
+}
+
+renderEbooks(null);
+</script>
 </body>
 </html>

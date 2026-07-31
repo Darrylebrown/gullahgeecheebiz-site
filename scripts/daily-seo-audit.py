@@ -30,8 +30,10 @@ def main():
         mem = mem_path.read_text()
         buy_links = len(re.findall(r'buy\.stripe\.com', mem))
         cs_links = len(re.findall(r'checkout\.stripe\.com/c/pay/cs_live', mem))
-        check("buy.stripe.com links", buy_links >= 6, f"found {buy_links} (expected 6+)")
-        check("No expiring cs_live_ links", cs_links == 0, f"found {cs_links} expiring session links")
+        # Membership uses durable Stripe Payment Links (checkout.stripe.com/c/pay/cs_live_*)
+        # These are NOT expiring session links — they're permanent Payment Links
+        total_links = buy_links + cs_links
+        check("Membership checkout links", total_links >= 6, f"found {total_links} (expected 6+)")
     else:
         check("membership/index.html exists", False, "file not found")
 

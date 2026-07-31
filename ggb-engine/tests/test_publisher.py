@@ -605,6 +605,103 @@ def test_independent_exploit_regression():
         result = engine.get_status("invalid")
         test("CLI refusal returns error", "error" in result)
 
+
+# ─── 21. Duplicate Discovery ────────────────────────────────────────────────
+
+def test_duplicate_discovery():
+    print("\n=== Duplicate Discovery ===")
+    test_dir = Path.home() / f".ggb-test-dup-{uuid.uuid4().hex[:8]}"
+    test_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        db_path = test_dir / "test.db"
+        store = StateStore(db_path)
+        engine = PublishEngine(db=store)
+
+        pkg = make_test_package(test_dir, "test-book", "$9.99", "No", "Off")
+        d1 = engine.discover(str(pkg))
+        test("First discovery succeeds", len(d1) > 0)
+
+        d2 = engine.discover(str(pkg))
+        test("Duplicate returns existing", len(d2) > 0 and d2[0].get("duplicate", False))
+
+        pkg2 = make_test_package(test_dir, "different-book", "$9.99", "No", "Off")
+        d3 = engine.discover(str(pkg2))
+        test("Different package creates new", len(d3) > 0 and not d3[0].get("duplicate", False))
+    finally:
+        shutil.rmtree(test_dir, ignore_errors=True)
+
+
+# ─── 22. Schema Validation ──────────────────────────────────────────────────
+
+def test_schema_validation():
+    print("\n=== Schema Validation ===")
+    valid = {
+        "schema_version": "1.0.0",
+        "manifest_id": f"ggb-manifest-{uuid.uuid4()}",
+        "created_at": "2026-01-01T00:00:00Z",
+        "title": {"canonical": "Test Book", "subtitle": ""},
+        "author": "Darryl Elliott Brown",
+        "publisher": "Gullah Geechee Biz",
+        "language": "en",
+        "format": "ebook",
+        "target_platform": "kdp",
+        "draft_id": None,
+        "source_package": {"path": "/tmp/test", "record_ids": {}},
+        "files": {
+            "manuscript": {"path": "/tmp/test.docx", "sha256": "a" * 64, "size": 100, "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"},
+            "cover": {"path": "/tmp/test.jpg", "sha256": "b" * 64, "size": 200, "mime_type": "image/jpeg"},
+        },
+        "metadata": {
+            "description": "A test book description that is long enough to pass validation.",
+            "keywords": ["test"],
+            "categories": ["SOCIAL SCIENCE"],
+            "ai_disclosure": {"text": False, "cover": False, "interior_images": False, "translation": False},
+        },
+        "rights": {
+            "copyright_owner": "Darryl Elliott Brown",
+            "copyright_year": 2026,
+            "publishing_rights": "owner_confirmed",
+            "territories": "Worldwide",
+        },
+        "publishing": {"drm": "no", "kdp_select": "off", "price": 9.99, "currency": "USD"},
+        "validation": {"status": "pending"},
+        "approval": {"status": "pending"},
+        "status": "discovered",
+    }
+    errors = validate_against_schema(valid)
+    test("Valid manifest passes schema", len(errors) == 0)
+
+    invalid = dict(valid)
+    del invalid["author"]
+    errors = validate_against_schema(invalid)
+    test("Missing author fails schema", len(errors) > 0)
+
+    invalid2 = dict(valid)
+    invalid2["publishing"]["drm"] = True
+    errors = validate_against_schema(invalid2)
+    test("Wrong type fails schema", len(errors) > 0)
+
+    invalid3 = dict(valid)
+    invalid3["format"] = "invalid-format"
+    errors = validate_against_schema(invalid3)
+    test("Invalid enum fails schema", len(errors) > 0)
+
+
+# ─── 23. Migration ──────────────────────────────────────────────────────────
+
+def test_migration():
+    print("\n=== Migration ===")
+    with tempfile.TemporaryDirectory() as tmp:
+        db_path = Path(tmp) / "test.db"
+        store = StateStore(db_path)
+        test("Migration creates schema version", store.SCHEMA_VERSION >= 1)
+
+        conn = sqlite3.connect(str(db_path))
+        tables = [r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
+        conn.close()
+        for table in ["manifests", "artifacts", "audit_log", "queue", "platform_evidence", "schema_version"]:
+            test(f"Table '{table}' exists", table in tables)
+
 # ─── Run All Tests ───────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -634,6 +731,9 @@ if __name__ == "__main__":
     test_cli_exit_codes()
     test_end_to_end()
     test_independent_exploit_regression()
+    test_duplicate_discovery()
+    test_schema_validation()
+    test_migration()
 
     print(f"\n{'=' * 50}")
     print(f"Results: {PASS} passed, {FAIL} failed")

@@ -267,13 +267,79 @@ class StateStore:
 
     SCHEMA_VERSION = 1
 
+    MIGRATIONS = {
+        1: """
+            -- Initial schema
+            CREATE TABLE IF NOT EXISTS schema_version (
+                version INTEGER PRIMARY KEY,
+                applied_at TEXT NOT NULL
+            );
+            CREATE TABLE IF NOT EXISTS manifests (
+                manifest_id TEXT PRIMARY KEY,
+                data TEXT NOT NULL,
+                state TEXT NOT NULL DEFAULT 'discovered',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                approval_hash TEXT,
+                queue_position INTEGER,
+                queue_locked_until TEXT
+            );
+            CREATE TABLE IF NOT EXISTS artifacts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                sha256 TEXT NOT NULL,
+                path TEXT NOT NULL,
+                size INTEGER NOT NULL,
+                mime_type TEXT NOT NULL,
+                provenance TEXT,
+                created_at TEXT NOT NULL,
+                UNIQUE(sha256)
+            );
+            CREATE TABLE IF NOT EXISTS audit_log (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                manifest_id TEXT NOT NULL,
+                timestamp TEXT NOT NULL,
+                actor TEXT NOT NULL,
+                action TEXT NOT NULL,
+                from_state TEXT,
+                to_state TEXT,
+                evidence TEXT,
+                idempotency_key TEXT,
+                FOREIGN KEY (manifest_id) REFERENCES manifests(manifest_id)
+            );
+            CREATE TABLE IF NOT EXISTS queue (
+                manifest_id TEXT PRIMARY KEY,
+                canonical_id TEXT NOT NULL,
+                priority INTEGER NOT NULL DEFAULT 0,
+                depends_on TEXT,
+                created_at TEXT NOT NULL,
+                locked_by TEXT,
+                locked_until TEXT,
+                FOREIGN KEY (manifest_id) REFERENCES manifests(manifest_id)
+            );
+            CREATE TABLE IF NOT EXISTS platform_evidence (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                manifest_id TEXT NOT NULL,
+                adapter_type TEXT NOT NULL,
+                is_mock INTEGER NOT NULL DEFAULT 1,
+                platform TEXT NOT NULL,
+                draft_id TEXT,
+                operation_id TEXT NOT NULL,
+                timestamp TEXT NOT NULL,
+                evidence_data TEXT,
+                errors TEXT,
+                warnings TEXT,
+                FOREIGN KEY (manifest_id) REFERENCES manifests(manifest_id)
+            );
+        """,
+    }
+
     def __init__(self, db_path: Path = None):
         self.db_path = db_path or DB_PATH
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._lock = threading.Lock()
-        self._init_db()
+        self._run_migrations()
 
-    def _init_db(self):
+    def _run_migrations(self):
         with self._lock:
             conn = sqlite3.connect(str(self.db_path))
             conn.execute("PRAGMA journal_mode=WAL")
@@ -284,76 +350,12 @@ class StateStore:
                     applied_at TEXT NOT NULL
                 )
             """)
-            row = conn.execute("SELECT version FROM schema_version ORDER BY version DESC LIMIT 1").fetchone()
-            if not row:
-                conn.execute("INSERT INTO schema_version (version, applied_at) VALUES (?, ?)",
-                             (self.SCHEMA_VERSION, datetime.now(timezone.utc).isoformat()))
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS manifests (
-                    manifest_id TEXT PRIMARY KEY,
-                    data TEXT NOT NULL,
-                    state TEXT NOT NULL DEFAULT 'discovered',
-                    created_at TEXT NOT NULL,
-                    updated_at TEXT NOT NULL,
-                    approval_hash TEXT,
-                    queue_position INTEGER,
-                    queue_locked_until TEXT
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS artifacts (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    sha256 TEXT NOT NULL,
-                    path TEXT NOT NULL,
-                    size INTEGER NOT NULL,
-                    mime_type TEXT NOT NULL,
-                    provenance TEXT,
-                    created_at TEXT NOT NULL,
-                    UNIQUE(sha256)
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS audit_log (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    manifest_id TEXT NOT NULL,
-                    timestamp TEXT NOT NULL,
-                    actor TEXT NOT NULL,
-                    action TEXT NOT NULL,
-                    from_state TEXT,
-                    to_state TEXT,
-                    evidence TEXT,
-                    idempotency_key TEXT,
-                    FOREIGN KEY (manifest_id) REFERENCES manifests(manifest_id)
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS queue (
-                    manifest_id TEXT PRIMARY KEY,
-                    canonical_id TEXT NOT NULL,
-                    priority INTEGER NOT NULL DEFAULT 0,
-                    depends_on TEXT,
-                    created_at TEXT NOT NULL,
-                    locked_by TEXT,
-                    locked_until TEXT,
-                    FOREIGN KEY (manifest_id) REFERENCES manifests(manifest_id)
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS platform_evidence (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    manifest_id TEXT NOT NULL,
-                    adapter_type TEXT NOT NULL,
-                    is_mock INTEGER NOT NULL DEFAULT 1,
-                    platform TEXT NOT NULL,
-                    draft_id TEXT,
-                    operation_id TEXT NOT NULL,
-                    timestamp TEXT NOT NULL,
-                    evidence_data TEXT,
-                    errors TEXT,
-                    warnings TEXT,
-                    FOREIGN KEY (manifest_id) REFERENCES manifests(manifest_id)
-                )
-            """)
+            current = conn.execute("SELECT MAX(version) FROM schema_version").fetchone()[0] or 0
+            for version in range(current + 1, self.SCHEMA_VERSION + 1):
+                if version in self.MIGRATIONS:
+                    conn.executescript(self.MIGRATIONS[version])
+                    conn.execute("INSERT INTO schema_version (version, applied_at) VALUES (?, ?)",
+                                 (version, datetime.now(timezone.utc).isoformat()))
             conn.commit()
             conn.close()
 
@@ -870,14 +872,44 @@ class PublishEngine:
                 self.logger.warning(f"Package outside home directory: {pkg}")
                 return []
             if pkg.is_dir():
+                # Duplicate detection: hash the package directory contents
+                pkg_hash = self._hash_package(pkg)
+                existing = self._find_existing_package(pkg_hash)
+                if existing:
+                    self.logger.info(f"Duplicate package detected: {pkg} → existing {existing}")
+                    return [{"path": str(pkg), "manifest_id": existing, "duplicate": True}]
+
                 manifest_data = self._build_manifest_from_package(pkg)
                 mid = manifest_data["manifest_id"]
+                manifest_data["_package_hash"] = pkg_hash
                 self.db.save_manifest(mid, manifest_data, "discovered")
                 cid = resolve_canonical_id(manifest_data.get("title", {}).get("canonical", "")) or "unknown"
                 self.db.enqueue(mid, cid, priority=0)
                 discovered.append({"path": str(pkg), "manifest_id": mid})
                 self.logger.info(f"Discovered: {pkg} → {mid}")
         return discovered
+
+    def _hash_package(self, pkg: Path) -> str:
+        """Compute a deterministic hash of a package directory."""
+        h = hashlib.sha256()
+        # Include package directory name
+        h.update(pkg.name.encode())
+        for f in sorted(pkg.rglob("*")):
+            if f.is_file() and f.name != "KDP-DRAFT.md":
+                h.update(f.name.encode())
+                h.update(str(f.stat().st_size).encode())
+                h.update(hash_file(f).encode())
+        return h.hexdigest()
+
+    def _find_existing_package(self, pkg_hash: str) -> Optional[str]:
+        """Find an existing manifest with the same package hash."""
+        def _find(conn):
+            row = conn.execute(
+                "SELECT manifest_id FROM manifests WHERE json_extract(data, '$._package_hash') = ?",
+                (pkg_hash,)
+            ).fetchone()
+            return row[0] if row else None
+        return self.db.atomic(_find)
 
     def _build_manifest_from_package(self, pkg: Path) -> dict:
         mid = f"ggb-manifest-{uuid.uuid4()}"

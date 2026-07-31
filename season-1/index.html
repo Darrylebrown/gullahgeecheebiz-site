@@ -1,366 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Season 1 — Gullah Geechee Biz Documentary Series</title>
-  <meta name="description" content="Sixteen documentaries across 32 weeks, from Fort Mose 1738 to Queen Quet today. A Gullah Geechee Biz Production." />
-  <meta property="og:title" content="Season 1 — Gullah Geechee Biz Documentary Series" />
-  <meta property="og:description" content="Sixteen documentaries across 32 weeks, from Fort Mose 1738 to Queen Quet today. A Gullah Geechee Biz Production." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://gullahgeecheebiz.com/season-1/" />
-  <meta name="theme-color" content="#0f2f29" />
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=sentient@400,500,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="../season-1/season-1.css" />
-  
-  <link rel="icon" href="../logo.png" type="image/png" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Season 1 — Gullah Geechee Biz Documentary Series</title>
+<meta name="description" content="Sixteen documentaries across 32 weeks, from Fort Mose 1738 to Queen Quet today. A Gullah Geechee Biz Production.">
+<link rel="canonical" href="https://gullahgeecheebiz.com/season-1/">
+<meta property="og:title" content="Season 1 — Gullah Geechee Biz Documentary Series">
+<meta property="og:description" content="Sixteen documentaries across 32 weeks, from Fort Mose 1738 to Queen Quet today.">
+<meta property="og:url" content="https://gullahgeecheebiz.com/season-1/">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a14;color:#f0ede5;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.15);padding:0 20px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:Georgia,serif;color:#d4af37;font-size:1.2em;font-weight:bold;text-decoration:none;letter-spacing:1px}
+.nav-logo span{color:#f0ede5;font-weight:normal}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:rgba(240,237,229,0.7);text-decoration:none;font-size:0.85em;transition:color 0.3s;letter-spacing:0.5px}
+.nav-links a:hover{color:#d4af37}
+.nav-search{display:flex;align-items:center;gap:8px}
+.nav-search input{background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:6px 14px;color:#f0ede5;font-size:0.8em;width:180px;outline:none;transition:border-color 0.3s}
+.nav-search input:focus{border-color:#d4af37}
+.nav-search button{background:#d4af37;color:#0a0a14;border:none;border-radius:20px;padding:6px 14px;font-size:0.8em;cursor:pointer;font-weight:bold;transition:background 0.3s}
+.nav-search button:hover{background:#e8c84a}
+.hero{padding:100px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,0.06) 0%,transparent 50%);z-index:0}
+.hero>*{position:relative;z-index:1}
+.hero .badge{display:inline-block;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:#d4af37;padding:6px 20px;border-radius:20px;font-size:0.8em;margin-bottom:20px;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:12px}
+.hero h1 .gold{color:#d4af37}
+.hero p{color:rgba(240,237,229,0.5);max-width:600px;margin:0 auto 24px;font-size:1.05em}
+.countdown{display:flex;gap:20px;justify-content:center;margin:32px 0;flex-wrap:wrap}
+.countdown-item{text-align:center;min-width:70px}
+.countdown-item .num{font-family:Georgia,serif;font-size:2.5em;color:#d4af37;font-weight:bold;line-height:1}
+.countdown-item .lbl{font-size:0.75em;color:rgba(240,237,229,0.4);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px 60px}
+.episode-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.episode-card{background:linear-gradient(135deg,#111122,#0d0d1a);border-radius:14px;padding:24px;border:1px solid rgba(212,175,55,0.08);transition:all 0.3s;position:relative;overflow:hidden}
+.episode-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#d4af37,transparent);opacity:0;transition:opacity 0.3s}
+.episode-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.episode-card:hover::before{opacity:1}
+.episode-card .ep-num{display:inline-block;background:rgba(212,175,55,0.1);color:#d4af37;padding:2px 10px;border-radius:6px;font-size:0.75em;margin-bottom:8px}
+.episode-card h3{font-size:1.05em;margin-bottom:4px}
+.episode-card .sub{color:rgba(240,237,229,0.4);font-size:0.85em;margin-bottom:8px}
+.episode-card .date{color:rgba(240,237,229,0.2);font-size:0.8em}
+.episode-card .status-badge{display:inline-block;padding:2px 10px;border-radius:8px;font-size:0.7em;margin-top:8px}
+.status-upcoming{background:rgba(212,175,55,0.1);color:#d4af37}
+.status-premiered{background:rgba(39,174,96,0.1);color:#27ae60}
+footer{background:#080810;border-top:1px solid rgba(212,175,55,0.1);padding:60px 20px 30px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px}
+.footer-col h4{color:#d4af37;font-size:0.9em;margin-bottom:16px;letter-spacing:1px}
+.footer-col a{display:block;color:rgba(240,237,229,0.4);text-decoration:none;font-size:0.85em;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:#d4af37}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;color:rgba(240,237,229,0.2);font-size:0.8em}
+@media(max-width:768px){.nav-links{display:none}.nav-search input{width:120px}.hero{padding:80px 20px 40px}.countdown{gap:12px}.countdown-item .num{font-size:1.8em}}
+</style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="../index.html" aria-label="Gullah Geechee Biz home">
-        <svg class="mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" fill="none">
-          <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M10 24c3-8 7-12 10-12s7 4 10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M12 20h16M14 16h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
-        </svg>
-        <span class="brand-text">Gullah Geechee Biz</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav" onclick="var n=document.getElementById('primary-nav');var open=n.classList.toggle('is-open');this.setAttribute('aria-expanded', open);">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <nav class="nav" id="primary-nav" aria-label="Primary">
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#works">Books</a>
-        <a href="../season-1/">Season 1</a>
-        <a href="../index.html#merch">Merch</a>
-        <a href="../index.html#substack">Join</a>
-        <a href="../index.html#donate">Donate</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-
-    <section class="s1-hero">
-      <div class="wrap">
-        <p class="s1-eyebrow">A Gullah Geechee Biz Documentary Season</p>
-        <h1 class="s1-title">Season One</h1>
-        <p class="s1-sub">Sixteen documentaries. Thirty-two weeks. Two hundred and sixty-two years of Gullah Geechee resistance, memory, and life.</p>
-
-        <div class="countdown" id="countdown" data-target="2026-09-05T20:00:00-04:00">
-          <div class="cd-cell"><span class="cd-num" id="cd-days">—</span><span class="cd-label">days</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cd-hours">—</span><span class="cd-label">hours</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cd-mins">—</span><span class="cd-label">min</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cd-secs">—</span><span class="cd-label">sec</span></div>
-        </div>
-        <p class="cd-caption">Until <strong>Episode 01 · Queen Quet</strong> — Fri Sep 5, 2026, 8pm ET</p>
-
-        <div class="s1-hero-actions">
-          <a class="btn btn-primary" href="../index.html#substack">Get the schedule by email</a>
-          <a class="btn btn-ghost" href="../index.html#donate">Support the season</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section s1-arc">
-      <div class="wrap narrow">
-        <h2>The arc</h2>
-        <p>
-          Season 1 moves chronologically through Gullah Geechee history — from the founding of Fort Mose in 1738,
-          the first free Black settlement in North America, to Queen Quet's coronation of the Gullah Geechee Nation in 2000.
-          Sixteen episodes, released every other Friday at 8pm ET, each anchored to a real cultural date so the release
-          earns its moment.
-        </p>
-        <p>
-          Every episode is scored with community-attributed traditional music. Every source is public domain or community-controlled.
-          Every screenplay carries the standing attribution: written and directed by Darryl Elliott Brown, a Gullah Geechee Biz production.
-        </p>
-      </div>
-    </section>
-
-    <section class="section s1-episodes" id="episodes">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>The sixteen</h2>
-          <p class="section-sub">Bi-weekly Fridays · Sept 5, 2026 through April 10, 2027</p>
-        </div>
-        <div class="ep-grid">
-
-        <a class="ep-card" href="./queen-quet-2000.html">
-          <div class="ep-date">
-            <span class="ep-month">SEP</span>
-            <span class="ep-day">5</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 01 · 100 min · 2000–today</p>
-            <h3 class="ep-title">Queen Quet</h3>
-            <p class="ep-logline">The first Head-of-State of the Gullah Geechee Nation and the fight for federal cultural recognition.</p>
-            <p class="ep-anchor">GG Nation coronation era</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./sea-islands-language.html">
-          <div class="ep-date">
-            <span class="ep-month">SEP</span>
-            <span class="ep-day">19</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 02 · 100 min · 1932–today</p>
-            <h3 class="ep-title">Da Language</h3>
-            <p class="ep-logline">Lorenzo Dow Turner's wax cylinders prove Gullah is African, and a Mende song survives 200 years.</p>
-            <p class="ep-anchor">Turner's Sept research trips</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./ring-shout-tradition.html">
-          <div class="ep-date">
-            <span class="ep-month">OCT</span>
-            <span class="ep-day">3</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 03 · 100 min · 1700s–today</p>
-            <h3 class="ep-title">The Ring Turn Ever</h3>
-            <p class="ep-logline">The counterclockwise Kongo dance that outlived slavery and became American gospel's grandmother.</p>
-            <p class="ep-anchor">McIntosh Shouters season</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./sweetgrass-basket-tradition.html">
-          <div class="ep-date">
-            <span class="ep-month">OCT</span>
-            <span class="ep-day">17</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 04 · 95 min · 1700s–today</p>
-            <h3 class="ep-title">The Basket Sewers</h3>
-            <p class="ep-logline">The Senegambian coiling technique that became the Sea Islands' most enduring living art.</p>
-            <p class="ep-anchor">Mt. Pleasant craft season</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./gullah-jack-1822.html">
-          <div class="ep-date">
-            <span class="ep-month">OCT</span>
-            <span class="ep-day">31</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 05 · 95 min · 1822</p>
-            <h3 class="ep-title">The Conjure Man</h3>
-            <p class="ep-logline">The Kongo priest who armed the Vesey conspiracy with spiritual protection and paid with his life.</p>
-            <p class="ep-anchor">Samhain / liminal date</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./sapelo-hog-hammock.html">
-          <div class="ep-date">
-            <span class="ep-month">NOV</span>
-            <span class="ep-day">14</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 06 · 95 min · 1945–today</p>
-            <h3 class="ep-title">The Last of Sapelo</h3>
-            <p class="ep-logline">Cornelia Bailey and Hog Hammock's fight to hold Sapelo Island against developer erasure.</p>
-            <p class="ep-anchor">Cornelia Bailey b. Nov 12</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./igbo-landing-1803.html">
-          <div class="ep-date">
-            <span class="ep-month">NOV</span>
-            <span class="ep-day">28</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 07 · 95 min · 1803</p>
-            <h3 class="ep-title">The Water Take Us Home</h3>
-            <p class="ep-logline">Seventy-five Igbo captives walk into Dunbar Creek singing — the birthplace of Black flight mythology.</p>
-            <p class="ep-anchor">Thanksgiving counter-story</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./denmark-vesey-1822.html">
-          <div class="ep-date">
-            <span class="ep-month">DEC</span>
-            <span class="ep-day">12</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 08 · 105 min · 1822</p>
-            <h3 class="ep-title">The Fire That Never Came</h3>
-            <p class="ep-logline">Charleston's largest planned uprising — betrayed six weeks before July 14, silenced for 200 years.</p>
-            <p class="ep-anchor">Kujichagulia prep</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./port-royal-experiment-1862.html">
-          <div class="ep-date">
-            <span class="ep-month">JAN</span>
-            <span class="ep-day">1</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 09 · 105 min · 1862–1865</p>
-            <h3 class="ep-title">The Freedmen of Port Royal</h3>
-            <p class="ep-logline">The first place in America where enslaved people heard themselves declared free.</p>
-            <p class="ep-anchor">Emancipation Proc anniversary</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./robert-smalls-doc.html">
-          <div class="ep-date">
-            <span class="ep-month">JAN</span>
-            <span class="ep-day">16</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 10 · 110 min · 1839–1915</p>
-            <h3 class="ep-title">Robert Smalls</h3>
-            <p class="ep-logline">The 23-year-old enslaved pilot who stole the Planter, freed his family, and became a Congressman.</p>
-            <p class="ep-anchor">MLK weekend</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./harriet-jacobs-1861.html">
-          <div class="ep-date">
-            <span class="ep-month">JAN</span>
-            <span class="ep-day">30</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 11 · 105 min · 1832–1842</p>
-            <h3 class="ep-title">The Loophole</h3>
-            <p class="ep-logline">Harriet Jacobs hides in her grandmother's crawlspace for seven years and writes it into a book.</p>
-            <p class="ep-anchor">Black History Month opener</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./mother-emanuel-1865.html">
-          <div class="ep-date">
-            <span class="ep-month">FEB</span>
-            <span class="ep-day">13</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 12 · 110 min · 1816–2015</p>
-            <h3 class="ep-title">Mother Emanuel</h3>
-            <p class="ep-logline">Vesey's church, burned twice, rebuilt three times — from conspiracy pew to prayer meeting massacre.</p>
-            <p class="ep-anchor">BHM Charleston anchor</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./weeping-time-1859.html">
-          <div class="ep-date">
-            <span class="ep-month">FEB</span>
-            <span class="ep-day">27</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 13 · 100 min · 1859</p>
-            <h3 class="ep-title">The Rain Would Not Stop</h3>
-            <p class="ep-logline">Pierce Butler auctions 436 human beings at Ten Broeck racetrack in a two-day rain that never stopped.</p>
-            <p class="ep-anchor">March 2–3 auction anniversary</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./penn-school-1862.html">
-          <div class="ep-date">
-            <span class="ep-month">MAR</span>
-            <span class="ep-day">13</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 14 · 100 min · 1862–today</p>
-            <h3 class="ep-title">Under the Oaks</h3>
-            <p class="ep-logline">Laura Towne opens the first Southern school for the formerly enslaved beneath the Praise House oaks.</p>
-            <p class="ep-anchor">St. Helena spring</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./harriet-tubman-combahee.html">
-          <div class="ep-date">
-            <span class="ep-month">MAR</span>
-            <span class="ep-day">27</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 15 · 100 min · 1863</p>
-            <h3 class="ep-title">The Combahee</h3>
-            <p class="ep-logline">Tubman leads Union gunboats up the Combahee and frees 750 in a single night.</p>
-            <p class="ep-anchor">Tubman Day + raid lead-in</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a class="ep-card" href="./gullah-wars-seminole.html">
-          <div class="ep-date">
-            <span class="ep-month">APR</span>
-            <span class="ep-day">10</span>
-          </div>
-          <div class="ep-body">
-            <p class="ep-num">Episode 16 · 115 min · 1738–1858</p>
-            <h3 class="ep-title">The Longest War</h3>
-            <p class="ep-logline">Fort Mose to Nacimiento — 120 years of armed Gullah resistance and the largest slave rebellion in U.S. history.</p>
-            <p class="ep-anchor">Season finale · Fort Mose</p>
-          </div>
-          <span class="ep-arrow" aria-hidden="true">→</span>
-        </a>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section s1-support">
-      <div class="wrap narrow">
-        <h2>Stand with the season</h2>
-        <p>
-          Season 1 is being produced independently. Every dollar goes to editorial, archival research, community licensing,
-          and the ACX audiobook narrations. Support any tier and your name goes in the end credits of the episode you help fund.
-        </p>
-        <div class="tier-grid">
-          <a class="tier" href="../index.html#donate"><span class="tier-amt">$10</span><span class="tier-label">Field Note</span></a>
-          <a class="tier" href="../index.html#donate"><span class="tier-amt">$25</span><span class="tier-label">Praise House</span></a>
-          <a class="tier" href="../index.html#donate"><span class="tier-amt">$50</span><span class="tier-label">Ring Shout</span></a>
-          <a class="tier" href="../index.html#donate"><span class="tier-amt">$100</span><span class="tier-label">Bearer</span></a>
-        </div>
-      </div>
-    </section>
-
-  <script src="../season-1/countdown.js"></script>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p class="footer-tag">
-        A Gullah Geechee Biz Production · Written &amp; Directed by Darryl Elliott Brown
-      </p>
-      <p class="footer-fine">
-        © 2026 Darryl Elliott Brown · Culture first · Sources: LOC, NARA, community archives, pre-1928 music.
-        Every episode carries community attribution.
-      </p>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="../index.html">Home</a>
-        <a href="../season-1/">Season 1</a>
-        <a href="../index.html#substack">Newsletter</a>
-        <a href="../index.html#donate">Support</a>
-        <a href="https://github.com/Darrylebrown/ggb-books">Screenplay repo</a>
-      </nav>
-    </div>
-  </footer>
+<nav><div class="nav-inner"><a href="/" class="nav-logo">GULLAH <span>GEECHEE</span> BIZ</a><div class="nav-links"><a href="/ebooks/">Ebooks</a><a href="/recipes/">Recipes</a><a href="/membership/">Membership</a><a href="/shop/">Shop</a><a href="/season-1/" style="color:#d4af37">Documentary</a></div><div class="nav-search"><input type="text" placeholder="Search 159 pages..." id="navSearch" onkeydown="if(event.key==='Enter')window.location='/search/?q='+encodeURIComponent(this.value)"><button onclick="window.location='/search/?q='+encodeURIComponent(document.getElementById('navSearch').value)">Search</button></div></div></nav>
+<section class="hero"><div class="badge">✦ Original Series</div><h1><span class="gold">Season 1</span> — Premieres Sep 5</h1><p>Sixteen documentaries across 32 weeks. From Fort Mose 1738 to Queen Quet today. A Gullah Geechee Biz Production.</p>
+<div class="countdown"><div class="countdown-item"><div class="num" id="days">41</div><div class="lbl">Days</div></div><div class="countdown-item"><div class="num" id="hours">12</div><div class="lbl">Hours</div></div><div class="countdown-item"><div class="num" id="minutes">53</div><div class="lbl">Minutes</div></div><div class="countdown-item"><div class="num" id="seconds">28</div><div class="lbl">Seconds</div></div></div>
+</section>
+<div class="container"><div class="episode-grid" id="episodeGrid"></div></div>
+<footer><div class="footer-inner"><div class="footer-col"><h4>Gullah Geechee Biz</h4><a href="/">Home</a><a href="/ebooks/">Ebooks</a><a href="/recipes/">Recipes</a><a href="/membership/">Membership</a><a href="/shop/">Shop</a></div><div class="footer-col"><h4>Content</h4><a href="/season-1/">Documentary</a><a href="/encyclopedia/">Encyclopedia</a><a href="/viral/">Stories</a><a href="/wholesale/">Wholesale</a><a href="/search/">Search</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.tiktok.com/@gullahgeecheebiz" target="_blank">TikTok</a><a href="https://gullahgeecheebiz.etsy.com" target="_blank">Etsy</a><a href="https://gullahgeecheebiz.myshopify.com" target="_blank">Shopify</a><a href="https://github.com/Darrylebrown" target="_blank">GitHub</a></div><div class="footer-col"><h4>Support</h4><a href="/membership/">Become a Member</a><a href="/guide/">Free Guide</a><a href="/redeem/">Redeem Code</a></div></div><div class="footer-bottom"><p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p><p style="margin-top:8px;font-size:0.85em">Independent · culture first · GitHub Pages</p></div></footer>
+<script>
+const EPISODES = [
+  {num:1,title:"Fort Mose 1738",sub:"The first legally sanctioned free Black settlement in what is now the United States.",date:"Sep 5, 2026",status:"upcoming"},
+  {num:2,title:"The Rice Kingdom",sub:"How Gullah Geechee rice cultivation built the Lowcountry economy.",date:"Sep 12, 2026",status:"upcoming"},
+  {num:3,title:"Sweetgrass Baskets",sub:"The art and history of sweetgrass basket weaving, from West Africa to the Sea Islands.",date:"Sep 19, 2026",status:"upcoming"},
+  {num:4,title:"The Gullah Geechee Language",sub:"The only African-American creole language with direct West African roots.",date:"Sep 26, 2026",status:"upcoming"},
+  {num:5,title:"Sea Island Cotton",sub:"The crop that made the Lowcountry wealthy and the people who cultivated it.",date:"Oct 3, 2026",status:"upcoming"},
+  {num:6,title:"The Port Royal Experiment",sub:"The Reconstruction-era project that gave freed people land and education.",date:"Oct 10, 2026",status:"upcoming"},
+  {num:7,title:"Penn School",sub:"One of the first schools for freed African Americans, founded in 1862.",date:"Oct 17, 2026",status:"upcoming"},
+  {num:8,title:"The Blues Came Through Here",sub:"How Gullah Geechee music shaped the blues, jazz, and American music.",date:"Oct 24, 2026",status:"upcoming"},
+  {num:9,title:"Heirs' Property",sub:"The legal struggle for land ownership that continues to affect Gullah Geechee families.",date:"Oct 31, 2026",status:"upcoming"},
+  {num:10,title:"The Gullah Geechee Kitchen",sub:"Red rice, okra soup, and the culinary traditions that define a culture.",date:"Nov 7, 2026",status:"upcoming"},
+  {num:11,title:"Robert Smalls",sub:"The enslaved man who commandeered a Confederate ship and became a Congressman.",date:"Nov 14, 2026",status:"upcoming"},
+  {num:12,title:"The Combahee River Raid",sub:"Harriet Tubman's military campaign that freed 750 enslaved people.",date:"Nov 21, 2026",status:"upcoming"},
+  {num:13,title:"Gullah Geechee Spirituals",sub:"The songs that sustained a people through slavery and beyond.",date:"Nov 28, 2026",status:"upcoming"},
+  {num:14,title:"The Gullah Geechee Corridor",sub:"The 400-mile stretch of coast that holds 300 years of history.",date:"Dec 5, 2026",status:"upcoming"},
+  {num:15,title:"Land Loss and Resilience",sub:"How Gullah Geechee communities fight to hold onto their ancestral land.",date:"Dec 12, 2026",status:"upcoming"},
+  {num:16,title:"Queen Quet and the Future",sub:"The elected chief of the Gullah Geechee Nation and the path forward.",date:"Dec 19, 2026",status:"upcoming"},
+];
+const grid = document.getElementById('episodeGrid');
+for (const ep of EPISODES) {
+  const statusClass = ep.status === 'upcoming' ? 'status-upcoming' : 'status-premiered';
+  grid.innerHTML += `<div class="episode-card"><div class="ep-num">Episode ${ep.num}</div><h3>${ep.title}</h3><p class="sub">${ep.sub}</p><p class="date">${ep.date}</p><span class="status-badge ${statusClass}">${ep.status === 'upcoming' ? 'Coming Soon' : 'Premiered'}</span></div>`;
+}
+function updateCountdown(){const t=new Date("2026-09-05T00:00:00"),n=new Date(),s=t-n;if(s>0){const e=Math.floor(s/864e5),o=Math.floor(s%864e5/36e5),i=Math.floor(s%36e5/6e4),r=Math.floor(s%6e4/1e3);document.getElementById("days").textContent=e,document.getElementById("hours").textContent=o,document.getElementById("minutes").textContent=i,document.getElementById("seconds").textContent=r}else document.querySelector(".countdown").innerHTML="<div style='color:#d4af37;font-size:1.5em'>Now Streaming</div>"}setInterval(updateCountdown,1e3),updateCountdown();
+</script>
 </body>
 </html>
