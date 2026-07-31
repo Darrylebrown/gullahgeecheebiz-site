@@ -39,7 +39,6 @@ const MERCH_LINKS = {
   'Binyah Sticker $4.99': 'https://buy.stripe.com/28E6oGgy2h1b4zw2CicjS07',
 };
 
-const SHOPIFY = 'https://gullahgeecheebiz.myshopify.com/';
 const SPONSORS = 'https://github.com/sponsors/Darrylebrown';
 const LANES_MARKER = 'GGB_SUPPORT_LANES:START';
 const LANES_CSS = '/assets/support-lanes.css';
@@ -109,7 +108,7 @@ console.log(`\nPages found: ${pages.length}  |  Documented exceptions: ${Object.
 // 3. The four lanes resolve from the band itself.
 {
   const sample = read('index.html');
-  const lanes = [['/membership/', 'membership'], ['/shop.html', 'merch'], [SHOPIFY, 'ebooks'], [SPONSORS, 'sponsor']];
+  const lanes = [['/membership/', 'membership'], ['/shop.html', 'merch'], ['/ebooks/', 'ebooks'], [SPONSORS, 'sponsor']];
   const missing = lanes.filter(([href]) => !sample.includes(href)).map(([, name]) => name);
   missing.length === 0
     ? ok('lanes: membership, merch, ebooks, sponsor all reachable')
@@ -178,23 +177,30 @@ console.log(`\nPages found: ${pages.length}  |  Documented exceptions: ${Object.
     : fail('shop-binyah.html', 'trust line missing');
 }
 
-// 6. Ebooks route to Shopify and are not mislabeled as Stripe.
+// 6. The ebook catalog states its real availability and sells nothing it cannot
+// deliver. The Shopify store has no published products, so any per-title buy
+// CTA or price tag there is a dead purchase path: assert it stays absent until
+// the storefront is actually stocked.
 {
   const ebooks = read('ebooks/index.html');
-  ebooks.includes(SHOPIFY) ? ok('ebooks: Shopify store linked') : fail('ebooks', 'Shopify URL missing');
   !/buy\.stripe\.com|checkout\.stripe\.com/.test(ebooks)
-    ? ok('ebooks: no Stripe checkout claimed for the Shopify catalog')
+    ? ok('ebooks: no Stripe checkout claimed for the catalog')
     : fail('ebooks', 'a Stripe checkout URL is present on the ebook page');
-  read('shop/index.html').includes('myshopify.com')
-    ? ok('shop hub: Shopify ebook route linked')
-    : fail('shop/index.html', 'Shopify URL missing');
-
-  const exaggerated = [];
-  if (/100 titles.+\$9\.99 each/i.test(ebooks)) exaggerated.push('ebooks/index.html');
-  if (/100 titles.+Checkout and delivery via Shopify/i.test(read('shop/index.html'))) exaggerated.push('shop/index.html');
-  exaggerated.length === 0
-    ? ok('ebooks: no page promises SKU-level Shopify availability it cannot verify')
-    : fail('ebook availability claims', exaggerated.join(', '));
+  !ebooks.includes('myshopify.com')
+    ? ok('ebooks: no checkout routed to the unstocked Shopify store')
+    : fail('ebooks', 'links the Shopify store, which has no published products');
+  /Single-title checkout is not open yet/.test(ebooks)
+    ? ok('ebooks: availability stated plainly')
+    : fail('ebooks', 'availability notice missing');
+  ebooks.includes('/membership/')
+    ? ok('ebooks: routed to membership, the lane that can actually deliver')
+    : fail('ebooks', 'no membership route');
+  !/\$\d/.test(ebooks.split('<script')[0])
+    ? ok('ebooks: no per-title price advertised while checkout is closed')
+    : fail('ebooks', 'a price is shown but nothing is purchasable');
+  read('shop/index.html').includes('/ebooks/')
+    ? ok('shop hub: ebook catalog route linked')
+    : fail('shop/index.html', 'ebook catalog route missing');
 }
 
 // 7. No expiring Checkout Session URLs anywhere.

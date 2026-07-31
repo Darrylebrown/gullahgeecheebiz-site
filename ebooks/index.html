@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ebooks — Gullah Geechee Biz</title>
-  <meta name="description" content="Browse the Gullah Geechee Biz ebook catalog and open the Shopify storefront for titles that are live there.">
+  <meta name="description" content="100 Gullah Geechee ebooks — self-help, business, and cooking. Included with membership; single-title checkout is not open yet.">
   <link rel="canonical" href="https://gullahgeecheebiz.com/ebooks/">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +22,7 @@
     .ebook-card:hover { border-color: rgba(212,175,55,0.3); transform: translateY(-2px); }
     .ebook-card h3 { font-size: 1em; color: #f0ede5; margin-bottom: 6px; line-height: 1.4; }
     .ebook-card .sub { color: #888; font-size: 0.85em; margin-bottom: 12px; flex: 1; }
-    .ebook-card .price { color: #d4af37; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+    .ebook-card .availability { color: #9a9aa8; font-weight: 600; font-size: 0.85em; margin-bottom: 10px; }
     .buy-btn { display: inline-block; background: #d4af37; color: #0a0a14; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9em; text-align: center; transition: all 0.2s; }
     .buy-btn:hover { background: #e8c84a; transform: translateY(-1px); }
     .how { background: #111122; border-radius: 12px; padding: 25px; margin: 30px 0; border: 1px solid #1a1a2e; }
@@ -37,14 +37,13 @@
 <body>
   <div class="container">
     <h1>📚 Gullah Geechee Ebooks</h1>
-    <p class="subtitle">Browse 100 planned ebook titles across self-help, business, and cooking, then open the Shopify storefront for live listings.</p>
+    <p class="subtitle">100 titles across self-help, business, and cooking.</p>
 
     <div class="how">
-      <h2>How it works</h2>
-      <p>1. Browse the titles below.</p>
-      <p>2. Open our Shopify store to see which titles are live there right now.</p>
-      <p>3. For live listings, checkout and digital delivery are handled by Shopify.</p>
-      <p class="how-cta"><a class="buy-btn" href="https://gullahgeecheebiz.myshopify.com/" target="_blank" rel="noopener noreferrer">Open the Shopify store<span class="ggb-sr"> (opens in a new tab)</span></a></p>
+      <h2>How to get these</h2>
+      <p>Single-title checkout is not open yet — the storefront is still being stocked, and we would rather say so than hand you a button that leads nowhere.</p>
+      <p>Every title below is included with a membership, which also covers the pin archive, town guides, and the recipe archive.</p>
+      <p class="how-cta"><a class="buy-btn" href="/membership/">See membership options</a></p>
     </div>
 
     <div class="filters">
@@ -60,8 +59,6 @@
   </div>
 
   <script>
-    const SHOPIFY_STORE = "https://gullahgeecheebiz.myshopify.com/";
-
     const EBOOKS = [
   { slug: "gullah-resilience", title: "The Gullah Geechee Guide to Resilience", cat: "self-help" },
   { slug: "gullah-mindset", title: "The Gullah Geechee Mindset", cat: "self-help" },
@@ -179,9 +176,7 @@
           html += `<div class="ebook-card" data-cat="${b.cat}">
             <h3>${b.title}</h3>
             <div class="sub">Gullah Geechee Biz</div>
-            <div class="price">Planned at $9.99</div>
-            <a class="buy-btn" href="${SHOPIFY_STORE}" target="_blank" rel="noopener noreferrer"
-               aria-label="Open the Shopify storefront to check whether ${b.title} is live, opens in a new tab">Check Shopify listing</a>
+            <div class="availability">Included with membership</div>
           </div>`;
         }
         html += `</div></div>`;
@@ -212,15 +207,15 @@
         <p>Tees, tote, mug, poster, sticker. Secure checkout via Stripe.</p>
       </li>
       <li class="ggb-lane" aria-current="true">
-        <h3 class="ggb-lane-name"><a href="https://gullahgeecheebiz.myshopify.com/" target="_blank" rel="noopener noreferrer">Buy ebooks<span class="ggb-ext" aria-hidden="true">↗</span><span class="ggb-sr"> (opens in a new tab)</span></a></h3>
-        <p>Browse the ebook storefront. Shopify handles checkout for titles that are live there.</p>
+        <h3 class="ggb-lane-name"><a href="/ebooks/">Browse ebooks</a></h3>
+        <p>100 titles. Single-title checkout is not open yet; the catalog is included with membership.</p>
       </li>
       <li class="ggb-lane">
         <h3 class="ggb-lane-name"><a href="https://github.com/sponsors/Darrylebrown" target="_blank" rel="noopener noreferrer">Sponsor open work<span class="ggb-ext" aria-hidden="true">↗</span><span class="ggb-sr"> (opens in a new tab)</span></a></h3>
         <p>Monthly sponsorship on GitHub. Separate from membership.</p>
       </li>
     </ul>
-    <p class="ggb-lanes-fine">Memberships and merchandise are processed by Stripe. Ebooks are processed by Shopify for titles that are live there. Sponsorship is processed by GitHub. Card details are handled by those providers, never by this site.</p>
+    <p class="ggb-lanes-fine">Memberships and merchandise are processed by Stripe. Sponsorship is processed by GitHub. Card details are handled by those providers, never by this site.</p>
   </div>
 </aside>
 <!-- GGB_SUPPORT_LANES:END -->

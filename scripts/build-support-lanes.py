@@ -52,12 +52,15 @@ LANES = [
         "external": False,
         "current_on": ("shop.html", "shop-binyah.html", "shop/index.html"),
     },
+    # Points at the local catalog page, not the Shopify store: that store has no
+    # published products, so sending buyers straight there is a dead purchase
+    # path. /ebooks/ states the availability plainly and routes to membership.
     {
         "key": "ebooks",
-        "href": "https://gullahgeecheebiz.myshopify.com/",
-        "label": "Buy ebooks",
-        "blurb": "Browse the ebook storefront. Shopify handles checkout for titles that are live there.",
-        "external": True,
+        "href": "/ebooks/",
+        "label": "Browse ebooks",
+        "blurb": "100 titles. Single-title checkout is not open yet; the catalog is included with membership.",
+        "external": False,
         "current_on": ("ebooks/index.html",),
     },
     {
@@ -77,9 +80,8 @@ LEDE = (
 )
 
 FINE = (
-    "Memberships and merchandise are processed by Stripe. Ebooks are processed by "
-    "Shopify for titles that are live there. Sponsorship is processed by GitHub. Card details are handled by those "
-    "providers, never by this site."
+    "Memberships and merchandise are processed by Stripe. Sponsorship is processed "
+    "by GitHub. Card details are handled by those providers, never by this site."
 )
 
 
