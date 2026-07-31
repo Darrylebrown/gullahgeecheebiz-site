@@ -1,4 +1,45 @@
-publish/
-*.pyc
+# Secrets — NEVER commit
+.env
+.env.*
+*.env
+!.env.example
+secrets/
+credentials.json
+*.pem
+*.key
+config/secrets.yml
+
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Runtime artifacts (Publisher Control Plane)
+publish/
+
+# Virtual environments
 .venv/
+venv/
+env/
+
+# Generated
+*.generated.*
