@@ -980,12 +980,14 @@ class PublishEngine:
                 else:
                     self.logger.info(f"Duplicate package detected: {pkg} → existing {result[0]['manifest_id']}")
         return discovered
-
     def _hash_package(self, pkg: Path) -> str:
+        """Compute a deterministic hash of a package directory.
+        Includes all consequential files: manuscripts, covers, KDP-DRAFT.md.
+        Excludes only truly transient files."""
         h = hashlib.sha256()
         h.update(pkg.name.encode())
         for f in sorted(pkg.rglob("*")):
-            if f.is_file() and f.name != "KDP-DRAFT.md":
+            if f.is_file():
                 h.update(f.name.encode())
                 h.update(str(f.stat().st_size).encode())
                 h.update(hash_file(f).encode())
@@ -1124,8 +1126,13 @@ class PublishEngine:
         if not manifest:
             return {"error": f"Manifest not found: {manifest_id}"}
 
+        # Read authoritative state from DB
+        db_state = self.db.get_state(manifest_id)
+        if not db_state:
+            return {"error": f"Manifest not found in state store: {manifest_id}"}
+        current_state = PublishState(db_state)
+
         # Use state machine for transition
-        current_state = PublishState(manifest.get("status", "discovered"))
         if current_state == PublishState.DISCOVERED:
             success, msg = self.db.transition(manifest_id, PublishState.DISCOVERED, PublishState.PACKAGED, actor="audit")
             if success:
@@ -1286,6 +1293,15 @@ class PublishEngine:
         if not manifest:
             return {"error": f"Manifest not found: {manifest_id}"}
 
+        # Read authoritative state from DB
+        db_state = self.db.get_state(manifest_id)
+        if not db_state:
+            return {"error": f"Manifest not found in state store: {manifest_id}"}
+        current_state = PublishState(db_state)
+
+        if current_state != PublishState.VALIDATED:
+            return {"error": f"Must be in VALIDATED state to stage (current: {current_state.value})"}
+
         stage_dir = STAGING_DIR / manifest_id
         stage_dir.mkdir(parents=True, exist_ok=True)
 
@@ -1309,11 +1325,10 @@ class PublishEngine:
 
             staged.append(str(dst))
 
-        current_state = PublishState(manifest.get("status", "discovered"))
-        if current_state == PublishState.VALIDATED:
-            success, msg = self.db.transition(manifest_id, current_state, PublishState.STAGED, actor="stage")
-            if not success:
-                return {"error": msg}
+        # Use state machine — only transition if we succeed
+        success, msg = self.db.transition(manifest_id, current_state, PublishState.STAGED, actor="stage")
+        if not success:
+            return {"error": msg}
 
         return {"staged_files": staged, "stage_dir": str(stage_dir)}
 
@@ -1325,6 +1340,15 @@ class PublishEngine:
         manifest = self.db.load_manifest(manifest_id)
         if not manifest:
             return {"error": f"Manifest not found: {manifest_id}"}
+
+        # Read authoritative state from DB
+        db_state = self.db.get_state(manifest_id)
+        if not db_state:
+            return {"error": f"Manifest not found in state store: {manifest_id}"}
+        current_state = PublishState(db_state)
+
+        if current_state != PublishState.STAGED:
+            return {"error": f"Must be in STAGED state to preview (current: {current_state.value})"}
 
         auth = self.adapter.check_auth()
         if not auth.get("authenticated"):
@@ -1353,9 +1377,10 @@ class PublishEngine:
                 self.db.save_platform_evidence(manifest_id, evidence)
 
         # Transition through platform states
-        current_state = PublishState(manifest.get("status", "discovered"))
-        if current_state == PublishState.STAGED:
-            self.db.transition(manifest_id, current_state, PublishState.PLATFORM_UPLOADED, actor="preview")
+        success, msg = self.db.transition(manifest_id, current_state, PublishState.PLATFORM_UPLOADED, actor="preview")
+        if not success:
+            return {"error": msg}
+        current_state = PublishState.PLATFORM_UPLOADED
 
         # Poll processing
         processing = self.adapter.poll_processing(draft_id)
@@ -1371,9 +1396,10 @@ class PublishEngine:
         }
         self.db.save_platform_evidence(manifest_id, evidence)
 
-        current_state = PublishState(self.db.get_state(manifest_id) or "discovered")
-        if current_state == PublishState.PLATFORM_UPLOADED:
-            self.db.transition(manifest_id, current_state, PublishState.PLATFORM_PROCESSED, actor="preview")
+        success, msg = self.db.transition(manifest_id, current_state, PublishState.PLATFORM_PROCESSED, actor="preview")
+        if not success:
+            return {"error": msg}
+        current_state = PublishState.PLATFORM_PROCESSED
 
         # Launch previewer
         preview_result = self.adapter.launch_previewer(draft_id)
@@ -1390,9 +1416,9 @@ class PublishEngine:
         }
         self.db.save_platform_evidence(manifest_id, evidence)
 
-        current_state = PublishState(self.db.get_state(manifest_id) or "discovered")
-        if current_state == PublishState.PLATFORM_PROCESSED:
-            self.db.transition(manifest_id, current_state, PublishState.PREVIEW_CLEAN, actor="preview")
+        success, msg = self.db.transition(manifest_id, current_state, PublishState.PREVIEW_CLEAN, actor="preview")
+        if not success:
+            return {"error": msg}
 
         result = {
             "manifest_id": manifest_id,
@@ -1541,7 +1567,11 @@ class PublishEngine:
         if not manifest:
             return {"error": f"Manifest not found: {manifest_id}"}
 
-        state = manifest.get("status", "unknown")
+        # Read authoritative state from DB
+        db_state = self.db.get_state(manifest_id)
+        if not db_state:
+            return {"error": f"Manifest not found in state store: {manifest_id}"}
+        state = db_state
         validation = manifest.get("validation", {})
         approval = manifest.get("approval", {})
 
