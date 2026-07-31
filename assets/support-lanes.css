@@ -1,0 +1,130 @@
+/* Gullah Geechee Biz — shared support / payment lanes band.
+   Self-contained colors: the site runs a dark navy theme on most pages and a
+   light cream theme on shop.html / shop-binyah.html, so this band sets its own
+   background and text colors to stay legible on both. */
+
+.ggb-lanes {
+  display: block;
+  background: #0A1428;
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  color: #F5F0E6;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  padding: 2.75rem 1.25rem 3rem;
+}
+
+.ggb-lanes-inner {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+.ggb-lanes-title {
+  color: #D4AF37;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.6rem;
+}
+
+.ggb-lanes-lede {
+  color: rgba(245, 240, 230, 0.72);
+  font-size: 0.98rem;
+  margin: 0 0 1.6rem;
+  max-width: 46rem;
+}
+
+.ggb-lanes-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ggb-lane {
+  background: rgba(245, 240, 230, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  margin: 0;
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+
+.ggb-lane-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.ggb-lane-name a {
+  color: #D4AF37;
+  text-decoration: none;
+}
+
+.ggb-lane-name a:hover,
+.ggb-lane-name a:focus-visible {
+  text-decoration: underline;
+}
+
+.ggb-lane-name a:focus-visible {
+  border-radius: 4px;
+  outline: 3px solid #F5F0E6;
+  outline-offset: 3px;
+}
+
+.ggb-lane p {
+  color: rgba(245, 240, 230, 0.72);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.ggb-lane[aria-current='true'] {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #D4AF37;
+}
+
+/* External-link marker: visual arrow plus screen-reader wording. */
+.ggb-ext {
+  font-size: 0.8em;
+  margin-left: 0.25em;
+}
+
+.ggb-sr {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.ggb-lanes-fine {
+  border-top: 1px solid rgba(212, 175, 55, 0.18);
+  color: rgba(245, 240, 230, 0.5);
+  font-size: 0.78rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .ggb-lanes {
+    padding: 2.25rem 1rem 2.5rem;
+  }
+
+  .ggb-lanes-title {
+    font-size: 1.3rem;
+  }
+
+  .ggb-lanes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ggb-lane,
+  .ggb-lane-name a {
+    transition: none;
+  }
+}
