@@ -63,6 +63,7 @@ def test_mode_enabled() -> bool:
     return os.environ.get("GGB_TEST_MODE") == "1"
 
 def approved_package_roots() -> List[Path]:
+    """Where a package may be discovered from. Curated, operator-owned locations only."""
     roots = [
         Path.home() / "gullah-geechee-project" / "packaged",
         Path.home() / "gullah-geechee-project" / "how-to-test" / "packages",
@@ -72,6 +73,18 @@ def approved_package_roots() -> List[Path]:
         extra = os.environ.get("GGB_TEST_PACKAGE_ROOT")
         roots.append(Path(extra) if extra else Path.home() / ".ggb-test")
     return roots
+
+def approved_artifact_roots() -> List[Path]:
+    """Where a file referenced by a manifest may live.
+
+    A superset of the package roots, adding the engine's own repairs directory. Repair
+    derivatives are written by this process and hash-recorded as they are written, so
+    they are trustworthy in the same way a discovered package file is — but they are
+    deliberately not a place packages get discovered *from*. Keeping the two lists apart
+    is what stops "repair output must be stageable" from turning into "the engine's
+    scratch directory is a package source".
+    """
+    return approved_package_roots() + [REPAIRS_DIR]
 
 APPROVED_PACKAGE_ROOTS = approved_package_roots()
 
@@ -251,7 +264,10 @@ EVIDENCE_OPERATION_FOR_STATE = {
     PublishState.PREVIEW_CLEAN: "preview",
     PublishState.AWAITING_OWNER_APPROVAL: "preview",
     PublishState.APPROVED: "preview",
-    PublishState.SUBMITTED: "preview",
+    # SUBMITTED is gated on the submission's own evidence, not the preview's. Keying it
+    # on "preview" meant a platform that rejected the submission still advanced the
+    # manifest to submitted, because satisfying evidence from an earlier step existed.
+    PublishState.SUBMITTED: "submit",
 }
 
 PLATFORM_EVIDENCE_REQUIRED = frozenset(EVIDENCE_OPERATION_FOR_STATE)
@@ -266,8 +282,9 @@ GATED_STATES = frozenset({
 
 # Reaching any of these re-derives every artifact hash and the package hash from disk.
 HASH_REVALIDATION_STATES = frozenset({
-    PublishState.PLATFORM_UPLOADED, PublishState.PREVIEW_CLEAN,
-    PublishState.AWAITING_OWNER_APPROVAL, PublishState.APPROVED, PublishState.SUBMITTED,
+    PublishState.PLATFORM_UPLOADED, PublishState.PLATFORM_PROCESSED,
+    PublishState.PREVIEW_CLEAN, PublishState.AWAITING_OWNER_APPROVAL,
+    PublishState.APPROVED, PublishState.SUBMITTED,
 })
 
 # ─── DRM / Select Enums ──────────────────────────────────────────────────────
@@ -309,6 +326,47 @@ EVIDENCE_CLASSES = frozenset({EVIDENCE_MOCK, EVIDENCE_ISOLATED_TEST, EVIDENCE_PR
 PRODUCTION_ADAPTERS: frozenset = frozenset()
 
 DEFAULT_EVIDENCE_MAX_AGE_SECONDS = 3600
+
+EVIDENCE_OUTCOME_SUCCESS = "success"
+EVIDENCE_OUTCOME_FAILURE = "failure"
+
+
+def operation_outcome(operation_id: str, data: dict, errors: List = None) -> Tuple[str, str]:
+    """Did the platform operation actually work?
+
+    A signature proves an authorised adapter said something. It does not prove the thing
+    it said was good news. Without this, a failed upload produces evidence that satisfies
+    a gate exactly as well as a successful one. Unknown operations fail closed: a new
+    operation must declare its own success criterion before it can advance any state.
+    """
+    if errors:
+        return EVIDENCE_OUTCOME_FAILURE, f"operation reported errors: {list(errors)}"
+    data = data or {}
+    if data.get("error"):
+        return EVIDENCE_OUTCOME_FAILURE, f"operation reported an error: {data['error']}"
+
+    if operation_id.startswith("upload-"):
+        if not data.get("success"):
+            return EVIDENCE_OUTCOME_FAILURE, "upload did not report success"
+    elif operation_id == "poll-processing":
+        status = data.get("status")
+        if status != "processed":
+            return EVIDENCE_OUTCOME_FAILURE, f"processing status is {status!r}, expected 'processed'"
+    elif operation_id == "preview":
+        preview, capture = data.get("preview") or {}, data.get("capture") or {}
+        if not preview.get("opened"):
+            return EVIDENCE_OUTCOME_FAILURE, "previewer did not open"
+        if capture.get("errors"):
+            return EVIDENCE_OUTCOME_FAILURE, f"preview capture reported errors: {capture['errors']}"
+        if not capture.get("screenshots"):
+            return EVIDENCE_OUTCOME_FAILURE, "preview produced no screenshots"
+    elif operation_id == "submit":
+        if not data.get("submitted"):
+            return EVIDENCE_OUTCOME_FAILURE, "submission did not report success"
+    else:
+        return EVIDENCE_OUTCOME_FAILURE, f"unknown operation {operation_id!r} — no success criterion"
+
+    return EVIDENCE_OUTCOME_SUCCESS, "operation succeeded"
 
 
 @dataclass(frozen=True)
@@ -446,6 +504,12 @@ def evidence_satisfies(row: dict, fingerprint: RevisionFingerprint, gate: Eviden
     if row.get("adapter_type") != binding.get("adapter_identity"):
         return False, "evidence adapter identity does not match its binding"
 
+    # The outcome is inside the signed payload, so a failed operation cannot be
+    # relabelled as a successful one without invalidating the signature.
+    if row.get("outcome") != EVIDENCE_OUTCOME_SUCCESS:
+        return False, (f"operation did not succeed (outcome={row.get('outcome')!r}): "
+                       f"{row.get('outcome_reason') or 'no reason recorded'}")
+
     try:
         ts = datetime.fromisoformat(row.get("timestamp", "")).timestamp()
     except (TypeError, ValueError):
@@ -456,24 +520,29 @@ def evidence_satisfies(row: dict, fingerprint: RevisionFingerprint, gate: Eviden
     if age < -60:
         return False, "evidence timestamp is in the future"
 
-    payload = json.dumps(
-        {"binding": binding, "operation_id": row.get("operation_id"),
-         "evidence_class": row.get("evidence_class"), "timestamp": row.get("timestamp")},
-        sort_keys=True, separators=(",", ":")).encode()
-    if not keyring.verify(row.get("adapter_type"), payload, row.get("signature")):
+    if not keyring.verify(row.get("adapter_type"),
+                          evidence_payload(binding, row.get("operation_id"),
+                                           row.get("evidence_class"), row.get("timestamp"),
+                                           row.get("outcome")),
+                          row.get("signature")):
         return False, "evidence signature does not verify"
 
-    return True, "evidence bound to current revision"
+    return True, "evidence bound to current revision and attesting success"
+
+
+def evidence_payload(binding: dict, operation_id: str, evidence_class: str,
+                     timestamp: str, outcome: str) -> bytes:
+    return json.dumps(
+        {"binding": binding, "operation_id": operation_id,
+         "evidence_class": evidence_class, "timestamp": timestamp, "outcome": outcome},
+        sort_keys=True, separators=(",", ":")).encode()
 
 
 def sign_evidence(keyring: EvidenceKeyring, adapter_identity: str, operation_id: str,
                   evidence_class: str, fingerprint: RevisionFingerprint,
-                  timestamp: str) -> Tuple[dict, str]:
+                  timestamp: str, outcome: str) -> Tuple[dict, str]:
     binding = fingerprint.to_dict()
-    payload = json.dumps(
-        {"binding": binding, "operation_id": operation_id,
-         "evidence_class": evidence_class, "timestamp": timestamp},
-        sort_keys=True, separators=(",", ":")).encode()
+    payload = evidence_payload(binding, operation_id, evidence_class, timestamp, outcome)
     return binding, keyring.sign(adapter_identity, payload)
 
 
@@ -488,15 +557,35 @@ class GateAuthority:
     against code running inside the same process, which by construction holds the key."""
 
     TOKEN_TTL_SECONDS = 300
+    MAX_OUTSTANDING = 1024
 
     def __init__(self):
         self._outstanding: Dict[str, Tuple[str, str, float]] = {}
         self._lock = threading.Lock()
 
+    def _sweep_locked(self, now: float) -> None:
+        """Unredeemed tokens are the normal case — every refused transition leaves one
+        behind — so they have to be reclaimed or a long-lived process grows without
+        bound. Expired tokens are already unusable; dropping them changes nothing."""
+        expired = [t for t, (_, _, issued) in self._outstanding.items()
+                   if now - issued > self.TOKEN_TTL_SECONDS]
+        for token in expired:
+            del self._outstanding[token]
+        if len(self._outstanding) > self.MAX_OUTSTANDING:
+            for token, _ in sorted(self._outstanding.items(), key=lambda kv: kv[1][2]
+                                   )[:len(self._outstanding) - self.MAX_OUTSTANDING]:
+                del self._outstanding[token]
+
+    def outstanding_count(self) -> int:
+        with self._lock:
+            return len(self._outstanding)
+
     def issue(self, manifest_id: str, to_state: PublishState) -> str:
         token = secrets.token_hex(32)
+        now = time.time()
         with self._lock:
-            self._outstanding[token] = (manifest_id, to_state.value, time.time())
+            self._sweep_locked(now)
+            self._outstanding[token] = (manifest_id, to_state.value, now)
         return token
 
     def redeem(self, token: str, manifest_id: str, to_state: PublishState) -> Tuple[bool, str]:
@@ -541,7 +630,7 @@ class StateStore:
     State machine is the ONLY state mutation interface.
     save_manifest() cannot change state — it only persists manifest data."""
 
-    SCHEMA_VERSION = 3
+    SCHEMA_VERSION = 4
 
     MIGRATIONS = {
         1: """
@@ -618,6 +707,13 @@ class StateStore:
             ALTER TABLE platform_evidence ADD COLUMN signature TEXT;
             CREATE INDEX IF NOT EXISTS idx_evidence_lookup
                 ON platform_evidence(manifest_id, operation_id);
+        """,
+        4: """
+            -- Evidence must attest that the operation succeeded, not merely that it ran.
+            -- Existing rows default to 'failure': a row written before outcomes were
+            -- recorded cannot prove success, so it must not advance anything.
+            ALTER TABLE platform_evidence ADD COLUMN outcome TEXT NOT NULL DEFAULT 'failure';
+            ALTER TABLE platform_evidence ADD COLUMN outcome_reason TEXT;
         """,
     }
 
@@ -822,8 +918,8 @@ class StateStore:
             conn.execute("""
                 INSERT INTO platform_evidence (manifest_id, adapter_type, is_mock, platform, draft_id,
                                                operation_id, timestamp, evidence_data, errors, warnings,
-                                               evidence_class, binding, signature)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                               evidence_class, binding, signature, outcome, outcome_reason)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (manifest_id, evidence.get("adapter_type", "unknown"),
                   1 if evidence.get("evidence_class", EVIDENCE_MOCK) == EVIDENCE_MOCK else 0,
                   evidence.get("platform", "unknown"),
@@ -833,11 +929,14 @@ class StateStore:
                   json.dumps(evidence.get("warnings", [])),
                   evidence.get("evidence_class", EVIDENCE_MOCK),
                   json.dumps(evidence.get("binding") or {}, sort_keys=True),
-                  evidence.get("signature", "")))
+                  evidence.get("signature", ""),
+                  evidence.get("outcome", EVIDENCE_OUTCOME_FAILURE),
+                  evidence.get("outcome_reason", "")))
         self.atomic(_save)
 
     _EVIDENCE_COLUMNS = ("adapter_type, is_mock, platform, draft_id, operation_id, timestamp, "
-                         "evidence_data, errors, warnings, evidence_class, binding, signature")
+                         "evidence_data, errors, warnings, evidence_class, binding, signature, "
+                         "outcome, outcome_reason")
 
     @staticmethod
     def _evidence_row(r) -> dict:
@@ -845,7 +944,8 @@ class StateStore:
                 "draft_id": r[3], "operation_id": r[4], "timestamp": r[5],
                 "data": json.loads(r[6]), "errors": json.loads(r[7]),
                 "warnings": json.loads(r[8]), "evidence_class": r[9],
-                "binding": json.loads(r[10] or "{}"), "signature": r[11]}
+                "binding": json.loads(r[10] or "{}"), "signature": r[11],
+                "outcome": r[12], "outcome_reason": r[13]}
 
     def get_platform_evidence(self, manifest_id: str, operation_id: str = None) -> List[dict]:
         def _get(conn):
@@ -1164,8 +1264,9 @@ class PlatformAdapter:
         if fingerprint.adapter_identity != self.name:
             raise ValueError("Refusing to sign a fingerprint bound to a different adapter")
         timestamp = datetime.now(timezone.utc).isoformat()
+        outcome, outcome_reason = operation_outcome(operation_id, data, errors)
         binding, signature = sign_evidence(self.keyring, self.name, operation_id,
-                                           self.evidence_class, fingerprint, timestamp)
+                                           self.evidence_class, fingerprint, timestamp, outcome)
         return {
             "adapter_type": self.name,
             "evidence_class": self.evidence_class,
@@ -1175,6 +1276,8 @@ class PlatformAdapter:
             "timestamp": timestamp,
             "binding": binding,
             "signature": signature,
+            "outcome": outcome,
+            "outcome_reason": outcome_reason,
             "data": data,
             "errors": errors or [],
             "warnings": warnings or [],
@@ -1299,16 +1402,24 @@ class PublishEngine:
         if not validate_manifest_id(mid):
             raise ValueError(f"Invalid manifest ID: {mid}")
 
-    def _is_approved_root(self, path: Path) -> bool:
-        """Check if a path is under an approved package root."""
+    @staticmethod
+    def _under_any(path: Path, roots: List[Path]) -> bool:
         resolved = path.resolve()
-        for root in approved_package_roots():
+        for root in roots:
             try:
                 resolved.relative_to(root.resolve())
                 return True
             except ValueError:
                 continue
         return False
+
+    def _is_approved_root(self, path: Path) -> bool:
+        """Somewhere a manifest artifact is allowed to live — includes repair output."""
+        return self._under_any(path, approved_artifact_roots())
+
+    def _is_package_root(self, path: Path) -> bool:
+        """Somewhere a package may be discovered from — excludes repair output."""
+        return self._under_any(path, approved_package_roots())
 
     # ─── Re-verification ─────────────────────────────────────────────────────
 
@@ -1323,6 +1434,12 @@ class PublishEngine:
                 continue
             if path.is_symlink():
                 problems.append(f"Artifact '{key}' is a symlink: {path}")
+                continue
+            # Discovery records resolved paths and follows symlinks, so an out-of-root
+            # file can be smuggled into a package. Staging catches it, but verification
+            # runs earlier and on more paths — it should not be the only chokepoint.
+            if not self._is_approved_root(path):
+                problems.append(f"Artifact '{key}' is not under an approved root: {path}")
                 continue
             actual = hash_file(path)
             if actual != finfo.get("sha256"):
@@ -1343,7 +1460,7 @@ class PublishEngine:
         pkg = Path(manifest.get("source_package", {}).get("path", ""))
         if not pkg.is_dir():
             return [f"Source package directory is missing: {pkg}"]
-        if not self._is_approved_root(pkg):
+        if not self._is_package_root(pkg):
             return [f"Source package is no longer under an approved root: {pkg}"]
         actual = self._hash_package(pkg)
         if actual != recorded:
@@ -1382,20 +1499,90 @@ class PublishEngine:
                                 f"(manifest={getter(manifest)!r}, file={getter(fresh)!r})")
         return problems
 
+    def _verify_staged(self, manifest: dict) -> List[str]:
+        """Re-derive the hash of every staged copy. These are the bytes that actually get
+        uploaded, so staging's copy-time hash check is only worth something if the copy is
+        re-checked at use time as well."""
+        problems = []
+        for key, finfo in sorted(manifest.get("files", {}).items()):
+            staged = finfo.get("staged_path")
+            if not staged:
+                continue
+            path = Path(staged)
+            if path.is_symlink():
+                problems.append(f"Staged copy of '{key}' is a symlink: {path}")
+                continue
+            if not path.is_file():
+                problems.append(f"Staged copy of '{key}' is missing: {path}")
+                continue
+            actual = hash_file(path)
+            if actual != finfo.get("sha256"):
+                problems.append(f"Staged copy of '{key}' changed since staging "
+                                f"(expected {finfo.get('sha256', '')[:12]}, found {actual[:12]})")
+        return problems
+
+    def _upload_source(self, manifest: dict, key: str) -> Tuple[Optional[str], Optional[str]]:
+        """The staged, hash-verified copy — never the live package file. Uploading the
+        original would mean the staging integrity check validated a copy nobody sends."""
+        finfo = manifest.get("files", {}).get(key)
+        if not finfo:
+            return None, None
+        staged = finfo.get("staged_path")
+        if not staged:
+            return None, f"Artifact '{key}' has no staged copy — re-run stage before preview"
+        return staged, None
+
+    def _resolve_draft_id(self, manifest_id: str,
+                          manifest: dict) -> Tuple[Optional[str], Optional[str]]:
+        """Settle which storefront object this revision is about, and persist it.
+
+        The fingerprint binds manifest['draft_id']. If the adapter resolves a different
+        draft and the manifest is left alone, every signed row attests to one object
+        while the adapter operates on another — and submit() would later fire at the
+        stale one. Persisting before fingerprinting makes evidence, preview and
+        submission concern the same draft by construction. A declared ID that disagrees
+        with the resolved one is a conflict the engine must not silently pick a side in.
+        """
+        declared = manifest.get("draft_id")
+        draft = self.adapter.find_existing_draft(manifest.get("title", {}).get("canonical", ""))
+        resolved = (draft or {}).get("draft_id") or declared
+        if not resolved:
+            return None, "Adapter resolved no draft and the manifest declares none"
+        if declared and resolved != declared:
+            return None, (f"Draft mismatch: manifest declares {declared!r} but the platform "
+                          f"resolved {resolved!r} — re-discover before publishing")
+        if manifest.get("draft_id") != resolved:
+            manifest["draft_id"] = resolved
+            self.db.save_manifest(manifest_id, manifest)
+        return resolved, None
+
     def _revision_fingerprint(self, manifest_id: str, manifest: dict) -> RevisionFingerprint:
         return build_revision_fingerprint(
             manifest, self.db.get_package_hash(manifest_id) or "", self.adapter.name)
+
+    def _preflight(self, manifest_id: str, manifest: dict,
+                   to_state: PublishState) -> List[str]:
+        """Everything that must hold before an adapter is allowed to touch the platform.
+
+        Split out of _gate_token deliberately. The token cannot be minted until evidence
+        exists, but evidence only exists after the adapter has acted — so if the disk
+        checks lived only in _gate_token they would always run *after* the irreversible
+        call. Callers run this first, then act, then advance."""
+        problems: List[str] = []
+        if to_state in HASH_REVALIDATION_STATES:
+            problems += self._verify_artifacts(manifest)
+            problems += self._verify_package(manifest_id, manifest)
+            problems += self._verify_kdp_draft(manifest)
+            problems += self._verify_staged(manifest)
+        if self.db.has_forced_state(manifest_id):
+            problems.append("Manifest state was forced out of band — re-discover before publishing")
+        return problems
 
     def _gate_token(self, manifest_id: str, manifest: dict,
                     to_state: PublishState) -> Tuple[Optional[str], List[str]]:
         """Mint a transition token, but only after re-verifying everything that state
         depends on. No token means no advance."""
-        problems: List[str] = []
-
-        if to_state in HASH_REVALIDATION_STATES:
-            problems += self._verify_artifacts(manifest)
-            problems += self._verify_package(manifest_id, manifest)
-            problems += self._verify_kdp_draft(manifest)
+        problems = self._preflight(manifest_id, manifest, to_state)
 
         if to_state in PLATFORM_EVIDENCE_REQUIRED:
             operation = EVIDENCE_OPERATION_FOR_STATE[to_state]
@@ -1404,9 +1591,6 @@ class PublishEngine:
                                                  self.evidence_gate)
             if not ok:
                 problems.append(f"{why} [gate: {self.evidence_gate.describe()}]")
-
-        if self.db.has_forced_state(manifest_id):
-            problems.append("Manifest state was forced out of band — re-discover before publishing")
 
         if problems:
             return None, problems
@@ -1443,7 +1627,7 @@ class PublishEngine:
         discovered = []
         if package_path:
             pkg = Path(package_path).resolve()
-            if not self._is_approved_root(pkg):
+            if not self._is_package_root(pkg):
                 self.logger.warning(f"Package not in approved root: {pkg}")
                 return []
             if pkg.is_dir():
@@ -1500,7 +1684,9 @@ class PublishEngine:
         h.update(pkg.name.encode())
         for f in sorted(pkg.rglob("*")):
             if f.is_file():
-                h.update(f.name.encode())
+                # Path relative to the package root, not the basename: hashing basenames
+                # lets two files swap between subdirectories without changing the digest.
+                h.update(f.relative_to(pkg).as_posix().encode())
                 h.update(str(f.stat().st_size).encode())
                 h.update(hash_file(f).encode())
         return h.hexdigest()
@@ -1825,6 +2011,7 @@ class PublishEngine:
                         })
                         manifest["files"]["cover"]["path"] = str(derivative)
                         manifest["files"]["cover"]["sha256"] = hash_file(derivative)
+                        manifest["files"]["cover"]["size"] = derivative.stat().st_size
                 except ImportError:
                     pass
 
@@ -1857,12 +2044,15 @@ class PublishEngine:
         stage_dir = STAGING_DIR / manifest_id
         if stage_dir.exists():
             return {"error": f"Staging directory already exists: {stage_dir}"}
-        stage_dir.mkdir(parents=True)
 
         # Staging is all-or-nothing. A half-populated staging directory previously
         # survived the failure and then collided with every retry, wedging the manifest.
+        # mkdir is inside the try so a failure part-way through it is rolled back too.
         staged = []
+        created = False
         try:
+            stage_dir.mkdir(parents=True, exist_ok=False)
+            created = True
             for key, finfo in sorted(manifest.get("files", {}).items()):
                 src = Path(finfo["path"])
                 safe_src = self._safe_stage_path(src)
@@ -1875,14 +2065,22 @@ class PublishEngine:
                 if hash_file(dst) != finfo["sha256"]:
                     raise ValueError(f"Hash mismatch after staging for {key}")
 
+                # The staged copy is what gets uploaded. Recording it here is what makes
+                # the copy-time hash check load-bearing instead of decorative; the source
+                # path stays in "path" so verification keeps watching the live package.
+                finfo["staged_path"] = str(dst)
                 staged.append(str(dst))
 
             success, msg = self.db.transition(manifest_id, current_state, PublishState.STAGED,
                                               actor="stage")
             if not success:
                 raise ValueError(msg)
+            self.db.save_manifest(manifest_id, manifest)
+        except FileExistsError as e:
+            return {"error": f"Staging directory already exists: {stage_dir} ({e})"}
         except (ValueError, OSError) as e:
-            shutil.rmtree(stage_dir, ignore_errors=True)
+            if created:
+                shutil.rmtree(stage_dir, ignore_errors=True)
             return {"error": str(e)}
 
         return {"staged_files": staged, "stage_dir": str(stage_dir)}
@@ -1905,14 +2103,20 @@ class PublishEngine:
         if current_state != PublishState.STAGED:
             return {"error": f"Must be in STAGED state to preview (current: {current_state.value})"}
 
+        # Nothing may reach the adapter until on-disk state has been re-verified. This
+        # runs before check_auth, before draft resolution and before any upload, so a
+        # tampered package produces exactly zero adapter calls.
+        problems = self._preflight(manifest_id, manifest, PublishState.PLATFORM_UPLOADED)
+        if problems:
+            return {"error": "; ".join(problems)}
+
         auth = self.adapter.check_auth()
         if not auth.get("authenticated"):
             return {"error": "Adapter not authenticated"}
 
-        draft_id = manifest.get("draft_id") or "mock-draft"
-        draft = self.adapter.find_existing_draft(manifest.get("title", {}).get("canonical", ""))
-        if draft:
-            draft_id = draft.get("draft_id", draft_id)
+        draft_id, err = self._resolve_draft_id(manifest_id, manifest)
+        if err:
+            return {"error": err}
 
         cid = resolve_canonical_id(manifest.get("title", {}).get("canonical", ""))
         if cid:
@@ -1920,17 +2124,21 @@ class PublishEngine:
             if not allowed:
                 return {"error": msg}
 
-        # Every piece of evidence is signed against this exact revision. If anything on
-        # disk moves after this point, the fingerprint stops matching and the gates close.
+        # Every piece of evidence is signed against this exact revision, including the
+        # resolved draft ID persisted just above. If anything on disk moves after this
+        # point, the fingerprint stops matching and the gates close.
         fingerprint = self._revision_fingerprint(manifest_id, manifest)
 
         for key in ["manuscript", "cover"]:
-            finfo = manifest.get("files", {}).get(key)
-            if finfo:
-                upload_result = self.adapter.upload_artifact(draft_id, key, finfo["path"])
-                self.db.save_platform_evidence(manifest_id, self.adapter.emit_evidence(
-                    f"upload-{key}", fingerprint, upload_result,
-                    errors=[upload_result["error"]] if upload_result.get("error") else []))
+            if not manifest.get("files", {}).get(key):
+                continue
+            source, err = self._upload_source(manifest, key)
+            if err:
+                return {"error": err}
+            upload_result = self.adapter.upload_artifact(draft_id, key, source)
+            self.db.save_platform_evidence(manifest_id, self.adapter.emit_evidence(
+                f"upload-{key}", fingerprint, upload_result,
+                errors=[upload_result["error"]] if upload_result.get("error") else []))
 
         success, msg = self._advance(manifest_id, manifest, current_state,
                                      PublishState.PLATFORM_UPLOADED, actor="preview")
@@ -1939,6 +2147,9 @@ class PublishEngine:
                     "note": "Evidence was stored but did not satisfy the gate; state unchanged."}
         current_state = PublishState.PLATFORM_UPLOADED
 
+        problems = self._preflight(manifest_id, manifest, PublishState.PLATFORM_PROCESSED)
+        if problems:
+            return {"error": "; ".join(problems)}
         processing = self.adapter.poll_processing(draft_id)
         self.db.save_platform_evidence(manifest_id, self.adapter.emit_evidence(
             "poll-processing", fingerprint, processing,
@@ -1950,11 +2161,14 @@ class PublishEngine:
             return {"error": msg}
         current_state = PublishState.PLATFORM_PROCESSED
 
+        problems = self._preflight(manifest_id, manifest, PublishState.PREVIEW_CLEAN)
+        if problems:
+            return {"error": "; ".join(problems)}
         preview_result = self.adapter.launch_previewer(draft_id)
         capture = self.adapter.capture_preview_evidence(draft_id)
         self.db.save_platform_evidence(manifest_id, self.adapter.emit_evidence(
             "preview", fingerprint, {"preview": preview_result, "capture": capture},
-            warnings=capture.get("warnings", [])))
+            errors=capture.get("errors", []), warnings=capture.get("warnings", [])))
 
         success, msg = self._advance(manifest_id, manifest, current_state,
                                      PublishState.PREVIEW_CLEAN, actor="preview")
@@ -2059,10 +2273,28 @@ class PublishEngine:
         if current_hash != stored_hash:
             return {"error": "Approval expired — manifest changed since approval"}
 
+        # Re-verify every artifact, the package and the KDP draft fields against disk
+        # *before* the irreversible platform call. The approval-hash comparison above
+        # only reads manifest fields, so on its own it cannot see tampered bytes.
+        problems = self._preflight(manifest_id, manifest, PublishState.SUBMITTED)
+        if problems:
+            return {"error": "; ".join(problems)}
+
+        draft_id = manifest.get("draft_id")
+        if not draft_id:
+            return {"error": "Manifest has no resolved draft_id — run preview before submit"}
+
+        # The protected-title check ran at preview; the submit chokepoint is where the
+        # irreversible call happens, so it has to hold here too.
+        cid = resolve_canonical_id(manifest.get("title", {}).get("canonical", ""))
+        if cid:
+            allowed, msg = check_protected_draft(cid, manifest.get("target_platform"), draft_id)
+            if not allowed:
+                return {"error": msg}
+
         if not self.db.acquire_queue_lock(manifest_id, "publisher"):
             return {"error": "Could not acquire submission lock — another title may be active"}
 
-        draft_id = manifest.get("draft_id") or "new"
         fingerprint = self._revision_fingerprint(manifest_id, manifest)
         result = self.adapter.submit(draft_id)
         self.db.save_platform_evidence(manifest_id, self.adapter.emit_evidence(
@@ -2193,15 +2425,16 @@ class PublishEngine:
             "staged": "preview",
             "platform_uploaded": "preview",
             "platform_processed": "preview",
-            "preview_clean": "approve",
             "awaiting_owner_approval": "approve",
         }
+        # preview_clean is deliberately absent: approve() refuses it and preview()
+        # requires staged, so no CLI action moves a manifest out of it.
 
         return {
             "manifest_id": manifest_id,
             "current_state": state,
             "next_action": resume_map.get(state, "status"),
-            "can_resume": state not in ("live", "archived", "submitted", "approved"),
+            "can_resume": state in resume_map,
         }
 
 

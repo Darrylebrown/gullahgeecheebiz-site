@@ -21,13 +21,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import publisher  # noqa: E402
-from harness import cli_env, harness  # noqa: E402
+from harness import RecordingAdapter, cli_env, harness  # noqa: E402
 from publisher import (  # noqa: E402
-    APPROVED_PACKAGE_ROOTS, EVIDENCE_ISOLATED_TEST, EVIDENCE_MOCK, GATED_STATES,
+    APPROVED_PACKAGE_ROOTS, EVIDENCE_ISOLATED_TEST, EVIDENCE_MOCK,
+    EVIDENCE_OUTCOME_FAILURE, EVIDENCE_OUTCOME_SUCCESS, GATED_STATES,
     PRODUCTION_ADAPTERS, REQUIRED_BINDING_PROPERTIES, STATE_TRANSITIONS, EvidenceGate,
     EvidenceKeyring, GateAuthority, IsolatedTestAdapter, MockKDPAdapter, PublishState,
     StateStore, build_canonical_manifest_hash, check_protected_draft, detect_mime,
-    enforce_price, hash_file, resolve_canonical_id, validate_manifest_id,
+    enforce_price, hash_file, operation_outcome, resolve_canonical_id, validate_manifest_id,
 )
 
 PUBLISHER_PY = Path(publisher.__file__).resolve()
@@ -212,7 +213,8 @@ def test_forged_evidence_row_does_not_satisfy_the_gate():
         manifest = h.db.load_manifest(mid)
         fingerprint = h.engine._revision_fingerprint(mid, manifest)
 
-        # Correct binding, correct class, correct adapter name — but unsigned.
+        # Correct binding, correct class, correct adapter name, claiming success —
+        # but unsigned, so it must fall at the signature check specifically.
         h.db.save_platform_evidence(mid, {
             "adapter_type": "kdp-isolated-test",
             "evidence_class": EVIDENCE_ISOLATED_TEST,
@@ -221,6 +223,7 @@ def test_forged_evidence_row_does_not_satisfy_the_gate():
             "operation_id": "preview",
             "binding": fingerprint.to_dict(),
             "signature": "0" * 64,
+            "outcome": EVIDENCE_OUTCOME_SUCCESS,
             "data": {"forged": True},
         })
         ok, why = h.db.has_bound_evidence(mid, "preview", fingerprint, h.engine.evidence_gate)
@@ -363,6 +366,284 @@ def test_submit_refuses_a_tampered_package():
 
         assert "error" in h.engine.submit(mid)
         assert h.db.get_state(mid) == PublishState.APPROVED.value
+
+
+# ─── No side effect may precede the preflight ────────────────────────────────
+#
+# "State did not advance" is a weaker claim than "nothing happened". Every test below
+# counts adapter calls, because a submission that fires and is then disowned locally is
+# still a submission.
+
+def test_submit_does_not_touch_the_platform_when_the_manuscript_is_tampered():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        pkg = h.make_package()
+        mid = h.advance_to_awaiting_approval(pkg)
+        assert "error" not in h.engine.approve(mid)
+        adapter.reset()
+
+        (pkg / "manuscript.docx").write_bytes(b"PK\x03\x04" + b"\xaa" * 4096)
+
+        result = h.engine.submit(mid)
+        assert "error" in result
+        assert adapter.count("submit") == 0, f"platform was contacted: {adapter.calls}"
+        assert adapter.platform_calls == 0, f"platform was contacted: {adapter.calls}"
+        assert h.db.get_state(mid) == PublishState.APPROVED.value
+
+
+def test_submit_does_not_touch_the_platform_when_the_price_is_rewritten():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        pkg = h.make_package()
+        mid = h.advance_to_awaiting_approval(pkg)
+        assert "error" not in h.engine.approve(mid)
+        adapter.reset()
+
+        draft = pkg / "KDP-DRAFT.md"
+        draft.write_text(draft.read_text().replace("$3.99", "$99.99"))
+
+        assert "error" in h.engine.submit(mid)
+        assert adapter.platform_calls == 0, f"platform was contacted: {adapter.calls}"
+
+
+def test_submit_does_not_touch_the_platform_when_a_staged_copy_is_tampered():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        mid = h.advance_to_awaiting_approval()
+        assert "error" not in h.engine.approve(mid)
+        adapter.reset()
+
+        staged = Path(h.db.load_manifest(mid)["files"]["manuscript"]["staged_path"])
+        staged.write_bytes(b"PK\x03\x04" + b"\xcc" * 4096)
+
+        assert "error" in h.engine.submit(mid)
+        assert adapter.platform_calls == 0, f"platform was contacted: {adapter.calls}"
+
+
+def test_preview_does_not_touch_the_platform_when_the_manuscript_is_tampered():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        pkg = h.make_package()
+        mid = h.discover(pkg)
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+        adapter.reset()
+
+        (pkg / "manuscript.docx").write_bytes(b"PK\x03\x04" + b"\xaa" * 4096)
+
+        assert "error" in h.engine.preview(mid)
+        assert adapter.platform_calls == 0, f"platform was contacted: {adapter.calls}"
+        assert adapter.uploads == []
+        assert h.db.get_state(mid) == PublishState.STAGED.value
+
+
+def test_preview_uploads_the_staged_copy_not_the_live_package_file():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        mid = h.advance_to_awaiting_approval()
+        manifest = h.db.load_manifest(mid)
+
+        assert adapter.uploads, "no artifact was uploaded"
+        stage_dir = (publisher.STAGING_DIR / mid).resolve()
+        for upload in adapter.uploads:
+            sent = Path(upload["path"]).resolve()
+            assert sent.parent == stage_dir, f"uploaded from outside staging: {sent}"
+            recorded = manifest["files"][upload["artifact_type"]]
+            assert str(sent) == str(Path(recorded["staged_path"]).resolve())
+            assert sent != Path(recorded["path"]).resolve()
+
+
+def test_staged_path_is_recorded_for_every_artifact():
+    with harness() as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+        manifest = h.db.load_manifest(mid)
+        for key, finfo in manifest["files"].items():
+            staged = Path(finfo["staged_path"])
+            assert staged.is_file(), f"{key} has no staged copy on disk"
+            assert hash_file(staged) == finfo["sha256"]
+
+
+def test_preview_refuses_when_a_staged_copy_was_replaced():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+        adapter.reset()
+
+        staged = Path(h.db.load_manifest(mid)["files"]["cover"]["staged_path"])
+        staged.write_bytes(b"\xff" * 512)
+
+        result = h.engine.preview(mid)
+        assert "error" in result
+        assert "Staged copy" in result["error"]
+        assert adapter.platform_calls == 0, f"platform was contacted: {adapter.calls}"
+
+
+# ─── Evidence must attest success, not merely existence ──────────────────────
+
+def test_operation_outcome_rejects_unknown_operations():
+    outcome, why = operation_outcome("teleport-manuscript", {"success": True}, [])
+    assert outcome == EVIDENCE_OUTCOME_FAILURE
+    assert "unknown operation" in why
+
+
+def test_operation_outcome_reads_each_operations_own_success_signal():
+    assert operation_outcome("upload-cover", {"success": True}, [])[0] == EVIDENCE_OUTCOME_SUCCESS
+    assert operation_outcome("upload-cover", {"success": False}, [])[0] == EVIDENCE_OUTCOME_FAILURE
+    assert operation_outcome("poll-processing", {"status": "processed"}, [])[0] == EVIDENCE_OUTCOME_SUCCESS
+    assert operation_outcome("poll-processing", {"status": "failed"}, [])[0] == EVIDENCE_OUTCOME_FAILURE
+    assert operation_outcome("submit", {"submitted": True}, [])[0] == EVIDENCE_OUTCOME_SUCCESS
+    assert operation_outcome("submit", {"submitted": False}, [])[0] == EVIDENCE_OUTCOME_FAILURE
+    assert operation_outcome("submit", {"submitted": True}, ["boom"])[0] == EVIDENCE_OUTCOME_FAILURE
+
+
+def test_a_failed_upload_does_not_advance_state():
+    adapter = RecordingAdapter(fail="upload-manuscript")
+    with harness(adapter=adapter) as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+
+        result = h.engine.preview(mid)
+        assert "error" in result
+        assert adapter.count("upload_artifact") >= 1, "the upload should have been attempted"
+        assert h.db.get_state(mid) == PublishState.STAGED.value
+
+        rows = h.db.get_platform_evidence(mid, "upload-manuscript")
+        assert rows, "the failed attempt should still be recorded"
+        assert all(r["outcome"] == EVIDENCE_OUTCOME_FAILURE for r in rows)
+
+
+def test_failed_processing_does_not_advance_past_upload():
+    adapter = RecordingAdapter(fail="poll-processing")
+    with harness(adapter=adapter) as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+
+        assert "error" in h.engine.preview(mid)
+        assert h.db.get_state(mid) == PublishState.PLATFORM_UPLOADED.value
+
+
+def test_a_previewer_that_never_opened_does_not_advance_state():
+    adapter = RecordingAdapter(fail="preview")
+    with harness(adapter=adapter) as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+
+        assert "error" in h.engine.preview(mid)
+        assert h.db.get_state(mid) == PublishState.PLATFORM_PROCESSED.value
+
+
+def test_a_rejected_submission_does_not_reach_submitted():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        mid = h.advance_to_awaiting_approval()
+        assert "error" not in h.engine.approve(mid)
+
+        adapter.fail = "submit"
+        result = h.engine.submit(mid)
+        assert "error" in result
+        assert adapter.count("submit") == 1
+        assert h.db.get_state(mid) == PublishState.APPROVED.value
+
+        rows = h.db.get_platform_evidence(mid, "submit")
+        assert rows and all(r["outcome"] == EVIDENCE_OUTCOME_FAILURE for r in rows)
+
+
+def test_failure_evidence_is_signed_so_it_cannot_be_relabelled():
+    adapter = RecordingAdapter(fail="upload-manuscript")
+    with harness(adapter=adapter) as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+        assert "error" in h.engine.preview(mid)
+
+        with sqlite3.connect(h.db.db_path) as conn:
+            conn.execute("UPDATE platform_evidence SET outcome = ? WHERE operation_id = ?",
+                         (EVIDENCE_OUTCOME_SUCCESS, "upload-manuscript"))
+
+        manifest = h.db.load_manifest(mid)
+        fingerprint = h.engine._revision_fingerprint(mid, manifest)
+        ok, why = h.db.has_bound_evidence(mid, "upload-manuscript", fingerprint,
+                                          h.engine.evidence_gate)
+        assert ok is False
+        assert "signature" in why
+
+
+# ─── Evidence binds the draft the platform actually resolved ─────────────────
+
+def test_a_draft_the_platform_resolves_differently_is_refused():
+    adapter = RecordingAdapter(resolves_draft="AZZZZZZZZZZZZ")
+    with harness(adapter=adapter) as h:
+        mid = h.discover(h.make_package())
+        assert h.engine.audit(mid)["passed"]
+        assert "error" not in h.engine.stage(mid)
+
+        result = h.engine.preview(mid)
+        assert "error" in result
+        assert "Draft mismatch" in result["error"]
+        assert adapter.count("upload_artifact") == 0, "uploaded to a draft it could not identify"
+        assert h.db.get_state(mid) == PublishState.STAGED.value
+
+
+def test_every_operation_and_evidence_row_names_the_same_draft():
+    adapter = RecordingAdapter(resolves_draft="AYK5W5QVJCJOE")
+    with harness(adapter=adapter) as h:
+        mid = h.advance_to_awaiting_approval()
+        assert "error" not in h.engine.approve(mid)
+        assert "error" not in h.engine.submit(mid)
+
+        draft_id = h.db.load_manifest(mid)["draft_id"]
+        assert draft_id == "AYK5W5QVJCJOE"
+
+        addressed = {call[1] for call in adapter.calls
+                     if call[0] in ("upload_artifact", "poll_processing", "launch_previewer",
+                                    "capture_preview_evidence", "submit")}
+        assert addressed == {draft_id}, f"operations addressed several drafts: {addressed}"
+
+        for operation in ("upload-manuscript", "upload-cover", "poll-processing",
+                          "preview", "submit"):
+            rows = h.db.get_platform_evidence(mid, operation)
+            assert rows, f"no evidence recorded for {operation}"
+            for row in rows:
+                assert row["binding"]["draft_id"] == draft_id
+                assert row["draft_id"] == draft_id
+
+
+def test_repointing_the_draft_after_approval_contacts_nothing():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        mid = h.advance_to_awaiting_approval()
+        assert "error" not in h.engine.approve(mid)
+        adapter.reset()
+
+        manifest = h.db.load_manifest(mid)
+        manifest["draft_id"] = "AWRONGDRAFT01"
+        h.db.save_manifest(mid, manifest)
+
+        assert "error" in h.engine.submit(mid)
+        assert adapter.count("submit") == 0, f"platform was contacted: {adapter.calls}"
+        assert h.db.get_state(mid) == PublishState.APPROVED.value
+
+
+def test_submit_refuses_a_manifest_with_no_resolved_draft():
+    adapter = RecordingAdapter()
+    with harness(adapter=adapter) as h:
+        mid = h.advance_to_awaiting_approval()
+        assert "error" not in h.engine.approve(mid)
+        adapter.reset()
+
+        manifest = h.db.load_manifest(mid)
+        manifest["draft_id"] = None
+        h.db.save_manifest(mid, manifest)
+
+        assert "error" in h.engine.submit(mid)
+        assert adapter.count("submit") == 0, f"platform was contacted: {adapter.calls}"
 
 
 # ─── KDP-DRAFT.md is consequential (F-5) ─────────────────────────────────────
@@ -654,6 +935,179 @@ def test_staged_copies_match_their_recorded_hashes():
         by_name = {Path(p).name: Path(p) for p in result["staged_files"]}
         for finfo in manifest["files"].values():
             assert hash_file(by_name[Path(finfo["path"]).name]) == finfo["sha256"]
+
+
+# ─── Verification and hashing gaps the audit called out ─────────────────────
+
+def test_verify_artifacts_refuses_a_path_outside_the_approved_roots():
+    with harness() as h:
+        mid = h.discover(h.make_package())
+        outsider = h.root / "smuggled.docx"
+        outsider.write_bytes(b"PK\x03\x04" + b"\x11" * 2048)
+
+        manifest = h.db.load_manifest(mid)
+        manifest["files"]["manuscript"]["path"] = str(outsider)
+        manifest["files"]["manuscript"]["sha256"] = hash_file(outsider)
+
+        problems = h.engine._verify_artifacts(manifest)
+        assert any("not under an approved root" in p for p in problems), problems
+
+
+def test_package_hash_notices_a_file_moved_between_subdirectories():
+    """Relocation, not content swapping, is what a basename-only digest cannot see.
+
+    Swapping the contents of two same-named files in place still changes a basename digest,
+    because the walk order is unchanged and the bytes move with it — an earlier version of
+    this test did that and the mutation survived it. The change a basename walk genuinely
+    cannot distinguish is the same file, same bytes, in a different directory. The two
+    directory names sort after every top-level package file, which keeps the moved entry in
+    the same position in the walk; otherwise the reordering alone would shift the digest and
+    the test would pass without the guard being present.
+    """
+    with harness() as h:
+        pkg = h.make_package()
+        (pkg / "zzz-front").mkdir()
+        (pkg / "zzz-front" / "matter.txt").write_text("alpha")
+        before = h.engine._hash_package(pkg)
+
+        (pkg / "zzz-back").mkdir()
+        (pkg / "zzz-front" / "matter.txt").rename(pkg / "zzz-back" / "matter.txt")
+        (pkg / "zzz-front").rmdir()
+
+        assert h.engine._hash_package(pkg) != before, \
+            "hashing basenames lets a file change directory unnoticed"
+
+
+def test_the_repairs_directory_is_an_artifact_root_but_not_a_package_source():
+    with harness() as h:
+        assert publisher.REPAIRS_DIR in publisher.approved_artifact_roots()
+        assert publisher.REPAIRS_DIR not in publisher.approved_package_roots(), \
+            "the engine's own scratch directory must not be somewhere packages come from"
+
+        stray = publisher.REPAIRS_DIR / "planted"
+        stray.mkdir(parents=True, exist_ok=True)
+        (stray / "KDP-DRAFT.md").write_text("# KDP Draft\n- **Title:** Sweetgrass\n")
+        assert h.engine.discover(str(stray)) == []
+
+
+def test_a_repaired_cover_is_still_stageable():
+    from PIL import Image
+
+    with harness() as h:
+        pkg = h.make_package()
+        Image.new("RGB", (500, 800), (9, 9, 9)).save(pkg / "cover.jpg", "JPEG", quality=90)
+        mid = h.discover(pkg)
+        assert not h.engine.audit(mid)["passed"], "undersized cover should fail the audit"
+
+        assert h.engine.repair(mid)["count"] >= 1
+        repaired = Path(h.db.load_manifest(mid)["files"]["cover"]["path"])
+        assert h.engine._is_approved_root(repaired), \
+            f"repair produced a path staging can never accept: {repaired}"
+
+        assert h.engine.audit(mid)["passed"]
+        result = h.engine.stage(mid)
+        assert "error" not in result, result.get("error")
+
+
+def test_gate_authority_reclaims_expired_tokens():
+    authority = GateAuthority()
+    mid = "ggb-manifest-00000000-0000-4000-8000-000000000000"
+    for _ in range(50):
+        authority.issue(mid, PublishState.APPROVED)
+    assert authority.outstanding_count() == 50
+
+    authority.TOKEN_TTL_SECONDS = -1  # every token already outstanding is now expired
+    authority.issue(mid, PublishState.APPROVED)
+    assert authority.outstanding_count() == 1, "expired tokens were never reclaimed"
+
+
+def test_gate_authority_caps_outstanding_tokens():
+    authority = GateAuthority()
+    authority.MAX_OUTSTANDING = 8
+    mid = "ggb-manifest-00000000-0000-4000-8000-000000000000"
+    for _ in range(40):
+        authority.issue(mid, PublishState.APPROVED)
+    assert authority.outstanding_count() <= authority.MAX_OUTSTANDING + 1
+
+
+def test_an_unexpired_token_still_redeems_exactly_once():
+    authority = GateAuthority()
+    mid = "ggb-manifest-00000000-0000-4000-8000-000000000000"
+    token = authority.issue(mid, PublishState.APPROVED)
+    for _ in range(20):
+        authority.issue(mid, PublishState.APPROVED)
+
+    ok, _ = authority.redeem(token, mid, PublishState.APPROVED)
+    assert ok is True
+    ok, _ = authority.redeem(token, mid, PublishState.APPROVED)
+    assert ok is False
+
+
+def test_direct_runner_refuses_to_silently_skip_a_test_it_cannot_call():
+    import types
+
+    import run_tests
+
+    module = types.ModuleType("fake_suite")
+    module.test_zero_arg = lambda: None
+
+    def test_needs_a_fixture(tmp_path):
+        pass
+
+    module.test_needs_a_fixture = test_needs_a_fixture
+
+    tests, uncollectable = run_tests.collect(module)
+    assert [name for name, _ in tests] == ["test_zero_arg"]
+    assert uncollectable == ["test_needs_a_fixture"], \
+        "an arg-taking test must be reported, not dropped — pytest would have run it"
+
+
+def test_network_scan_covers_the_whole_engine_and_still_bites():
+    import network_scan
+
+    assert network_scan.scan() == [], "unallowlisted network access under ggb-engine/"
+
+    # The allowlist is the only thing standing between a file and a failed build, so
+    # every entry must name a file that exists — a stale entry silently widens it.
+    for rel in network_scan.ALLOWLIST:
+        assert (network_scan.ENGINE_DIR / rel).is_file(), f"stale allowlist entry: {rel}"
+
+    assert network_scan.violations_in("import urllib.parse\n", "x.py") == []
+    assert network_scan.violations_in("import urllib.request\n", "x.py") == [(1, "urllib.request")]
+    assert network_scan.violations_in("from requests import get\n", "x.py") == [(1, "requests")]
+    assert network_scan.violations_in("import json, socket\n", "x.py") == [(1, "socket")]
+
+    with tempfile.TemporaryDirectory() as tmp:
+        planted = Path(tmp) / "sneaky.py"
+        planted.write_text("import requests\n")
+        assert network_scan.scan(Path(tmp)) == [("sneaky.py", 1, "requests")]
+
+
+def test_publisher_itself_is_never_allowlisted_for_network_access():
+    import network_scan
+
+    assert "publisher.py" not in network_scan.ALLOWLIST
+    assert network_scan.violations_in(PUBLISHER_PY.read_text(), "publisher.py") == []
+
+
+def test_direct_runner_discovers_every_suite_file():
+    import run_tests
+
+    found = {p.name for p in run_tests.suite_files()}
+    on_disk = {p.name for p in Path(__file__).resolve().parent.glob("test_*.py")}
+    assert found == on_disk, "the runner hardcodes a filename instead of discovering them"
+
+
+def test_resume_offers_no_action_it_cannot_perform():
+    with harness() as h:
+        mid = h.advance_to_awaiting_approval()
+        with sqlite3.connect(h.db.db_path) as conn:
+            conn.execute("UPDATE manifests SET state = 'preview_clean' WHERE manifest_id = ?",
+                         (mid,))
+        guidance = h.engine.resume(mid)
+        assert guidance["next_action"] != "approve", \
+            "approve() refuses preview_clean, so resume must not recommend it"
+        assert guidance["can_resume"] is False
 
 
 # ─── Test-mode roots (F-15) ──────────────────────────────────────────────────

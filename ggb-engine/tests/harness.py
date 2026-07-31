@@ -29,6 +29,77 @@ PACKAGE_ROOT_ENV = "GGB_TEST_PACKAGE_ROOT"
 PUBLISH_DIR_ENV = "GGB_TEST_PUBLISH_DIR"
 
 
+class RecordingAdapter(IsolatedTestAdapter):
+    """IsolatedTestAdapter that records every platform-facing call, and can be told to
+    fail one named operation.
+
+    Local state being unchanged is not the same as nothing having happened. A test that
+    only inspects the state machine cannot tell "the engine refused" from "the engine
+    called the platform and then refused" — and the second one is the bug. Call counts
+    make the difference visible.
+    """
+
+    def __init__(self, logger=None, fail: str = None, resolves_draft: str = None):
+        super().__init__(logger)
+        self.calls = []
+        self.uploads = []
+        self.fail = fail
+        self.resolves_draft = resolves_draft
+
+    def count(self, name: str) -> int:
+        return sum(1 for call in self.calls if call[0] == name)
+
+    @property
+    def platform_calls(self) -> int:
+        return len(self.calls)
+
+    def reset(self) -> None:
+        self.calls.clear()
+        self.uploads.clear()
+
+    def check_auth(self):
+        self.calls.append(("check_auth",))
+        return super().check_auth()
+
+    def find_existing_draft(self, title):
+        self.calls.append(("find_existing_draft", title))
+        if self.resolves_draft:
+            return {"draft_id": self.resolves_draft, "title": title}
+        return super().find_existing_draft(title)
+
+    def upload_artifact(self, draft_id, artifact_type, file_path):
+        self.calls.append(("upload_artifact", draft_id, artifact_type, file_path))
+        self.uploads.append({"draft_id": draft_id, "artifact_type": artifact_type,
+                             "path": file_path})
+        if self.fail == f"upload-{artifact_type}":
+            return {"success": False, "error": "platform rejected the upload"}
+        return super().upload_artifact(draft_id, artifact_type, file_path)
+
+    def poll_processing(self, draft_id):
+        self.calls.append(("poll_processing", draft_id))
+        if self.fail == "poll-processing":
+            return {"status": "failed", "errors": ["conversion failed"], "warnings": []}
+        return super().poll_processing(draft_id)
+
+    def launch_previewer(self, draft_id):
+        self.calls.append(("launch_previewer", draft_id))
+        if self.fail == "preview":
+            return {"opened": False, "screenshots": [], "warnings": []}
+        return super().launch_previewer(draft_id)
+
+    def capture_preview_evidence(self, draft_id):
+        self.calls.append(("capture_preview_evidence", draft_id))
+        if self.fail == "preview":
+            return {"screenshots": [], "warnings": [], "errors": ["previewer never opened"]}
+        return super().capture_preview_evidence(draft_id)
+
+    def submit(self, draft_id):
+        self.calls.append(("submit", draft_id))
+        if self.fail == "submit":
+            return {"submitted": False, "error": "platform rejected the submission"}
+        return super().submit(draft_id)
+
+
 class Harness:
     """A fully isolated publisher instance: own temp root, own database, own adapter."""
 

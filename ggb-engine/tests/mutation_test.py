@@ -53,6 +53,72 @@ MUTATIONS = [
         "            problems += self._verify_kdp_draft(manifest)\n",
         "",
     ),
+    (
+        "M5",
+        "submit() contacts the platform before revalidating disk state",
+        "        problems = self._preflight(manifest_id, manifest, PublishState.SUBMITTED)\n"
+        "        if problems:\n"
+        "            return {\"error\": \"; \".join(problems)}\n",
+        "",
+    ),
+    (
+        "M6",
+        "preview() uploads before revalidating disk state",
+        "        problems = self._preflight(manifest_id, manifest, PublishState.PLATFORM_UPLOADED)\n"
+        "        if problems:\n"
+        "            return {\"error\": \"; \".join(problems)}\n",
+        "",
+    ),
+    (
+        "M7",
+        "the gate accepts evidence of a failed operation",
+        "    if row.get(\"outcome\") != EVIDENCE_OUTCOME_SUCCESS:\n"
+        "        return False, (f\"operation did not succeed (outcome={row.get('outcome')!r}): \"\n"
+        "                       f\"{row.get('outcome_reason') or 'no reason recorded'}\")\n",
+        "",
+    ),
+    (
+        "M8",
+        "preview() uploads the live package file instead of the staged copy",
+        "            source, err = self._upload_source(manifest, key)\n"
+        "            if err:\n"
+        "                return {\"error\": err}\n"
+        "            upload_result = self.adapter.upload_artifact(draft_id, key, source)\n",
+        "            upload_result = self.adapter.upload_artifact(\n"
+        "                draft_id, key, manifest[\"files\"][key][\"path\"])\n",
+    ),
+    (
+        "M9",
+        "the platform-resolved draft is neither validated against nor written to the manifest",
+        "        if declared and resolved != declared:\n"
+        "            return None, (f\"Draft mismatch: manifest declares {declared!r} but the platform \"\n"
+        "                          f\"resolved {resolved!r} — re-discover before publishing\")\n"
+        "        if manifest.get(\"draft_id\") != resolved:\n"
+        "            manifest[\"draft_id\"] = resolved\n"
+        "            self.db.save_manifest(manifest_id, manifest)\n"
+        "        return resolved, None\n",
+        "        return resolved, None\n",
+    ),
+    (
+        "M10",
+        "staged copies are never re-hashed before they are uploaded",
+        "            problems += self._verify_staged(manifest)\n",
+        "",
+    ),
+    (
+        "M11",
+        "verification no longer enforces approved package roots",
+        "            if not self._is_approved_root(path):\n"
+        "                problems.append(f\"Artifact '{key}' is not under an approved root: {path}\")\n"
+        "                continue\n",
+        "",
+    ),
+    (
+        "M12",
+        "the package hash covers basenames again, so a file can change directory unseen",
+        "                h.update(f.relative_to(pkg).as_posix().encode())\n",
+        "                h.update(f.name.encode())\n",
+    ),
 ]
 
 RUNNERS = [
@@ -66,10 +132,13 @@ def build_sandbox(root: Path) -> Path:
     the working tree."""
     engine = root / "ggb-engine"
     (engine / "tests").mkdir(parents=True)
-    shutil.copy2(ENGINE_DIR / "publisher.py", engine / "publisher.py")
+    # Every top-level engine module, not just publisher.py: the network scan walks the
+    # tree and checks its own allowlist, so a partial copy would change what it sees.
+    for module in sorted(ENGINE_DIR.glob("*.py")):
+        shutil.copy2(module, engine / module.name)
     shutil.copy2(ENGINE_DIR / "requirements.txt", engine / "requirements.txt")
     shutil.copytree(ENGINE_DIR / "schemas", engine / "schemas")
-    for name in ("harness.py", "test_publisher.py", "run_tests.py"):
+    for name in ("harness.py", "test_publisher.py", "run_tests.py", "network_scan.py"):
         shutil.copy2(TESTS_DIR / name, engine / "tests" / name)
     (root / "package.json").write_text('{"name":"mutation-sandbox"}')
     return engine
