@@ -74,7 +74,7 @@
     },
     "language": {
       "type": "string",
-      "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+      "description": "Language name or code"
     },
     "format": {
       "type": "string",
@@ -85,7 +85,7 @@
       "enum": ["kdp", "acx", "d2d", "spotify", "distrokid", "etsy", "shopify", "site"]
     },
     "draft_id": {
-      "type": "string",
+      "oneOf": [{"type": "string"}, {"type": "null"}],
       "description": "Existing platform draft ID or null for new draft"
     },
     "source_package": {
@@ -146,8 +146,8 @@
       "type": "object",
       "required": ["drm", "kdp_select", "price", "currency"],
       "properties": {
-        "drm": {"type": "boolean", "default": false},
-        "kdp_select": {"type": "boolean", "default": false},
+        "drm": {"type": "string", "enum": ["no", "yes"], "default": "no"},
+        "kdp_select": {"type": "string", "enum": ["off", "on"], "default": "off"},
         "price": {"type": "number"},
         "currency": {"type": "string", "default": "USD"},
         "release_date": {"type": "string", "format": "date"}
