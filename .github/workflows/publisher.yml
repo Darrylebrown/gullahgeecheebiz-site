@@ -1,0 +1,50 @@
+name: Publisher Control Plane
+
+on:
+  push:
+    branches: [main, 'repair/**']
+    paths: ['ggb-engine/**', '.github/workflows/publisher.yml']
+  pull_request:
+    paths: ['ggb-engine/**', '.github/workflows/publisher.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r ggb-engine/requirements-dev.txt
+
+      # Both runners must agree. A suite that is green under one and red under the
+      # other is how a broken build previously reported success.
+      - name: pytest
+        run: python -m pytest ggb-engine/tests/test_publisher.py -q
+      - name: direct runner
+        run: python ggb-engine/tests/run_tests.py
+
+      - name: mutation testing
+        run: python ggb-engine/tests/mutation_test.py
+
+      - name: no network calls in the engine
+        run: |
+          if grep -rnE '^\s*(import|from)\s+(requests|urllib|http\.client|socket|aiohttp|httpx)\b' \
+               ggb-engine/publisher.py ggb-engine/tests/; then
+            echo "engine or tests import a network library"
+            exit 1
+          fi
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # trufflehog v3. No `|| true`: a detection fails the job.
+      - uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --results=verified,unknown --fail

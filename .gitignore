@@ -74,4 +74,10 @@ logs/
 dist/
 build/
 out/
-.github/workflows/
+# Contents, not the directory itself — git cannot re-include a file whose parent
+# directory is excluded, and the publisher CI has to be tracked to run at all.
+.github/workflows/*
+!.github/workflows/publisher.yml
+
+# Publisher runtime state (database, manifests, staging, logs)
+publish/
