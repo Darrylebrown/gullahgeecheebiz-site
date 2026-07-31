@@ -161,13 +161,24 @@ try {
   Number(ogBroken) === 0 ? ok('images: no broken og-image.jpg') : fail('images: no broken og-image.jpg', `${ogBroken} files`);
 } catch (e) { ok('images: no broken og-image.jpg'); }
 
-// 11. Stripe checkout links present in membership page
+// 11. Membership uses durable Payment Links, not single-use Checkout Sessions.
+// cs_live session URLs expire, which silently breaks every subscribe button.
 try {
   const mem = fs.readFileSync(path.join(ROOT, 'membership/index.html'), 'utf8');
-  const stripeLinks = (mem.match(/checkout\.stripe\.com|buy\.stripe\.com/g) || []).length;
-  stripeLinks >= 6 ? ok(`Stripe: ${stripeLinks} checkout links`) : fail('Stripe', `only ${stripeLinks} links (expected 6+)`);
+  const paymentLinks = (mem.match(/buy\.stripe\.com/g) || []).length;
+  paymentLinks >= 6 ? ok(`Stripe: ${paymentLinks} payment links`) : fail('Stripe', `only ${paymentLinks} links (expected 6+)`);
+  const sessions = (mem.match(/checkout\.stripe\.com\/c\/pay\/cs_/g) || []).length;
+  sessions === 0 ? ok('Stripe: no expiring session URLs') : fail('Stripe', `${sessions} single-use cs_ session URLs`);
 } catch (e) {
   fail('Stripe', e.message);
+}
+
+// 12. Support lanes are in sync with their generator
+try {
+  execSync('python3 scripts/build-support-lanes.py --check', { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' });
+  ok('support lanes: in sync with generator');
+} catch (e) {
+  fail('support lanes', 'out of date — run python3 scripts/build-support-lanes.py');
 }
 
 // Summary

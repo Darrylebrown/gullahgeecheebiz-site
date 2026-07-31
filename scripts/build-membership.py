@@ -180,6 +180,14 @@ header p {{
     margin-bottom: 20px;
 }}
 
+.trust-line {{
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.9rem;
+    color: var(--cream);
+    opacity: 0.72;
+}}
+
 .tier-card ul {{
     list-style: none;
     text-align: left;
@@ -329,7 +337,7 @@ def build_membership_page():
             "name": "Digital Pass",
             "price": "$9.99",
             "period": "/month",
-            "annual": "$99/year ($8.25/mo)",
+            "annual": "$99.99/year ($8.33/mo)",
             "annual_link": STRIPE_LINKS["digital-pass-yearly"],
             "monthly_link": STRIPE_LINKS["digital-pass-monthly"],
             "features": [
@@ -346,7 +354,7 @@ def build_membership_page():
             "name": "Heritage Pass",
             "price": "$19.99",
             "period": "/month",
-            "annual": "$199/year ($16.58/mo)",
+            "annual": "$199.99/year ($16.67/mo)",
             "annual_link": STRIPE_LINKS["heritage-pass-yearly"],
             "monthly_link": STRIPE_LINKS["heritage-pass-monthly"],
             "features": [
@@ -363,7 +371,7 @@ def build_membership_page():
             "name": "Legacy Pass",
             "price": "$49.99",
             "period": "/month",
-            "annual": "$499/year ($41.58/mo)",
+            "annual": "$499.99/year ($41.67/mo)",
             "annual_link": STRIPE_LINKS["legacy-pass-yearly"],
             "monthly_link": STRIPE_LINKS["legacy-pass-monthly"],
             "features": [
@@ -411,8 +419,8 @@ def build_membership_page():
                 <ul>
                     {features}
                 </ul>
-                <a href="{tier['monthly_link']}" class="btn">Subscribe Monthly</a>
-                <a href="{tier['annual_link']}" class="btn btn-outline">Subscribe Annual</a>
+                <a href="{tier['monthly_link']}" class="btn" aria-label="Subscribe to {tier['name']} monthly, {tier['price']} per month">Subscribe Monthly</a>
+                <a href="{tier['annual_link']}" class="btn btn-outline" aria-label="Subscribe to {tier['name']} annually, {tier['annual']}">Subscribe Annual</a>
             </div>"""
 
     inside_items_html = "\n".join(
@@ -463,6 +471,7 @@ def build_membership_page():
             <div class="tier-grid">
                 {tier_cards}
             </div>
+            <p class="trust-line">Secure payment via Stripe. Cancel anytime from the Stripe customer portal.</p>
         </div>
     </section>
 
@@ -515,7 +524,7 @@ def main():
         "stripe_links": STRIPE_LINKS,
         "tiers": ["digital-pass", "heritage-pass", "legacy-pass"],
         "prices": {"digital": 9.99, "heritage": 19.99, "legacy": 49.99},
-        "annual_prices": {"digital": 99, "heritage": 199, "legacy": 499},
+        "annual_prices": {"digital": 99.99, "heritage": 199.99, "legacy": 499.99},
         "generated_at": datetime.datetime.now().isoformat(),
     }
     config_path = os.path.join(MEMBERSHIP_DIR, "config.json")
