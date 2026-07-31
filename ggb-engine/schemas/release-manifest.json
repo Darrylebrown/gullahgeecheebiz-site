@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gullahgeecheebiz.com/schemas/release-manifest.json",
+  "title": "GGB Release Manifest",
+  "description": "Canonical release manifest for Gullah Geechee Biz publishing packages",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "created_at",
+    "title",
+    "author",
+    "publisher",
+    "language",
+    "format",
+    "target_platform",
+    "source_package",
+    "files",
+    "metadata",
+    "rights",
+    "publishing",
+    "validation",
+    "approval",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the manifest schema"
+    },
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^ggb-manifest-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "description": "UUID v4 manifest identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of manifest creation"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "title": {
+      "type": "object",
+      "required": ["canonical", "subtitle"],
+      "properties": {
+        "canonical": {"type": "string"},
+        "subtitle": {"type": "string"},
+        "series": {"type": "string"},
+        "volume": {"type": "integer"},
+        "edition": {"type": "string", "default": "First"}
+      }
+    },
+    "author": {
+      "type": "string",
+      "enum": ["Darryl Elliott Brown"]
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "role": {"type": "string"}
+        }
+      }
+    },
+    "publisher": {
+      "type": "string",
+      "enum": ["Gullah Geechee Biz"]
+    },
+    "language": {
+      "type": "string",
+      "description": "Language name or code"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["ebook", "paperback", "hardcover", "audiobook", "music"]
+    },
+    "target_platform": {
+      "type": "string",
+      "enum": ["kdp", "acx", "d2d", "spotify", "distrokid", "etsy", "shopify", "site"]
+    },
+    "draft_id": {
+      "oneOf": [{"type": "string"}, {"type": "null"}],
+      "description": "Existing platform draft ID or null for new draft"
+    },
+    "source_package": {
+      "type": "object",
+      "required": ["path", "record_ids"],
+      "properties": {
+        "path": {"type": "string"},
+        "record_ids": {
+          "type": "object",
+          "properties": {
+            "github": {"type": "string"},
+            "airtable": {"type": "string"},
+            "notion": {"type": "string"}
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "required": ["manuscript", "cover"],
+      "properties": {
+        "manuscript": {"$ref": "#/$defs/artifact"},
+        "cover": {"$ref": "#/$defs/artifact"},
+        "audio": {"$ref": "#/$defs/artifact"},
+        "artwork": {"$ref": "#/$defs/artifact"},
+        "metadata": {"$ref": "#/$defs/artifact"}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["description", "keywords", "categories", "ai_disclosure"],
+      "properties": {
+        "description": {"type": "string"},
+        "keywords": {"type": "array", "items": {"type": "string"}},
+        "categories": {"type": "array", "items": {"type": "string"}},
+        "ai_disclosure": {
+          "type": "object",
+          "properties": {
+            "text": {"type": "boolean"},
+            "cover": {"type": "boolean"},
+            "interior_images": {"type": "boolean"},
+            "translation": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "required": ["copyright_owner", "copyright_year", "publishing_rights", "territories"],
+      "properties": {
+        "copyright_owner": {"type": "string"},
+        "copyright_year": {"type": "integer"},
+        "publishing_rights": {"type": "string", "enum": ["owner_confirmed", "third_party", "public_domain"]},
+        "territories": {"type": "string", "default": "Worldwide"}
+      }
+    },
+    "publishing": {
+      "type": "object",
+      "required": ["drm", "kdp_select", "price", "currency"],
+      "properties": {
+        "drm": {"type": "string", "enum": ["no", "yes"], "default": "no"},
+        "kdp_select": {"type": "string", "enum": ["off", "on"], "default": "off"},
+        "price": {"type": "number"},
+        "currency": {"type": "string", "default": "USD"},
+        "release_date": {"type": "string", "format": "date"}
+      }
+    },
+    "identifiers": {
+      "type": "object",
+      "properties": {
+        "isbn": {"type": "string"},
+        "asin": {"type": "string"},
+        "isrc": {"type": "string"},
+        "upc": {"type": "string"},
+        "acx_title_id": {"type": "string"}
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "status": {"type": "string", "enum": ["pending", "validating", "passed", "failed", "blocked"]},
+        "epubcheck": {"$ref": "#/$defs/validation_result"},
+        "cover_check": {"$ref": "#/$defs/validation_result"},
+        "metadata_check": {"$ref": "#/$defs/validation_result"},
+        "rights_check": {"$ref": "#/$defs/validation_result"},
+        "platform_check": {"$ref": "#/$defs/validation_result"},
+        "repair_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "timestamp": {"type": "string", "format": "date-time"},
+              "action": {"type": "string"},
+              "before_hash": {"type": "string"},
+              "after_hash": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "status": {"type": "string", "enum": ["pending", "approved", "rejected", "expired"]},
+        "approved_by": {"type": "string"},
+        "approved_at": {"type": "string", "format": "date-time"},
+        "approval_hash": {"type": "string"},
+        "rejection_reason": {"type": "string"}
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "discovered", "packaged", "validating", "blocked", "validated",
+        "staged", "platform_uploaded", "platform_processed", "preview_clean",
+        "awaiting_owner_approval", "approved", "submitted", "in_review", "live",
+        "rejected", "needs_revision", "withdrawn", "archived"
+      ]
+    },
+    "submission": {
+      "type": "object",
+      "properties": {
+        "submitted_at": {"type": "string", "format": "date-time"},
+        "confirmation_id": {"type": "string"},
+        "platform_status_url": {"type": "string"},
+        "errors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "audit_trail": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {"type": "string", "format": "date-time"},
+          "actor": {"type": "string"},
+          "action": {"type": "string"},
+          "from_state": {"type": "string"},
+          "to_state": {"type": "string"},
+          "evidence": {"type": "string"},
+          "idempotency_key": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256", "size", "mime_type"],
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "size": {"type": "integer"},
+        "mime_type": {"type": "string"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "provenance": {"type": "string"}
+      }
+    },
+    "validation_result": {
+      "type": "object",
+      "properties": {
+        "status": {"type": "string", "enum": ["passed", "failed", "not_run"]},
+        "errors": {"type": "array", "items": {"type": "string"}},
+        "warnings": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"type": "string"}
+      }
+    }
+  }
+}
