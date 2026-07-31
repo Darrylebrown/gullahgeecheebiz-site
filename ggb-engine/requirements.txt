@@ -1,0 +1,3 @@
+jsonschema>=4.25
+Pillow>=10.0
+python-magic>=0.4.27

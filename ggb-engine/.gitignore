@@ -1,0 +1,4 @@
+publish/
+*.pyc
+__pycache__/
+.venv/
