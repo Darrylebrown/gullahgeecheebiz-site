@@ -195,7 +195,9 @@ console.log(`\nPages found: ${pages.length}  |  Documented exceptions: ${Object.
   ebooks.includes('/membership/')
     ? ok('ebooks: routed to membership, the lane that can actually deliver')
     : fail('ebooks', 'no membership route');
-  !/\$\d/.test(ebooks.split('<script')[0])
+  // Whole file, not just the static markup: the 100 cards are built by an
+  // inline <script>, so a price restored to that template must fail too.
+  !/\$\d/.test(ebooks)
     ? ok('ebooks: no per-title price advertised while checkout is closed')
     : fail('ebooks', 'a price is shown but nothing is purchasable');
   read('shop/index.html').includes('/ebooks/')
