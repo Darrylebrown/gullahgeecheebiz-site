@@ -56,7 +56,7 @@ LANES = [
         "key": "ebooks",
         "href": "https://gullahgeecheebiz.myshopify.com/",
         "label": "Buy ebooks",
-        "blurb": "Digital catalog. Checkout and delivery handled by Shopify.",
+        "blurb": "Browse the ebook storefront. Shopify handles checkout for titles that are live there.",
         "external": True,
         "current_on": ("ebooks/index.html",),
     },
@@ -78,7 +78,7 @@ LEDE = (
 
 FINE = (
     "Memberships and merchandise are processed by Stripe. Ebooks are processed by "
-    "Shopify. Sponsorship is processed by GitHub. Card details are handled by those "
+    "Shopify for titles that are live there. Sponsorship is processed by GitHub. Card details are handled by those "
     "providers, never by this site."
 )
 

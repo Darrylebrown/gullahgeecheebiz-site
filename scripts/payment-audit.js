@@ -7,6 +7,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'netlify']);
@@ -135,6 +136,17 @@ console.log(`\nPages found: ${pages.length}  |  Documented exceptions: ${Object.
   /Secure payment via Stripe/i.test(mem)
     ? ok('membership: Stripe trust line present')
     : fail('membership', 'trust line missing');
+
+  try {
+    execSync('python3 scripts/build-membership.py --check', {
+      cwd: ROOT,
+      encoding: 'utf8',
+      stdio: 'pipe',
+    });
+    ok('membership: builder and committed page are in sync');
+  } catch (e) {
+    fail('membership builder', 'membership/index.html is not reproducible from repo source');
+  }
 }
 
 // 5. Merch links land on the merch pages, correctly paired.
@@ -176,6 +188,13 @@ console.log(`\nPages found: ${pages.length}  |  Documented exceptions: ${Object.
   read('shop/index.html').includes('myshopify.com')
     ? ok('shop hub: Shopify ebook route linked')
     : fail('shop/index.html', 'Shopify URL missing');
+
+  const exaggerated = [];
+  if (/100 titles.+\$9\.99 each/i.test(ebooks)) exaggerated.push('ebooks/index.html');
+  if (/100 titles.+Checkout and delivery via Shopify/i.test(read('shop/index.html'))) exaggerated.push('shop/index.html');
+  exaggerated.length === 0
+    ? ok('ebooks: no page promises SKU-level Shopify availability it cannot verify')
+    : fail('ebook availability claims', exaggerated.join(', '));
 }
 
 // 7. No expiring Checkout Session URLs anywhere.

@@ -126,6 +126,18 @@ try {
   fail('build-membership.py: syntax valid', e.stderr || e.message);
 }
 
+// 9b. Membership assets are in sync with their builder and repo-local source of truth.
+try {
+  execSync('python3 scripts/build-membership.py --check', {
+    cwd: ROOT,
+    encoding: 'utf8',
+    stdio: 'pipe',
+  });
+  ok('membership: in sync with builder');
+} catch (e) {
+  fail('membership', 'out of date — run python3 scripts/build-membership.py');
+}
+
 // 10. .nojekyll exists (so GitHub Pages serves the site as-is)
 // Special case: .nojekyll is intentionally empty (0 bytes)
   const nj = path.join(ROOT, '.nojekyll');
