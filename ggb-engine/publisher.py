@@ -165,11 +165,14 @@ def enforce_price(canonical_id: Optional[str], requested_price: float) -> Tuple[
     return True, "Price approved"
 
 def check_protected_draft(canonical_id: str, platform: str, draft_id: str = None) -> Tuple[bool, str]:
-    """Check if a draft is protected. Returns (allowed, message)."""
+    """Check if a draft is protected. Returns (allowed, message).
+    For 'never_duplicate' rules: only the exact protected draft ID is permitted.
+    None and any other draft ID are rejected."""
     for pd in PROTECTED_DRAFTS.values():
         if pd.canonical_id == canonical_id and pd.platform == platform:
-            if pd.rule == "never_duplicate" and draft_id is None:
-                return False, f"Protected draft '{canonical_id}' already exists as {pd.draft_id} — never duplicate"
+            if pd.rule == "never_duplicate":
+                if draft_id != pd.draft_id:
+                    return False, f"Protected draft '{canonical_id}' already exists as {pd.draft_id} — only that draft ID is permitted (got '{draft_id}')"
             if pd.rule == "never_modify":
                 return False, f"Protected draft '{canonical_id}' is {pd.status} — never modify"
     return True, "Draft allowed"
@@ -525,8 +528,8 @@ class StateStore:
             return row[0] if row else None
         return self.atomic(_get)
 
-    def set_state(self, manifest_id: str, state: str):
-        """Set state directly. TEST-ONLY — bypasses state machine.
+    def _set_state(self, manifest_id: str, state: str):
+        """Set state directly. PRIVATE — for migration/repair only.
         Production code must use transition()."""
         def _set(conn):
             now = datetime.now(timezone.utc).isoformat()
@@ -921,6 +924,10 @@ class PublishEngine:
         resolved = path.resolve()
         if not self._is_approved_root(resolved):
             raise ValueError(f"File not in approved package root: {path}")
+        # Reject hard links (st_nlink > 1 means linked from elsewhere)
+        st = path.stat()
+        if st.st_nlink > 1:
+            raise ValueError(f"Hard links not allowed: {path} (nlink={st.st_nlink})")
         return resolved
 
     def discover(self, package_path: str = None, dry_run: bool = False) -> List[Dict]:
@@ -1420,6 +1427,11 @@ class PublishEngine:
         if not success:
             return {"error": msg}
 
+        # Transition to AWAITING_OWNER_APPROVAL after successful preview
+        success, msg = self.db.transition(manifest_id, PublishState.PREVIEW_CLEAN, PublishState.AWAITING_OWNER_APPROVAL, actor="preview")
+        if not success:
+            return {"error": msg}
+
         result = {
             "manifest_id": manifest_id,
             "title": manifest.get("title", {}).get("canonical", "Unknown"),
@@ -1456,8 +1468,8 @@ class PublishEngine:
         if state in ILLEGAL_APPROVAL_STATES:
             return {"error": f"Cannot approve from state: {state.value}"}
 
-        if state not in PLATFORM_EVIDENCE_REQUIRED:
-            return {"error": f"Platform evidence required before approval (current state: {state.value})"}
+        if state not in (PublishState.AWAITING_OWNER_APPROVAL,):
+            return {"error": f"Must be in AWAITING_OWNER_APPROVAL state to approve (current state: {state.value})"}
 
         # Must have production platform evidence for approval
         if not self.db.has_production_platform_evidence(manifest_id, "preview"):
