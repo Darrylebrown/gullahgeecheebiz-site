@@ -557,6 +557,15 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             print(f"     Auto-generated assets for {len(scan.get('packages', []))} new packages")
         except: pass
 
+        # Auto-translate all new packages to Spanish
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "translation-engine.py"), "scan", "--json"],
+                              capture_output=True, text=True, timeout=60)
+            trans = json.loads(r.stdout) if r.stdout else {}
+            if trans.get("translated", 0) > 0:
+                print(f"     Translated {trans['translated']} packages to Spanish")
+        except: pass
+
         # Take snapshot
         self.scoreboard.take_snapshot()
 

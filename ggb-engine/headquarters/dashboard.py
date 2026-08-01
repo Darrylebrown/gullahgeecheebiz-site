@@ -108,6 +108,22 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/translations":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "translation-engine.py"), "--json", "status"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"error": "No output"}
+            except Exception as e:
+                data = {"error": str(e)}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path.startswith("/api/generate"):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -668,6 +684,25 @@ body::before {
             </div>
             <div id="routerGallery" style="font-size:0.8rem;color:#666;"></div>
         </div>
+
+        <!-- Translation Engine -->
+        <div class="card">
+            <div class="card-header">
+                <h2>🌐 Translation Engine</h2>
+                <span class="badge badge-ok">ACTIVE</span>
+            </div>
+            <div style="display:flex;gap:1.5rem;margin-bottom:1rem;">
+                <div style="text-align:center;">
+                    <div class="value" id="transTotal" style="font-size:1.8rem;">0</div>
+                    <div class="label">Translated</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="transLangs" style="font-size:1.8rem;">0</div>
+                    <div class="label">Languages</div>
+                </div>
+            </div>
+            <div id="transByLang" style="font-size:0.8rem;color:#666;"></div>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -1007,6 +1042,23 @@ function render() {
             div.style.cssText = 'margin-top:0.2rem;';
             div.textContent = `📁 ${d.gallery_path}`;
             list.appendChild(div);
+        }
+    });
+
+    // Translation Engine
+    fetchJSON('/api/translations').then(d => {
+        if (!d) return;
+        document.getElementById('transTotal').textContent = d.total_translations || 0;
+        document.getElementById('transLangs').textContent = Object.keys(d.by_language || {}).length || 0;
+        const list = document.getElementById('transByLang');
+        list.innerHTML = '';
+        if (d.by_language) {
+            for (const [lang, count] of Object.entries(d.by_language)) {
+                const div = document.createElement('div');
+                div.style.cssText = 'margin-top:0.2rem;';
+                div.textContent = `🌐 ${lang}: ${count} packages`;
+                list.appendChild(div);
+            }
         }
     });
 
