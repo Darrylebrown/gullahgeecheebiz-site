@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lowcountry Root — Issue vol-2026-iss-31</title>
+    <meta name="description" content="Gullah Geechee Culture — Past, Present, Future — Weekly magazine showcasing Gullah Geechee culture, history, food, music, and community.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #faf8f5;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+
+        .magazine {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Cover */
+        .cover {
+            position: relative;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="90" font-size="90" opacity="0.03">🌾</text></svg>') repeat;
+            background-size: 120px;
+            opacity: 0.15;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .cover-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 1.5rem;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .cover h1 em {
+            font-style: italic;
+            color: #c9a84c;
+        }
+
+        .cover-tagline {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cover-meta {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 2px;
+        }
+
+        .cover-meta span {
+            margin: 0 1rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250,248,245,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e8e3dc;
+            z-index: 100;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1a1a2e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a2e;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            border-bottom: 1px solid #e8e3dc;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #c9a84c;
+            font-weight: 600;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0.5rem 0;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            color: #888;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .section-image {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .section-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .article-intro {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.8;
+            border-left: 3px solid #c9a84c;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #c9a84c;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 2.5rem; }
+            .section-header h2 { font-size: 1.6rem; }
+            .image-placeholder { height: 250px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <header class="cover">
+            <div class="cover-content">
+                <div class="cover-label">The Lowcountry Root</div>
+                <h1>The <em>Root</em> of<br>the Lowcountry</h1>
+                <p class="cover-tagline">Gullah Geechee Culture — Past, Present, Future</p>
+                <p class="cover-meta">
+                    <span>Issue vol-2026-iss-31</span>
+                    <span>·</span>
+                    <span>July 31, 2026</span>
+                    <span>·</span>
+                    <span>Darryl Elliott Brown</span>
+                </p>
+            </div>
+        </header>
+
+        <nav class="nav">
+            <span class="nav-brand">The Lowcountry Root</span>
+            <ul class="nav-links">
+                <li><a href="#cover-story">Cover</a></li>
+                <li><a href="#sea-islands">Islands</a></li>
+                <li><a href="#sweetgrass">Baskets</a></li>
+                <li><a href="#kitchen">Kitchen</a></li>
+                <li><a href="#language">Language</a></li>
+                <li><a href="#music">Music</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#water">Tide Lines</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#arts">Arts</a></li>
+            </ul>
+        </nav>
+
+        
+            <div class="section" id="cover-story">
+                <div class="section-header">
+                    <span class="section-label">Cover Story</span>
+                    <h2>The Root of It All: Gullah Geechee Culture in July 2026</h2>
+                    <p class="section-desc">The feature article of the week — deep dive into Gullah Geechee culture, history, or community.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A sweeping aerial view of the South Carolina Lowcountry coast at golden hour, marsh grass, winding creeks, live oaks with Spanish moss, warm amber light, cinematic photography style, National Geographic quality">
+                        <span class="image-label">📷 Cover Story</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">The Gullah Geechee people have called the Sea Islands home for generations. Their culture — a living bridge to West Africa — is one of the oldest continuously preserved African American traditions in the United States.</p>
+
+<p>From the language spoken in the praise houses to the sweetgrass baskets woven on St. Helena Island, every tradition tells a story of resilience, creativity, and deep connection to the land and water.</p>
+
+<p>Today, as more people discover the beauty of the Lowcountry, the Gullah Geechee community continues to share its culture with the world — on its own terms.</p>
+
+<p>In this issue of <em>The Lowcountry Root</em>, we explore the places, people, and traditions that make Gullah Geechee culture one of America's most treasured living legacies.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="sea-islands">
+                <div class="section-header">
+                    <span class="section-label">Sea Islands Journal</span>
+                    <h2>St. Helena: The Heart of the Sea Islands</h2>
+                    <p class="section-desc">Life on the Sea Islands — St. Helena, Hilton Head, Sapelo, Daufuskie, and beyond.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A quiet dirt road on a Sea Island lined with live oaks draped in Spanish moss, dappled sunlight, vintage wooden fence, peaceful rural Lowcountry scene, documentary photography style">
+                        <span class="image-label">📷 Sea Islands Journal</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">St. Helena Island, South Carolina — home to Penn Center, one of the first schools for formerly enslaved people in the United States — remains the cultural heart of the Gullah Geechee community.</p>
+
+<p>The island's quiet roads are lined with live oaks draped in Spanish moss. Historic churches dot the landscape. The marshes glow gold at sunset. And the people carry forward traditions that have been passed down for more than ten generations.</p>
+
+<p>Visitors come for the beauty. They stay for the stories.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="sweetgrass">
+                <div class="section-header">
+                    <span class="section-label">Sweetgrass & Baskets</span>
+                    <h2>The Art of the Sweetgrass Basket</h2>
+                    <p class="section-desc">The art and tradition of sweetgrass basket weaving — one of the oldest African art forms in America.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="Close-up of a Gullah Geechee sweetgrass basket being woven, coiled grass, natural fibers, warm sunlight streaming through window, hands at work, artisan craft photography, shallow depth of field">
+                        <span class="image-label">📷 Sweetgrass & Baskets</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">Sweetgrass basket weaving is one of the oldest African art forms in America, brought to the Lowcountry by enslaved West Africans and preserved through generations of Gullah Geechee artisans.</p>
+
+<p>The baskets are made from sweetgrass, bulrush, pine needles, and palmetto fronds — all gathered from the Lowcountry landscape. Each basket takes days or weeks to complete, coiled by hand in a tradition that traces back to the rice-growing regions of West Africa.</p>
+
+<p>Today, sweetgrass baskets are treasured as works of art, collected by museums and sold at markets along Highway 17 between Charleston and Savannah.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="kitchen">
+                <div class="section-header">
+                    <span class="section-label">The Gullah Kitchen</span>
+                    <h2>A Taste of Home: Lowcountry Cooking</h2>
+                    <p class="section-desc">Recipes, food stories, and the culinary traditions of the Lowcountry.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A rustic Lowcountry dinner table set with traditional Gullah Geechee dishes — red rice, shrimp and grits, okra, cornbread, cast iron skillet, warm candlelight, farmhouse style, food photography">
+                        <span class="image-label">📷 The Gullah Kitchen</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">Gullah Geechee cooking is the original Lowcountry cuisine — a fusion of West African ingredients and techniques with the bounty of the Sea Islands.</p>
+
+<p>Red rice, shrimp and grits, okra soup, hoppin' John, benne wafers, sweet potato pie — these are the dishes that tell the story of a people who turned simple ingredients into a celebrated culinary tradition.</p>
+
+<p>Every recipe carries history. Every meal is a connection to the ancestors.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="language">
+                <div class="section-header">
+                    <span class="section-label">The Living Tongue</span>
+                    <h2>The Gullah Language: A Living Bridge to Africa</h2>
+                    <p class="section-desc">The Gullah language — its roots, its speakers, and its future.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="An elderly Gullah Geechee elder sitting on a porch, speaking, warm afternoon light, weathered wooden house, live oaks in background, intimate portrait photography, black and white with warm tones">
+                        <span class="image-label">📷 The Living Tongue</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">The Gullah language is a creole language spoken by the Gullah Geechee people of the Sea Islands. It combines English with words and grammatical structures from West African languages, including Mende, Yoruba, Twi, and others.</p>
+
+<p>Once suppressed in schools and public life, the Gullah language is now recognized as a vital part of America's linguistic heritage. Efforts to preserve and teach the language are growing, with classes, recordings, and cultural programs across the Lowcountry.</p>
+
+<p>To hear Gullah spoken is to hear history alive.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="music">
+                <div class="section-header">
+                    <span class="section-label">Roots & Rhythms</span>
+                    <h2>Spirituals, Work Songs, and Praise House Music</h2>
+                    <p class="section-desc">Music of the Gullah Geechee — spirituals, work songs, praise houses, and modern expressions.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A Gullah Geechee praise house at sunset, wooden structure in a clearing, warm golden light streaming through trees, spiritual atmosphere, fine art photography, ethereal mood">
+                        <span class="image-label">📷 Roots & Rhythms</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">Music is the heartbeat of Gullah Geechee culture. From the spirituals sung in praise houses to the work songs that kept rhythm in the fields, music has always been a source of strength, expression, and community.</p>
+
+<p>The Gullah Geechee musical tradition has influenced American music in profound ways — from gospel to blues to jazz to folk. The call-and-response patterns, the polyrhythms, the deep emotional resonance — all trace back to the Sea Islands.</p>
+
+<p>Today, a new generation of Gullah Geechee musicians is carrying the tradition forward.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="community">
+                <div class="section-header">
+                    <span class="section-label">Community Spotlight</span>
+                    <h2>Keeping the Culture Alive</h2>
+                    <p class="section-desc">Profiles of Gullah Geechee people, places, and organizations making a difference.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A Gullah Geechee community gathering, people of all ages together, outdoor event under live oaks, celebration, joy, documentary photography, warm natural light">
+                        <span class="image-label">📷 Community Spotlight</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">Across the Lowcountry, Gullah Geechee community organizations are working to preserve and promote the culture. From the Gullah Geechee Cultural Heritage Corridor to local historical societies, the work of preservation is ongoing.</p>
+
+<p>This week, we spotlight the people and organizations making a difference — the elders teaching the language, the artisans weaving the baskets, the cooks passing down the recipes, and the young people learning the traditions.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="water">
+                <div class="section-header">
+                    <span class="section-label">Tide Lines</span>
+                    <h2>The Waters That Shape Us</h2>
+                    <p class="section-desc">The waterways, marshes, and coast that define Gullah Geechee life.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A serene Lowcountry marsh at low tide, golden marsh grass reflecting in still water, egret standing in shallows, soft pastel sky at dawn, landscape photography, painterly quality">
+                        <span class="image-label">📷 Tide Lines</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">The Gullah Geechee people have always lived close to the water. The creeks, rivers, marshes, and ocean of the Sea Islands are not just a backdrop — they are central to the culture, the economy, and the way of life.</p>
+
+<p>Fishing, crabbing, oystering, and boat-building are traditions passed down through generations. The tides mark the rhythm of daily life. The marsh is both pantry and sanctuary.</p>
+
+<p>To understand Gullah Geechee culture, you must understand the water.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="history">
+                <div class="section-header">
+                    <span class="section-label">Ancestors' Walk</span>
+                    <h2>Walking with the Ancestors</h2>
+                    <p class="section-desc">History, heritage, and the stories that shaped the Gullah Geechee people.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="Penn Center on St. Helena Island, historic buildings, live oaks, late afternoon light, peaceful campus, documentary architectural photography, warm tones">
+                        <span class="image-label">📷 Ancestors' Walk</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">The history of the Gullah Geechee people is a story of survival, resistance, and triumph. From the Middle Passage to the plantations of the Sea Islands, from the Civil War to Reconstruction, from the Civil Rights Movement to today — the Gullah Geechee community has endured and thrived.</p>
+
+<p>Places like Penn Center, Mitchelville, and the Old Slave Mart Museum preserve this history. But the most important preservation happens in the stories passed down from generation to generation.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="arts">
+                <div class="section-header">
+                    <span class="section-label">Creative Spirit</span>
+                    <h2>The Creative Spirit of the Lowcountry</h2>
+                    <p class="section-desc">Gullah Geechee art, craft, literature, and creative expression.</p>
+                </div>
+                <div class="section-image">
+                    <div class="image-placeholder" data-prompt="A Gullah Geechee artist's studio, paintings and crafts in progress, natural light from window, vibrant colors, creative workspace, lifestyle photography, inspiring atmosphere">
+                        <span class="image-label">📷 Creative Spirit</span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p class="article-intro">Gullah Geechee art is as diverse as the culture itself — from sweetgrass baskets and quilts to painting, sculpture, literature, and film. The creative spirit runs deep in the Sea Islands.</p>
+
+<p>Today, Gullah Geechee artists are gaining national recognition, their work collected by museums and celebrated at festivals. But the heart of the art remains the same: telling the story of a people, their land, and their culture.</p>
+                </div>
+            </div>
+            
+
+        <footer class="footer">
+            <h3>The Lowcountry Root</h3>
+            <p>Gullah Geechee Culture — Past, Present, Future</p>
+            <p>Published weekly by Darryl Elliott Brown · Gullah Geechee Biz</p>
+            <p>ISSN 2998-XXXX · Issue vol-2026-iss-31 · July 31, 2026</p>
+            <div class="footer-links">
+                <a href="https://gullahgeecheebiz.com">Website</a>
+                <a href="https://gullahgeecheebiz.com/ebooks">Books</a>
+                <a href="https://www.tiktok.com/@gullahgeecheebiz">TikTok</a>
+                <a href="https://kofigullahgeecheebiz.substack.com">Subscribe</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
