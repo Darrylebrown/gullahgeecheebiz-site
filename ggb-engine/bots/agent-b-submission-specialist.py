@@ -186,6 +186,7 @@ def cli():
     import argparse
     parser = argparse.ArgumentParser(description=f"{AGENT_NAME} v{AGENT_VERSION} — {AGENT_ROLE}")
     parser.add_argument("--json", action="store_true", help="JSON output")
+    parser.add_argument("--db", type=str, help="Path to shared publisher database")
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("report", help="Show pending execution items")
@@ -203,7 +204,16 @@ def cli():
     status.add_argument("manifest_id", help="Manifest ID to check")
 
     args = parser.parse_args()
-    agent = SubmissionSpecialist()
+    if args.db:
+        from publisher import StateStore
+        store = StateStore(Path(args.db))
+        engine = PublishEngine(db=store)
+    else:
+        # Default to the standard publisher DB
+        from publisher import StateStore, DB_PATH
+        store = StateStore(DB_PATH)
+        engine = PublishEngine(db=store)
+    agent = SubmissionSpecialist(engine=engine)
 
     if args.command == "report":
         result = agent.generate_report()

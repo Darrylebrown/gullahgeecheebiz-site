@@ -109,9 +109,9 @@ class AgentState:
 class PublisherPrime:
     """Agent A: The Strategist — decides what to publish."""
 
-    def __init__(self, engine: PublishEngine = None, state: AgentState = None):
+    def __init__(self, engine: PublishEngine = None, state: AgentState = None, db_path: Path = None):
         self.engine = engine or PublishEngine()
-        self.state = state or AgentState()
+        self.state = state or AgentState(db_path=db_path or (REPO_ROOT / "publish" / "agent-a.db"))
         self.name = AGENT_NAME
         self.version = AGENT_VERSION
 
@@ -257,6 +257,7 @@ def cli():
     import argparse
     parser = argparse.ArgumentParser(description=f"{AGENT_NAME} v{AGENT_VERSION} — {AGENT_ROLE}")
     parser.add_argument("--json", action="store_true", help="JSON output")
+    parser.add_argument("--db", type=str, help="Path to shared publisher database")
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("scan", help="Scan queue for items needing review")
@@ -269,7 +270,16 @@ def cli():
     approve.add_argument("manifest_id", help="Manifest ID to approve")
 
     args = parser.parse_args()
-    agent = PublisherPrime()
+    if args.db:
+        from publisher import StateStore
+        store = StateStore(Path(args.db))
+        engine = PublishEngine(db=store)
+    else:
+        # Default to the standard publisher DB
+        from publisher import StateStore, DB_PATH
+        store = StateStore(DB_PATH)
+        engine = PublishEngine(db=store)
+    agent = PublisherPrime(engine=engine)
 
     if args.command == "scan":
         result = agent.scan_queue()
