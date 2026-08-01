@@ -57,6 +57,27 @@ PLATFORMS = {
         "enabled": True,
         "max_concurrent": 1,
     },
+    "youtube": {
+        "name": "YouTube",
+        "formats": ["commercial", "movie", "trailer"],
+        "executor": "agent-b-youtube.py",
+        "enabled": True,
+        "max_concurrent": 1,
+    },
+    "substack": {
+        "name": "Substack",
+        "formats": ["magazine", "newsletter"],
+        "executor": "agent-b-substack.py",
+        "enabled": True,
+        "max_concurrent": 1,
+    },
+    "shopify": {
+        "name": "Shopify",
+        "formats": ["product", "digital-download"],
+        "executor": "agent-b-shopify.py",
+        "enabled": True,
+        "max_concurrent": 1,
+    },
     "ingramspark": {
         "name": "IngramSpark",
         "formats": ["paperback", "hardcover"],
