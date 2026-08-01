@@ -49,9 +49,20 @@ def build_site():
     return True
 
 
+def get_current_branch():
+    """Get the current git branch name."""
+    success, output = run("git rev-parse --abbrev-ref HEAD")
+    if success:
+        return output.strip()
+    return "main"
+
+
 def deploy():
     """Push to GitHub Pages."""
     log("Deploying to GitHub Pages...")
+    
+    branch = get_current_branch()
+    log(f"  ℹ️  Current branch: {branch}")
     
     # Check if we're in a git repo
     success, output = run("git rev-parse --git-dir")
@@ -70,8 +81,8 @@ def deploy():
         return True
     
     # Pull latest from remote first (avoid push rejection)
-    log("  ℹ️  Pulling latest from remote...")
-    success, output = run("git pull --rebase origin main 2>&1")
+    log(f"  ℹ️  Pulling latest from origin/{branch}...")
+    success, output = run(f"git pull --rebase origin {branch} 2>&1")
     if not success:
         log(f"  ⚠️  Pull had issues (may be fine): {output[:200]}")
     
@@ -90,10 +101,10 @@ def deploy():
     # Ensure upstream tracking is set, then push
     success, output = run("git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null")
     if not success:
-        log("  ℹ️  Setting upstream tracking for main...")
-        run("git branch --set-upstream-to=origin/main main 2>/dev/null || git push --set-upstream origin main 2>&1")
+        log(f"  ℹ️  Setting upstream tracking for {branch}...")
+        run(f"git branch --set-upstream-to=origin/{branch} {branch} 2>/dev/null || git push --set-upstream origin {branch} 2>&1")
 
-    success, output = run("git push origin main 2>&1")
+    success, output = run(f"git push origin {branch} 2>&1")
     if not success:
         log(f"  ❌ Git push failed: {output}")
         return False
