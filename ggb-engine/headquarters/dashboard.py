@@ -678,6 +678,49 @@ body::before {
     </div>
 </div>
 
+<!-- Kanban Board -->
+<div class="card" style="margin-bottom:1.5rem;">
+    <div class="card-header">
+        <h2>📋 Task Board</h2>
+        <span class="badge badge-ok">KANBAN</span>
+    </div>
+    <div style="display:flex;gap:1rem;margin-bottom:1rem;">
+        <div style="flex:1;">
+            <div class="kanban-column" style="background:rgba(239,68,68,0.1);border-radius:8px;padding:0.8rem;">
+                <h3 style="color:#ef4444;font-size:0.9rem;margin-bottom:0.5rem;">🔴 To Do</h3>
+                <div id="kanbanTodo" class="kanban-list" style="min-height:100px;"></div>
+            </div>
+        </div>
+        <div style="flex:1;">
+            <div class="kanban-column" style="background:rgba(234,179,8,0.1);border-radius:8px;padding:0.8rem;">
+                <h3 style="color:#eab308;font-size:0.9rem;margin-bottom:0.5rem;">🟡 In Progress</h3>
+                <div id="kanbanProgress" class="kanban-list" style="min-height:100px;"></div>
+            </div>
+        </div>
+        <div style="flex:1;">
+            <div class="kanban-column" style="background:rgba(34,197,94,0.1);border-radius:8px;padding:0.8rem;">
+                <h3 style="color:#22c55e;font-size:0.9rem;margin-bottom:0.5rem;">🟢 Done</h3>
+                <div id="kanbanDone" class="kanban-list" style="min-height:100px;"></div>
+            </div>
+        </div>
+    </div>
+    <div style="display:flex;gap:0.5rem;">
+        <input type="text" id="taskInput" placeholder="Add a task..." style="flex:1;background:var(--navy);border:1px solid rgba(201,168,76,0.3);color:#ccc;padding:0.5rem;border-radius:8px;">
+        <button onclick="addTask()" style="background:var(--gold);color:var(--navy);border:none;padding:0.5rem 1rem;border-radius:8px;font-weight:600;cursor:pointer;">+ Add</button>
+        <button onclick="startVoice()" style="background:rgba(201,168,76,0.2);color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:0.5rem 1rem;border-radius:8px;cursor:pointer;" title="Voice Command">🎤</button>
+    </div>
+</div>
+
+<!-- Memory Galaxy Visualization -->
+<div class="card" style="margin-bottom:1.5rem;">
+    <div class="card-header">
+        <h2>🌌 Memory Galaxy</h2>
+        <span class="badge badge-ok">VISUAL</span>
+    </div>
+    <canvas id="memoryGalaxy" style="width:100%;height:200px;"></canvas>
+    <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;" id="memoryTags"></div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 let growthChart = null;
@@ -915,6 +958,146 @@ function render() {
             list.appendChild(div);
         }
     });
+
+    // Kanban Board
+    const savedTasks = JSON.parse(localStorage.getItem('ggb_tasks') || '[]');
+    renderKanban(savedTasks);
+
+    // Memory Galaxy
+    drawMemoryGalaxy();
+}
+
+// ─── Kanban Board ──────────────────────────────────────────────────────
+
+function renderKanban(tasks) {
+    const todo = document.getElementById('kanbanTodo');
+    const progress = document.getElementById('kanbanProgress');
+    const done = document.getElementById('kanbanDone');
+    todo.innerHTML = '';
+    progress.innerHTML = '';
+    done.innerHTML = '';
+    for (const t of tasks) {
+        const card = document.createElement('div');
+        card.style.cssText = 'background:rgba(26,26,46,0.8);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:0.5rem;margin-bottom:0.5rem;cursor:pointer;font-size:0.85rem;';
+        card.textContent = t.text;
+        card.onclick = () => cycleTask(t.id);
+        if (t.status === 'todo') todo.appendChild(card);
+        else if (t.status === 'progress') progress.appendChild(card);
+        else done.appendChild(card);
+    }
+}
+
+function addTask() {
+    const input = document.getElementById('taskInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const tasks = JSON.parse(localStorage.getItem('ggb_tasks') || '[]');
+    tasks.push({ id: Date.now(), text, status: 'todo', created: new Date().toISOString() });
+    localStorage.setItem('ggb_tasks', JSON.stringify(tasks));
+    input.value = '';
+    renderKanban(tasks);
+}
+
+function cycleTask(id) {
+    const tasks = JSON.parse(localStorage.getItem('ggb_tasks') || '[]');
+    const t = tasks.find(x => x.id === id);
+    if (!t) return;
+    if (t.status === 'todo') t.status = 'progress';
+    else if (t.status === 'progress') t.status = 'done';
+    else tasks.splice(tasks.indexOf(t), 1);
+    localStorage.setItem('ggb_tasks', JSON.stringify(tasks));
+    renderKanban(tasks);
+}
+
+// ─── Voice Control ──────────────────────────────────────────────────────
+
+function startVoice() {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert('Voice control requires Chrome or Edge browser.');
+        return;
+    }
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.onresult = (e) => {
+        const command = e.results[0][0].transcript.toLowerCase();
+        const input = document.getElementById('taskInput');
+        if (command.startsWith('add task ')) {
+            input.value = command.replace('add task ', '');
+            addTask();
+        } else if (command.startsWith('run ')) {
+            const job = command.replace('run ', '').trim();
+            input.value = `Running: ${job}`;
+            fetch(`/api/run?job=${encodeURIComponent(job)}`).then(r => r.json()).then(d => {
+                input.value = d.status || 'Done';
+            });
+        } else if (command === 'show dashboard' || command === 'show status') {
+            input.value = 'Showing dashboard...';
+            render();
+        } else {
+            input.value = `Heard: ${command}`;
+        }
+    };
+    recognition.start();
+}
+
+// ─── Memory Galaxy ─────────────────────────────────────────────────────
+
+function drawMemoryGalaxy() {
+    const canvas = document.getElementById('memoryGalaxy');
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width = canvas.parentElement.clientWidth;
+    const h = canvas.height = 200;
+
+    // Star field
+    for (let i = 0; i < 100; i++) {
+        const x = Math.random() * w;
+        const y = Math.random() * h;
+        const r = Math.random() * 2;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201, 168, 76, ${0.2 + Math.random() * 0.5})`;
+        ctx.fill();
+    }
+
+    // Memory clusters
+    const memories = [
+        { label: 'Gullah Geechee', x: 0.2, y: 0.3, size: 30 },
+        { label: 'Publishing', x: 0.5, y: 0.2, size: 25 },
+        { label: 'Audio', x: 0.8, y: 0.4, size: 20 },
+        { label: 'SEO', x: 0.3, y: 0.7, size: 20 },
+        { label: 'Pipeline', x: 0.6, y: 0.6, size: 25 },
+        { label: 'Dashboard', x: 0.7, y: 0.8, size: 15 },
+        { label: 'Encyclopedia', x: 0.4, y: 0.5, size: 20 },
+        { label: 'Artists', x: 0.9, y: 0.2, size: 15 },
+    ];
+
+    // Draw connections
+    ctx.strokeStyle = 'rgba(201, 168, 76, 0.1)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i < memories.length; i++) {
+        for (let j = i + 1; j < memories.length; j++) {
+            ctx.beginPath();
+            ctx.moveTo(memories[i].x * w, memories[i].y * h);
+            ctx.lineTo(memories[j].x * w, memories[j].y * h);
+            ctx.stroke();
+        }
+    }
+
+    // Draw clusters
+    for (const m of memories) {
+        const gradient = ctx.createRadialGradient(m.x * w, m.y * h, 0, m.x * w, m.y * h, m.size);
+        gradient.addColorStop(0, 'rgba(201, 168, 76, 0.4)');
+        gradient.addColorStop(1, 'rgba(201, 168, 76, 0)');
+        ctx.beginPath();
+        ctx.arc(m.x * w, m.y * h, m.size, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+    }
+
+    // Tags
+    const tags = document.getElementById('memoryTags');
+    tags.innerHTML = memories.map(m => `<span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:0.3rem 0.8rem;font-size:0.8rem;color:var(--gold);">${m.label}</span>`).join('');
 }
 
 // Auto-refresh every 15 seconds
