@@ -1,0 +1,72 @@
+{
+  "generated": "2026-08-01",
+  "kind": "pinterest_image_assets",
+  "not_a_book_package": true,
+  "count": 8,
+  "pins": [
+    {
+      "airtable_record_id": "rec0mgCWsZwHf0ACY",
+      "pin_title": "What Savannah Kept",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/what-savannah-kept.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Roots & Rivers Vol. 2 \u2014 Savannah (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "rec20ZX7Qnkf1GrN9",
+      "pin_title": "Savannah's Gullah Geechee Story, Street by Street",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/savannah-street-by-street.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Roots & Rivers Vol. 2 \u2014 Savannah (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "rec2N42TlcapEi1Vb",
+      "pin_title": "The River Made Savannah Before the Tourists Came",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/river-made-savannah.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Roots & Rivers Vol. 2 \u2014 Savannah (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "recHONlEipDCz33xJ",
+      "pin_title": "Documenting Savannah, Block by Block",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/documenting-savannah.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Roots & Rivers Vol. 2 \u2014 Savannah (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "recI7AIbqxcWymADY",
+      "pin_title": "The Kitchen Is Where the Tradition Starts",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/kitchen-tradition-starts.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Living Culture, Not a Souvenir (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "recXGY5vh0IwHyEke",
+      "pin_title": "Five Ways to Keep a Tradition Breathing",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/five-ways-tradition.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Living Culture, Not a Souvenir (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "recdmV1aiLauZCnj8",
+      "pin_title": "Living Culture, Not a Souvenir",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/living-culture-not-souvenir.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Living Culture, Not a Souvenir (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    },
+    {
+      "airtable_record_id": "receKuR4UNpODX3I7",
+      "pin_title": "Heritage Can Pay the Bills \u2014 Carefully",
+      "image_url": "https://raw.githubusercontent.com/Darrylebrown/gullahgeecheebiz-site/master/merch/pins/repurposed-2026-08-01/heritage-pay-the-bills.jpg",
+      "size": "1000x1500",
+      "repurposed_from": "Living Culture, Not a Souvenir (COVER_FINAL.jpg)",
+      "note": "Artwork repurposed from an existing GGB book cover. Record is on HOLD until the title is live on KDP."
+    }
+  ]
+}
