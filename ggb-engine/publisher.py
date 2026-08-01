@@ -61,6 +61,7 @@ APPROVED_PACKAGE_ROOTS = [
     Path.home() / "gullah-geechee-project" / "how-to-test" / "packages",
     Path.home() / "gullah-geechee-project" / "pilot",
     Path.home() / ".ggb-test",  # Test packages
+    REPO_ROOT / "ggb-engine" / "headquarters" / "training",  # Agent training
 ]
 
 # ─── Canonical Title Registry ────────────────────────────────────────────────
