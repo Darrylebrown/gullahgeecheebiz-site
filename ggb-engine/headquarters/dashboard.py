@@ -27,6 +27,22 @@ class DashboardHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = parsed.path
 
+        if path == "/api/published":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "published-monitor.py"), "--json", "report"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"error": "No output"}
+            except Exception as e:
+                data = {"error": str(e)}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path == "/api/status":
             self._json_response(self._get_status())
         elif path == "/api/stores":
@@ -414,6 +430,38 @@ body::before {
             </div>
             <div class="content-stats" id="contentStats"></div>
         </div>
+
+        <!-- Published Production -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📤 Published Production</h2>
+                <span class="badge badge-ok">LIVE</span>
+            </div>
+            <div style="display:flex;gap:1.5rem;margin-bottom:1rem;">
+                <div style="text-align:center;">
+                    <div class="value" id="pubToday" style="font-size:1.8rem;">0</div>
+                    <div class="label">Today</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="pubWeek" style="font-size:1.8rem;">0</div>
+                    <div class="label">This Week</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="pubTotal" style="font-size:1.8rem;">0</div>
+                    <div class="label">Total</div>
+                </div>
+            </div>
+            <div style="display:flex;gap:1.5rem;">
+                <div style="flex:1;">
+                    <div class="label" style="margin-bottom:0.3rem;">Recent</div>
+                    <div id="pubList" style="font-size:0.8rem;color:#666;"></div>
+                </div>
+                <div style="flex:1;">
+                    <div class="label" style="margin-bottom:0.3rem;">By Platform</div>
+                    <div id="pubPlatforms" style="font-size:0.8rem;color:#666;"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -547,6 +595,34 @@ function render() {
                 div.style.cssText = 'margin-top:0.3rem;';
                 div.textContent = `${c.status === 'ok' ? '✅' : '⚠️'} ${c.name}: ${c.status} (${(c.at || '').slice(0, 19)})`;
                 last.appendChild(div);
+            }
+        }
+    });
+
+    // Published Production
+    fetchJSON('/api/published').then(d => {
+        if (!d) return;
+        document.getElementById('pubToday').textContent = d.published_today || 0;
+        document.getElementById('pubWeek').textContent = d.published_this_week || 0;
+        document.getElementById('pubTotal').textContent = d.total_published || 0;
+        const list = document.getElementById('pubList');
+        list.innerHTML = '';
+        if (d.recent) {
+            for (const pkg of d.recent.slice(0, 5)) {
+                const div = document.createElement('div');
+                div.style.cssText = 'margin-top:0.3rem; font-size:0.85rem;';
+                div.textContent = `📦 ${pkg.title.slice(0, 45)} | ${(pkg.published_at || '').slice(0, 19)}`;
+                list.appendChild(div);
+            }
+        }
+        const plat = document.getElementById('pubPlatforms');
+        plat.innerHTML = '';
+        if (d.by_platform) {
+            for (const [p, c] of Object.entries(d.by_platform)) {
+                const div = document.createElement('div');
+                div.style.cssText = 'margin-top:0.2rem; font-size:0.85rem;';
+                div.textContent = `${p}: ${c}`;
+                plat.appendChild(div);
             }
         }
     });
