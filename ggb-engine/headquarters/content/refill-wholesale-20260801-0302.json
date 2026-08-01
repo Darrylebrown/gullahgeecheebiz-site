@@ -1,0 +1,56 @@
+{
+  "store": "wholesale",
+  "action": "generate_wholesale_pack",
+  "count": 8,
+  "packs": [
+    {
+      "title": "Gullah Geechee Educator Pack",
+      "count": 15,
+      "price": 59.99,
+      "description": "15 titles for schools and educators"
+    },
+    {
+      "title": "Gullah Geechee Starter Pack",
+      "count": 10,
+      "price": 49.99,
+      "description": "10 best-selling ebooks for new bookstores"
+    },
+    {
+      "title": "Gullah Geechee Self-Help Bundle",
+      "count": 10,
+      "price": 39.99,
+      "description": "10 self-help titles for personal development"
+    },
+    {
+      "title": "Gullah Geechee Cookbook Bundle",
+      "count": 10,
+      "price": 39.99,
+      "description": "10 cookbook titles for culinary sections"
+    },
+    {
+      "title": "Gullah Geechee Encyclopedia Pack",
+      "count": 5,
+      "price": 29.99,
+      "description": "5 encyclopedia volumes for academic libraries"
+    },
+    {
+      "title": "Gullah Geechee Ambassador Pack",
+      "count": 25,
+      "price": 99.99,
+      "description": "25 titles for community organizations"
+    },
+    {
+      "title": "Gullah Geechee Complete Collection",
+      "count": 50,
+      "price": 199.99,
+      "description": "Full catalog for libraries and educators"
+    },
+    {
+      "title": "Gullah Geechee Business Bundle",
+      "count": 10,
+      "price": 39.99,
+      "description": "10 business titles for entrepreneurs"
+    }
+  ],
+  "generated": "2026-08-01T07:02:26.254817+00:00"
+}

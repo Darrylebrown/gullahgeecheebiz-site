@@ -64,7 +64,7 @@ print()
 print("=== Agent A: Publisher Prime ===")
 PYTHON = sys.executable
 BOTS = Path(__file__).resolve().parent
-r = subprocess.run([PYTHON, str(BOTS / "agent-a-publisher-prime.py"), "approve", mid, "--db", str(db_path)],
+r = subprocess.run([PYTHON, str(BOTS / "agent-a-publisher-prime.py"), "--db", str(db_path), "approve", mid],
                    capture_output=True, text=True, timeout=30, cwd=BOTS.parent)
 try:
     data = json.loads(r.stdout)
@@ -74,7 +74,7 @@ except:
 
 print()
 print("=== Agent B: Submission Specialist ===")
-r = subprocess.run([PYTHON, str(BOTS / "agent-b-submission-specialist.py"), "upload", mid, "--db", str(db_path)],
+r = subprocess.run([PYTHON, str(BOTS / "agent-b-submission-specialist.py"), "--db", str(db_path), "upload", mid],
                    capture_output=True, text=True, timeout=30, cwd=BOTS.parent)
 try:
     data = json.loads(r.stdout)

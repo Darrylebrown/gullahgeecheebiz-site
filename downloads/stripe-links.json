@@ -1,0 +1,794 @@
+[
+  {
+    "slug": "gullah-resilience",
+    "title": "The Gullah Geechee Guide to Resilience",
+    "price": 999,
+    "product_id": "prod_UyKxhK7tiSblWW",
+    "price_id": "price_1TyOHZADGrjcm0WZy9eOto5l",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1s0iKF8ya61Z7ahnwpqvOymqMFyPrWVWUSd4pBg5c7gq1H97JmPNWUZL1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-mindset",
+    "title": "The Gullah Geechee Mindset",
+    "price": 999,
+    "product_id": "prod_UyKxXPPSyR1sgt",
+    "price_id": "price_1TyOHaADGrjcm0WZC6kEdxxd",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1xiS94rgmjMmn5QnU0vckaTe5Ph5LKVX6aYsgPi2uNDdd0EZGTHFuZvTu#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-identity",
+    "title": "Finding Your Roots: A Gullah Geechee Guide to Identity",
+    "price": 999,
+    "product_id": "prod_UyKx2TH9ys3HGm",
+    "price_id": "price_1TyOHcADGrjcm0WZlvkZPtU1",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1xB9NuByy2Ev3iwz4btf3sfMQfcYS20l0Y4K97oH0ihiMTig2ehgKH8BG#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-purpose",
+    "title": "The Gullah Geechee Guide to Purpose",
+    "price": 999,
+    "product_id": "prod_UyKxv6akXWio7K",
+    "price_id": "price_1TyOHdADGrjcm0WZ5UJYMp6h",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1QL39iJCKSiIj6ClOxEnNFlyyt1MtoBIunrvdJZrOwpBRWz4ocKvZIxD2#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-gratitude",
+    "title": "Gullah Geechee Gratitude",
+    "price": 999,
+    "product_id": "prod_UyKxBMomNW5FJU",
+    "price_id": "price_1TyOHeADGrjcm0WZ8UUqyAkC",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1v1qAVaMFcn4aRadw3sxRx6Wd5j6yWIuwDkfq6VnT6bb34cENPXKYZezX#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-healing",
+    "title": "Gullah Geechee Healing",
+    "price": 999,
+    "product_id": "prod_UyKxySnyqHnMl1",
+    "price_id": "price_1TyOHfADGrjcm0WZdrCh1HPX",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a12mHkyp5nEf1KDkuXdZmgmnapcuHJCdpSTQiYDlVvdOjc9zfLNS4FI6jM#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-calm",
+    "title": "The Gullah Geechee Guide to Calm",
+    "price": 999,
+    "product_id": "prod_UyKxRbNGwgc99U",
+    "price_id": "price_1TyOHgADGrjcm0WZ2Nz5DDBN",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1Lv13kNQQ5fZAi4THyYQm6U6E48NERgXf1uJKIYRyvXHmjbk9lLnwYaxl#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-joy",
+    "title": "Gullah Geechee Joy",
+    "price": 999,
+    "product_id": "prod_UyKxmKaZNCNSBA",
+    "price_id": "price_1TyOHiADGrjcm0WZvuGdOHXi",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1ZyxROPT11W4zj1GcuE9LpwBgAp3OHTHd5Me94RuYTOPyv8tzVsqDYAxd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-grief",
+    "title": "Gullah Geechee Wisdom for Grief",
+    "price": 999,
+    "product_id": "prod_UyKx7gMn1VnjQz",
+    "price_id": "price_1TyOHjADGrjcm0WZItEGJG2P",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1rjTFORNBXNMd8M4JhGi4VXUPj7VWZtvTH0rNPA5RULxOA21jtkJGzJXT#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-courage",
+    "title": "Gullah Geechee Courage",
+    "price": 999,
+    "product_id": "prod_UyKxTWerVRIGoh",
+    "price_id": "price_1TyOHkADGrjcm0WZhxL5eK3f",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1FQc6k1ce1FgRrxo9FlYB5Z45JYXCphmLHeyTXBvkz6clfYnCk4BaRENg#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-patience",
+    "title": "The Gullah Geechee Art of Patience",
+    "price": 999,
+    "product_id": "prod_UyKxAVqOkPpyLm",
+    "price_id": "price_1TyOHlADGrjcm0WZhlmq2MeH",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1Wk6FSxwzmjJ1VtkWgdVoVVM1XvEmzNFGKGvXyGQpsR0y3xAx66sr4zIz#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-community",
+    "title": "The Gullah Geechee Way of Community",
+    "price": 999,
+    "product_id": "prod_UyKxujfcviJSFf",
+    "price_id": "price_1TyOHnADGrjcm0WZSlbQLGNA",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1aZTVPWP8NLdxtmJbPWOmi5ppvSLLeSlV7OtzWLJsszcnkyUaY17tBcdz#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-wisdom",
+    "title": "Gullah Geechee Wisdom for Daily Living",
+    "price": 999,
+    "product_id": "prod_UyKxDuXnVyxQT2",
+    "price_id": "price_1TyOHoADGrjcm0WZdTSlP09B",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1I3NAxs74D6K84KfVcDG59T7XPgedpXgVILPkQB89XKkP46DuegVuILLT#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-fatherhood",
+    "title": "Gullah Geechee Fatherhood",
+    "price": 999,
+    "product_id": "prod_UyKxnhqPQMadoL",
+    "price_id": "price_1TyOHpADGrjcm0WZyDbC3hAa",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1iSV4rv1srr6rVrKDBexFDKDqtcHewOWbox7vi4ghp7vrYZg4q7cHsiJB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-motherhood",
+    "title": "Gullah Geechee Motherhood",
+    "price": 999,
+    "product_id": "prod_UyKxQRTsJGM6IK",
+    "price_id": "price_1TyOHqADGrjcm0WZGvIlui6l",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1UMAi1P9ewsOu7sR8uY4EayQOztP8qn6g9It9mjKmOjo9MuLSnpqsgAEv#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-forgiveness",
+    "title": "Gullah Geechee Forgiveness",
+    "price": 999,
+    "product_id": "prod_UyKxVP7Rj7zmN5",
+    "price_id": "price_1TyOHrADGrjcm0WZj95Sgon4",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1DYbww72IAPS4oZQG0XuzsEyjTBrEJSxMCBWfPK6txMZIjiB328TobS6Q#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-hope",
+    "title": "Gullah Geechee Hope",
+    "price": 999,
+    "product_id": "prod_UyKxuWz1fQ1r0H",
+    "price_id": "price_1TyOHtADGrjcm0WZXIHVhHfP",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1u2wxhsQKoPZ4kpjMdec25K9HjE8CEtKIQUjAinN5R5WtOINTAGpuiqoB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-elders",
+    "title": "Honoring Gullah Geechee Elders",
+    "price": 999,
+    "product_id": "prod_UyKxx445rfpsYG",
+    "price_id": "price_1TyOHuADGrjcm0WZAGd1MV7x",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1waRx2Oi4aIYH6RuAn8azhmQtPgMSURoTy7ki4nkmqzhg2zrBwxTi8eU5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-marriage",
+    "title": "Gullah Geechee Marriage",
+    "price": 999,
+    "product_id": "prod_UyKxCYKhzhOPmO",
+    "price_id": "price_1TyOHvADGrjcm0WZLpQUIpoi",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1Xi4da4hDM1jfjAeCdkL7Xi3DhQ1iNF1BHtPVuu7yDte5coJuPXgfZLuN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-grandparenting",
+    "title": "Gullah Geechee Grandparenting",
+    "price": 999,
+    "product_id": "prod_UyKxdkD80s8O0M",
+    "price_id": "price_1TyOHwADGrjcm0WZdEDm4WZU",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1m736xsiCwIrLBotmwPiR4wOEvt3CqqMKq1hMArd16TDL5XFd8aNIDw5h#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-aging",
+    "title": "Gullah Geechee Guide to Aging Well",
+    "price": 999,
+    "product_id": "prod_UyKxmI4cfwEyqF",
+    "price_id": "price_1TyOHyADGrjcm0WZzj2aFl0G",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1fgHTfUvSabI3kLk8vUJOZ3cDbY4lERwuGea9VtLwN5eH2xOmGitfSTcf#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-mental-health",
+    "title": "Gullah Geechee Guide to Mental Health",
+    "price": 999,
+    "product_id": "prod_UyKxBB7gH7wUzB",
+    "price_id": "price_1TyOHzADGrjcm0WZvnd5s9Rf",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1mWUgUID9JxjuDAsIkzmnywm2jjdrz040IVm7396ISOFfhwijwX5nqNsd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-sabbath",
+    "title": "The Gullah Geechee Sabbath",
+    "price": 999,
+    "product_id": "prod_UyKxcLUgwX8am6",
+    "price_id": "price_1TyOI0ADGrjcm0WZh1fG4LBQ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1B7ltpBCY8RXdy4JQdP07YSSbUKWJBL8n9nxL0RQru6jrKWhEv2DoeZXG#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-relationships",
+    "title": "Gullah Geechee Relationships",
+    "price": 999,
+    "product_id": "prod_UyKxhOosDdWOrX",
+    "price_id": "price_1TyOI1ADGrjcm0WZyFvmkriS",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1pJIh2lt4zm9sOO8Al8i5jQcbx92hRzVKzm1EaLNZuUyZjSwJRmx37yRN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-morning",
+    "title": "Gullah Geechee Morning Rituals",
+    "price": 999,
+    "product_id": "prod_UyKxfIjTCznU4S",
+    "price_id": "price_1TyOI3ADGrjcm0WZ27n3dcCa",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a109DYTKWOuBxXnv4jh49W9Ew6WvTPQ6eVeBSAsWfdr1UFz6FDavKE1WL2#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-bedtime",
+    "title": "Gullah Geechee Bedtime Rituals",
+    "price": 999,
+    "product_id": "prod_UyKxwvRf80oTwG",
+    "price_id": "price_1TyOI4ADGrjcm0WZHCESgXWY",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1cvuIVIWHrX5LzMfMBT30IDQaIFsgOJ7kpsh4rYcVmf5UVX31dQrOfPgf#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-spring",
+    "title": "Gullah Geechee Spring",
+    "price": 999,
+    "product_id": "prod_UyKyTEhiUkj12d",
+    "price_id": "price_1TyOI5ADGrjcm0WZpyrEHLdD",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1FtiAruEL2rEQQYyj8lJKBaQki2Mi0L9SRTYGbTuZp40f5nvES1nF0Vqc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-summer",
+    "title": "Gullah Geechee Summer",
+    "price": 999,
+    "product_id": "prod_UyKyVaPARC0ztB",
+    "price_id": "price_1TyOI6ADGrjcm0WZ92ZC7jZB",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a16NiQ5usyPr8XOI0xOzMBmPd1nj3fRWyB63FJ570hQHyCBKa9ala4B42d#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-autumn",
+    "title": "Gullah Geechee Autumn",
+    "price": 999,
+    "product_id": "prod_UyKy5wFOSLM2fB",
+    "price_id": "price_1TyOI8ADGrjcm0WZMfgHzIHR",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1fmTQJQBvp6svSxBigmZEqKM6StQPZCSDnospjyAfQZTtYDIwZYMUCnIE#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-winter",
+    "title": "Gullah Geechee Winter",
+    "price": 999,
+    "product_id": "prod_UyKyeuGWsr4ajg",
+    "price_id": "price_1TyOI9ADGrjcm0WZ4fBUFnMQ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a10tMd7yfQQelwbslK5vDXVZtqCjYXJ2D8leHLXtxACmurLTmUA6mWOScW#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-entrepreneur",
+    "title": "The Gullah Geechee Entrepreneur",
+    "price": 999,
+    "product_id": "prod_UyKyD8mQcaubvy",
+    "price_id": "price_1TyOIAADGrjcm0WZUKlzcj81",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a12elQGXwgI5aSynXTNXu8zGalzzNFoeJ76vHszBdsQgjn2UJln7PmSW3d#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "lowcountry-marketing",
+    "title": "Lowcountry Marketing",
+    "price": 999,
+    "product_id": "prod_UyKyjlajEkNPDs",
+    "price_id": "price_1TyOIBADGrjcm0WZphmAvtky",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1Hg97QIhZtFbAdpnaJcabkS2xUGOTUQc1UEACKBbX0tcIBJFmj9OSlnq9#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-side-hustle",
+    "title": "The Gullah Geechee Side Hustle",
+    "price": 999,
+    "product_id": "prod_UyKyTvAtICORyU",
+    "price_id": "price_1TyOIDADGrjcm0WZc1n3Nao4",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1aT0l5EGoYveqI4UQEoszbhokXeCoNaL4aY8Tn6Ws8urx4nPEYTUAK79H#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-finance",
+    "title": "Gullah Geechee Guide to Financial Freedom",
+    "price": 999,
+    "product_id": "prod_UyKywt539jQ6On",
+    "price_id": "price_1TyOIEADGrjcm0WZckYSEp6L",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1CxnXCeXJVmUte17fKTxdgchfrfRfkXPThJ318NVqODDfSsEcq4FEGbaP#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-publishing",
+    "title": "The Gullah Geechee Guide to Self-Publishing",
+    "price": 999,
+    "product_id": "prod_UyKyiy8tCTvKRS",
+    "price_id": "price_1TyOIFADGrjcm0WZpIo6x29G",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1BTcsYB8ehEdey7k0rYDubfs67HHrDSaR9ASFXfMprCYhr2YTYYTYx6QR#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-ecommerce",
+    "title": "Gullah Geechee E-Commerce",
+    "price": 999,
+    "product_id": "prod_UyKyhjXICYhUEC",
+    "price_id": "price_1TyOIGADGrjcm0WZgjdfZ0PY",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1vqHZBDmWgwPSISZxa20dWvUWujt59Vmpjnr9PyO9WXSKndOy7I56mDSC#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-tourism",
+    "title": "Gullah Geechee Tourism Guide",
+    "price": 999,
+    "product_id": "prod_UyKyhfHpuMHw0k",
+    "price_id": "price_1TyOIIADGrjcm0WZIHzjiLjO",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1yavUBsT5oHNWYteqApdZKlNRogtvDfIrwDKhEwk8nrcdGVVaXI50C12V#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-craft-business",
+    "title": "The Gullah Geechee Craft Business Guide",
+    "price": 999,
+    "product_id": "prod_UyKyYREZlCjIuq",
+    "price_id": "price_1TyOIJADGrjcm0WZ2zf1ypOw",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1nf1REYrxjjukRiAYO4fqXPuyPMfBwKD1h0lkDSjB3fhWi2gIow1nS3Hc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-food-business",
+    "title": "Starting a Gullah Geechee Food Business",
+    "price": 999,
+    "product_id": "prod_UyKyqaCm13Tyma",
+    "price_id": "price_1TyOILADGrjcm0WZImPeqTyd",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1T7rjVRT4TwCYQRr1U9MVfyn0tSpJp5C3XASXpIMidzI9HIa1zhzmpaIO#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-cooperative",
+    "title": "The Gullah Geechee Cooperative",
+    "price": 999,
+    "product_id": "prod_UyKyZ3q5vWmt1h",
+    "price_id": "price_1TyOINADGrjcm0WZ0bMJyp13",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1REOGmm0USUSJaIfWTZr8QtYiCKoiytN22rojXSmA1UA4IN2wCIbPCC3j#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-freelance",
+    "title": "The Gullah Geechee Freelancer",
+    "price": 999,
+    "product_id": "prod_UyKy1a2XSWmM8T",
+    "price_id": "price_1TyOIQADGrjcm0WZ5TbbggDg",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1H6XCd5cqlLjPHBoVvyWNYlU6wj23tWRJSLNGtef06jHUmQZcKLyb7jzZ#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-real-estate",
+    "title": "Gullah Geechee Guide to Real Estate",
+    "price": 999,
+    "product_id": "prod_UyKysJAQ85EJzz",
+    "price_id": "price_1TyOISADGrjcm0WZNHADgSx0",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1wIz4wNKX83U1LeP5mTxrHi74XpHFNok9skdMmdbWT8vYxMFJhHCMtoqq#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-nonprofit",
+    "title": "Starting a Gullah Geechee Nonprofit",
+    "price": 999,
+    "product_id": "prod_UyKykzsySK7Rvo",
+    "price_id": "price_1TyOIUADGrjcm0WZe6JnxKt3",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1kHXpKNfqfhHaXNfdyTBMgh5iuqxqbcisW44IU2Uitudmhtvahz6QgdWo#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-investing",
+    "title": "Gullah Geechee Investing",
+    "price": 999,
+    "product_id": "prod_UyKy8NfrZg5NzF",
+    "price_id": "price_1TyOIWADGrjcm0WZqgYIEMq2",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1XGnBgpjbzHIwXYnaVK3FdPYKH4W5ZKgXP5p7wSy87iSKOpL5Li1HVh5M#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-consulting",
+    "title": "The Gullah Geechee Consultant",
+    "price": 999,
+    "product_id": "prod_UyKyyKAh3WMqnn",
+    "price_id": "price_1TyOIXADGrjcm0WZXFEpp5xJ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1l2Rgr9ECdumlNRmWJC0fyKvOvwQkWCHizs1LpBtBM7EHEMmXoY0moYJS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-remote-work",
+    "title": "Gullah Geechee Guide to Remote Work",
+    "price": 999,
+    "product_id": "prod_UyKy4LDwX176Zj",
+    "price_id": "price_1TyOIZADGrjcm0WZ5kdRfEBj",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1O887GEv5LGzTWZRci8gGJUOdMNYbME60TBZRlcnjwYbTtiL6HGwPurrL#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-budget",
+    "title": "The Gullah Geechee Budget",
+    "price": 999,
+    "product_id": "prod_UyKyABnOmQdi1Y",
+    "price_id": "price_1TyOIaADGrjcm0WZGyHQ0g1q",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1PNShq8n5knyLZdVGNpJYRZBHidU9YfR1MljSp6BFXs4TZeCiphewQxzo#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-credit",
+    "title": "Gullah Geechee Guide to Credit",
+    "price": 999,
+    "product_id": "prod_UyKyYi3XVYrYcm",
+    "price_id": "price_1TyOIbADGrjcm0WZsD01FarG",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1dxfvT2DwURtg3yeDOgA95BhlRf5hQlhFsniG7D4NsCrJhIFSI156DpY6#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-debt",
+    "title": "Gullah Geechee Guide to Debt Freedom",
+    "price": 999,
+    "product_id": "prod_UyKy57ZH99pTVa",
+    "price_id": "price_1TyOIcADGrjcm0WZ0Ld2yidC",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1SeBn7KfjxQXeacxCQgtqCXKXMLObW5DbJ7oNgMXNwD0YwG26LUR5Gcgf#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-retirement",
+    "title": "Gullah Geechee Guide to Retirement",
+    "price": 999,
+    "product_id": "prod_UyKymnt6ESHfMR",
+    "price_id": "price_1TyOIdADGrjcm0WZM5lYYdAX",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1jtefX9NLuX1iKfiDPEZAs4EYCdBWfKlte2GNQjqJdbF8hXLA5VmYidGY#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-taxes",
+    "title": "Gullah Geechee Guide to Taxes",
+    "price": 999,
+    "product_id": "prod_UyKyxXKbPyrW0f",
+    "price_id": "price_1TyOIfADGrjcm0WZ2Kp9Yzrh",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1o8w3fBpjViE0cksz91N9MiCOt7ti3cpuHV9Xkw7rS73j750aYtHHeM5P#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-insurance",
+    "title": "Gullah Geechee Guide to Insurance",
+    "price": 999,
+    "product_id": "prod_UyKyiYwbdbun0c",
+    "price_id": "price_1TyOIgADGrjcm0WZ5iNLzhA1",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a15G5w7D4VsRXMrDIo2olNdLIqw6tQojNRqiF0XFBjzWwjBFRLL3wDh0Ei#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-estate",
+    "title": "Gullah Geechee Guide to Estate Planning",
+    "price": 999,
+    "product_id": "prod_UyKyawCN4DUUYx",
+    "price_id": "price_1TyOIhADGrjcm0WZ90HXevVY",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1EoxG2F0WkoVKQokeM37l8x0FYEaHX0RbUIzc4ZldmSn95uqh66ctkhNY#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-farming",
+    "title": "The Gullah Geechee Farmer",
+    "price": 999,
+    "product_id": "prod_UyKyFjGKPuH9IH",
+    "price_id": "price_1TyOIjADGrjcm0WZDu4NHUWJ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1X9aPVf6cZ7YjdKY1pFsEjavUuqWNX5y83Hn8bzotBRmXu9j0wpMuQkqN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-fishing",
+    "title": "The Gullah Geechee Fisherman",
+    "price": 999,
+    "product_id": "prod_UyKyhUpYhjV3mv",
+    "price_id": "price_1TyOIkADGrjcm0WZgMcMPnZR",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1mqdH3kUmgMzinAG2QBrKbapcgZAYwKhmLc4QmyPE5m4AmIBEJSRhh9uB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-catering",
+    "title": "Starting a Gullah Geechee Catering Business",
+    "price": 999,
+    "product_id": "prod_UyKyFqU3ANVQT3",
+    "price_id": "price_1TyOIlADGrjcm0WZ1jV2jQe5",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1gF0UMjAPeF2kARdRfsbw6nmoXSRCmhETEOZemPv7NJcDIvte856VWGTS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-bed-breakfast",
+    "title": "Starting a Gullah Geechee Bed and Breakfast",
+    "price": 999,
+    "product_id": "prod_UyKyrcyvRhsr1N",
+    "price_id": "price_1TyOImADGrjcm0WZAA0gnWci",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1cFt6Hs1Wz7HzBZ2jIkpD19QrOVJybgp6Bjo9Kdfq4wiG65l1CkXmU789#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-art-gallery",
+    "title": "Starting a Gullah Geechee Art Gallery",
+    "price": 999,
+    "product_id": "prod_UyKyBtt4OsWK8T",
+    "price_id": "price_1TyOIoADGrjcm0WZQJGuCP3j",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a12INwVe9EzTAXGqzI6n5UpScimduUfVegXqpO9gH65BiBXruixegrhla9#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-museum",
+    "title": "Starting a Gullah Geechee Museum",
+    "price": 999,
+    "product_id": "prod_UyKy6zoDtDPZus",
+    "price_id": "price_1TyOIpADGrjcm0WZCX2oIhwX",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a11BnIwd49HKB0GUmFbq3fJ78Tdzk6J5Q8zmfDToWShE8i6auQhtg63VBF#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-podcast",
+    "title": "Starting a Gullah Geechee Podcast",
+    "price": 999,
+    "product_id": "prod_UyKyVy6zPN6OQC",
+    "price_id": "price_1TyOIqADGrjcm0WZ9rlBJkco",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1TvHYIGOERsUqHGdB7ZV6eWjlFO6K2xWutPwOgTwOxF72vFOHOFWqT8W5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-youtube",
+    "title": "Starting a Gullah Geechee YouTube Channel",
+    "price": 999,
+    "product_id": "prod_UyKyCRd7pjuXbc",
+    "price_id": "price_1TyOIrADGrjcm0WZI5aj6ELe",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a18QahxaB8fBTkG9suVjAkRyIpYPL3U6e3StlP3hLzMcEP5bFzyJeOhyYi#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-newsletter",
+    "title": "Starting a Gullah Geechee Newsletter",
+    "price": 999,
+    "product_id": "prod_UyKySO3MWVzz2H",
+    "price_id": "price_1TyOIsADGrjcm0WZm5zxVJes",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1BlnVLvC8xtn9AXzFYx15yviAQKQLjHLDr3OXct6DaulEBkLDfrdUl9Zg#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-etsy",
+    "title": "Selling Gullah Geechee Products on Etsy",
+    "price": 999,
+    "product_id": "prod_UyKykxu2vLh8ov",
+    "price_id": "price_1TyOIuADGrjcm0WZJ03iivZX",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1hxQTNWrA6WN352bZXSGUDNJKTml4MVZW4erFQhksX6x1D4yjhCT6UNS5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-wholesale",
+    "title": "The Gullah Geechee Guide to Wholesale",
+    "price": 999,
+    "product_id": "prod_UyKynS1J1I5he9",
+    "price_id": "price_1TyOIvADGrjcm0WZKbWkanmF",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1DZQQAiDGpxfEjUiKSb2ZpLI9TCBR5bycZ0KUv43woIAU8Bouc1htAEIP#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-kitchen-v1",
+    "title": "The Gullah Geechee Kitchen Volume 1",
+    "price": 999,
+    "product_id": "prod_UyKycm5EE3TzSQ",
+    "price_id": "price_1TyOIwADGrjcm0WZhY5QWV9H",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1N0VyLQVaf2pwOhD0qsI6IxXsEIUe3gg3cMCJkELTONYGuUmRP2ZMxVmT#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-kitchen-v2",
+    "title": "The Gullah Geechee Kitchen Volume 2",
+    "price": 999,
+    "product_id": "prod_UyKyDMq6JPSV1t",
+    "price_id": "price_1TyOIyADGrjcm0WZ8W9E5QO4",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1mISMgcMiI7WCPTSGGXN3j7MphFc7nHlGN40ivoENhEcCqp4ilrz1oOqj#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-sunday-dinner",
+    "title": "Gullah Geechee Sunday Dinner",
+    "price": 999,
+    "product_id": "prod_UyKy2zi6e95Zga",
+    "price_id": "price_1TyOIzADGrjcm0WZT2GUwoCo",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a18tiPXdvSGw79sFfoUZT9aPnw2KW8zkHI2VSEKuNxUAGW1hhsUjZg03Bc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-seafood",
+    "title": "Gullah Geechee Seafood Cookbook",
+    "price": 999,
+    "product_id": "prod_UyKy0DlMgYBluF",
+    "price_id": "price_1TyOJ0ADGrjcm0WZPTT2bioN",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1sgkWIGxyQZSzj8hEtCJdNtCgdBxoCT1Hynx8h7qKWDxu9KUYYQbUyTx2#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-soul-food",
+    "title": "Gullah Geechee Soul Food",
+    "price": 999,
+    "product_id": "prod_UyKySiClej1gV8",
+    "price_id": "price_1TyOJ1ADGrjcm0WZqi7XJnRI",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1ynjTC5D6njfsnEe3xi9hYXyjCIHYmSdMjsthPKEGOJkAm9oS13XMIzZX#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-desserts",
+    "title": "Gullah Geechee Desserts",
+    "price": 999,
+    "product_id": "prod_UyKzXLk8PO9Sbq",
+    "price_id": "price_1TyOJ3ADGrjcm0WZNM9XhidV",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1VoCwFSsiPR3LgksGakKwVUZug5PNTsVtijkNQIPvrTydc8AcZuAPZAil#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-one-pot",
+    "title": "Gullah Geechee One-Pot Meals",
+    "price": 999,
+    "product_id": "prod_UyKz5dP34QVnsK",
+    "price_id": "price_1TyOJ4ADGrjcm0WZinsUkmjv",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1sRcIg2NUtzlSTzVBVZDNbw1NDLOmDPE8dh8WRnWj4lFMd8H19YOppsMa#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-holiday",
+    "title": "Gullah Geechee Holiday Cookbook",
+    "price": 999,
+    "product_id": "prod_UyKzXeL6llydDQ",
+    "price_id": "price_1TyOJ5ADGrjcm0WZgBPi7hjq",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1a5rVOZqm9VXlP8d3tfXJyrRc47Vo5wM3uA9xe1ZUx3Utv2f6p0HCpOec#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-vegetarian",
+    "title": "Gullah Geechee Vegetarian",
+    "price": 999,
+    "product_id": "prod_UyKzbJ5QDDQJKL",
+    "price_id": "price_1TyOJ7ADGrjcm0WZPOBciru9",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1VnJktGGUAve1rZoZ27SQiwdOUJnEurRi70iPw8LxFjRulMEc3yXmsYq5#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-breakfast",
+    "title": "Gullah Geechee Breakfast",
+    "price": 999,
+    "product_id": "prod_UyKzkrLRZPqNIb",
+    "price_id": "price_1TyOJ8ADGrjcm0WZUaLxQFAJ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1ChiWt8GPJv8KtcOKBzH8WL8yZorVrwhf7slM8PvzG1TYTVpL9XBgYrj9#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-preserving",
+    "title": "Gullah Geechee Guide to Preserving",
+    "price": 999,
+    "product_id": "prod_UyKzdZoTKQz2mx",
+    "price_id": "price_1TyOJ9ADGrjcm0WZN7ex417T",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1zxFACxrpEeboZqce00aellIGqqceMZndO5Qtc7Yeo0XAfzsOh31TK9t6#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-grilling",
+    "title": "Gullah Geechee Grilling",
+    "price": 999,
+    "product_id": "prod_UyKzQuOr0qsuOR",
+    "price_id": "price_1TyOJAADGrjcm0WZKKX49CE4",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1cip6FZ3ScbRCL1osFUOVVWF4yG82KuLTlvECfNJ4jFu9wNt4RM14XVRH#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-sauces",
+    "title": "Gullah Geechee Sauces and Seasonings",
+    "price": 999,
+    "product_id": "prod_UyKzfJpmIjMDIe",
+    "price_id": "price_1TyOJBADGrjcm0WZfcEE2DWZ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1RcS24OL7UQZzilqcm16dgp0k1DQZGsetrNU8Nx11C8P7L1QHf27xpfIr#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-baking",
+    "title": "Gullah Geechee Baking",
+    "price": 999,
+    "product_id": "prod_UyKzCef7jZ7ylE",
+    "price_id": "price_1TyOJDADGrjcm0WZHDe33ikZ",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a17SJ7FZZGjZAzYK7896xfZguebkh32yW4o3qbsCl02B1Y01ofhVgJaXkW#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-drinks",
+    "title": "Gullah Geechee Drinks and Beverages",
+    "price": 999,
+    "product_id": "prod_UyKzQZnScxkQuX",
+    "price_id": "price_1TyOJEADGrjcm0WZiDOAF6np",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1eiuqtgikDVe0YYvQw4bIlHMJTPSx5KnmRTAK9ItfsiGtEG1liNUTkzel#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-rice",
+    "title": "Gullah Geechee Rice Cookbook",
+    "price": 999,
+    "product_id": "prod_UyKzbjsjftdkvy",
+    "price_id": "price_1TyOJFADGrjcm0WZL6GTwiHA",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1MwXiRQ055njX5tEFYbhltSkeiMwqbJwDpCtKhvLO4SbxNaAM10UcMtmS#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-cast-iron",
+    "title": "Gullah Geechee Cast Iron Cooking",
+    "price": 999,
+    "product_id": "prod_UyKz6kee7ahxwU",
+    "price_id": "price_1TyOJHADGrjcm0WZjQA0YugF",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1IgRq4XvMOZbIvPTDMpfnQ3RvKzOT1pAm0WgKGr88UvKOlcvkd8HVSN1f#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-slow-cooker",
+    "title": "Gullah Geechee Slow Cooker Recipes",
+    "price": 999,
+    "product_id": "prod_UyKzmchRGc3GPZ",
+    "price_id": "price_1TyOJIADGrjcm0WZkxyw9Xzs",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1fkGdWY09iMIpj4eFd5kmKACOGDeOsyM220GaWIFqbYDWfzfChdmvG2tN#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-30-minute",
+    "title": "Gullah Geechee 30-Minute Meals",
+    "price": 999,
+    "product_id": "prod_UyKznJkXKNvNMr",
+    "price_id": "price_1TyOJJADGrjcm0WZQqWoH67n",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1zajVYvTjw5uumkNmpy1M9PCnpfCn25qiujTjiuWlKIkrlRmEz5IMKGdW#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-meal-prep",
+    "title": "Gullah Geechee Meal Prep",
+    "price": 999,
+    "product_id": "prod_UyKz38Tw8oJCrm",
+    "price_id": "price_1TyOJKADGrjcm0WZsUtnIpAb",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1VM45a2eUVwNSho5O9BZiR6mUG5MWOOqNXVck1mzFFmpFTkm03hW0vHUg#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-kids-cook",
+    "title": "Gullah Geechee Kids Cookbook",
+    "price": 999,
+    "product_id": "prod_UyKzEXQxYsIO2d",
+    "price_id": "price_1TyOJMADGrjcm0WZTMBipgOl",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1R5WoaAcwaJt8jg6MprNdJ01ShmlILjdmxhGwhTVfOVWYRPWjx4iIqYqE#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-appetizers",
+    "title": "Gullah Geechee Appetizers",
+    "price": 999,
+    "product_id": "prod_UyKzUQedGgpPfG",
+    "price_id": "price_1TyOJNADGrjcm0WZRbtoRXTi",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1jvJiZbVgsHgwJI4N0TQWwECYHvpiCapTO8tz8k69O79qTwob8HXnY1pd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-summer-cooking",
+    "title": "Gullah Geechee Summer Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzNfeY8w8QMM",
+    "price_id": "price_1TyOJOADGrjcm0WZT5lAjjhP",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1jsPkSiR8CCUfVxiQ43jmcp2FK3zMXnATYkqgsCtCaZ2Gdc4s2RjoPD61#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-winter-cooking",
+    "title": "Gullah Geechee Winter Cooking",
+    "price": 999,
+    "product_id": "prod_UyKziPvs2pcy8r",
+    "price_id": "price_1TyOJPADGrjcm0WZWn5MPnd6",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a17wW4Q35oiVoHW8GM1shqplGZVT9Ts0YMVRtpsKYf8v6XUcFX3erjR8eQ#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-cajun",
+    "title": "Gullah Geechee and Cajun Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzPaDGjAyRc8",
+    "price_id": "price_1TyOJRADGrjcm0WZsc0nS70B",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1m9zUbzFZ5W0UxFMaMZAuPageeSveavQBWIdbCV6NUNbM1nkMaJfdHWPk#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-caribbean",
+    "title": "Gullah Geechee and Caribbean Cooking",
+    "price": 999,
+    "product_id": "prod_UyKz7knmtmR4P2",
+    "price_id": "price_1TyOJSADGrjcm0WZ2TD92XDm",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1skB9zfK1AwDPguKskcNU1PfLyFBeG5kDS8CLlCd29YDHX4lWBv0gjPfw#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-west-african",
+    "title": "Gullah Geechee and West African Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzoqHNjkAHr4",
+    "price_id": "price_1TyOJTADGrjcm0WZmi1mqlX7",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1yosUA5q9piTzV6VCita1zRyjhykvAZKeTlI0Tg9rNXLYVolGPwvDmpRM#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-fermentation",
+    "title": "Gullah Geechee Fermentation",
+    "price": 999,
+    "product_id": "prod_UyKzCEsB3iLEgK",
+    "price_id": "price_1TyOJUADGrjcm0WZXVoX4gdP",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1IodiTdYF2zQwswCNk1i2W8GZiu99CClMXTurvsMkRqi7dFMh03mtxBs1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-gluten-free",
+    "title": "Gullah Geechee Gluten-Free Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzutp4FXMQ3h",
+    "price_id": "price_1TyOJVADGrjcm0WZFFd0bxgB",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a132IFL1iqE2qkw8Lw67eKrPTXqFiUmevVEmyJGhdridDgOq3UazNdVmPk#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-vegan",
+    "title": "Gullah Geechee Vegan Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzjKfL7rBjuX",
+    "price_id": "price_1TyOJXADGrjcm0WZpjsEYJtI",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1wA8UTL2whkszCp3lqOoErf8hlJV7HqWAzgGUzEcAYNqZbeyuwFgX1Lvc#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-keto",
+    "title": "Gullah Geechee Keto Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzprwcqZKRhX",
+    "price_id": "price_1TyOJYADGrjcm0WZgVb9xJnb",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1dffEcQAg3dH9SYKQWCKSxVCbjvbFr2etXS5lLJVSyP8HuJtYz0YCOSUB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-paleo",
+    "title": "Gullah Geechee Paleo Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzI1D75NW16e",
+    "price_id": "price_1TyOJZADGrjcm0WZpdIkvhHv",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a125x8rCFAJLu8d7bkHA1AVy5CxOT1lVg7reBam5iBSLU9bphZUWwrzKoA#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-air-fryer",
+    "title": "Gullah Geechee Air Fryer Recipes",
+    "price": 999,
+    "product_id": "prod_UyKzIPPplS4XwR",
+    "price_id": "price_1TyOJbADGrjcm0WZt5i91cQp",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1nJ57bfe4WxJ2ayPXJ0yHzIKSkqmHu69eeZ3SVFSSKGotBqO4bCrQBd3T#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-instant-pot",
+    "title": "Gullah Geechee Instant Pot Recipes",
+    "price": 999,
+    "product_id": "prod_UyKzRjMVm4qy9t",
+    "price_id": "price_1TyOJcADGrjcm0WZeSE36myV",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1PlDF2i7xJLvIBUw4RMz2vZOxTkk5EcJZxeYNHporllTYUZd4fgzE5yNq#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  },
+  {
+    "slug": "gullah-camping",
+    "title": "Gullah Geechee Camp Cooking",
+    "price": 999,
+    "product_id": "prod_UyKzca1LxXvWT7",
+    "price_id": "price_1TyOJdADGrjcm0WZgrjAhofr",
+    "checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1B8quzgnBOX2HYXU31ohLNuRQQorIzYZI0EVWdhCeAOBBiezBegk8ARLP#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRRa09HdURBQndvZmg1Ul9vdkJRZkFJfGlgT18xNlY1YTdkcU4zYkRpT01kbUp9QUMyYkFOQjFjQmd%2FNEtRcmczdGNhQUF1Qz1VUlRvQlQwdkl1Q3d3Mk41NVVrTEhofWJQJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+  }
+]

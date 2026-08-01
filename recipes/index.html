@@ -4,102 +4,202 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipes — Gullah Geechee Biz</title>
-<meta name="description" content="Gullah Geechee foodways tools and stories — Lowcountry recipes and culture history.">
-<meta property="og:title" content="Recipes — Gullah Geechee Biz">
-<meta property="og:description" content="Gullah Geechee foodways tools and stories — Lowcountry recipes and culture history.">
-<meta property="og:url" content="https://gullahgeecheebiz.com/recipes/">
+<meta name="description" content="39 authentic Gullah Geechee recipes — red rice, okra soup, shrimp and grits, benne wafers, and more. English and Spanish.">
 <link rel="canonical" href="https://gullahgeecheebiz.com/recipes/">
+<meta property="og:title" content="Recipes — Gullah Geechee Biz">
+<meta property="og:description" content="39 authentic Gullah Geechee recipes — red rice, okra soup, shrimp and grits, and more.">
+<meta property="og:url" content="https://gullahgeecheebiz.com/recipes/">
+<meta property="og:type" content="website">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,serif;background:#0A1428;color:#F5F0E6;line-height:1.55;min-height:100vh}
-a{color:#D4AF37;text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:960px;margin:0 auto;padding:2rem 1.25rem 4rem}
-.nav{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-size:.95rem}
-.nav a{color:rgba(245,240,230,.75)}
-.nav a:hover{color:#D4AF37}
-h1{color:#D4AF37;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.75rem}
-.lead{color:rgba(245,240,230,.75);font-size:1.1rem;max-width:40rem;margin-bottom:2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.card{display:block;background:#0F1F3A;border:1px solid rgba(212,175,55,.25);border-radius:12px;padding:1.25rem 1.35rem;transition:transform .2s,border-color .2s;color:inherit}
-.card:hover{transform:translateY(-2px);border-color:#D4AF37;text-decoration:none}
-.card h3{color:#D4AF37;font-size:1.15rem;margin-bottom:.45rem}
-.card p{color:rgba(245,240,230,.7);font-size:.95rem}
-.go{display:inline-block;margin-top:.85rem;color:#D4AF37;font-size:.9rem}
-.note{margin-top:2.5rem;padding:1rem 1.15rem;border-left:3px solid #D4AF37;background:rgba(212,175,55,.06);color:rgba(245,240,230,.7);font-size:.95rem}
-footer{margin-top:3rem;color:rgba(245,240,230,.45);font-size:.85rem}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a14;color:#f0ede5;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.15);padding:0 20px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:Georgia,serif;color:#d4af37;font-size:1.2em;font-weight:bold;text-decoration:none;letter-spacing:1px}
+.nav-logo span{color:#f0ede5;font-weight:normal}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:rgba(240,237,229,0.7);text-decoration:none;font-size:0.85em;transition:color 0.3s;letter-spacing:0.5px}
+.nav-links a:hover{color:#d4af37}
+.nav-search{display:flex;align-items:center;gap:8px}
+.nav-search input{background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:6px 14px;color:#f0ede5;font-size:0.8em;width:180px;outline:none;transition:border-color 0.3s}
+.nav-search input:focus{border-color:#d4af37}
+.nav-search button{background:#d4af37;color:#0a0a14;border:none;border-radius:20px;padding:6px 14px;font-size:0.8em;cursor:pointer;font-weight:bold;transition:background 0.3s}
+.nav-search button:hover{background:#e8c84a}
+
+.hero{padding:100px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(39,174,96,0.06) 0%,transparent 50%);z-index:0}
+.hero>*{position:relative;z-index:1}
+.hero .badge{display:inline-block;background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.3);color:#27ae60;padding:6px 20px;border-radius:20px;font-size:0.8em;margin-bottom:20px;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:12px}
+.hero h1 .gold{color:#d4af37}
+.hero p{color:rgba(240,237,229,0.5);max-width:600px;margin:0 auto 24px;font-size:1.05em}
+.hero .stats{display:flex;gap:30px;justify-content:center;flex-wrap:wrap}
+.hero .stats .stat{text-align:center}
+.hero .stats .num{font-family:Georgia,serif;font-size:1.5em;color:#27ae60;font-weight:bold}
+.hero .stats .lbl{font-size:0.8em;color:rgba(240,237,229,0.4);margin-top:2px}
+
+.container{max-width:1200px;margin:0 auto;padding:0 20px 60px}
+
+.recipe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.recipe-card{background:linear-gradient(135deg,#111122,#0d0d1a);border-radius:14px;padding:24px;border:1px solid rgba(39,174,96,0.08);transition:all 0.3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.recipe-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#27ae60,transparent);opacity:0;transition:opacity 0.3s}
+.recipe-card:hover{transform:translateY(-3px);border-color:rgba(39,174,96,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.recipe-card:hover::before{opacity:1}
+.recipe-card .icon{font-size:2em;margin-bottom:10px}
+.recipe-card h3{font-size:1.05em;color:#f0ede5;margin-bottom:4px}
+.recipe-card .sub{color:rgba(240,237,229,0.4);font-size:0.82em;margin-bottom:10px}
+.recipe-card .meta{display:flex;gap:12px;font-size:0.75em;color:rgba(240,237,229,0.3)}
+.recipe-card .lang{display:inline-block;padding:2px 8px;border-radius:6px;font-size:0.7em;margin-top:8px}
+.lang-en{background:rgba(212,175,55,0.1);color:#d4af37}
+.lang-es{background:rgba(39,174,96,0.1);color:#27ae60}
+
+footer{background:#080810;border-top:1px solid rgba(212,175,55,0.1);padding:60px 20px 30px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px}
+.footer-col h4{color:#d4af37;font-size:0.9em;margin-bottom:16px;letter-spacing:1px}
+.footer-col a{display:block;color:rgba(240,237,229,0.4);text-decoration:none;font-size:0.85em;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:#d4af37}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;color:rgba(240,237,229,0.2);font-size:0.8em}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-search input{width:120px}
+  .hero{padding:80px 20px 40px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav class="nav">
-  <a href="/">Home</a>
-  <a href="/membership/">Membership</a>
-  <a href="/shop/">Shop</a>
-  <a href="/recipes/">Recipes</a>
-  <a href="/encyclopedia/">Encyclopedia</a>
-  <a href="/ggb-engine/">Engine map</a>
-  <a href="/viral/">Stories</a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">GULLAH <span>GEECHEE</span> BIZ</a>
+    <div class="nav-links">
+      <a href="/ebooks/">Ebooks</a>
+      <a href="/recipes/" style="color:#d4af37">Recipes</a>
+      <a href="/membership/">Membership</a>
+      <a href="/shop/">Shop</a>
+      <a href="/season-1/">Documentary</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="Search 159 pages..." id="navSearch" onkeydown="if(event.key==='Enter')window.location='/search/?q='+encodeURIComponent(this.value)">
+      <button onclick="window.location='/search/?q='+encodeURIComponent(document.getElementById('navSearch').value)">Search</button>
+    </div>
+  </div>
 </nav>
-<h1>Recipes & foodways</h1>
-<p class="lead">39 Gullah Geechee recipes in English and Spanish. Red rice, okra soup, shrimp and grits, benne wafers, and more — all from the Lowcountry kitchen.</p>
-<div class="grid">
-<a class="card" href="/recipes/gullah-red-rice.html">
-  <h3>Gullah Red Rice</h3>
-  <p>The signature dish of the Lowcountry. Rich, tomato-based, and deeply flavorful.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/shrimp-and-grits.html">
-  <h3>Shrimp and Grits</h3>
-  <p>A classic Lowcountry breakfast. Fresh shrimp over creamy stone-ground grits.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/okra-soup.html">
-  <h3>Okra Soup</h3>
-  <p>Hearty okra soup with tomatoes, beef, and traditional Gullah Geechee seasoning.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/crab-cakes.html">
-  <h3>Gullah Crab Cakes</h3>
-  <p>Fresh blue crab cakes with Lowcountry seasoning. A coastal favorite.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/benne-wafers.html">
-  <h3>Benne Wafers</h3>
-  <p>Sesame seed cookies with West African roots. A Gullah Geechee tradition.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/hoppin-john.html">
-  <h3>Hoppin' John</h3>
-  <p>Black-eyed peas and rice. A New Year's tradition for good luck and prosperity.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/sweet-potato-pie.html">
-  <h3>Sweet Potato Pie</h3>
-  <p>The queen of Gullah Geechee desserts. Rich, spiced, and unforgettable.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/gullah-cabbage.html">
-  <h3>Gullah Fried Cabbage</h3>
-  <p>Smoky, savory fried cabbage with bacon. A Sunday dinner staple.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/pickled-shrimp.html">
-  <h3>Pickled Shrimp</h3>
-  <p>A Lowcountry appetizer tradition. Fresh shrimp marinated in vinegar and spices.</p>
-  <span class="go">View recipe →</span>
-</a>
-<a class="card" href="/recipes/gullah-pork-chops.html">
-  <h3>Smothered Pork Chops</h3>
-  <p>Thick pork chops slow-cooked in rich onion gravy. Comfort food at its finest.</p>
-  <span class="go">View recipe →</span>
-</a>
+
+<section class="hero">
+  <div class="badge">✦ Lowcountry Kitchen</div>
+  <h1><span class="gold">39 Recipes</span> — From the Sea Islands</h1>
+  <p>Authentic Gullah Geechee recipes passed down through generations. Red rice, okra soup, shrimp and grits, benne wafers, and more. Available in English and Spanish.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">39</div><div class="lbl">Recipes</div></div>
+    <div class="stat"><div class="num">78</div><div class="lbl">Pages</div></div>
+    <div class="stat"><div class="num">2</div><div class="lbl">Languages</div></div>
+  </div>
+</section>
+
+<div class="container">
+<div class="recipe-grid" id="recipeGrid"></div>
 </div>
-<div class="note">All 39 recipes are available in English and Spanish. Browse the full collection at <a href="/ebooks/">gullahgeecheebiz.com/ebooks/</a>.</div>
+
 <footer>
-  <p>Gullah Geechee Biz · culture first · <a href="https://gullahgeecheebiz.com/">gullahgeecheebiz.com</a></p>
-  <p>Author Darryl Elliott Brown · Publisher Gullah Geechee Biz</p>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Gullah Geechee Biz</h4>
+      <a href="/">Home</a>
+      <a href="/ebooks/">Ebooks</a>
+      <a href="/recipes/">Recipes</a>
+      <a href="/membership/">Membership</a>
+      <a href="/shop/">Shop</a>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <a href="/season-1/">Documentary</a>
+      <a href="/encyclopedia/">Encyclopedia</a>
+      <a href="/viral/">Stories</a>
+      <a href="/wholesale/">Wholesale</a>
+      <a href="/search/">Search</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.tiktok.com/@gullahgeecheebiz" target="_blank">TikTok</a>
+      <a href="https://gullahgeecheebiz.etsy.com" target="_blank">Etsy</a>
+      <a href="https://gullahgeecheebiz.myshopify.com" target="_blank">Shopify</a>
+      <a href="https://github.com/Darrylebrown" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="/membership/">Become a Member</a>
+      <a href="/guide/">Free Guide</a>
+      <a href="/redeem/">Redeem Code</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p>
+    <p style="margin-top:8px;font-size:0.85em">Independent · culture first · GitHub Pages</p>
+  </div>
 </footer>
-</div>
+
+<script>
+const RECIPES = [
+  {slug:"gullah-red-rice",title:"Gullah Red Rice",icon:"🍚",en:true,es:true},
+  {slug:"shrimp-and-grits",title:"Shrimp and Grits",icon:"🦐",en:true,es:true},
+  {slug:"okra-soup",title:"Okra Soup",icon:"🥣",en:true,es:true},
+  {slug:"crab-cakes",title:"Crab Cakes",icon:"🦀",en:true,es:true},
+  {slug:"benne-wafers",title:"Benne Wafers",icon:"🍪",en:true,es:true},
+  {slug:"sweet-potato-pie",title:"Sweet Potato Pie",icon:"🥧",en:true,es:true},
+  {slug:"collard-greens",title:"Collard Greens",icon:"🥬",en:true,es:true},
+  {slug:"buttermilk-cornbread",title:"Buttermilk Cornbread",icon:"🌽",en:true,es:true},
+  {slug:"cornbread-dressing",title:"Cornbread Dressing",icon:"🍞",en:true,es:true},
+  {slug:"country-captain",title:"Country Captain",icon:"🍛",en:true,es:true},
+  {slug:"crab-rice",title:"Crab Rice",icon:"🦀",en:true,es:true},
+  {slug:"deviled-crabs",title:"Deviled Crabs",icon:"🦀",en:true,es:true},
+  {slug:"fried-fish",title:"Fried Fish",icon:"🐟",en:true,es:true},
+  {slug:"fried-green-tomatoes",title:"Fried Green Tomatoes",icon:"🍅",en:true,es:true},
+  {slug:"gullah-gumbo",title:"Gullah Gumbo",icon:"🥘",en:true,es:true},
+  {slug:"gullah-perlow",title:"Gullah Perlow",icon:"🍚",en:true,es:true},
+  {slug:"hominy-grits",title:"Hominy Grits",icon:"🥣",en:true,es:true},
+  {slug:"hoppin-john",title:"Hoppin' John",icon:"🫘",en:true,es:true},
+  {slug:"limpin-susan",title:"Limpin' Susan",icon:"🍚",en:true,es:true},
+  {slug:"lowcountry-boil",title:"Lowcountry Boil",icon:"🦐",en:true,es:true},
+  {slug:"macaroni-cheese",title:"Macaroni and Cheese",icon:"🧀",en:true,es:true},
+  {slug:"okra-fritters",title:"Okra Fritters",icon:"🥟",en:true,es:true},
+  {slug:"peach-cobbler",title:"Peach Cobbler",icon:"🍑",en:true,es:true},
+  {slug:"pickled-shrimp",title:"Pickled Shrimp",icon:"🦐",en:true,es:true},
+  {slug:"pulled-pork",title:"Pulled Pork",icon:"🥩",en:true,es:true},
+  {slug:"red-rice-sausage",title:"Red Rice and Sausage",icon:"🌭",en:true,es:true},
+  {slug:"rice-pudding",title:"Rice Pudding",icon:"🍮",en:true,es:true},
+  {slug:"roasted-okra",title:"Roasted Okra",icon:"🥬",en:true,es:true},
+  {slug:"sausage-gravy",title:"Sausage and Gravy",icon:"🥓",en:true,es:true},
+  {slug:"seafood-gumbo",title:"Seafood Gumbo",icon:"🥘",en:true,es:true},
+  {slug:"she-crab-soup",title:"She-Crab Soup",icon:"🥣",en:true,es:true},
+  {slug:"shrimp-creole",title:"Shrimp Creole",icon:"🦐",en:true,es:true},
+  {slug:"smothered-chicken",title:"Smothered Chicken",icon:"🍗",en:true,es:true},
+  {slug:"sweet-potato-biscuits",title:"Sweet Potato Biscuits",icon:"🥐",en:true,es:true},
+  {slug:"benne-chicken",title:"Benne Chicken",icon:"🍗",en:true,es:true},
+  {slug:"boiled-peanuts",title:"Boiled Peanuts",icon:"🥜",en:true,es:true},
+  {slug:"gullah-coleslaw",title:"Gullah Coleslaw",icon:"🥗",en:true,es:true},
+  {slug:"benne-crusted-fish",title:"Benne Crusted Fish",icon:"🐟",en:true,es:true},
+  {slug:"gullah-potato-salad",title:"Gullah Potato Salad",icon:"🥔",en:true,es:true},
+];
+
+const grid = document.getElementById('recipeGrid');
+for (const r of RECIPES) {
+  const url = `/recipes/${r.slug}/`;
+  const langs = [];
+  if (r.en) langs.push('<span class="lang lang-en">EN</span>');
+  if (r.es) langs.push('<span class="lang lang-es">ES</span>');
+  
+  grid.innerHTML += `
+    <a href="${url}" class="recipe-card">
+      <div class="icon">${r.icon}</div>
+      <h3>${r.title}</h3>
+      <p class="sub">An authentic Gullah Geechee recipe from the Lowcountry kitchen.</p>
+      <div class="meta">${langs.join(' ')}</div>
+    </a>
+  `;
+}
+</script>
 </body>
 </html>

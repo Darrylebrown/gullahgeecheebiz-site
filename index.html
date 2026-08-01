@@ -3,339 +3,342 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gullah Geechee Biz — Culture, Books & Story</title>
-<meta name="description" content="500K+ people have discovered Gullah Geechee culture. Explore 300 years of history, books, audiobooks, documentaries, and the free Corridor Guide.">
-<meta property="og:title" content="Gullah Geechee Biz — Culture, Books & Story">
-<meta property="og:description" content="500K+ people have discovered Gullah Geechee culture. Join 305+ subscribers.">
-<meta property="og:image" content="https://gullahgeecheebiz.com/logo.png">
-<meta property="og:url" content="https://gullahgeecheebiz.com">
-<meta name="twitter:card" content="summary_large_image">
+<title>Gullah Geechee Biz — Preserving a Culture. Telling a Story.</title>
+<link rel="canonical" href="https://gullahgeecheebiz.com/">
+<meta property="og:title" content="Gullah Geechee Biz — Preserving a Culture. Telling a Story.">
+<meta property="og:description" content="Explore 300 years of Gullah Geechee history, culture, and cuisine. Ebooks, recipes, documentaries, and more.">
+<meta property="og:url" content="https://gullahgeecheebiz.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://gullahgeecheebiz.com/og-image.jpg">
+<meta name="description" content="Explore 300 years of Gullah Geechee history, culture, and cuisine. Ebooks, recipes, documentaries, and more.">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Georgia, serif; background: #0A1428; color: #F5F0E6; overflow-x: hidden; }
+/* ─── Reset & Base ─────────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a14;color:#f0ede5;line-height:1.6;overflow-x:hidden}
 
-/* Wrought Iron Corner Accents */
-.corner-accent { position: fixed; width: 120px; height: 120px; pointer-events: none; z-index: 10; opacity: 0.15; }
-.corner-accent svg { width: 100%; height: 100%; }
-.corner-tl { top: 0; left: 0; }
-.corner-tr { top: 0; right: 0; transform: scaleX(-1); }
-.corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
-.corner-br { bottom: 0; right: 0; transform: scale(-1, -1); }
+/* ─── Navigation ────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.15);padding:0 20px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:Georgia,serif;color:#d4af37;font-size:1.2em;font-weight:bold;text-decoration:none;letter-spacing:1px}
+.nav-logo span{color:#f0ede5;font-weight:normal}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:rgba(240,237,229,0.7);text-decoration:none;font-size:0.85em;transition:color 0.3s;letter-spacing:0.5px}
+.nav-links a:hover{color:#d4af37}
+.nav-search{display:flex;align-items:center;gap:8px}
+.nav-search input{background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:6px 14px;color:#f0ede5;font-size:0.8em;width:180px;outline:none;transition:border-color 0.3s}
+.nav-search input:focus{border-color:#d4af37}
+.nav-search button{background:#d4af37;color:#0a0a14;border:none;border-radius:20px;padding:6px 14px;font-size:0.8em;cursor:pointer;font-weight:bold;transition:background 0.3s}
+.nav-search button:hover{background:#e8c84a}
 
-/* Wrought Iron Divider */
-.iron-divider { width: 60%; max-width: 300px; height: 30px; margin: 0 auto 2rem; opacity: 0.12; }
-.iron-divider svg { width: 100%; height: 100%; }
+/* ─── Hero ──────────────────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 20px 40px}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0a14 0%,#0f1a2e 30%,#0a0a14 70%);z-index:0}
+.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(212,175,55,0.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(10,10,20,0.5) 0%,transparent 50%);z-index:1}
+.hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hero-particles span{position:absolute;width:2px;height:2px;background:rgba(212,175,55,0.3);border-radius:50%;animation:float 20s infinite}
+.hero-particles span:nth-child(1){top:10%;left:20%;animation-delay:0s}
+.hero-particles span:nth-child(2){top:30%;left:80%;animation-delay:3s;width:3px;height:3px}
+.hero-particles span:nth-child(3){top:60%;left:10%;animation-delay:6s}
+.hero-particles span:nth-child(4){top:80%;left:70%;animation-delay:9s;width:4px;height:4px}
+.hero-particles span:nth-child(5){top:20%;left:50%;animation-delay:12s}
+.hero-particles span:nth-child(6){top:70%;left:30%;animation-delay:15s;width:3px;height:3px}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:0.3}50%{transform:translateY(-100px) scale(1.5);opacity:0.8}}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px}
+.hero-badge{display:inline-block;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:#d4af37;padding:6px 20px;border-radius:20px;font-size:0.8em;margin-bottom:24px;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-family:Georgia,serif;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.1;margin-bottom:20px}
+.hero h1 .gold{color:#d4af37}
+.hero h1 .light{color:#f0ede5;font-weight:300}
+.hero p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(240,237,229,0.6);max-width:600px;margin:0 auto 32px;line-height:1.8}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 28px;border-radius:25px;font-size:0.9em;font-weight:bold;text-decoration:none;transition:all 0.3s;cursor:pointer;border:none}
+.btn-gold{background:#d4af37;color:#0a0a14}
+.btn-gold:hover{background:#e8c84a;transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,0.3)}
+.btn-outline{background:transparent;border:1px solid rgba(212,175,55,0.4);color:#d4af37}
+.btn-outline:hover{background:rgba(212,175,55,0.1);border-color:#d4af37;transform:translateY(-2px)}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:48px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:Georgia,serif;font-size:1.8em;color:#d4af37;font-weight:bold}
+.hero-stat .lbl{font-size:0.8em;color:rgba(240,237,229,0.4);margin-top:4px}
 
-/* Hero */
-.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; position: relative; background: linear-gradient(180deg, #0A1428 0%, #0F1F3A 50%, #0A1428 100%); }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 70%); pointer-events: none; }
+/* ─── Sections ──────────────────────────────────────────────── */
+.section{padding:80px 20px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{display:inline-block;color:#d4af37;font-size:0.75em;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;opacity:0.7}
+.section h2{font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:16px}
+.section h2 .gold{color:#d4af37}
+.section .sub{color:rgba(240,237,229,0.5);font-size:1em;max-width:600px;margin-bottom:40px}
 
-/* Metallic Rotating Emblem */
-.emblem-wrap { perspective: 800px; margin-bottom: 2rem; }
-.emblem { width: 140px; height: 140px; margin: 0 auto; position: relative; transform-style: preserve-3d; animation: emblemFloat 6s ease-in-out infinite; cursor: pointer; }
-.emblem:hover { animation: emblemFlip 1.2s ease-in-out; }
-.emblem-inner { width: 100%; height: 100%; border: 3px solid #D4AF37; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #D4AF37; font-weight: bold; font-size: 16px; line-height: 1.3; letter-spacing: 2px; background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.02) 50%, rgba(212,175,55,0.08) 100%); box-shadow: 0 0 30px rgba(212,175,55,0.15), inset 0 0 30px rgba(212,175,55,0.05); position: relative; overflow: hidden; }
-.emblem-inner::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent, rgba(212,175,55,0.1), transparent, rgba(212,175,55,0.1), transparent); animation: emblemShine 4s linear infinite; }
-.emblem-inner span { position: relative; z-index: 1; }
+/* ─── Featured Grid ─────────────────────────────────────────── */
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.featured-card{background:linear-gradient(135deg,#111122,#0d0d1a);border-radius:16px;padding:32px;border:1px solid rgba(212,175,55,0.1);transition:all 0.4s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.featured-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#d4af37,transparent);opacity:0;transition:opacity 0.4s}
+.featured-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.featured-card:hover::before{opacity:1}
+.featured-card .icon{font-size:2.5em;margin-bottom:16px}
+.featured-card h3{font-size:1.2em;margin-bottom:8px;color:#f0ede5}
+.featured-card p{font-size:0.9em;color:rgba(240,237,229,0.5);line-height:1.6}
+.featured-card .count{display:inline-block;margin-top:16px;color:#d4af37;font-size:0.85em;font-weight:bold}
 
-@keyframes emblemFloat {
-  0%, 100% { transform: rotateY(0deg) translateY(0); }
-  25% { transform: rotateY(5deg) translateY(-3px); }
-  50% { transform: rotateY(0deg) translateY(0); }
-  75% { transform: rotateY(-5deg) translateY(-3px); }
-}
-@keyframes emblemFlip {
-  0% { transform: rotateY(0deg); }
-  50% { transform: rotateY(180deg); }
-  100% { transform: rotateY(360deg); }
-}
-@keyframes emblemShine {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/* ─── Social Proof ──────────────────────────────────────────── */
+.social-proof{background:linear-gradient(135deg,#0f1a2e,#0a0a14);border:1px solid rgba(212,175,55,0.1);border-radius:16px;padding:48px;margin-top:60px;text-align:center}
+.social-proof h3{font-family:Georgia,serif;color:#d4af37;font-size:1.3em;margin-bottom:8px}
+.social-proof p{color:rgba(240,237,229,0.5);margin-bottom:32px}
+.social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
+.social-stat{text-align:center}
+.social-stat .num{font-family:Georgia,serif;font-size:2em;color:#d4af37;font-weight:bold}
+.social-stat .lbl{font-size:0.8em;color:rgba(240,237,229,0.4);margin-top:4px}
 
-.hero h1 { color: #D4AF37; font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
-.hero p { color: rgba(255,255,255,0.7); font-size: 1.2rem; max-width: 600px; line-height: 1.6; margin-bottom: 2rem; }
+/* ─── TikTok Embed ──────────────────────────────────────────── */
+.tiktok-section{background:linear-gradient(135deg,#0a0a14,#0f1a2e);border-radius:16px;padding:48px;border:1px solid rgba(212,175,55,0.1);margin-top:60px;text-align:center}
+.tiktok-section .tiktok-icon{font-size:3em;margin-bottom:16px}
+.tiktok-section h3{font-family:Georgia,serif;color:#d4af37;font-size:1.3em;margin-bottom:8px}
+.tiktok-section p{color:rgba(240,237,229,0.5);margin-bottom:24px}
+.tiktok-stats{display:flex;gap:40px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.tiktok-stat{text-align:center}
+.tiktok-stat .num{font-size:1.5em;color:#d4af37;font-weight:bold}
+.tiktok-stat .lbl{font-size:0.8em;color:rgba(240,237,229,0.4)}
 
-/* Social Proof Bar */
-.social-proof { display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
-.stat { text-align: center; }
-.stat .number { color: #D4AF37; font-size: 1.8rem; font-weight: bold; }
-.stat .label { color: rgba(255,255,255,0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+/* ─── Membership ───────────────────────────────────────────── */
+.membership-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:40px}
+.member-card{background:linear-gradient(135deg,#111122,#0d0d1a);border-radius:16px;padding:32px;border:1px solid rgba(212,175,55,0.1);text-align:center;transition:all 0.4s}
+.member-card.featured{border-color:#d4af37;background:linear-gradient(135deg,#1a1520,#0d0d1a);position:relative}
+.member-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#d4af37;color:#0a0a14;padding:4px 16px;border-radius:10px;font-size:0.75em;font-weight:bold}
+.member-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,0.3)}
+.member-card h3{font-size:1.1em;margin-bottom:8px}
+.member-card .price{font-family:Georgia,serif;font-size:2em;color:#d4af37;margin:16px 0}
+.member-card .price span{font-size:0.4em;color:rgba(240,237,229,0.4)}
+.member-card ul{list-style:none;text-align:left;margin:20px 0}
+.member-card ul li{padding:6px 0;font-size:0.85em;color:rgba(240,237,229,0.6)}
+.member-card ul li::before{content:'✓ ';color:#d4af37}
 
-/* CTAs */
-.cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.btn { padding: 1rem 2rem; border-radius: 8px; font-family: Georgia, serif; font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-.btn-gold { background: #D4AF37; color: #0A1428; font-weight: bold; }
-.btn-gold:hover { background: #e6c84d; transform: translateY(-2px); }
-.btn-outline { border: 1px solid #D4AF37; color: #D4AF37; background: transparent; }
-.btn-outline:hover { background: rgba(212,175,55,0.1); transform: translateY(-2px); }
+/* ─── Footer ────────────────────────────────────────────────── */
+footer{background:#080810;border-top:1px solid rgba(212,175,55,0.1);padding:60px 20px 30px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px}
+.footer-col h4{color:#d4af37;font-size:0.9em;margin-bottom:16px;letter-spacing:1px}
+.footer-col a{display:block;color:rgba(240,237,229,0.4);text-decoration:none;font-size:0.85em;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:#d4af37}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;color:rgba(240,237,229,0.2);font-size:0.8em}
 
-/* Video Embed Section */
-.video-section { padding: 4rem 2rem; text-align: center; background: #0F1F3A; position: relative; }
-.video-section h2 { color: #D4AF37; font-size: 2rem; margin-bottom: 0.5rem; }
-.video-section .sub { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
-.video-container { max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-
-/* Guide Section */
-.guide-section { padding: 4rem 2rem; text-align: center; background: linear-gradient(135deg, #0A1428 0%, #1a1a2e 100%); position: relative; }
-.guide-section h2 { color: #D4AF37; font-size: 2rem; margin-bottom: 0.5rem; }
-.guide-section .sub { color: rgba(255,255,255,0.6); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-.guide-form { max-width: 400px; margin: 0 auto; }
-.guide-form input { width: 100%; padding: 1rem; margin-bottom: 0.8rem; border: 1px solid rgba(212,175,55,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #F5F0E6; font-family: Georgia, serif; font-size: 1rem; }
-.guide-form input:focus { border-color: #D4AF37; outline: none; }
-.guide-form .btn { width: 100%; }
-
-/* Works Section */
-.works { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-.works h2 { color: #D4AF37; font-size: 2rem; text-align: center; margin-bottom: 2rem; }
-.works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.work-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s; }
-.work-card:hover { border-color: #D4AF37; transform: translateY(-4px); }
-.work-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.work-card h3 { color: #D4AF37; margin-bottom: 0.5rem; }
-.work-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
-.work-card .price { color: #D4AF37; font-size: 1.1rem; font-weight: bold; }
-
-/* Countdown */
-.countdown { display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap; }
-.countdown-item { text-align: center; }
-.countdown-item .num { color: #D4AF37; font-size: 2.5rem; font-weight: bold; }
-.countdown-item .lbl { color: rgba(255,255,255,0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-
-/* Footer */
-footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(212,175,55,0.2); position: relative; }
-footer p { color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-bottom: 0.5rem; }
-footer a { color: #D4AF37; text-decoration: none; }
-.social-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; }
-.social-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
-.social-links a:hover { color: #D4AF37; }
-
-/* Responsive */
-@media (max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .social-proof { gap: 1rem; }
-  .stat .number { font-size: 1.3rem; }
-  .works-grid { grid-template-columns: 1fr; }
-  .corner-accent { width: 60px; height: 60px; }
+/* ─── Responsive ────────────────────────────────────────────── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-search input{width:120px}
+  .hero-stats{gap:20px}
+  .social-proof{padding:32px 20px}
+  .tiktok-section{padding:32px 20px}
 }
 </style>
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 </head>
 <body>
 
-<!-- Wrought Iron Corner Accents -->
-<div class="corner-accent corner-tl">
-  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0 L120 0 M0 0 L0 120" stroke="#D4AF37" stroke-width="2"/>
-    <path d="M10 10 C10 40, 40 10, 40 40 C40 60, 20 60, 20 40" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M30 10 C30 25, 50 10, 50 30" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M10 30 C25 30, 10 50, 30 50" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <circle cx="20" cy="20" r="3" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="40" cy="15" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="15" cy="40" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-  </svg>
-</div>
-<div class="corner-accent corner-tr">
-  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0 L120 0 M120 0 L120 120" stroke="#D4AF37" stroke-width="2"/>
-    <path d="M110 10 C110 40, 80 10, 80 40 C80 60, 100 60, 100 40" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M90 10 C90 25, 70 10, 70 30" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M110 30 C95 30, 110 50, 90 50" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <circle cx="100" cy="20" r="3" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="80" cy="15" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="105" cy="40" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-  </svg>
-</div>
-<div class="corner-accent corner-bl">
-  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 120 L120 120 M0 120 L0 0" stroke="#D4AF37" stroke-width="2"/>
-    <path d="M10 110 C10 80, 40 110, 40 80 C40 60, 20 60, 20 80" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M30 110 C30 95, 50 110, 50 90" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M10 90 C25 90, 10 70, 30 70" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <circle cx="20" cy="100" r="3" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="40" cy="105" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="15" cy="80" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-  </svg>
-</div>
-<div class="corner-accent corner-br">
-  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M120 120 L0 120 M120 120 L120 0" stroke="#D4AF37" stroke-width="2"/>
-    <path d="M110 110 C110 80, 80 110, 80 80 C80 60, 100 60, 100 80" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M90 110 C90 95, 70 110, 70 90" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <path d="M110 90 C95 90, 110 70, 90 70" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-    <circle cx="100" cy="100" r="3" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="80" cy="105" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-    <circle cx="105" cy="80" r="2" stroke="#D4AF37" stroke-width="1" fill="none"/>
-  </svg>
-</div>
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">GULLAH <span>GEECHEE</span> BIZ</a>
+    <div class="nav-links">
+      <a href="/ebooks/">Ebooks</a>
+      <a href="/recipes/">Recipes</a>
+      <a href="/membership/">Membership</a>
+      <a href="/shop/">Shop</a>
+      <a href="/season-1/">Documentary</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="Search 159 pages..." id="navSearch" onkeydown="if(event.key==='Enter')window.location='/search/?q='+encodeURIComponent(this.value)">
+      <button onclick="window.location='/search/?q='+encodeURIComponent(document.getElementById('navSearch').value)">Search</button>
+    </div>
+  </div>
+</nav>
 
 <!-- Hero -->
 <section class="hero">
-  <div class="emblem-wrap">
-    <div class="emblem">
-      <div class="emblem-inner">
-        <span>GULLAH<br>GEECHEE<br>BIZ</span>
+  <div class="hero-bg"></div>
+  <div class="hero-particles">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Gullah Geechee Biz</div>
+    <h1><span class="gold">Preserving</span> <span class="light">a Culture.</span><br><span class="gold">Telling</span> <span class="light">a Story.</span></h1>
+    <p>300 years of Gullah Geechee history, culture, and cuisine — captured in ebooks, recipes, documentaries, and art. From the Sea Islands to your screen.</p>
+    <div class="hero-actions">
+      <a href="/ebooks/" class="btn btn-gold">Browse Ebooks</a>
+      <a href="/recipes/" class="btn btn-outline">Explore Recipes</a>
+      <a href="/membership/" class="btn btn-outline">Join the Circle</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">100</div><div class="lbl">Ebooks</div></div>
+      <div class="hero-stat"><div class="num">39</div><div class="lbl">Recipes</div></div>
+      <div class="hero-stat"><div class="num">159</div><div class="lbl">Pages</div></div>
+      <div class="hero-stat"><div class="num">8.5K</div><div class="lbl">TikTok</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Content -->
+<section class="section" id="content">
+  <div class="section-inner">
+    <div class="section-label">✦ Explore</div>
+    <h2>Discover <span class="gold">Gullah Geechee</span> Culture</h2>
+    <p class="sub">From the kitchen to the classroom, from the marsh to the marketplace — your heritage is waiting.</p>
+    
+    <div class="featured-grid">
+      <a href="/ebooks/" class="featured-card">
+        <div class="icon">📚</div>
+        <h3>Ebooks</h3>
+        <p>Self-help, business, and cooking — 100 titles from Gullah Geechee perspectives. Instant digital download.</p>
+        <div class="count">Browse 100 ebooks →</div>
+      </a>
+      <a href="/recipes/" class="featured-card">
+        <div class="icon">🍳</div>
+        <h3>Recipes</h3>
+        <p>Red rice, okra soup, shrimp and grits, benne wafers — 39 authentic Lowcountry recipes in English and Spanish.</p>
+        <div class="count">Explore 39 recipes →</div>
+      </a>
+      <a href="/season-1/" class="featured-card">
+        <div class="icon">🎬</div>
+        <h3>Documentary</h3>
+        <p>16 episodes covering 262 years of Gullah Geechee history. From Fort Mose 1738 to today. Premieres Sep 5.</p>
+        <div class="count">See the season →</div>
+      </a>
+      <a href="/shop/" class="featured-card">
+        <div class="icon">🛍️</div>
+        <h3>Shop</h3>
+        <p>Tees, totes, mugs, and copperware — heritage designs that honor the culture. Print-on-demand, no inventory.</p>
+        <div class="count">Shop now →</div>
+      </a>
+      <a href="/membership/" class="featured-card">
+        <div class="icon">👑</div>
+        <h3>Membership</h3>
+        <p>Support the mission. Get exclusive content, early access, and a direct connection to the work.</p>
+        <div class="count">Join the Circle →</div>
+      </a>
+      <a href="/wholesale/" class="featured-card">
+        <div class="icon">📖</div>
+        <h3>Wholesale</h3>
+        <p>Bookstores, libraries, and educators — stock Gullah Geechee titles at wholesale pricing. Digital delivery.</p>
+        <div class="count">Wholesale info →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section class="section">
+  <div class="section-inner">
+    <div class="social-proof">
+      <h3>✦ Growing Every Day</h3>
+      <p>Real people discovering real culture — across every platform.</p>
+      <div class="social-grid">
+        <div class="social-stat"><div class="num">8.5K+</div><div class="lbl">TikTok Followers</div></div>
+        <div class="social-stat"><div class="num">130K+</div><div class="lbl">TikTok Likes</div></div>
+        <div class="social-stat"><div class="num">100</div><div class="lbl">Ebooks</div></div>
+        <div class="social-stat"><div class="num">39</div><div class="lbl">Recipes</div></div>
+        <div class="social-stat"><div class="num">159</div><div class="lbl">Pages</div></div>
+        <div class="social-stat"><div class="num">3</div><div class="lbl">Channels</div></div>
       </div>
     </div>
   </div>
-  <h1>500K+ People Have<br>Discovered This Culture.</h1>
-  <p>Now it's your turn. Explore 300 years of Gullah Geechee history — books, audiobooks, documentaries, and the free Corridor Guide.</p>
-  
-  <div class="social-proof">
-    <div class="stat"><div class="number">159</div><div class="label">Pages</div></div>
-    <div class="stat"><div class="number">500K+</div><div class="label">TikTok Views</div></div>
-    <div class="stat"><div class="number">305</div><div class="label">Subscribers</div></div>
-    <div class="stat"><div class="number">1,740+</div><div class="label">Pinterest Impressions</div></div>
-    <div class="stat"><div class="number">50+</div><div class="label">Restaurant Pins</div></div>
-  </div>
-
-  <div class="cta-row">
-    <a href="#guide" class="btn btn-gold">Get the Free Corridor Guide →</a>
-    <a href="https://www.tiktok.com/@gullahgeecheebiz?_r=1" class="btn btn-outline">Follow on TikTok</a>
-  </div>
 </section>
 
-<!-- Video Section -->
-<section class="video-section" id="video">
-  <h2>The Video That Started It All</h2>
-  <p class="sub">An alligator in a Lowcountry marsh. Half a million views. And a story 300 years in the making.</p>
-  <div class="video-container">
-    <a href="https://www.tiktok.com/@gullahgeecheebiz?_r=1" target="_blank" style="display:block;text-decoration:none;">
-      <div style="background:linear-gradient(135deg,#0A1428,#0F1F3A);border-radius:12px;padding:3rem 2rem;border:1px solid rgba(212,175,55,0.3);transition:all 0.3s;">
-        <div style="font-size:3rem;margin-bottom:1rem;">🐊</div>
-        <div style="color:#D4AF37;font-size:1.5rem;font-weight:bold;margin-bottom:0.5rem;">Watch on TikTok →</div>
-        <div style="color:rgba(255,255,255,0.5);font-size:0.9rem;">@gullahgeecheebiz · 500K+ views</div>
+<!-- TikTok -->
+<section class="section">
+  <div class="section-inner">
+    <div class="tiktok-section">
+      <div class="tiktok-icon">🎵</div>
+      <h3>Follow on TikTok</h3>
+      <p>500K+ views. Real stories. Real culture. Join the community.</p>
+      <div class="tiktok-stats">
+        <div class="tiktok-stat"><div class="num">8.5K+</div><div class="lbl">Followers</div></div>
+        <div class="tiktok-stat"><div class="num">130K+</div><div class="lbl">Likes</div></div>
+        <div class="tiktok-stat"><div class="num">500K+</div><div class="lbl">Views</div></div>
       </div>
-    </a>
-  </div>
-</section>
-
-<!-- Guide Section -->
-<section class="guide-section" id="guide">
-  <h2>Free Gullah Geechee Corridor Guide</h2>
-  <p class="sub">50+ restaurants, wildlife, cultural sites, and hidden gems — from North Carolina to Florida. Get it free.</p>
-  <form class="guide-form" action="https://kofigullahgeecheebiz.substack.com/api/v1/subscribe" method="post">
-    <input type="text" name="first_name" placeholder="First name" required>
-    <input type="email" name="email" placeholder="Email address" required>
-    <input type="hidden" name="referral" value="homepage-guide">
-    <button type="submit" class="btn btn-gold">Send Me the Free Guide →</button>
-  </form>
-</section>
-
-<!-- Works -->
-<section class="works" id="works">
-  <h2>Explore the Works</h2>
-  <div class="works-grid">
-    <div class="work-card">
-      <div class="icon">📖</div>
-      <h3>Roots & Rivers Vol. 1</h3>
-      <p>First volume of the Gullah Geechee encyclopedia series — Beaufort County.</p>
-      <p class="price">$9.99</p>
-      <a href="https://www.amazon.com/dp/B0H8M57FBP" class="btn btn-gold" style="margin-top:0.5rem">Buy on Amazon</a>
-    </div>
-    <div class="work-card">
-      <div class="icon">📕</div>
-      <h3>Blood Remembers</h3>
-      <p>Memoir of lineage, place, and what the blood carries across generations.</p>
-      <p class="price">$9.99</p>
-      <a href="https://www.amazon.com/dp/B0H7WQ69N9" class="btn btn-gold" style="margin-top:0.5rem">Buy on Amazon</a>
-    </div>
-    <div class="work-card">
-      <div class="icon">🎬</div>
-      <h3>Season 1 Documentary</h3>
-      <p>16 documentaries. 262 years. From Fort Mose 1738 to today.</p>
-      <p class="price">Coming Sep 5</p>
-      <a href="https://gullahgeecheebiz.com/season-1/" class="btn btn-outline" style="margin-top:0.5rem">See the Season</a>
-    </div>
-    <div class="work-card">
-      <div class="icon">👕</div>
-      <h3>Merch</h3>
-      <p>Tees, totes, mugs — heritage designs printed on demand.</p>
-      <p class="price">From $18.99</p>
-      <a href="/shop/" class="btn btn-outline" style="margin-top:0.5rem">Shop Merch</a>
+      <a href="https://www.tiktok.com/@gullahgeecheebiz" target="_blank" class="btn btn-gold">Watch on TikTok →</a>
     </div>
   </div>
 </section>
 
-<!-- Countdown -->
-<section class="video-section">
-  <h2>Season 1 Premieres In</h2>
-  <div class="countdown">
-    <div class="countdown-item"><div class="num" id="days">41</div><div class="lbl">Days</div></div>
-    <div class="countdown-item"><div class="num" id="hours">12</div><div class="lbl">Hours</div></div>
-    <div class="countdown-item"><div class="num" id="minutes">53</div><div class="lbl">Minutes</div></div>
-    <div class="countdown-item"><div class="num" id="seconds">28</div><div class="lbl">Seconds</div></div>
-  </div>
-  <a href="https://gullahgeecheebiz.com/season-1/" class="btn btn-gold">See the Full Season</a>
-</section>
-
-<!-- Substack -->
-<section class="guide-section">
-  <h2>Join 305+ Subscribers</h2>
-  <p class="sub">Get weekly stories from the Gullah Geechee Corridor — free.</p>
-  <div class="cta-row">
-    <a href="https://kofigullahgeecheebiz.substack.com/subscribe" class="btn btn-gold">Subscribe Free →</a>
-    <a href="https://kofigullahgeecheebiz.substack.com/subscribe" class="btn btn-outline">$9.99/mo · Paid Membership</a>
+<!-- Membership -->
+<section class="section" id="membership">
+  <div class="section-inner">
+    <div class="section-label">✦ Support</div>
+    <h2>Join the <span class="gold">Circle</span></h2>
+    <p class="sub">Your support keeps the stories alive. Choose the tier that fits you.</p>
+    
+    <div class="membership-grid">
+      <div class="member-card">
+        <h3>Digital Pass</h3>
+        <div class="price">$5<span>/mo</span></div>
+        <ul>
+          <li>All ebooks</li>
+          <li>New ebook every month</li>
+          <li>Daily digest email</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu9ASa9E8uFd625OucjS08" class="btn btn-outline" style="width:100%">Subscribe</a>
+      </div>
+      <div class="member-card featured">
+        <h3>Heritage Pass</h3>
+        <div class="price">$15<span>/mo</span></div>
+        <ul>
+          <li>Everything in Digital</li>
+          <li>Behind-the-scenes content</li>
+          <li>Ad-free experience</li>
+          <li>Early access to new releases</li>
+        </ul>
+        <a href="https://buy.stripe.com/5kQ7sK5To12dgiegt8cjS0a" class="btn btn-gold" style="width:100%">Subscribe</a>
+      </div>
+      <div class="member-card">
+        <h3>Legacy Pass</h3>
+        <div class="price">$30<span>/mo</span></div>
+        <ul>
+          <li>Everything in Heritage</li>
+          <li>Direct line to the team</li>
+          <li>Name in the credits</li>
+          <li>First access to all content</li>
+        </ul>
+        <a href="https://buy.stripe.com/00wcN41D8eT39TQ7WCcjS0c" class="btn btn-outline" style="width:100%">Subscribe</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="social-links">
-    <a href="https://www.tiktok.com/@gullahgeecheebiz?_r=1">TikTok</a>
-    <a href="https://www.pinterest.com/gullahgeecheebiz/">Pinterest</a>
-    <a href="https://kofigullahgeecheebiz.substack.com">Substack</a>
-    <a href="/shop/">Merch</a>
-    <a href="https://github.com/Darrylebrown">GitHub</a>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Gullah Geechee Biz</h4>
+      <a href="/">Home</a>
+      <a href="/ebooks/">Ebooks</a>
+      <a href="/recipes/">Recipes</a>
+      <a href="/membership/">Membership</a>
+      <a href="/shop/">Shop</a>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <a href="/season-1/">Documentary</a>
+      <a href="/encyclopedia/">Encyclopedia</a>
+      <a href="/viral/">Stories</a>
+      <a href="/wholesale/">Wholesale</a>
+      <a href="/search/">Search</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.tiktok.com/@gullahgeecheebiz" target="_blank">TikTok</a>
+      <a href="https://gullahgeecheebiz.etsy.com" target="_blank">Etsy</a>
+      <a href="https://gullahgeecheebiz.myshopify.com" target="_blank">Shopify</a>
+      <a href="https://github.com/Darrylebrown" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="/membership/">Become a Member</a>
+      <a href="/guide/">Free Guide</a>
+      <a href="/redeem/">Redeem Code</a>
+    </div>
   </div>
-  <p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p>
-  <p style="margin-top:0.3rem;font-size:0.7rem;color:rgba(255,255,255,0.2)">Independent · culture first · GitHub Pages</p>
-  <div style="margin-top:1rem">
-    <form action="/search/" method="get" style="display:inline-block">
-      <input type="text" name="q" placeholder="Search 158 pages..." 
-             style="background:#111122;border:1px solid #d4af37;color:#f0ede5;padding:6px 12px;border-radius:20px;font-size:0.8rem;width:200px;outline:none">
-      <button type="submit" style="background:#d4af37;color:#0a0a14;border:none;padding:6px 14px;border-radius:20px;font-size:0.8rem;cursor:pointer;font-weight:bold">Search</button>
-    </form>
+  <div class="footer-bottom">
+    <p>© Gullah Geechee Biz — Preserving a Culture. Telling a Story.</p>
+    <p style="margin-top:8px;font-size:0.85em">Independent · culture first · GitHub Pages</p>
   </div>
 </footer>
-<img src="http://localhost:8767/track?page=/&ref=" width="1" height="1" alt="" style="position:absolute;left:-9999px" />
-
-<script>
-// Countdown timer
-function updateCountdown() {
-  const target = new Date('2026-09-05T00:00:00');
-  const now = new Date();
-  const diff = target - now;
-  if (diff > 0) {
-    document.getElementById('days').textContent = Math.floor(diff / (1000*60*60*24));
-    document.getElementById('hours').textContent = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-    document.getElementById('minutes').textContent = Math.floor((diff % (1000*60*60)) / (1000*60));
-    document.getElementById('seconds').textContent = Math.floor((diff % (1000*60)) / 1000);
-  }
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-
-
-<!-- CONNECTED_HUBS -->
-<section style="padding:2.5rem 1.5rem 3.5rem;text-align:center;background:#0F1F3A">
-  <h2 style="color:#D4AF37;font-size:1.6rem;margin-bottom:.75rem">Explore the network</h2>
-  <p style="color:rgba(255,255,255,.6);margin-bottom:1.25rem;max-width:520px;margin-left:auto;margin-right:auto">Membership, shop, recipes, encyclopedia, and stories — one brand path.</p>
-  <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center">
-    <a class="btn btn-outline" href="/membership/">Membership</a>
-    <a class="btn btn-outline" href="/shop/">Shop</a>
-    <a class="btn btn-outline" href="/recipes/">Recipes</a>
-    <a class="btn btn-outline" href="/encyclopedia/">Encyclopedia</a>
-    <a class="btn btn-outline" href="/viral/">Stories</a>
-    <a class="btn btn-outline" href="/ggb-engine/">Engine map</a>
-  </div>
-</section>
 
 </body>
 </html>
