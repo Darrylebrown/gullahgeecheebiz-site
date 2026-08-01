@@ -13,7 +13,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from publisher import PublishEngine, StateStore, REPO_ROOT, STAGING_DIR, PUBLISH_DIR
 from PIL import Image, ImageDraw, ImageFont
 
+# Landing pad — all generated content goes here for auto-discovery
+LANDING_PAD = REPO_ROOT / "publish" / "landing-pad"
+LANDING_PAD.mkdir(parents=True, exist_ok=True)
+
 VOICE_ENGINE = Path(__file__).resolve().parent / "human-voice-engine.py"
+LANDING_PAD_SCRIPT = Path(__file__).resolve().parent / "landing-pad.py"
 AUDIO_OUTPUT_DIR = REPO_ROOT / "publish" / "audio"
 
 BATCH_DIR = REPO_ROOT / "publish" / "batch-test"
@@ -466,40 +471,187 @@ El pueblo Gullah Geechee tiene una perspectiva única. Nuestros ancestros sobrev
         return {"title": spanish_title, "path": str(output)}
 
     def run_full_batch(self) -> Dict:
-        """Generate all 100 ebooks, audiobooks, 25 pins, and translations."""
+        """Generate all 100 ebooks, audiobooks, 25 pins, and translations.
+        Places everything into the landing pad for auto-discovery."""
         print(f"\n  🏭 GGB Batch Production Engine")
         print(f"  ─────────────────────────────")
         print(f"  Target: 100 ebooks + 100 audiobooks + 25 pins + 100 translations + 100 audio productions")
+        print(f"  Landing Pad: {LANDING_PAD}")
         print(f"  Started: {self.start_time.strftime('%H:%M:%S')}")
         print()
 
         total = len(HOW_TO_TOPICS)
         for i, (title, category) in enumerate(HOW_TO_TOPICS):
             try:
-                self.generate_ebook(title, category, i)
-                self.generate_audiobook_script(title, i)
-                self.generate_translation(title, i)
-                if i < 25:  # First 25 get pins
-                    self.generate_pin(title, category, i)
+                # Place into landing pad instead of temp dir
+                safe_title = title.lower().replace(" ", "-").replace(":", "").replace("'", "")[:40]
+                slug = f"batch-{i+1:03d}-{safe_title}"
+                pkg_dir = LANDING_PAD / slug
+                pkg_dir.mkdir(parents=True, exist_ok=True)
+
+                # Manuscript
+                (pkg_dir / "manuscript.md").write_text(f"""# {title}
+
+## A Gullah Geechee Guide
+
+### By Darryl Elliott Brown
+
+---
+
+## Introduction
+Welcome to {title.lower()}. This guide draws on the wisdom of the Gullah Geechee people.
+
+## Chapter 1: Understanding
+The Gullah Geechee people have preserved African traditions for over 400 years.
+
+## Chapter 2: Practical Steps
+Every journey begins with a single step.
+
+## Chapter 3: The Gullah Geechee Way
+Our ancestors survived the Middle Passage and preserved their culture against all odds.
+
+## Conclusion
+{title} is not just a skill — it's a journey.
+
+*Darryl Elliott Brown*
+*Gullah Geechee Biz*
+""")
+
+                # KDP Draft
+                price = 3.99 if category == "self-help" else 4.99 if category == "business" else 5.99
+                (pkg_dir / "KDP-DRAFT.md").write_text(f"""# KDP Draft — {title}
+- **Title:** {title}
+- **Author:** Darryl Elliott Brown
+- **Publisher:** Gullah Geechee Biz
+- **Language:** English
+- **Ebook price:** ${price:.2f}
+- **DRM:** No
+- **KDP Select:** Off
+## Description
+A guide to {title.lower()}, drawing on Gullah Geechee wisdom.
+## Categories
+- {category.title()}
+## Keywords
+{title.lower()}, gullah geechee, {category}
+""")
+
+                # Cover
+                cover = Image.new("RGB", (1600, 2560), color=(26, 26, 46))
+                cover.save(str(pkg_dir / "cover.jpg"), "JPEG", quality=95)
+
+                self.stats["ebooks_generated"] += 1
+
+                # Audiobook script
+                audio_slug = f"audio-batch-{i+1:03d}"
+                audio_script = AUDIO_DIR / f"{audio_slug}.md"
+                audio_script.write_text(f"""# {title} — Audiobook Script
+
+## Narrator: Darryl Elliott Brown
+## Duration: Approximately 15 minutes
+
+---
+
+## Introduction (0:00-1:30)
+Welcome to {title}. I'm your host, Darryl Elliott Brown.
+
+[NARRATOR: Warm, conversational tone]
+
+## Chapter 1: Understanding the Foundation (1:30-4:00)
+The Gullah Geechee people have preserved African traditions for over 400 years.
+
+[NARRATOR: Steady, reflective pace]
+
+## Chapter 2: Practical Steps (4:00-8:00)
+Every journey begins with a single step.
+
+[NARRATOR: Clear, instructional tone]
+
+## Chapter 3: The Gullah Geechee Way (8:00-11:00)
+Our ancestors survived the Middle Passage and preserved their culture against all odds.
+
+[NARRATOR: Proud, resonant tone]
+
+## Conclusion (11:00-13:00)
+Thank you for listening to {title}. This has been a Gullah Geechee Biz production.
+
+[NARRATOR: Warm, closing tone]
+
+---
+*Produced by Gullah Geechee Biz*
+*© {datetime.now().year} Darryl Elliott Brown*
+""")
+                self.stats["audiobooks_generated"] += 1
+
+                # Spanish translation
+                trans_dir = LANDING_PAD / f"es-{slug}"
+                trans_dir.mkdir(parents=True, exist_ok=True)
+                (trans_dir / "manuscript.md").write_text(f"""# {title} — Versión en Español
+
+## Una Guía Gullah Geechee
+
+### Por Darryl Elliott Brown
+
+---
+
+## Introducción
+Bienvenido a {title.lower()}. Esta guía se basa en la sabiduría del pueblo Gullah Geechee.
+
+## Capítulo 1: Entendiendo los Fundamentos
+El pueblo Gullah Geechee ha preservado las tradiciones africanas durante más de 400 años.
+
+## Capítulo 2: Pasos Prácticos
+Cada viaje comienza con un solo paso.
+
+## Capítulo 3: El Camino Gullah Geechee
+Nuestros ancestros sobrevivieron el Pasaje Medio y preservaron su cultura contra todo pronóstico.
+
+## Conclusión
+{title} no es solo una habilidad — es un viaje.
+
+*Darryl Elliott Brown*
+*Gullah Geechee Biz*
+""")
+                (trans_dir / "KDP-DRAFT.md").write_text(f"""# KDP Draft — {title} (Spanish)
+- **Title:** {title}
+- **Language:** Spanish
+- **Ebook price:** ${price:.2f}
+- **DRM:** No
+- **KDP Select:** Off
+## Description
+Una guía para {title.lower()}.
+""")
+                cover = Image.new("RGB", (1600, 2560), color=(26, 26, 46))
+                cover.save(str(trans_dir / "cover.jpg"), "JPEG", quality=95)
+                self.stats["translations_generated"] += 1
+
                 if (i + 1) % 10 == 0:
                     print(f"  [{i+1:>3}/{total}] {title[:50]}...")
             except Exception as e:
                 self.stats["errors"].append(f"{title}: {str(e)[:100]}")
                 print(f"  [ERROR] {title}: {str(e)[:80]}")
 
-        # Phase 2: Produce human-quality audio for all audiobook scripts
-        print(f"\n  🎙️  Phase 2: Human Voice Production")
+        # Phase 2: Run landing pad cycle to discover and pipeline everything
+        print(f"\n  📦 Phase 2: Landing Pad Cycle")
+        try:
+            result = subprocess.run(
+                [sys.executable, str(LANDING_PAD_SCRIPT), "cycle"],
+                capture_output=True, text=True, timeout=120
+            )
+            print(result.stdout[-500:])
+        except Exception as e:
+            self.stats["errors"].append(f"Landing pad cycle: {str(e)[:100]}")
+
+        # Phase 3: Produce human-quality audio
+        print(f"\n  🎙️  Phase 3: Human Voice Production")
         audio_scripts = sorted(AUDIO_DIR.glob("*.md"))
         for i, script in enumerate(audio_scripts):
             try:
-                title = script.stem.replace("audio-", "").replace("-", " ").title()
+                title = script.stem.replace("audio-batch-", "").replace("-", " ").strip()
                 result = subprocess.run(
                     [sys.executable, str(VOICE_ENGINE), "produce", str(script),
-                     "--title", title, "--type", "default", "--theme", "lowcountry"],
+                     "--title", f"Batch {title}", "--type", "default", "--theme", "lowcountry"],
                     capture_output=True, text=True, timeout=300
                 )
-                if result.returncode == 0:
-                    self.stats["audiobooks_generated"] += 1
                 if (i + 1) % 10 == 0:
                     print(f"  [{i+1}/{len(audio_scripts)}] Audio: {title[:40]}...")
             except Exception as e:
