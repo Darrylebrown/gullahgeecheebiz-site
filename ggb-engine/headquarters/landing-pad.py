@@ -516,6 +516,14 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             print(f"     Analytics: {analytics.get('pipeline', {}).get('total', 0)} packages tracked")
         except: pass
 
+        # Audio Production Pipeline
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "audio-production-pipeline.py"), "--json", "status"],
+                              capture_output=True, text=True, timeout=15)
+            audio = json.loads(r.stdout) if r.stdout else {}
+            print(f"     Audio: {audio.get('produced', 0)} produced, {audio.get('voice_profiles', 0)} voices, {audio.get('soundscapes', 0)} soundscapes")
+        except: pass
+
         # Take snapshot
         self.scoreboard.take_snapshot()
 

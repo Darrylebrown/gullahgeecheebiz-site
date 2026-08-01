@@ -59,6 +59,22 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/audio":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "audio-production-pipeline.py"), "--json", "status"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"error": "No output"}
+            except Exception as e:
+                data = {"error": str(e)}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path == "/api/status":
             self._json_response(self._get_status())
         elif path == "/api/stores":
@@ -487,6 +503,29 @@ body::before {
             </div>
             <canvas id="growthChart" style="width:100%;height:250px;"></canvas>
         </div>
+
+        <!-- Audio Production -->
+        <div class="card">
+            <div class="card-header">
+                <h2>🎧 Audio Production</h2>
+                <span class="badge badge-ok">LIVE</span>
+            </div>
+            <div style="display:flex;gap:1.5rem;margin-bottom:1rem;">
+                <div style="text-align:center;">
+                    <div class="value" id="audioProduced" style="font-size:1.8rem;">0</div>
+                    <div class="label">Produced</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="audioVoices" style="font-size:1.8rem;">0</div>
+                    <div class="label">Voices</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="audioSoundscapes" style="font-size:1.8rem;">0</div>
+                    <div class="label">Soundscapes</div>
+                </div>
+            </div>
+            <div id="audioVoicesList" style="font-size:0.8rem;color:#666;"></div>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -693,6 +732,24 @@ function render() {
                 }
             }
         });
+    });
+
+    // Audio Production
+    fetchJSON('/api/audio').then(d => {
+        if (!d) return;
+        document.getElementById('audioProduced').textContent = d.produced || 0;
+        document.getElementById('audioVoices').textContent = d.voice_profiles || 0;
+        document.getElementById('audioSoundscapes').textContent = d.soundscapes || 0;
+        const list = document.getElementById('audioVoicesList');
+        list.innerHTML = '';
+        if (d.voices) {
+            for (const v of d.voices) {
+                const div = document.createElement('div');
+                div.style.cssText = 'margin-top:0.2rem;';
+                div.textContent = `🎙️ ${v}`;
+                list.appendChild(div);
+            }
+        }
     });
 }
 
