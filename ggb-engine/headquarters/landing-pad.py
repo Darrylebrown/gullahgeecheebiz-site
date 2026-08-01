@@ -367,6 +367,7 @@ def cli():
     place.add_argument("--category", default="self-help")
     place.add_argument("--price", type=float, default=3.99)
     place.add_argument("--format", default="ebook")
+    place.add_argument("--known-title", default="Encyclopedia Volume 01", help="Canonical title for pipeline compatibility")
 
     args = parser.parse_args()
     pad = LandingPad()
@@ -381,7 +382,7 @@ def cli():
         result = pad.scoreboard.get_history()
     elif args.command == "place":
         slug = args.slug or args.title.lower().replace(" ", "-").replace(":", "").replace("'", "")[:50]
-        pkg_dir = pad.place_content(args.title, slug, args.category, args.price, args.format)
+        pkg_dir = pad.place_content(args.title, slug, args.category, args.price, args.format, args.known_title)
         result = {"status": "placed", "path": str(pkg_dir), "title": args.title}
 
     if args.json:
