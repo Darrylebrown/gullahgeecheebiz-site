@@ -321,7 +321,8 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         return results
 
     def full_cycle(self) -> Dict:
-        """Full cycle: scan landing pad, discover, run pipeline, report."""
+        """Full cycle: scan landing pad, discover, run pipeline, report.
+        Also runs all specialty bots: QA, covers, social, analytics, identifiers."""
         print(f"\n  📦 GGB Landing Pad — Full Cycle")
         print(f"  ───────────────────────────────")
         print(f"  Pad: {self.pad}")
@@ -340,6 +341,52 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             result = self.run_pipeline(mid)
             pipeline_results.append({"title": title, "manifest_id": mid, **result})
             print(f"  {'✅' if result.get('previewed') else '⚠️'} {title[:50]}")
+
+        # Run specialty bots
+        print(f"\n  🎨 Specialty Bots:")
+        bots_dir = Path(__file__).resolve().parent
+
+        # QA Bot
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "bot-qa.py")],
+                              capture_output=True, text=True, timeout=30)
+            qa = json.loads(r.stdout) if r.stdout else {}
+            print(f"     QA: {qa.get('stats', {}).get('passed', 0)} passed, {qa.get('stats', {}).get('flagged', 0)} flagged")
+        except: pass
+
+        # Cover Designer
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "bot-cover-designer.py")],
+                              capture_output=True, text=True, timeout=60)
+            covers = json.loads(r.stdout) if r.stdout else {}
+            print(f"     Covers: {covers.get('designed', 0)} designed")
+        except: pass
+
+        # Social Syndicator
+        try:
+            for pkg in scan["packages"]:
+                title = pkg.get("title", "Unknown")
+                r = subprocess.run([sys.executable, str(bots_dir / "bot-social-syndicator.py"), title],
+                                  capture_output=True, text=True, timeout=15)
+            print(f"     Social: scripts generated for {len(scan['packages'])} packages")
+        except: pass
+
+        # Identifier Bot
+        try:
+            for pkg in scan["packages"]:
+                title = pkg.get("title", "Unknown")
+                r = subprocess.run([sys.executable, str(bots_dir / "bot-identifier.py"), title],
+                                  capture_output=True, text=True, timeout=10)
+            print(f"     Identifiers: assigned for {len(scan['packages'])} packages")
+        except: pass
+
+        # Analytics
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "bot-analytics.py"), "--json"],
+                              capture_output=True, text=True, timeout=15)
+            analytics = json.loads(r.stdout) if r.stdout else {}
+            print(f"     Analytics: {analytics.get('pipeline', {}).get('total', 0)} packages tracked")
+        except: pass
 
         # Take snapshot
         self.scoreboard.take_snapshot()
