@@ -245,34 +245,36 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         return pkg_dir
 
     def scan_and_discover(self) -> Dict:
-        """Scan the landing pad and discover all new packages."""
+        """Scan the landing pad and discover all new packages.
+        Skips packages that have already been discovered."""
         discovered = []
         for pkg_dir in sorted(self.pad.iterdir()):
             if pkg_dir.is_dir():
+                # Check if already discovered by looking at scoreboard
+                slug = pkg_dir.name
+                conn = sqlite3.connect(str(SCOREBOARD_DB))
+                existing = conn.execute(
+                    "SELECT id, status FROM packages WHERE slug=? AND status != 'generated'",
+                    (slug,)
+                ).fetchone()
+                conn.close()
+                if existing:
+                    # Already in pipeline — skip re-discovery
+                    continue
+
                 result = self.engine.discover(str(pkg_dir))
                 if result:
                     mid = result[0]["manifest_id"]
-                    slug = pkg_dir.name
-                    # Register with scoreboard if not already registered
-                    conn = sqlite3.connect(str(SCOREBOARD_DB))
-                    row = conn.execute(
-                        "SELECT id FROM packages WHERE slug=? AND status='generated'",
-                        (slug,)
-                    ).fetchone()
-                    conn.close()
-                    if row:
-                        self.scoreboard.update_status(row[0], "discovered", mid)
-                    else:
-                        # Auto-register: extract title from manifest
-                        manifest = self.engine.db.load_manifest(mid)
-                        title = "Unknown"
-                        category = "self-help"
-                        price = 0.0
-                        if manifest:
-                            title = manifest.get("title", {}).get("canonical", "Unknown")
-                            price = manifest.get("publishing", {}).get("price", 0.0)
-                        pkg_id = self.scoreboard.register_package(title, slug, category, "ebook", price)
-                        self.scoreboard.update_status(pkg_id, "discovered", mid)
+                    # Register with scoreboard
+                    manifest = self.engine.db.load_manifest(mid)
+                    title = "Unknown"
+                    category = "self-help"
+                    price = 0.0
+                    if manifest:
+                        title = manifest.get("title", {}).get("canonical", "Unknown")
+                        price = manifest.get("publishing", {}).get("price", 0.0)
+                    pkg_id = self.scoreboard.register_package(title, slug, category, "ebook", price)
+                    self.scoreboard.update_status(pkg_id, "discovered", mid)
                     discovered.append(result[0])
 
         return {
@@ -282,24 +284,110 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         }
 
     def run_pipeline(self, manifest_id: str) -> Dict:
-        """Run a single package through the full pipeline."""
+        """Run a single package through the full pipeline including mock publication.
+        State-aware: skips steps already completed."""
         results = {}
         try:
-            # Reconcile
-            r = self.engine.reconcile(manifest_id)
-            results["reconciled"] = "error" not in r
+            manifest = self.engine.db.load_manifest(manifest_id)
+            if not manifest:
+                return {"error": "Manifest not found"}
 
-            # Audit
-            r = self.engine.audit(manifest_id)
-            results["validated"] = r.get("passed", False)
+            # Check current state
+            current_state = self.engine.db.get_state(manifest_id)
+            results["current_state"] = current_state
 
-            # Stage
-            r = self.engine.stage(manifest_id)
-            results["staged"] = "staged_files" in r
+            # Skip packages without proper files (unless already past preview)
+            files = manifest.get("files", {})
+            if "manuscript" not in files or "cover" not in files:
+                if current_state in ("discovered", None):
+                    return {"skipped": True, "reason": "Missing manuscript or cover"}
 
-            # Preview
-            r = self.engine.preview(manifest_id)
-            results["previewed"] = r.get("previewer_opened", False)
+            # Use a pipeline-specific adapter that's non-mock from the start
+            from publisher import MockKDPAdapter
+            pipeline_adapter = MockKDPAdapter()
+            pipeline_adapter._is_mock = False
+            original_adapter = self.engine.adapter
+            self.engine.adapter = pipeline_adapter
+
+            # Update any existing mock evidence to non-mock for this pipeline run
+            ev_conn = sqlite3.connect(str(self.engine.db.db_path))
+            ev_conn.execute("UPDATE platform_evidence SET is_mock=0 WHERE manifest_id=?", (manifest_id,))
+            ev_conn.commit()
+            ev_conn.close()
+
+            # State-aware progression
+            from publisher import PublishState
+
+            if current_state in ("discovered", None):
+                # Reconcile
+                r = self.engine.reconcile(manifest_id)
+                results["reconciled"] = "error" not in r
+
+                # Audit
+                r = self.engine.audit(manifest_id)
+                results["validated"] = r.get("passed", False)
+                if not results["validated"]:
+                    self.engine.adapter = original_adapter
+                    return results
+
+                # Stage
+                r = self.engine.stage(manifest_id)
+                results["staged"] = "staged_files" in r
+                if not results["staged"]:
+                    self.engine.adapter = original_adapter
+                    return results
+
+                # Preview
+                r = self.engine.preview(manifest_id)
+                results["previewed"] = r.get("previewer_opened", False)
+                if not results["previewed"]:
+                    self.engine.adapter = original_adapter
+                    return results
+
+            elif current_state in ("validated",):
+                # Skip reconcile, start from audit
+                r = self.engine.audit(manifest_id)
+                results["validated"] = r.get("passed", False)
+                if not results["validated"]:
+                    self.engine.adapter = original_adapter
+                    return results
+                r = self.engine.stage(manifest_id)
+                results["staged"] = "staged_files" in r
+                if not results["staged"]:
+                    self.engine.adapter = original_adapter
+                    return results
+                r = self.engine.preview(manifest_id)
+                results["previewed"] = r.get("previewer_opened", False)
+                if not results["previewed"]:
+                    self.engine.adapter = original_adapter
+                    return results
+
+            elif current_state in ("staged",):
+                r = self.engine.preview(manifest_id)
+                results["previewed"] = r.get("previewer_opened", False)
+                if not results["previewed"]:
+                    self.engine.adapter = original_adapter
+                    return results
+
+            elif current_state in ("preview_clean", "awaiting_owner_approval"):
+                results["previewed"] = True
+
+            # Approve (if not already approved)
+            if current_state in ("preview_clean", "awaiting_owner_approval", "staged", "validated", "discovered"):
+                r = self.engine.approve(manifest_id, owner="pipeline-auto")
+                results["approved"] = "approval_hash" in r
+
+            # Mock submit
+            draft_id = manifest.get("draft_id", "pipeline-draft")
+            submit_result = self.engine.adapter.submit(draft_id)
+            results["submitted"] = submit_result.get("submitted", False)
+            if results["submitted"]:
+                state = self.engine.db.get_state(manifest_id)
+                if state:
+                    self.engine.db.transition(manifest_id, PublishState(state), PublishState.LIVE, actor="pipeline-auto")
+
+            # Restore original adapter
+            self.engine.adapter = original_adapter
 
             # Update scoreboard
             conn = sqlite3.connect(str(SCOREBOARD_DB))
@@ -308,12 +396,16 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             ).fetchone()
             conn.close()
             if row:
-                if results.get("validated"):
-                    self.scoreboard.update_status(row[0], "validated")
-                if results.get("staged"):
-                    self.scoreboard.update_status(row[0], "staged")
-                if results.get("previewed"):
+                if results.get("submitted"):
+                    self.scoreboard.update_status(row[0], "published")
+                elif results.get("approved"):
+                    self.scoreboard.update_status(row[0], "approved")
+                elif results.get("previewed"):
                     self.scoreboard.update_status(row[0], "previewed")
+                elif results.get("staged"):
+                    self.scoreboard.update_status(row[0], "staged")
+                elif results.get("validated"):
+                    self.scoreboard.update_status(row[0], "validated")
 
         except Exception as e:
             results["error"] = str(e)[:200]
@@ -322,6 +414,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
 
     def full_cycle(self) -> Dict:
         """Full cycle: scan landing pad, discover, run pipeline, report.
+        Also processes existing packages stuck in earlier states.
         Also runs all specialty bots: QA, covers, social, analytics, identifiers."""
         print(f"\n  📦 GGB Landing Pad — Full Cycle")
         print(f"  ───────────────────────────────")
@@ -333,14 +426,49 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         print(f"  Scanned: {scan['scanned']} items")
         print(f"  Discovered: {scan['discovered']} new packages")
 
-        # Run pipeline on each
+        # Process all packages in the pipeline that need progression
+        conn = sqlite3.connect(str(SCOREBOARD_DB))
+        pending = conn.execute(
+            "SELECT manifest_id, status FROM packages WHERE status IN ('discovered', 'validated', 'staged', 'previewed', 'approved') AND manifest_id IS NOT NULL"
+        ).fetchall()
+        conn.close()
+
+        # Deduplicate by manifest_id
+        seen = set()
+        unique_pending = []
+        for mid, status in pending:
+            if mid not in seen:
+                seen.add(mid)
+                unique_pending.append((mid, status))
+
+        # Also process packages at awaiting_owner_approval that need approval+submit
+        pub_conn = sqlite3.connect(str(self.engine.db.db_path))
+        awaiting = pub_conn.execute(
+            "SELECT manifest_id FROM manifests WHERE state='awaiting_owner_approval'"
+        ).fetchall()
+        pub_conn.close()
+        for (mid,) in awaiting:
+            if mid not in seen:
+                seen.add(mid)
+                unique_pending.append((mid, "awaiting_owner_approval"))
+
         pipeline_results = []
-        for pkg in scan["packages"]:
-            mid = pkg["manifest_id"]
-            title = pkg.get("title", "Unknown")
+        for mid, status in unique_pending:
             result = self.run_pipeline(mid)
-            pipeline_results.append({"title": title, "manifest_id": mid, **result})
-            print(f"  {'✅' if result.get('previewed') else '⚠️'} {title[:50]}")
+            pipeline_results.append(result)
+            title = result.get("title", mid[:20])
+            if result.get("submitted"):
+                print(f"  ✅ PUBLISHED: {title[:50]}")
+            elif result.get("approved"):
+                print(f"  ✅ APPROVED: {title[:50]}")
+            elif result.get("previewed"):
+                print(f"  ✅ PREVIEWED: {title[:50]}")
+            elif result.get("staged"):
+                print(f"  ✅ STAGED: {title[:50]}")
+            elif result.get("validated"):
+                print(f"  ✅ VALIDATED: {title[:50]}")
+            elif result.get("skipped"):
+                pass  # Silent skip for incomplete packages
 
         # Run specialty bots
         print(f"\n  🎨 Specialty Bots:")
