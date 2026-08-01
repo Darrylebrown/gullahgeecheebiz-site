@@ -19,7 +19,7 @@ STORES = {
     "stripe": {
         "name": "Stripe Checkout",
         "url": "https://buy.stripe.com",
-        "products": 99,  # 99 ebooks with individual checkout links
+        "products": 99,
         "min_stock": 100,
         "refill_threshold": 90,
         "refill_action": "generate_new_ebook",
@@ -27,7 +27,7 @@ STORES = {
     "etsy": {
         "name": "Etsy Shop",
         "url": "etsy.com/shop/gullahgeecheebiz",
-        "products": 100,  # 100 PDF delivery docs
+        "products": 100,
         "min_stock": 100,
         "refill_threshold": 90,
         "refill_action": "generate_new_ebook",
@@ -35,7 +35,7 @@ STORES = {
     "shopify": {
         "name": "Shopify Store",
         "url": "shopify.com",
-        "products": 106,  # 106 products from CSV
+        "products": 106,
         "min_stock": 100,
         "refill_threshold": 90,
         "refill_action": "generate_new_ebook",
@@ -43,10 +43,19 @@ STORES = {
     "kdp": {
         "name": "KDP Direct",
         "url": "kdp.amazon.com",
-        "products": 7,  # 7 core books
+        "products": 7,
         "min_stock": 7,
         "refill_threshold": 5,
         "refill_action": "generate_new_edition",
+    },
+    "wholesale": {
+        "name": "Wholesale (Bookstores/Libraries)",
+        "url": "/wholesale/",
+        "products": 0,
+        "min_stock": 10,
+        "refill_threshold": 5,
+        "refill_action": "generate_wholesale_pack",
+        "description": "Bulk digital packs for bookstores, libraries, educators. 55% margins, 10+ copy minimum.",
     },
 }
 
@@ -244,6 +253,47 @@ class InventoryManager:
                 "output": str(output),
             }
 
+        if action == "generate_wholesale_pack":
+            # Generate bulk wholesale packs for bookstores/libraries
+            wholesale_packs = [
+                {"title": "Gullah Geechee Starter Pack", "count": 10, "price": 49.99, "description": "10 best-selling ebooks for new bookstores"},
+                {"title": "Gullah Geechee Complete Collection", "count": 50, "price": 199.99, "description": "Full catalog for libraries and educators"},
+                {"title": "Gullah Geechee Cookbook Bundle", "count": 10, "price": 39.99, "description": "10 cookbook titles for culinary sections"},
+                {"title": "Gullah Geechee Self-Help Bundle", "count": 10, "price": 39.99, "description": "10 self-help titles for personal development"},
+                {"title": "Gullah Geechee Business Bundle", "count": 10, "price": 39.99, "description": "10 business titles for entrepreneurs"},
+                {"title": "Gullah Geechee Encyclopedia Pack", "count": 5, "price": 29.99, "description": "5 encyclopedia volumes for academic libraries"},
+                {"title": "Gullah Geechee Ambassador Pack", "count": 25, "price": 99.99, "description": "25 titles for community organizations"},
+                {"title": "Gullah Geechee Educator Pack", "count": 15, "price": 59.99, "description": "15 titles for schools and educators"},
+            ]
+            selected = random.sample(wholesale_packs, min(count, len(wholesale_packs)))
+            new_products = selected
+
+            conn.execute(
+                "INSERT INTO refill_log (store, action, product_count, status, created_at) VALUES (?, ?, ?, 'generated', ?)",
+                (store_key, action, len(new_products), datetime.now(timezone.utc).isoformat())
+            )
+            conn.commit()
+
+            output = CONTENT_DIR / f"refill-{store_key}-{datetime.now().strftime('%Y%m%d-%H%M')}.json"
+            output.write_text(json.dumps({
+                "store": store_key,
+                "action": action,
+                "count": len(new_products),
+                "packs": new_products,
+                "generated": datetime.now(timezone.utc).isoformat(),
+            }, indent=2))
+
+            self.db.log_content("inventory", "refill", f"Refill {store_key}: {len(new_products)} wholesale packs", str(output))
+
+            return {
+                "status": "refilled",
+                "store": store_key,
+                "action": action,
+                "count": len(new_products),
+                "packs": new_products,
+                "output": str(output),
+            }
+
         return {"error": f"Unknown refill action: {action}"}
 
     def full_scan_and_refill(self) -> Dict:
@@ -354,12 +404,18 @@ if __name__ == "__main__":
                     print(f"  Suggested refill: {result['suggested_refill']} new products")
                     print(f"  Action: {result['action']}")
             elif result.get("status") == "refilled":
-                print(f"🔄 Refilled {result['store']} with {result['count']} new {result['series']} products")
-                print(f"  Output: {result['output']}")
-                for p in result.get("products", [])[:5]:
-                    print(f"  - {p['title']} (${p['price']})")
-                if len(result.get("products", [])) > 5:
-                    print(f"  ... and {len(result['products']) - 5} more")
+                if "packs" in result:
+                    print(f"🔄 Refilled {result['store']} with {result['count']} wholesale packs")
+                    print(f"  Output: {result['output']}")
+                    for p in result.get("packs", [])[:5]:
+                        print(f"  - {p['title']} (${p['price']} — {p['count']} titles)")
+                else:
+                    print(f"🔄 Refilled {result['store']} with {result['count']} new {result.get('series', '')} products")
+                    print(f"  Output: {result['output']}")
+                    for p in result.get("products", [])[:5]:
+                        print(f"  - {p['title']} (${p['price']})")
+                    if len(result.get("products", [])) > 5:
+                        print(f"  ... and {len(result['products']) - 5} more")
             else:
                 for k, v in result.items():
                     print(f"{k}: {v}")
