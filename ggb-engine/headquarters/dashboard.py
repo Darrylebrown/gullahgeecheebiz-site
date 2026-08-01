@@ -43,6 +43,22 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/published/history":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "published-monitor.py"), "--json", "history"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"labels": [], "cumulative": [], "daily": []}
+            except Exception as e:
+                data = {"labels": [], "cumulative": [], "daily": []}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path == "/api/status":
             self._json_response(self._get_status())
         elif path == "/api/stores":
@@ -462,6 +478,15 @@ body::before {
                 </div>
             </div>
         </div>
+
+        <!-- Production Growth Chart -->
+        <div class="card" style="grid-column:1/-1;">
+            <div class="card-header">
+                <h2>📈 Production Growth (30 Days)</h2>
+                <span class="badge badge-ok">CUMULATIVE</span>
+            </div>
+            <canvas id="growthChart" style="width:100%;height:250px;"></canvas>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -484,7 +509,9 @@ body::before {
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
+let growthChart = null;
 async function fetchJSON(url) {
     try {
         const r = await fetch(url);
@@ -625,6 +652,47 @@ function render() {
                 plat.appendChild(div);
             }
         }
+    });
+
+    // Production Growth Chart
+    fetchJSON('/api/published/history').then(d => {
+        if (!d || !d.labels || d.labels.length === 0) return;
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        if (growthChart) growthChart.destroy();
+        growthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: d.labels.map(l => l.slice(5)),
+                datasets: [{
+                    label: 'Cumulative Published',
+                    data: d.cumulative,
+                    borderColor: '#c9a84c',
+                    backgroundColor: 'rgba(201, 168, 76, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#c9a84c',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#ccc' } }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#666', maxTicksLimit: 10 },
+                        grid: { color: 'rgba(255,255,255,0.05)' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#666' },
+                        grid: { color: 'rgba(255,255,255,0.05)' }
+                    }
+                }
+            }
+        });
     });
 }
 

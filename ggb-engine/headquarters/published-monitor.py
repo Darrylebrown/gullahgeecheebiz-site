@@ -59,6 +59,44 @@ class PublishedMonitor:
             by_platform.setdefault(platform, []).append(pkg)
         return {k: len(v) for k, v in by_platform.items()}
 
+    def get_production_history(self, days: int = 30) -> dict:
+        """Get cumulative production history for a chart.
+        Returns daily cumulative counts for the last N days."""
+        if not SCOREBOARD_DB.exists():
+            return {"labels": [], "cumulative": [], "daily": []}
+
+        conn = sqlite3.connect(str(SCOREBOARD_DB))
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+        rows = conn.execute(
+            "SELECT published_at FROM packages WHERE status='published' AND published_at > ? ORDER BY published_at ASC",
+            (cutoff,)
+        ).fetchall()
+        conn.close()
+
+        # Build daily buckets
+        today = datetime.now(timezone.utc).date()
+        start = today - timedelta(days=days)
+        daily_counts = {}
+        for d in range(days + 1):
+            day = start + timedelta(days=d)
+            daily_counts[day.isoformat()] = 0
+
+        for (published_at,) in rows:
+            if published_at:
+                pub_date = published_at[:10]
+                if pub_date in daily_counts:
+                    daily_counts[pub_date] += 1
+
+        labels = sorted(daily_counts.keys())
+        daily = [daily_counts[d] for d in labels]
+        cumulative = []
+        running = 0
+        for c in daily:
+            running += c
+            cumulative.append(running)
+
+        return {"labels": labels, "cumulative": cumulative, "daily": daily}
+
     def report(self) -> dict:
         """Full published production report."""
         today = self.get_published_today()
@@ -83,6 +121,7 @@ if __name__ == "__main__":
     sub.add_parser("today", help="Published today")
     sub.add_parser("week", help="Published this week")
     sub.add_parser("platforms", help="Published by platform")
+    sub.add_parser("history", help="Production history (30-day chart data)")
 
     args = parser.parse_args()
     monitor = PublishedMonitor()
@@ -95,6 +134,8 @@ if __name__ == "__main__":
         result = {"published_this_week": monitor.get_published_this_week()}
     elif args.command == "platforms":
         result = {"by_platform": monitor.get_published_by_platform()}
+    elif args.command == "history":
+        result = monitor.get_production_history(days=args.days)
 
     if args.json:
         print(json.dumps(result, indent=2, default=str))
