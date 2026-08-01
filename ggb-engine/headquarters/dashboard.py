@@ -91,6 +91,22 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/router":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "model-router.py"), "--json", "status"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"error": "No output"}
+            except Exception as e:
+                data = {"error": str(e)}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path == "/api/status":
             self._json_response(self._get_status())
         elif path == "/api/stores":
@@ -565,6 +581,29 @@ body::before {
             </div>
             <div id="seoTopList" style="font-size:0.8rem;color:#666;"></div>
         </div>
+
+        <!-- Model Router -->
+        <div class="card">
+            <div class="card-header">
+                <h2>🔀 Model Router</h2>
+                <span class="badge badge-ok">ACTIVE</span>
+            </div>
+            <div style="display:flex;gap:1.5rem;margin-bottom:1rem;">
+                <div style="text-align:center;">
+                    <div class="value" id="routerGens" style="font-size:1.8rem;">0</div>
+                    <div class="label">Generations</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="routerStyles" style="font-size:1.8rem;">0</div>
+                    <div class="label">Styles</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="routerProviders" style="font-size:1.8rem;">0</div>
+                    <div class="label">Providers</div>
+                </div>
+            </div>
+            <div id="routerGallery" style="font-size:0.8rem;color:#666;"></div>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -806,6 +845,22 @@ function render() {
                 div.textContent = `📦 ${p.title.slice(0, 40)} | ${p.type} | ${p.score}/100`;
                 list.appendChild(div);
             }
+        }
+    });
+
+    // Model Router
+    fetchJSON('/api/router').then(d => {
+        if (!d) return;
+        document.getElementById('routerGens').textContent = d.generations || 0;
+        document.getElementById('routerStyles').textContent = d.styles || 0;
+        document.getElementById('routerProviders').textContent = d.providers || 0;
+        const list = document.getElementById('routerGallery');
+        list.innerHTML = '';
+        if (d.gallery_path) {
+            const div = document.createElement('div');
+            div.style.cssText = 'margin-top:0.2rem;';
+            div.textContent = `📁 ${d.gallery_path}`;
+            list.appendChild(div);
         }
     });
 }

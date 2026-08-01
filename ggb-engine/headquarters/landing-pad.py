@@ -526,10 +526,18 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
 
         # SEO Engine
         try:
-            r = subprocess.run([sys.executable, str(bots_dir / "seo-engine.py"), "report", "--json"],
+            r = subprocess.run([sys.executable, str(bots_dir / "seo-engine.py"), "--json", "report"],
                               capture_output=True, text=True, timeout=15)
             seo = json.loads(r.stdout) if r.stdout else {}
             print(f"     SEO: {seo.get('total_optimized', 0)} optimized, {seo.get('total_promoted', 0)} promoted, avg score {seo.get('average_seo_score', 0)}/100")
+        except: pass
+
+        # Model Router
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "model-router.py"), "status", "--json"],
+                              capture_output=True, text=True, timeout=15)
+            router = json.loads(r.stdout) if r.stdout else {}
+            print(f"     Router: {router.get('generations', 0)} generations, {router.get('styles', 0)} styles, {router.get('providers', 0)} providers")
         except: pass
 
         # Take snapshot
