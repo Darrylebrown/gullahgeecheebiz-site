@@ -37,6 +37,15 @@ class Healer:
 
     def log(self, issue: str, fixed: bool, detail: str = ""):
         conn = sqlite3.connect(str(HEAL_DB))
+        conn.execute("PRAGMA journal_mode=WAL")
+        conn.execute("""CREATE TABLE IF NOT EXISTS heal_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            healer TEXT NOT NULL,
+            issue TEXT NOT NULL,
+            fixed INTEGER DEFAULT 0,
+            detail TEXT,
+            checked_at TEXT NOT NULL
+        )""")
         conn.execute(
             "INSERT INTO heal_log (healer, issue, fixed, detail, checked_at) VALUES (?, ?, ?, ?, ?)",
             (self.name, issue[:200], int(fixed), detail[:500], datetime.now(timezone.utc).isoformat())
@@ -114,7 +123,7 @@ class ProcessHealer(Healer):
             "dashboard": {
                 "script": "ggb-engine/headquarters/dashboard.py",
                 "port": 8777,
-                "check": "python3.*dashboard.py",
+                "check": "dashboard.py",
             },
         }
 
@@ -174,10 +183,20 @@ class DiskHealer(Healer):
         targets = [
             HOME / "Library" / "Caches" / "com.spotify.Client",
             HOME / "Library" / "Caches" / "com.apple.Safari",
+            HOME / "Library" / "Caches" / "Google",
+            HOME / "Library" / "Caches" / "Comet",
+            HOME / "Library" / "Caches" / "Homebrew",
+            HOME / "Library" / "Caches" / "BraveSoftware",
+            HOME / "Library" / "Caches" / "pip",
+            HOME / "Library" / "Caches" / "SiriTTS",
+            HOME / "Library" / "Caches" / "github-copilot-sdk",
+            HOME / "Library" / "Caches" / "electron",
+            HOME / "Library" / "Caches" / "ledger-live-desktop-updater",
             HOME / ".cache" / "pip",
             HOME / ".cache" / "thumbnails",
             HOME / ".npm" / "_cacache",
             SITE_DIR / "node_modules" / ".cache",
+            HOME / ".cache" / "huggingface",
             SITE_DIR / "ggb-engine" / "headquarters" / "headquarters.db-wal",
             SITE_DIR / "ggb-engine" / "headquarters" / "headquarters.db-shm",
         ]
@@ -257,6 +276,142 @@ class LinkHealer(Healer):
         return fixed
 
 
+# ─── Pipeline Healers ─────────────────────────────────────────────────────
+
+class CoverHealer(Healer):
+    """Detects and fixes cover validation failures in the pipeline."""
+
+    def __init__(self):
+        super().__init__("cover_healer")
+        self.landing_pad = REPO_ROOT / "publish" / "landing-pad"
+
+    def diagnose(self) -> Optional[str]:
+        """Check for packages with small covers in the landing pad."""
+        small_covers = 0
+        if self.landing_pad.exists():
+            for pkg_dir in self.landing_pad.iterdir():
+                if pkg_dir.is_dir():
+                    for cover in pkg_dir.glob("cover.*"):
+                        try:
+                            from PIL import Image
+                            img = Image.open(cover)
+                            w, h = img.size
+                            if w < 1000 or h < 625:
+                                small_covers += 1
+                        except:
+                            pass
+        if small_covers > 0:
+            return f"Found {small_covers} packages with small covers"
+        return None
+
+    def heal(self) -> bool:
+        """Resize small covers to meet minimum requirements."""
+        fixed = 0
+        if self.landing_pad.exists():
+            for pkg_dir in self.landing_pad.iterdir():
+                if pkg_dir.is_dir():
+                    for cover in pkg_dir.glob("cover.*"):
+                        try:
+                            from PIL import Image
+                            img = Image.open(cover)
+                            w, h = img.size
+                            if w < 1000 or h < 625:
+                                new_w = max(w, 1000)
+                                new_h = max(h, 625)
+                                img_resized = img.resize((new_w, new_h), Image.LANCZOS)
+                                img_resized.save(str(cover), quality=95)
+                                fixed += 1
+                        except:
+                            pass
+        if fixed > 0:
+            self.log("Cover resize", True, f"Resized {fixed} covers to minimum 1000x625")
+            return True
+        return False
+
+
+class PipelineHealer(Healer):
+    """Detects and retries failed pipeline steps."""
+
+    def __init__(self):
+        super().__init__("pipeline_healer")
+        self.landing_pad_script = Path(__file__).resolve().parent / "landing-pad.py"
+
+    def diagnose(self) -> Optional[str]:
+        """Check if there are packages stuck in 'discovered' that should have progressed."""
+        try:
+            import sqlite3
+            scoreboard_db = LOGS_DIR / "scoreboard.db"
+            if scoreboard_db.exists():
+                conn = sqlite3.connect(str(scoreboard_db))
+                stuck = conn.execute(
+                    "SELECT COUNT(*) FROM packages WHERE status='discovered' AND discovered_at < datetime('now', '-1 hour')"
+                ).fetchone()[0]
+                conn.close()
+                if stuck > 0:
+                    return f"Found {stuck} packages stuck in discovered for over 1 hour"
+            return None
+        except:
+            return None
+
+    def heal(self) -> bool:
+        """Retry the landing pad cycle to push stuck packages forward."""
+        try:
+            result = subprocess.run(
+                [sys.executable, str(self.landing_pad_script), "cycle"],
+                capture_output=True, text=True, timeout=120
+            )
+            if result.returncode == 0:
+                self.log("Pipeline retry", True, "Landing pad cycle re-run completed")
+                return True
+        except:
+            pass
+        return False
+
+
+class ScoreboardHealer(Healer):
+    """Detects and fixes scoreboard/manifest mismatches."""
+
+    def __init__(self):
+        super().__init__("scoreboard_healer")
+
+    def diagnose(self) -> Optional[str]:
+        """Check if scoreboard counts match actual pipeline state."""
+        try:
+            import sqlite3
+            scoreboard_db = LOGS_DIR / "scoreboard.db"
+            if not scoreboard_db.exists():
+                return None
+            conn = sqlite3.connect(str(scoreboard_db))
+            total = conn.execute("SELECT COUNT(*) FROM packages").fetchone()[0]
+            conn.close()
+            # Check publisher DB
+            from publisher import PublishEngine
+            engine = PublishEngine()
+            pub_conn = sqlite3.connect(str(engine.db.db_path))
+            manifest_count = pub_conn.execute("SELECT COUNT(*) FROM manifests").fetchone()[0]
+            pub_conn.close()
+            if abs(total - manifest_count) > 5:
+                return f"Scoreboard ({total}) and manifests ({manifest_count}) differ by more than 5"
+            return None
+        except:
+            return None
+
+    def heal(self) -> bool:
+        """Re-scan the landing pad to sync scoreboard with manifests."""
+        try:
+            landing_pad_script = Path(__file__).resolve().parent / "landing-pad.py"
+            result = subprocess.run(
+                [sys.executable, str(landing_pad_script), "cycle"],
+                capture_output=True, text=True, timeout=120
+            )
+            if result.returncode == 0:
+                self.log("Scoreboard sync", True, "Re-synced scoreboard with landing pad")
+                return True
+        except:
+            pass
+        return False
+
+
 # ─── Self-Healing Engine ──────────────────────────────────────────────────
 
 class SelfHealingEngine:
@@ -271,6 +426,9 @@ class SelfHealingEngine:
             DiskHealer(),
             LinkHealer(),
             CronHealer(),
+            CoverHealer(),
+            PipelineHealer(),
+            ScoreboardHealer(),
         ]
         self.total_checks = 0
         self.total_heals = 0
