@@ -40,21 +40,28 @@ PLATFORMS = {
         "name": "ACX (Audiobooks)",
         "formats": ["audiobook"],
         "executor": "agent-b-acx.py",
-        "enabled": False,  # Future
-        "max_concurrent": 1,
-    },
-    "ingramspark": {
-        "name": "IngramSpark",
-        "formats": ["paperback", "hardcover"],
-        "executor": "agent-b-ingram.py",
-        "enabled": False,  # Future
+        "enabled": True,
         "max_concurrent": 1,
     },
     "distrokid": {
         "name": "DistroKid",
         "formats": ["music"],
         "executor": "agent-b-distrokid.py",
-        "enabled": False,  # Future
+        "enabled": True,
+        "max_concurrent": 1,
+    },
+    "pinterest": {
+        "name": "Pinterest",
+        "formats": ["pin"],
+        "executor": "agent-b-pinterest.py",
+        "enabled": True,
+        "max_concurrent": 1,
+    },
+    "ingramspark": {
+        "name": "IngramSpark",
+        "formats": ["paperback", "hardcover"],
+        "executor": "agent-b-ingram.py",
+        "enabled": False,
         "max_concurrent": 1,
     },
 }
