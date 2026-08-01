@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GGB Gallery — Gullah Geechee Biz</title>
+<meta name="description" content="Browse the Gullah Geechee Biz gallery — book covers, ads, pins, cultural art, and more.">
+<link rel="canonical" href="https://gullahgeecheebiz.com/gallery/">
+<link rel="stylesheet" href="/style.css">
+<style>
+:root { --navy: #1a1a2e; --gold: #c9a84c; --dark: #0f0f1a; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--dark); color: #ccc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+h1 { color: var(--gold); font-size: 2rem; margin-bottom: 0.5rem; }
+.subtitle { color: #888; margin-bottom: 2rem; }
+.controls { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.controls select, .controls input { background: var(--navy); border: 1px solid rgba(201,168,76,0.3); color: #ccc; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; }
+.controls button { background: var(--gold); color: var(--navy); border: none; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.controls button:hover { opacity: 0.9; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+.card { background: var(--navy); border: 1px solid rgba(201,168,76,0.15); border-radius: 12px; overflow: hidden; transition: border-color 0.3s; }
+.card:hover { border-color: rgba(201,168,76,0.3); }
+.card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.card-body { padding: 1rem; }
+.card-body h3 { font-size: 0.9rem; color: var(--gold); margin-bottom: 0.3rem; }
+.card-body p { font-size: 0.8rem; color: #888; }
+.card-body .meta { font-size: 0.75rem; color: #666; margin-top: 0.3rem; }
+.empty { text-align: center; padding: 4rem; color: #666; }
+.empty h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.loading { text-align: center; padding: 4rem; color: #666; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { display: inline-block; width: 40px; height: 40px; border: 3px solid rgba(201,168,76,0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🎨 GGB Gallery</h1>
+  <p class="subtitle">Browse generated assets — covers, ads, pins, cultural art, and more</p>
+
+  <div class="controls">
+    <select id="styleFilter">
+      <option value="">All Styles</option>
+      <option value="premium-book-cover">Book Covers</option>
+      <option value="ad-square">Square Ads</option>
+      <option value="social-banner">Social Banners</option>
+      <option value="pin-portrait">Pinterest Pins</option>
+      <option value="cultural-art">Cultural Art</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="Search prompts..." style="flex:1;min-width:200px;">
+    <button onclick="generateNew()">✨ Generate New</button>
+  </div>
+
+  <div id="galleryGrid" class="gallery">
+    <div class="loading"><div class="spinner"></div><p>Loading gallery...</p></div>
+  </div>
+</div>
+
+<script>
+const API = 'http://localhost:8777';
+
+async function loadGallery() {
+  const grid = document.getElementById('galleryGrid');
+  try {
+    const r = await fetch(`${API}/api/router`);
+    const d = await r.json();
+    if (!d || !d.gallery_path) {
+      grid.innerHTML = '<div class="empty"><h2>📭 Gallery Empty</h2><p>No assets generated yet. Click "Generate New" to create one.</p></div>';
+      return;
+    }
+    // Fetch gallery contents
+    const gr = await fetch(`${API}/api/gallery`);
+    const gd = await gr.json();
+    if (!gd || !gd.gallery || gd.gallery.length === 0) {
+      grid.innerHTML = '<div class="empty"><h2>📭 Gallery Empty</h2><p>No assets generated yet. Click "Generate New" to create one.</p></div>';
+      return;
+    }
+    renderGallery(gd.gallery);
+  } catch (e) {
+    grid.innerHTML = '<div class="empty"><h2>⚠️ Could Not Load</h2><p>Make sure the dashboard is running on port 8777.</p></div>';
+  }
+}
+
+function renderGallery(items) {
+  const grid = document.getElementById('galleryGrid');
+  const filter = document.getElementById('styleFilter').value;
+  const search = document.getElementById('searchInput').value.toLowerCase();
+
+  let filtered = items;
+  if (filter) filtered = filtered.filter(i => i.style === filter);
+  if (search) filtered = filtered.filter(i => i.prompt.toLowerCase().includes(search));
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty"><h2>🔍 No Matches</h2><p>Try a different filter or search term.</p></div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => `
+    <div class="card">
+      <img src="${API}/api/asset/${item.id}" alt="${item.prompt}" onerror="this.style.display='none'">
+      <div class="card-body">
+        <h3>${item.prompt.slice(0, 60)}${item.prompt.length > 60 ? '...' : ''}</h3>
+        <p>${item.provider} · ${item.model}</p>
+        <div class="meta">${item.created_at ? item.created_at.slice(0, 19) : ''} · $${(item.cost || 0).toFixed(2)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function generateNew() {
+  const prompt = prompt('Describe what you want to generate:', 'A Gullah Geechee sweetgrass basket at sunset');
+  if (!prompt) return;
+  const style = document.getElementById('styleFilter').value || 'cultural-art';
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = '<div class="loading"><div class="spinner"></div><p>Generating...</p></div>';
+  try {
+    const r = await fetch(`${API}/api/generate?prompt=${encodeURIComponent(prompt)}&style=${style}`);
+    const d = await r.json();
+    loadGallery();
+  } catch (e) {
+    grid.innerHTML = '<div class="empty"><h2>⚠️ Generation Failed</h2><p>Check the dashboard logs for details.</p></div>';
+  }
+}
+
+document.getElementById('styleFilter').addEventListener('change', () => loadGallery());
+document.getElementById('searchInput').addEventListener('input', () => loadGallery());
+
+loadGallery();
+</script>
+</body>
+</html>

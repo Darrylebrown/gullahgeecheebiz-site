@@ -20,6 +20,7 @@ HOME = Path.home()
 SITE_DIR = REPO_ROOT
 MONITOR_DB = LOGS_DIR / "neural-monitor.db"
 HQ_DB = LOGS_DIR.parent / "headquarters.db"
+GALLERY_DIR = REPO_ROOT / "publish" / "gallery"
 
 class DashboardHandler(BaseHTTPRequestHandler):
 
@@ -105,6 +106,57 @@ class DashboardHandler(BaseHTTPRequestHandler):
             except Exception as e:
                 data = {"error": str(e)}
             self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
+        if path.startswith("/api/generate"):
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            from urllib.parse import parse_qs
+            params = parse_qs(parsed.query)
+            prompt = params.get("prompt", [""])[0]
+            style = params.get("style", ["premium-book-cover"])[0]
+            theme = params.get("theme", ["Gullah Geechee"])[0]
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "model-router.py"), "--json", "generate", prompt, "--style", style, "--theme", theme],
+                    capture_output=True, text=True, timeout=60
+                )
+                data = json.loads(r.stdout) if r.stdout else {"error": "No output"}
+            except Exception as e:
+                data = {"error": str(e)}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
+        if path == "/api/gallery":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "model-router.py"), "--json", "gallery"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"gallery": []}
+            except Exception as e:
+                data = {"gallery": []}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
+        if path.startswith("/api/asset/"):
+            asset_id = path.split("/")[-1]
+            asset_dir = GALLERY_DIR / asset_id
+            for ext in [".jpg", ".png", ".jpeg", ".gif", ".webp"]:
+                for f in asset_dir.glob(f"*{ext}"):
+                    self.send_response(200)
+                    self.send_header("Content-Type", f"image/{ext[1:]}")
+                    self.end_headers()
+                    self.wfile.write(f.read_bytes())
+                    return
+            self.send_response(404)
+            self.end_headers()
             return
 
         if path == "/api/status":

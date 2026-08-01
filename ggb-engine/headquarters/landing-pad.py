@@ -534,10 +534,27 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
 
         # Model Router
         try:
-            r = subprocess.run([sys.executable, str(bots_dir / "model-router.py"), "status", "--json"],
+            r = subprocess.run([sys.executable, str(bots_dir / "model-router.py"), "--json", "status"],
                               capture_output=True, text=True, timeout=15)
             router = json.loads(r.stdout) if r.stdout else {}
             print(f"     Router: {router.get('generations', 0)} generations, {router.get('styles', 0)} styles, {router.get('providers', 0)} providers")
+        except: pass
+
+        # Auto-generate assets for new packages via model router
+        try:
+            for pkg in scan.get("packages", []):
+                title = pkg.get("title", "Gullah Geechee")
+                slug = pkg.get("slug", "")
+                if "encyclopedia" in slug:
+                    r = subprocess.run([sys.executable, str(bots_dir / "model-router.py"), "--json", "generate", f"Premium book cover for {title}", "--style", "premium-book-cover", "--theme", title],
+                                      capture_output=True, text=True, timeout=60)
+                elif "ad" in slug:
+                    r = subprocess.run([sys.executable, str(bots_dir / "model-router.py"), "--json", "generate", f"Advertisement for {title}", "--style", "ad-square", "--theme", title],
+                                      capture_output=True, text=True, timeout=60)
+                elif "pin" in slug:
+                    r = subprocess.run([sys.executable, str(bots_dir / "model-router.py"), "--json", "generate", f"Pinterest pin for {title}", "--style", "pin-portrait", "--theme", title],
+                                      capture_output=True, text=True, timeout=60)
+            print(f"     Auto-generated assets for {len(scan.get('packages', []))} new packages")
         except: pass
 
         # Take snapshot
