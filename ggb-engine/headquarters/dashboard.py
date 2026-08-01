@@ -183,12 +183,24 @@ class DashboardHandler(BaseHTTPRequestHandler):
             content_total = 0
             by_type = []
 
+        # Get ebook count from scoreboard
+        ebook_count = 0
+        try:
+            scoreboard_db = LOGS_DIR / "scoreboard.db"
+            if scoreboard_db.exists():
+                conn = sqlite3.connect(str(scoreboard_db))
+                ebook_count = conn.execute("SELECT COUNT(*) FROM packages WHERE status='published'").fetchone()[0]
+                conn.close()
+        except:
+            pass
+
         return {
             "name": "Gullah Geechee Biz",
             "tagline": "Preserving a Culture. Telling a Story.",
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "content_produced": content_total,
             "content_by_type": {r[0]: r[1] for r in by_type},
+            "ebooks_published": ebook_count,
             "modules": {
                 "command_center": "online",
                 "neural_monitor": "online",
@@ -747,6 +759,13 @@ function render() {
         total.style.cssText = 'width:100%;text-align:center;padding:0.5rem;font-size:1.2rem;font-weight:700;color:#c9a84c;font-family:JetBrains Mono,monospace;';
         total.textContent = `${d.content_produced} pieces of content`;
         stats.appendChild(total);
+        // Ebooks published
+        if (d.ebooks_published !== undefined) {
+            const ebookDiv = document.createElement('div');
+            ebookDiv.style.cssText = 'width:100%;text-align:center;padding:0.2rem 0.5rem;font-size:1rem;color:#22c55e;font-family:JetBrains Mono,monospace;';
+            ebookDiv.textContent = `📚 ${d.ebooks_published} ebooks published`;
+            stats.appendChild(ebookDiv);
+        }
         if (d.content_by_type) {
             for (const [type, count] of Object.entries(d.content_by_type)) {
                 const tag = document.createElement('span');
