@@ -580,12 +580,12 @@ body::before {
         </div>
 
         <!-- Production Growth Chart -->
-        <div class="card" style="grid-column:1/-1;">
+        <div class="card" style="grid-column:1/-1;max-height:350px;">
             <div class="card-header">
                 <h2>📈 Production Growth (30 Days)</h2>
                 <span class="badge badge-ok">CUMULATIVE</span>
             </div>
-            <canvas id="growthChart" style="width:100%;height:250px;"></canvas>
+            <canvas id="growthChart" style="width:100%;height:250px;max-height:250px;"></canvas>
         </div>
 
         <!-- Audio Production -->
@@ -871,6 +871,7 @@ function render() {
         if (!d || !d.labels || d.labels.length === 0) return;
         const ctx = document.getElementById('growthChart').getContext('2d');
         if (growthChart) growthChart.destroy();
+        const lastVal = d.cumulative[d.cumulative.length - 1] || 0;
         growthChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -882,28 +883,59 @@ function render() {
                     backgroundColor: 'rgba(201, 168, 76, 0.1)',
                     fill: true,
                     tension: 0.3,
-                    pointRadius: 3,
+                    pointRadius: 4,
                     pointBackgroundColor: '#c9a84c',
+                    pointHoverRadius: 6,
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { labels: { color: '#ccc' } }
+                    legend: { labels: { color: '#ccc' } },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => `${ctx.parsed.y} published (${((ctx.parsed.y / lastVal) * 100).toFixed(1)}% of total)`
+                        }
+                    }
                 },
                 scales: {
                     x: {
-                        ticks: { color: '#666', maxTicksLimit: 10 },
+                        ticks: { color: '#666', maxTicksLimit: 8 },
                         grid: { color: 'rgba(255,255,255,0.05)' }
                     },
                     y: {
                         beginAtZero: true,
-                        ticks: { color: '#666' },
+                        position: 'left',
+                        ticks: { color: '#666', callback: (v) => v },
                         grid: { color: 'rgba(255,255,255,0.05)' }
+                    },
+                    yRight: {
+                        beginAtZero: true,
+                        position: 'right',
+                        ticks: {
+                            color: '#888',
+                            callback: (v) => `${((v / lastVal) * 100).toFixed(0)}%`
+                        },
+                        grid: { drawOnChartArea: false }
                     }
                 }
-            }
+            },
+            plugins: [{
+                afterDraw: (chart) => {
+                    const ctx = chart.ctx;
+                    const meta = chart.getDatasetMeta(0);
+                    const lastPoint = meta.data[meta.data.length - 1];
+                    if (!lastPoint) return;
+                    const value = chart.data.datasets[0].data[meta.data.length - 1];
+                    ctx.save();
+                    ctx.font = 'bold 14px JetBrains Mono, monospace';
+                    ctx.fillStyle = '#c9a84c';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(value, lastPoint.x, lastPoint.y - 12);
+                    ctx.restore();
+                }
+            }]
         });
     });
 
