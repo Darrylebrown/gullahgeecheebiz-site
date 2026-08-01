@@ -524,6 +524,14 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             print(f"     Audio: {audio.get('produced', 0)} produced, {audio.get('voice_profiles', 0)} voices, {audio.get('soundscapes', 0)} soundscapes")
         except: pass
 
+        # SEO Engine
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "seo-engine.py"), "report", "--json"],
+                              capture_output=True, text=True, timeout=15)
+            seo = json.loads(r.stdout) if r.stdout else {}
+            print(f"     SEO: {seo.get('total_optimized', 0)} optimized, {seo.get('total_promoted', 0)} promoted, avg score {seo.get('average_seo_score', 0)}/100")
+        except: pass
+
         # Take snapshot
         self.scoreboard.take_snapshot()
 

@@ -75,6 +75,22 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/seo":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                r = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve().parent / "seo-engine.py"), "--json", "report"],
+                    capture_output=True, text=True, timeout=15
+                )
+                data = json.loads(r.stdout) if r.stdout else {"error": "No output"}
+            except Exception as e:
+                data = {"error": str(e)}
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path == "/api/status":
             self._json_response(self._get_status())
         elif path == "/api/stores":
@@ -526,6 +542,29 @@ body::before {
             </div>
             <div id="audioVoicesList" style="font-size:0.8rem;color:#666;"></div>
         </div>
+
+        <!-- SEO Engine -->
+        <div class="card">
+            <div class="card-header">
+                <h2>🔍 SEO Engine</h2>
+                <span class="badge badge-ok">ACTIVE</span>
+            </div>
+            <div style="display:flex;gap:1.5rem;margin-bottom:1rem;">
+                <div style="text-align:center;">
+                    <div class="value" id="seoOptimized" style="font-size:1.8rem;">0</div>
+                    <div class="label">Optimized</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="seoPromoted" style="font-size:1.8rem;">0</div>
+                    <div class="label">Promoted</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="value" id="seoScore" style="font-size:1.8rem;">0</div>
+                    <div class="label">Avg Score</div>
+                </div>
+            </div>
+            <div id="seoTopList" style="font-size:0.8rem;color:#666;"></div>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -747,6 +786,24 @@ function render() {
                 const div = document.createElement('div');
                 div.style.cssText = 'margin-top:0.2rem;';
                 div.textContent = `🎙️ ${v}`;
+                list.appendChild(div);
+            }
+        }
+    });
+
+    // SEO Engine
+    fetchJSON('/api/seo').then(d => {
+        if (!d) return;
+        document.getElementById('seoOptimized').textContent = d.total_optimized || 0;
+        document.getElementById('seoPromoted').textContent = d.total_promoted || 0;
+        document.getElementById('seoScore').textContent = (d.average_seo_score || 0) + '/100';
+        const list = document.getElementById('seoTopList');
+        list.innerHTML = '';
+        if (d.top_packages) {
+            for (const p of d.top_packages.slice(0, 5)) {
+                const div = document.createElement('div');
+                div.style.cssText = 'margin-top:0.2rem;';
+                div.textContent = `📦 ${p.title.slice(0, 40)} | ${p.type} | ${p.score}/100`;
                 list.appendChild(div);
             }
         }
