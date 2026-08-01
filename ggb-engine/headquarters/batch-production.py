@@ -13,6 +13,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from publisher import PublishEngine, StateStore, REPO_ROOT, STAGING_DIR, PUBLISH_DIR
 from PIL import Image, ImageDraw, ImageFont
 
+VOICE_ENGINE = Path(__file__).resolve().parent / "human-voice-engine.py"
+AUDIO_OUTPUT_DIR = REPO_ROOT / "publish" / "audio"
+
 BATCH_DIR = REPO_ROOT / "publish" / "batch-test"
 CONTENT_DIR = BATCH_DIR / "content"
 AUDIO_DIR = BATCH_DIR / "audio"
@@ -466,7 +469,7 @@ El pueblo Gullah Geechee tiene una perspectiva única. Nuestros ancestros sobrev
         """Generate all 100 ebooks, audiobooks, 25 pins, and translations."""
         print(f"\n  🏭 GGB Batch Production Engine")
         print(f"  ─────────────────────────────")
-        print(f"  Target: 100 ebooks + 100 audiobooks + 25 pins + 100 translations")
+        print(f"  Target: 100 ebooks + 100 audiobooks + 25 pins + 100 translations + 100 audio productions")
         print(f"  Started: {self.start_time.strftime('%H:%M:%S')}")
         print()
 
@@ -483,6 +486,24 @@ El pueblo Gullah Geechee tiene una perspectiva única. Nuestros ancestros sobrev
             except Exception as e:
                 self.stats["errors"].append(f"{title}: {str(e)[:100]}")
                 print(f"  [ERROR] {title}: {str(e)[:80]}")
+
+        # Phase 2: Produce human-quality audio for all audiobook scripts
+        print(f"\n  🎙️  Phase 2: Human Voice Production")
+        audio_scripts = sorted(AUDIO_DIR.glob("*.md"))
+        for i, script in enumerate(audio_scripts):
+            try:
+                title = script.stem.replace("audio-", "").replace("-", " ").title()
+                result = subprocess.run(
+                    [sys.executable, str(VOICE_ENGINE), "produce", str(script),
+                     "--title", title, "--type", "default", "--theme", "lowcountry"],
+                    capture_output=True, text=True, timeout=300
+                )
+                if result.returncode == 0:
+                    self.stats["audiobooks_generated"] += 1
+                if (i + 1) % 10 == 0:
+                    print(f"  [{i+1}/{len(audio_scripts)}] Audio: {title[:40]}...")
+            except Exception as e:
+                self.stats["errors"].append(f"Audio {title}: {str(e)[:100]}")
 
         elapsed = (datetime.now(timezone.utc) - self.start_time).total_seconds()
         print(f"\n  ─────────────────────────────")

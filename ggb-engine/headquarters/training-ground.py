@@ -15,6 +15,7 @@ from PIL import Image
 import shutil
 
 TRAINING_DIR = REPO_ROOT / "ggb-engine" / "headquarters" / "training"
+VOICE_ENGINE = Path(__file__).resolve().parent / "human-voice-engine.py"
 PYTHON = sys.executable
 BOTS_DIR = Path(__file__).resolve().parent.parent / "bots"
 HQ_DIR = Path(__file__).resolve().parent
@@ -194,6 +195,26 @@ A guide to {title.lower()}, drawing on Gullah Geechee wisdom.
                         self.stats["packages_uploaded"] += 1
             except Exception as e:
                 self.stats["errors"].append(f"{title}: Agent B upload failed - {str(e)[:100]}")
+
+        # 5. Produce human-quality audio for each package
+        print(f"\n  Phase 5: Human Voice Production")
+        for i, pkg_info in enumerate(discovered):
+            mid = pkg_info["manifest_id"]
+            title = pkg_info.get("title", f"Package {i+1}")
+            try:
+                manifest = engine.db.load_manifest(mid)
+                if manifest and manifest.get("files", {}).get("manuscript"):
+                    script_path = Path(manifest["files"]["manuscript"]["path"])
+                    if script_path.exists():
+                        result = subprocess.run(
+                            [PYTHON, str(VOICE_ENGINE), "produce", str(script_path),
+                             "--title", title, "--type", "default", "--theme", "lowcountry"],
+                            capture_output=True, text=True, timeout=300
+                        )
+                        if result.returncode == 0:
+                            self.stats["packages_uploaded"] += 1  # reuse counter for audio
+            except Exception as e:
+                self.stats["errors"].append(f"{title}: Audio production failed - {str(e)[:100]}")
 
         return self.stats
 

@@ -1,0 +1,48 @@
+{
+  "store": "stripe",
+  "action": "generate_new_ebook",
+  "count": 5,
+  "products": [
+    {
+      "title": "The Gullah Geechee Guide to Endurance",
+      "slug": "gullah-endurance",
+      "series": "self-help",
+      "price": 7.99,
+      "drm": "No",
+      "select": "Off"
+    },
+    {
+      "title": "The Gullah Geechee Guide to Honesty",
+      "slug": "gullah-honesty",
+      "series": "self-help",
+      "price": 5.99,
+      "drm": "No",
+      "select": "Off"
+    },
+    {
+      "title": "The Gullah Geechee Guide to Resilience",
+      "slug": "gullah-resilience",
+      "series": "self-help",
+      "price": 7.99,
+      "drm": "No",
+      "select": "Off"
+    },
+    {
+      "title": "The Gullah Geechee Guide to Vulnerability",
+      "slug": "gullah-vulnerability",
+      "series": "self-help",
+      "price": 7.99,
+      "drm": "No",
+      "select": "Off"
+    },
+    {
+      "title": "The Gullah Geechee Guide to Discipline",
+      "slug": "gullah-discipline",
+      "series": "self-help",
+      "price": 3.99,
+      "drm": "No",
+      "select": "Off"
+    }
+  ],
+  "generated": "2026-08-01T02:39:06.165842+00:00"
+}

@@ -15,6 +15,9 @@ from enum import Enum
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from publisher import REPO_ROOT, PUBLISH_DIR, hash_file, detect_mime
 
+# Voice engine path for automatic human-quality audio production
+VOICE_ENGINE = Path(__file__).resolve().parent / "human-voice-engine.py"
+
 # ─── Paths ─────────────────────────────────────────────────────────────────
 
 HQ_DIR = Path(__file__).resolve().parent
@@ -264,6 +267,18 @@ Thank you for listening. Visit gullahgeecheebiz.com to learn more, read our book
 *Produced by Gullah Geechee Biz*
 """)
         self.db.log_content("podcast", "podcast", episode, str(output))
+
+        # Auto-produce human-quality audio for the podcast
+        try:
+            subprocess.run(
+                [sys.executable, str(VOICE_ENGINE), "produce", str(output),
+                 "--title", f"GGB Podcast: {topic.replace('-', ' ').title()}",
+                 "--type", "community", "--theme", "lowcountry"],
+                capture_output=True, text=True, timeout=300
+            )
+        except:
+            pass
+
         return {"status": "generated", "path": str(output), "episode": episode}
 
     def generate_music_prompt(self, theme: str = "sweetgrass") -> dict:
