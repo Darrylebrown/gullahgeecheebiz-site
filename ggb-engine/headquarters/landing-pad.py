@@ -253,7 +253,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 if result:
                     mid = result[0]["manifest_id"]
                     slug = pkg_dir.name
-                    # Update scoreboard
+                    # Register with scoreboard if not already registered
                     conn = sqlite3.connect(str(SCOREBOARD_DB))
                     row = conn.execute(
                         "SELECT id FROM packages WHERE slug=? AND status='generated'",
@@ -262,6 +262,17 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                     conn.close()
                     if row:
                         self.scoreboard.update_status(row[0], "discovered", mid)
+                    else:
+                        # Auto-register: extract title from manifest
+                        manifest = self.engine.db.load_manifest(mid)
+                        title = "Unknown"
+                        category = "self-help"
+                        price = 0.0
+                        if manifest:
+                            title = manifest.get("title", {}).get("canonical", "Unknown")
+                            price = manifest.get("publishing", {}).get("price", 0.0)
+                        pkg_id = self.scoreboard.register_package(title, slug, category, "ebook", price)
+                        self.scoreboard.update_status(pkg_id, "discovered", mid)
                     discovered.append(result[0])
 
         return {
