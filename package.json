@@ -1,0 +1,25 @@
+{
+  "name": "gullahgeecheebiz-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node scripts/smoke-test.js",
+    "spellcheck": "codespell --ignore-words=.codespell-ignore --skip=\"node_modules,.git,*.png,*.jpg,*.mp4,*.mp3\" ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Darrylebrown/gullahgeecheebiz-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darrylebrown/gullahgeecheebiz-site/issues"
+  },
+  "homepage": "https://github.com/Darrylebrown/gullahgeecheebiz-site#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "sharp": "^0.35.3"
+  }
+}
