@@ -74,6 +74,13 @@ PLATFORMS = {
         "enabled": True,
         "max_concurrent": 1,
     },
+    "googleplay": {
+        "name": "Google Play Books",
+        "formats": ["book"],
+        "executor": "agent-b-googleplay.py",
+        "enabled": True,
+        "max_concurrent": 1,
+    },
 }
 
 # ─── Swarm Agent ────────────────────────────────────────────────────────
