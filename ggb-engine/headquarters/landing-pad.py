@@ -606,11 +606,11 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         self.scoreboard.take_snapshot()
 
         # Show pipeline flow
-        self._show_pipeline_flow()
+        result = self._show_pipeline_flow(scan, pipeline_results)
 
         return result
 
-    def _show_pipeline_flow(self):
+    def _show_pipeline_flow(self, scan=None, pipeline_results=None):
         """Print terminal pipeline flow visualization."""
         try:
             conn = sqlite3.connect(str(DB_PATH))
