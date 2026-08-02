@@ -81,6 +81,13 @@ PLATFORMS = {
         "enabled": True,
         "max_concurrent": 1,
     },
+    "tiktokshop": {
+        "name": "TikTok Shop",
+        "formats": ["book"],
+        "executor": "agent-b-tiktokshop.py",
+        "enabled": True,
+        "max_concurrent": 1,
+    },
 }
 
 # ─── Swarm Agent ────────────────────────────────────────────────────────
