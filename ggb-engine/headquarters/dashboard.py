@@ -850,6 +850,50 @@ body::before {
             <div id="transByLang" style="font-size:0.8rem;color:#666;"></div>
         </div>
 
+        <!-- Pipeline Flow Visualization -->
+        <div class="card" style="grid-column:1/-1;">
+            <div class="card-header">
+                <h2>🔄 Pipeline Flow</h2>
+                <span class="badge badge-ok">LIVE</span>
+            </div>
+            <div id="pipelineFlow" style="display:flex;align-items:center;justify-content:space-between;padding:1rem 0.5rem;gap:0.25rem;overflow-x:auto;">
+                <div class="pipe-stage" style="flex:1;text-align:center;min-width:80px;">
+                    <div class="pipe-count" id="pipeDiscovered" style="font-size:1.6rem;font-weight:700;color:#888;font-family:JetBrains Mono,monospace;">0</div>
+                    <div class="pipe-label" style="font-size:0.7rem;color:#666;">Discovered</div>
+                    <div class="pipe-bar" style="height:4px;background:#333;border-radius:2px;margin-top:4px;overflow:hidden;">
+                        <div class="pipe-fill" id="pipeDiscoveredFill" style="height:100%;width:0%;background:#888;border-radius:2px;transition:width 0.5s;"></div>
+                    </div>
+                </div>
+                <div class="pipe-arrow" style="color:#444;font-size:1.2rem;">→</div>
+                <div class="pipe-stage" style="flex:1;text-align:center;min-width:80px;">
+                    <div class="pipe-count" id="pipeValidated" style="font-size:1.6rem;font-weight:700;color:#60a5fa;font-family:JetBrains Mono,monospace;">0</div>
+                    <div class="pipe-label" style="font-size:0.7rem;color:#666;">Validated</div>
+                    <div class="pipe-bar" style="height:4px;background:#333;border-radius:2px;margin-top:4px;overflow:hidden;">
+                        <div class="pipe-fill" id="pipeValidatedFill" style="height:100%;width:0%;background:#60a5fa;border-radius:2px;transition:width 0.5s;"></div>
+                    </div>
+                </div>
+                <div class="pipe-arrow" style="color:#444;font-size:1.2rem;">→</div>
+                <div class="pipe-stage" style="flex:1;text-align:center;min-width:80px;">
+                    <div class="pipe-count" id="pipeApproved" style="font-size:1.6rem;font-weight:700;color:#22c55e;font-family:JetBrains Mono,monospace;">0</div>
+                    <div class="pipe-label" style="font-size:0.7rem;color:#666;">Approved</div>
+                    <div class="pipe-bar" style="height:4px;background:#333;border-radius:2px;margin-top:4px;overflow:hidden;">
+                        <div class="pipe-fill" id="pipeApprovedFill" style="height:100%;width:0%;background:#22c55e;border-radius:2px;transition:width 0.5s;"></div>
+                    </div>
+                </div>
+                <div class="pipe-arrow" style="color:#444;font-size:1.2rem;">→</div>
+                <div class="pipe-stage" style="flex:1;text-align:center;min-width:80px;">
+                    <div class="pipe-count" id="pipePublished" style="font-size:1.6rem;font-weight:700;color:#c9a84c;font-family:JetBrains Mono,monospace;">0</div>
+                    <div class="pipe-label" style="font-size:0.7rem;color:#666;">Published</div>
+                    <div class="pipe-bar" style="height:4px;background:#333;border-radius:2px;margin-top:4px;overflow:hidden;">
+                        <div class="pipe-fill" id="pipePublishedFill" style="height:100%;width:0%;background:#c9a84c;border-radius:2px;transition:width 0.5s;"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;font-size:0.7rem;color:#444;padding:0.25rem;">
+                <span id="pipeTotal" style="color:#666;">0</span> total packages flowing through pipeline
+            </div>
+        </div>
+
         <!-- Activity Feed -->
         <div class="card" style="grid-column:1/-1;max-height:450px;overflow-y:auto;">
             <div class="card-header">
@@ -1285,6 +1329,17 @@ function render() {
             document.getElementById('feedApproved').textContent = sb.approved || 0;
             document.getElementById('feedPublished').textContent = sb.published || 0;
             document.getElementById('feedDiscovered').textContent = sb.discovered || 0;
+            // Update pipeline flow visualization
+            const total = sb.total || 1;
+            document.getElementById('pipeDiscovered').textContent = sb.discovered || 0;
+            document.getElementById('pipeValidated').textContent = sb.validated || 0;
+            document.getElementById('pipeApproved').textContent = sb.approved || 0;
+            document.getElementById('pipePublished').textContent = sb.published || 0;
+            document.getElementById('pipeTotal').textContent = total;
+            document.getElementById('pipeDiscoveredFill').style.width = ((sb.discovered || 0) / total * 100) + '%';
+            document.getElementById('pipeValidatedFill').style.width = ((sb.validated || 0) / total * 100) + '%';
+            document.getElementById('pipeApprovedFill').style.width = ((sb.approved || 0) / total * 100) + '%';
+            document.getElementById('pipePublishedFill').style.width = ((sb.published || 0) / total * 100) + '%';
         });
     }
     loadActivity();
