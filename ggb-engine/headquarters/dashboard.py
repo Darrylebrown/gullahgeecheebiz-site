@@ -133,6 +133,15 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/scoreboard":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            data = self._get_scoreboard()
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path.startswith("/api/generate"):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -416,6 +425,27 @@ class DashboardHandler(BaseHTTPRequestHandler):
         # Sort by time, newest first, limit to 30
         activities.sort(key=lambda x: x.get("time", ""), reverse=True)
         return activities[:30]
+
+    def _get_scoreboard(self) -> dict:
+        """Get scoreboard counts from publisher DB."""
+        result = {"total": 0, "approved": 0, "published": 0, "discovered": 0, "validated": 0}
+        try:
+            conn = sqlite3.connect(str(DB_PATH))
+            rows = conn.execute("SELECT state, COUNT(*) FROM manifests GROUP BY state").fetchall()
+            for state, count in rows:
+                if state == "approved":
+                    result["approved"] = count
+                elif state == "live":
+                    result["published"] += count
+                elif state == "discovered":
+                    result["discovered"] = count
+                elif state == "validated":
+                    result["validated"] = count
+                result["total"] += count
+            conn.close()
+        except:
+            pass
+        return result
 
     def _get_health(self):
         """Quick health check."""
@@ -821,12 +851,30 @@ body::before {
         </div>
 
         <!-- Activity Feed -->
-        <div class="card" style="grid-column:1/-1;max-height:400px;overflow-y:auto;">
+        <div class="card" style="grid-column:1/-1;max-height:450px;overflow-y:auto;">
             <div class="card-header">
                 <h2>⚡ Live Activity Feed</h2>
                 <span class="badge badge-ok">LIVE</span>
             </div>
-            <div id="activityFeed" style="font-size:0.85rem;line-height:1.6;">
+            <div style="display:flex;gap:1.5rem;margin-bottom:0.5rem;padding:0.5rem;background:#1a1a2e;border-radius:8px;">
+                <div style="text-align:center;flex:1;">
+                    <div class="value" id="feedTotal" style="font-size:1.4rem;">0</div>
+                    <div class="label">Total Packages</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div class="value" id="feedApproved" style="font-size:1.4rem;color:#22c55e;">0</div>
+                    <div class="label">Approved</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div class="value" id="feedPublished" style="font-size:1.4rem;color:#c9a84c;">0</div>
+                    <div class="label">Published</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div class="value" id="feedDiscovered" style="font-size:1.4rem;color:#888;">0</div>
+                    <div class="label">Discovered</div>
+                </div>
+            </div>
+            <div id="activityFeed" style="font-size:0.85rem;line-height:1.6;max-height:280px;overflow-y:auto;border:1px solid #222;border-radius:6px;padding:0.25rem;">
                 <div style="text-align:center;color:#666;padding:1rem;">Loading activity...</div>
             </div>
         </div>
@@ -1225,6 +1273,18 @@ function render() {
                 div.appendChild(msg);
                 feed.appendChild(div);
             });
+        });
+        // Also fetch status for the stats bar
+        fetchJSON('/api/status').then(s => {
+            if (!s) return;
+            document.getElementById('feedTotal').textContent = s.ebooks_published || 0;
+        });
+        // Fetch scoreboard for approved/published/discovered counts
+        fetchJSON('/api/scoreboard').then(sb => {
+            if (!sb) return;
+            document.getElementById('feedApproved').textContent = sb.approved || 0;
+            document.getElementById('feedPublished').textContent = sb.published || 0;
+            document.getElementById('feedDiscovered').textContent = sb.discovered || 0;
         });
     }
     loadActivity();
