@@ -269,6 +269,48 @@ class SubmissionSwarm:
         }
 
 
+def show_pipeline_flow():
+    """Print a terminal visualization of the pipeline flow."""
+    try:
+        import sqlite3
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+        from publisher import DB_PATH
+
+        conn = sqlite3.connect(str(DB_PATH))
+        rows = conn.execute("SELECT state, COUNT(*) FROM manifests GROUP BY state").fetchall()
+        conn.close()
+
+        states = {"discovered": 0, "validated": 0, "approved": 0, "live": 0}
+        total = 0
+        for state, count in rows:
+            if state in states:
+                states[state] = count
+            total += count
+
+        if total == 0:
+            total = 1
+
+        labels = [
+            ("Discovered", states["discovered"], "#888"),
+            ("Validated", states["validated"], "#60a5fa"),
+            ("Approved", states["approved"], "#22c55e"),
+            ("Published", states["live"], "#c9a84c"),
+        ]
+
+        print(f"\n  🔄 Pipeline Flow  ({total} total)")
+        print(f"  {'─' * 50}")
+        for label, count, color in labels:
+            pct = (count / total) * 100
+            bar_len = int(pct / 2)
+            bar = "█" * bar_len + "░" * (25 - bar_len)
+            print(f"  {label:>12}  {bar}  {count:>4}  ({pct:5.1f}%)")
+        print(f"  {'─' * 50}")
+        print()
+    except Exception as e:
+        print(f"  Pipeline flow unavailable: {e}")
+
+
 # ─── CLI ─────────────────────────────────────────────────────────────────
 
 def cli():
@@ -286,8 +328,10 @@ def cli():
 
     if args.command == "swarm":
         result = swarm.swarm()
+        show_pipeline_flow()
     elif args.command == "status":
         result = swarm.status()
+        show_pipeline_flow()
     elif args.command == "pending":
         result = {"pending": swarm.get_pending_packages()}
 

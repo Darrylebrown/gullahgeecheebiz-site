@@ -10,8 +10,8 @@ from datetime import datetime, timezone
 from typing import Optional, Dict, List
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from publisher import PublishEngine, StateStore, REPO_ROOT, APPROVED_PACKAGE_ROOTS
-from headquarters.engine import HQDatabase, CONTENT_DIR, LOGS_DIR
+from publisher import PublishEngine, PublishState, REPO_ROOT, DB_PATH
+from headquarters.engine import HQDatabase, CONTENT_DIR, STUDIO_DIR, LOGS_DIR
 
 # ─── Landing Pad ──────────────────────────────────────────────────────────
 
@@ -246,26 +246,53 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
 
     def scan_and_discover(self) -> Dict:
         """Scan the landing pad and discover all new packages.
-        Skips packages that have already been discovered."""
+        Also re-discovers packages that have been fixed (files added to landing pad but manifest not updated)."""
         discovered = []
         for pkg_dir in sorted(self.pad.iterdir()):
             if pkg_dir.is_dir():
-                # Check if already discovered by looking at scoreboard
                 slug = pkg_dir.name
+                
+                # Check if already in scoreboard
                 conn = sqlite3.connect(str(SCOREBOARD_DB))
                 existing = conn.execute(
-                    "SELECT id, status FROM packages WHERE slug=? AND status != 'generated'",
+                    "SELECT id, status, manifest_id FROM packages WHERE slug=? AND status != 'generated'",
                     (slug,)
                 ).fetchone()
                 conn.close()
+                
                 if existing:
-                    # Already in pipeline — skip re-discovery
+                    # Check if manifest has empty files — if so, re-discover
+                    mid = existing[2]
+                    if mid:
+                        manifest = self.engine.db.load_manifest(mid)
+                        if manifest:
+                            files = manifest.get("files", {})
+                            if "manuscript" in files and "cover" in files:
+                                continue  # Already has files, skip
+                    
+                    # Re-discover: force update manifest with new files
+                    # Delete old manifest entry so discover() creates a fresh one
+                    conn2 = sqlite3.connect(str(self.engine.db.db_path))
+                    conn2.execute("DELETE FROM manifests WHERE manifest_id=?", (mid,))
+                    conn2.execute("DELETE FROM platform_evidence WHERE manifest_id=?", (mid,))
+                    conn2.commit()
+                    conn2.close()
+                    
+                    result = self.engine.discover(str(pkg_dir))
+                    if result:
+                        mid = result[0]["manifest_id"]
+                        # Update scoreboard status
+                        conn = sqlite3.connect(str(SCOREBOARD_DB))
+                        conn.execute("UPDATE packages SET status='discovered', manifest_id=? WHERE slug=?", (mid, slug))
+                        conn.commit()
+                        conn.close()
+                        discovered.append(result[0])
                     continue
 
+                # New package — discover fresh
                 result = self.engine.discover(str(pkg_dir))
                 if result:
                     mid = result[0]["manifest_id"]
-                    # Register with scoreboard
                     manifest = self.engine.db.load_manifest(mid)
                     title = "Unknown"
                     category = "self-help"
@@ -569,7 +596,40 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         # Take snapshot
         self.scoreboard.take_snapshot()
 
-        # Report
+        # Show pipeline flow
+        self._show_pipeline_flow()
+
+        return result
+
+    def _show_pipeline_flow(self):
+        """Print terminal pipeline flow visualization."""
+        try:
+            conn = sqlite3.connect(str(DB_PATH))
+            rows = conn.execute("SELECT state, COUNT(*) FROM manifests GROUP BY state").fetchall()
+            conn.close()
+            states = {"discovered": 0, "validated": 0, "approved": 0, "live": 0}
+            total = 0
+            for state, count in rows:
+                if state in states:
+                    states[state] = count
+                total += count
+            if total == 0: total = 1
+            labels = [
+                ("Discovered", states["discovered"]),
+                ("Validated", states["validated"]),
+                ("Approved", states["approved"]),
+                ("Published", states["live"]),
+            ]
+            print(f"\n  🔄 Pipeline Flow  ({total} total)")
+            print(f"  {'─' * 50}")
+            for label, count in labels:
+                pct = (count / total) * 100
+                bar_len = int(pct / 2)
+                bar = "█" * bar_len + "░" * (25 - bar_len)
+                print(f"  {label:>12}  {bar}  {count:>4}  ({pct:5.1f}%)")
+            print(f"  {'─' * 50}\n")
+        except:
+            pass
         board = self.scoreboard.get_scoreboard()
         print(f"\n  ───────────────────────────────")
         print(f"  Scoreboard:")
