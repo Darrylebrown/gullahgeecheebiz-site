@@ -124,6 +124,15 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data, default=str).encode())
             return
 
+        if path == "/api/activity":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            data = self._get_activity()
+            self.wfile.write(json.dumps(data, default=str).encode())
+            return
+
         if path.startswith("/api/generate"):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -326,6 +335,87 @@ class DashboardHandler(BaseHTTPRequestHandler):
             }
         except:
             return {"status": "initializing", "total_checks": 0, "total_fixes": 0, "open_incidents": 0}
+
+    def _get_activity(self) -> list:
+        """Get recent pipeline activity from all sources."""
+        activities = []
+
+        # From publisher DB — recent state transitions
+        try:
+            conn = sqlite3.connect(str(DB_PATH))
+            rows = conn.execute(
+                "SELECT manifest_id, state, updated_at FROM manifests ORDER BY updated_at DESC LIMIT 20"
+            ).fetchall()
+            for mid, state, ts in rows:
+                activities.append({
+                    "time": ts or "recent",
+                    "type": "pipeline",
+                    "icon": "📦",
+                    "message": f"Package {mid[:20]} → {state}",
+                })
+            conn.close()
+        except:
+            pass
+
+        # From neural monitor — recent fixes
+        try:
+            conn = sqlite3.connect(str(MONITOR_DB))
+            rows = conn.execute(
+                "SELECT check_name, status, checked_at FROM checks ORDER BY id DESC LIMIT 10"
+            ).fetchall()
+            for name, status, ts in rows:
+                icon = "✅" if status == "ok" else "⚠️"
+                activities.append({
+                    "time": ts or "recent",
+                    "type": "monitor",
+                    "icon": icon,
+                    "message": f"Neural check: {name} → {status}",
+                })
+            conn.close()
+        except:
+            pass
+
+        # From scoreboard — recent publications
+        try:
+            scoreboard_db = LOGS_DIR / "scoreboard.db"
+            if scoreboard_db.exists():
+                conn = sqlite3.connect(str(scoreboard_db))
+                rows = conn.execute(
+                    "SELECT title, status, published_at FROM packages WHERE published_at IS NOT NULL ORDER BY published_at DESC LIMIT 10"
+                ).fetchall()
+                for title, status, ts in rows:
+                    activities.append({
+                        "time": ts or "recent",
+                        "type": "published",
+                        "icon": "📚",
+                        "message": f"Published: {title[:40]}",
+                    })
+                conn.close()
+        except:
+            pass
+
+        # From translation DB — recent translations
+        try:
+            trans_db = LOGS_DIR / "translations.db"
+            if trans_db.exists():
+                conn = sqlite3.connect(str(trans_db))
+                rows = conn.execute(
+                    "SELECT title, lang, created_at FROM translations ORDER BY id DESC LIMIT 10"
+                ).fetchall()
+                for title, lang, ts in rows:
+                    activities.append({
+                        "time": ts or "recent",
+                        "type": "translation",
+                        "icon": "🌐",
+                        "message": f"Translated: {title[:40]} → {lang}",
+                    })
+                conn.close()
+        except:
+            pass
+
+        # Sort by time, newest first, limit to 30
+        activities.sort(key=lambda x: x.get("time", ""), reverse=True)
+        return activities[:30]
 
     def _get_health(self):
         """Quick health check."""
@@ -729,6 +819,17 @@ body::before {
             </div>
             <div id="transByLang" style="font-size:0.8rem;color:#666;"></div>
         </div>
+
+        <!-- Activity Feed -->
+        <div class="card" style="grid-column:1/-1;max-height:400px;overflow-y:auto;">
+            <div class="card-header">
+                <h2>⚡ Live Activity Feed</h2>
+                <span class="badge badge-ok">LIVE</span>
+            </div>
+            <div id="activityFeed" style="font-size:0.85rem;line-height:1.6;">
+                <div style="text-align:center;color:#666;padding:1rem;">Loading activity...</div>
+            </div>
+        </div>
     </div>
 
     <!-- Cron Jobs -->
@@ -1101,6 +1202,33 @@ function render() {
             }
         }
     });
+
+    // Activity Feed
+    function loadActivity() {
+        fetchJSON('/api/activity').then(d => {
+            if (!d || d.length === 0) return;
+            const feed = document.getElementById('activityFeed');
+            feed.innerHTML = '';
+            d.forEach(item => {
+                const div = document.createElement('div');
+                div.style.cssText = 'display:flex;align-items:center;gap:0.5rem;padding:0.2rem 0;border-bottom:1px solid #222;';
+                const time = document.createElement('span');
+                time.style.cssText = 'color:#666;font-size:0.7rem;font-family:JetBrains Mono,monospace;min-width:5rem;';
+                time.textContent = (item.time || '').slice(11, 19);
+                const icon = document.createElement('span');
+                icon.textContent = item.icon || '•';
+                const msg = document.createElement('span');
+                msg.style.cssText = 'color:#ccc;';
+                msg.textContent = item.message || '';
+                div.appendChild(time);
+                div.appendChild(icon);
+                div.appendChild(msg);
+                feed.appendChild(div);
+            });
+        });
+    }
+    loadActivity();
+    setInterval(loadActivity, 10000); // Refresh every 10 seconds
 
     // Kanban Board
     const savedTasks = JSON.parse(localStorage.getItem('ggb_tasks') || '[]');
