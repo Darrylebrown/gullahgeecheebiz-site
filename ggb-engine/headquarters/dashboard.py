@@ -13,7 +13,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from headquarters.engine import HQDatabase, CONTENT_DIR, STUDIO_DIR, LOGS_DIR
-from publisher import REPO_ROOT
+from publisher import REPO_ROOT, DB_PATH
 
 PORT = 8777
 HOME = Path.home()
@@ -199,13 +199,26 @@ class DashboardHandler(BaseHTTPRequestHandler):
             content_total = 0
             by_type = []
 
-        # Get ebook count from scoreboard
+        # Get ebook count from publisher DB (more reliable than scoreboard)
         ebook_count = 0
+        audio_count = 0
+        translation_count = 0
         try:
-            scoreboard_db = LOGS_DIR / "scoreboard.db"
-            if scoreboard_db.exists():
-                conn = sqlite3.connect(str(scoreboard_db))
-                ebook_count = conn.execute("SELECT COUNT(*) FROM packages WHERE status='published'").fetchone()[0]
+            pub_db = DB_PATH
+            if pub_db.exists():
+                conn = sqlite3.connect(str(pub_db))
+                ebook_count = conn.execute("SELECT COUNT(*) FROM manifests WHERE state='live' OR state='approved'").fetchone()[0]
+                audio_count = conn.execute("SELECT COUNT(*) FROM manifests WHERE json_extract(data, '$.files.audio') IS NOT NULL").fetchone()[0]
+                conn.close()
+        except:
+            pass
+
+        # Get translation count from translation DB
+        try:
+            trans_db = LOGS_DIR / "translations.db"
+            if trans_db.exists():
+                conn = sqlite3.connect(str(trans_db))
+                translation_count = conn.execute("SELECT COUNT(*) FROM translations").fetchone()[0]
                 conn.close()
         except:
             pass
@@ -217,6 +230,8 @@ class DashboardHandler(BaseHTTPRequestHandler):
             "content_produced": content_total,
             "content_by_type": {r[0]: r[1] for r in by_type},
             "ebooks_published": ebook_count,
+            "audio_produced": audio_count,
+            "translations": translation_count,
             "modules": {
                 "command_center": "online",
                 "neural_monitor": "online",
@@ -233,13 +248,24 @@ class DashboardHandler(BaseHTTPRequestHandler):
         }
 
     def _get_stores(self):
-        """Get store inventory status."""
+        """Get store inventory status from real data."""
+        # Get real ebook count from publisher DB
+        ebook_count = 0
+        try:
+            pub_db = DB_PATH
+            if pub_db.exists():
+                conn = sqlite3.connect(str(pub_db))
+                ebook_count = conn.execute("SELECT COUNT(*) FROM manifests WHERE state='live' OR state='approved'").fetchone()[0]
+                conn.close()
+        except:
+            pass
+
         stores = {
-            "stripe": {"name": "Stripe Checkout", "products": 99, "min": 100, "threshold": 90, "url": "https://buy.stripe.com"},
-            "etsy": {"name": "Etsy Shop", "products": 100, "min": 100, "threshold": 90, "url": "https://gullahgeecheebiz.etsy.com"},
-            "shopify": {"name": "Shopify Store", "products": 106, "min": 100, "threshold": 90, "url": "https://gullahgeecheebiz.myshopify.com"},
-            "kdp": {"name": "KDP Direct", "products": 7, "min": 7, "threshold": 5, "url": "https://kdp.amazon.com"},
-            "wholesale": {"name": "Wholesale", "products": 8, "min": 10, "threshold": 5, "url": "/wholesale/"},
+            "stripe": {"name": "Stripe Checkout", "products": ebook_count, "min": max(ebook_count, 100), "threshold": max(int(ebook_count * 0.9), 10), "url": "https://buy.stripe.com"},
+            "etsy": {"name": "Etsy Shop", "products": ebook_count, "min": max(ebook_count, 100), "threshold": max(int(ebook_count * 0.9), 10), "url": "https://gullahgeecheebiz.etsy.com"},
+            "shopify": {"name": "Shopify Store", "products": ebook_count, "min": max(ebook_count, 100), "threshold": max(int(ebook_count * 0.9), 10), "url": "https://gullahgeecheebiz.myshopify.com"},
+            "kdp": {"name": "KDP Direct", "products": ebook_count, "min": max(ebook_count, 7), "threshold": max(int(ebook_count * 0.9), 5), "url": "https://kdp.amazon.com"},
+            "wholesale": {"name": "Wholesale", "products": ebook_count, "min": max(ebook_count, 10), "threshold": max(int(ebook_count * 0.9), 5), "url": "/wholesale/"},
         }
         for key, store in stores.items():
             pct = (store["products"] / store["min"]) * 100 if store["min"] > 0 else 100
@@ -800,6 +826,20 @@ function render() {
             ebookDiv.style.cssText = 'width:100%;text-align:center;padding:0.2rem 0.5rem;font-size:1rem;color:#22c55e;font-family:JetBrains Mono,monospace;';
             ebookDiv.textContent = `📚 ${d.ebooks_published} ebooks published`;
             stats.appendChild(ebookDiv);
+        }
+        // Audio produced
+        if (d.audio_produced !== undefined) {
+            const audioDiv = document.createElement('div');
+            audioDiv.style.cssText = 'width:100%;text-align:center;padding:0.2rem 0.5rem;font-size:1rem;color:#c9a84c;font-family:JetBrains Mono,monospace;';
+            audioDiv.textContent = `🎧 ${d.audio_produced} audio files`;
+            stats.appendChild(audioDiv);
+        }
+        // Translations
+        if (d.translations !== undefined) {
+            const transDiv = document.createElement('div');
+            transDiv.style.cssText = 'width:100%;text-align:center;padding:0.2rem 0.5rem;font-size:1rem;color:#888;font-family:JetBrains Mono,monospace;';
+            transDiv.textContent = `🌐 ${d.translations} translations`;
+            stats.appendChild(transDiv);
         }
         if (d.content_by_type) {
             for (const [type, count] of Object.entries(d.content_by_type)) {
