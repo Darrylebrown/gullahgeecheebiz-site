@@ -593,6 +593,15 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 print(f"     Translated {trans['translated']} packages to Spanish")
         except: pass
 
+        # Google Play Books Bot Army — generate promotions
+        try:
+            r = subprocess.run([sys.executable, str(bots_dir / "googleplay-bot-army.py"), "swarm", "--json"],
+                              capture_output=True, text=True, timeout=120)
+            army = json.loads(r.stdout) if r.stdout else {}
+            if army.get("generated", 0) > 0:
+                print(f"     Google Play Bot Army: {army['generated']} promotions generated")
+        except: pass
+
         # Take snapshot
         self.scoreboard.take_snapshot()
 
