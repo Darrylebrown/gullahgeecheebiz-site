@@ -1,0 +1,5 @@
+{"timestamp": "2026-08-02T09:30:00", "manifest_id": "ggb-manifest-001", "title": "Book A", "platform": "d2d", "method": "playwright-v1", "success": true, "error": ""}
+{"timestamp": "2026-08-02T09:31:00", "manifest_id": "ggb-manifest-002", "title": "Book B", "platform": "d2d", "method": "playwright-v1", "success": true, "error": ""}
+{"timestamp": "2026-08-02T09:32:00", "manifest_id": "ggb-manifest-003", "title": "Book C", "platform": "d2d", "method": "playwright-v1", "success": false, "error": "Timeout on file upload"}
+{"timestamp": "2026-08-02T09:33:00", "manifest_id": "ggb-manifest-003", "title": "Book C", "platform": "d2d", "method": "playwright-v2", "success": true, "error": ""}
+{"timestamp": "2026-08-02T09:34:00", "manifest_id": "ggb-manifest-004", "title": "Book D", "platform": "d2d", "method": "playwright-v1", "success": true, "error": ""}

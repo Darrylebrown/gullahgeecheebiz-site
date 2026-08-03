@@ -6,7 +6,7 @@ DISCOVERED → PACKAGED → VALIDATING → VALIDATED → STAGED → PLATFORM_UPL
 
 Runs in batches, logs everything, handles errors gracefully.
 """
-import json, sys, time, logging
+import json, sys, time, logging, os
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -45,7 +45,7 @@ class PipelineProcessor:
         return self.db.atomic(_get)
 
     def process_discovered(self, manifest_id: str) -> dict:
-        """DISCOVERED → PACKAGED → VALIDATING → VALIDATED"""
+        """DISCOVERED → PACKAGED → VALIDATING → VALIDATED (with Gemini quality check)"""
         result = {"manifest_id": manifest_id, "stage": "reconcile", "success": False}
 
         # Step 1: Reconcile (DISCOVERED → PACKAGED)
@@ -53,7 +53,31 @@ class PipelineProcessor:
         if r.get("error"):
             return {**result, "error": r["error"]}
 
-        # Step 2: Audit (PACKAGED → VALIDATING → VALIDATED or BLOCKED)
+        # Step 2: Gemini quality check on discovered content
+        try:
+            # Get manifest data from the engine
+            status = self.engine.get_status(manifest_id)
+            title = status.get("title", "Unknown")
+            if isinstance(title, dict):
+                title = title.get("canonical", str(title))
+            
+            gemini_prompt = f"Rate this book title for marketability 1-10: '{title}'. Reply with just the number."
+            import requests
+            api_key = os.environ.get("OPENROUTER_API_KEY", "")
+            if api_key:
+                r_gemini = requests.post(
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                    json={"model": "google/gemini-2.5-flash", "messages": [{"role": "user", "content": gemini_prompt}], "max_tokens": 10},
+                    timeout=10
+                )
+                if r_gemini.status_code == 200:
+                    score = r_gemini.json()["choices"][0]["message"]["content"].strip()
+                    self.logger.info(f"Gemini quality score for {title}: {score}")
+        except Exception as e:
+            self.logger.warning(f"Gemini check skipped for {manifest_id}: {e}")
+
+        # Step 3: Audit (PACKAGED → VALIDATING → VALIDATED or BLOCKED)
         a = self.engine.audit(manifest_id)
         if a.get("error"):
             return {**result, "error": a["error"]}

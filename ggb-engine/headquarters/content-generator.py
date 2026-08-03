@@ -12,10 +12,17 @@ PUB_DB = REPO_ROOT / "publish" / "publisher.db"
 LANDING_PAD = REPO_ROOT / "publish" / "landing-pad"
 OUTPUT_DIR = REPO_ROOT / "publish" / "generated-content"
 
+# ─── AI Providers ──────────────────────────────────────────────────────────
+
 # OpenRouter config
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 OPENROUTER_BASE = "https://openrouter.ai/api/v1"
-OPENROUTER_MODEL = "deepseek/deepseek-chat"  # Fast, cheap, good for content gen
+OPENROUTER_MODEL = "deepseek/deepseek-chat"
+
+# Google Gemini config
+GOOGLE_CREDENTIALS = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", 
+    str(Path.home() / ".hermes" / "keys" / "ggb-publishing-bot.json"))
+GEMINI_MODEL = "models/gemini-2.0-flash"  # Fast, free tier, Google-native
 
 sys.path.insert(0, str(REPO_ROOT / "ggb-engine"))
 import publisher, importlib
