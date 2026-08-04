@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Make Southern Cornbread",
+    "description": "A guide to how to make southern cornbread from scratch, drawing on Gullah Geechee wisdom a",
+    "url": "https://gullahgeecheebiz.com/books/how-to-make-southern-cornbread-from-scratch",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Make Southern Cornbread from Scratch",
+    "headline": "How to Make Southern Cornbread from Scra",
+    "description": "A guide to how to make souther",
+    "url": "https://gullahgeecheebiz.com/books/how-to-make-southern-cornbread-from-scratch",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Make Southern Cornbread from Scratch",
+    "description": "A guide to how to make southern cornbread from scratch, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "make",
+      "southern",
+      "cornbread"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Make Southern Cornbread",
+    "description": "A guide to how to make southern cornbread from scratch, drawing on Gullah Geechee wisdom and cultura",
+    "url": "https://gullahgeecheebiz.com/books/how-to-make-southern-cornbread-from-scratch"
+  }
+}

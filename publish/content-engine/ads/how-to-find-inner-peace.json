@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Find Inner Peace",
+    "description": "A guide to how to find inner peace, drawing on Gullah Geechee wisdom and cultural heritage",
+    "url": "https://gullahgeecheebiz.com/books/how-to-find-inner-peace",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Find Inner Peace",
+    "headline": "How to Find Inner Peace",
+    "description": "A guide to how to find inner p",
+    "url": "https://gullahgeecheebiz.com/books/how-to-find-inner-peace",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Find Inner Peace",
+    "description": "A guide to how to find inner peace, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "find",
+      "inner",
+      "peace"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Find Inner Peace",
+    "description": "A guide to how to find inner peace, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-find-inner-peace"
+  }
+}

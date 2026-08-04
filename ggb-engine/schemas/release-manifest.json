@@ -74,7 +74,7 @@
     },
     "language": {
       "type": "string",
-      "description": "Language name or code"
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
     },
     "format": {
       "type": "string",
@@ -85,7 +85,7 @@
       "enum": ["kdp", "acx", "d2d", "spotify", "distrokid", "etsy", "shopify", "site"]
     },
     "draft_id": {
-      "oneOf": [{"type": "string"}, {"type": "null"}],
+      "type": "string",
       "description": "Existing platform draft ID or null for new draft"
     },
     "source_package": {
@@ -107,11 +107,11 @@
       "type": "object",
       "required": ["manuscript", "cover"],
       "properties": {
-        "manuscript": {"$ref": "#/$defs/artifact"},
-        "cover": {"$ref": "#/$defs/artifact"},
-        "audio": {"$ref": "#/$defs/artifact"},
-        "artwork": {"$ref": "#/$defs/artifact"},
-        "metadata": {"$ref": "#/$defs/artifact"}
+        "manuscript": {"$ref": "#/definitions/artifact"},
+        "cover": {"$ref": "#/definitions/artifact"},
+        "audio": {"$ref": "#/definitions/artifact"},
+        "artwork": {"$ref": "#/definitions/artifact"},
+        "metadata": {"$ref": "#/definitions/artifact"}
       }
     },
     "metadata": {
@@ -146,8 +146,8 @@
       "type": "object",
       "required": ["drm", "kdp_select", "price", "currency"],
       "properties": {
-        "drm": {"type": "string", "enum": ["no", "yes"], "default": "no"},
-        "kdp_select": {"type": "string", "enum": ["off", "on"], "default": "off"},
+        "drm": {"type": "boolean", "default": false},
+        "kdp_select": {"type": "boolean", "default": false},
         "price": {"type": "number"},
         "currency": {"type": "string", "default": "USD"},
         "release_date": {"type": "string", "format": "date"}
@@ -167,11 +167,11 @@
       "type": "object",
       "properties": {
         "status": {"type": "string", "enum": ["pending", "validating", "passed", "failed", "blocked"]},
-        "epubcheck": {"$ref": "#/$defs/validation_result"},
-        "cover_check": {"$ref": "#/$defs/validation_result"},
-        "metadata_check": {"$ref": "#/$defs/validation_result"},
-        "rights_check": {"$ref": "#/$defs/validation_result"},
-        "platform_check": {"$ref": "#/$defs/validation_result"},
+        "epubcheck": {"$ref": "#/definitions/validation_result"},
+        "cover_check": {"$ref": "#/definitions/validation_result"},
+        "metadata_check": {"$ref": "#/definitions/validation_result"},
+        "rights_check": {"$ref": "#/definitions/validation_result"},
+        "platform_check": {"$ref": "#/definitions/validation_result"},
         "repair_history": {
           "type": "array",
           "items": {
@@ -231,7 +231,7 @@
       }
     }
   },
-  "$defs": {
+  "definitions": {
     "artifact": {
       "type": "object",
       "required": ["path", "sha256", "size", "mime_type"],

@@ -1,0 +1,64 @@
+{
+  "product_name": "Encyclopedia Volume 40",
+  "author": "Darryl Elliott Brown",
+  "publisher": "Gullah Geechee Biz",
+  "price": 9.99,
+  "currency": "USD",
+  "category": "Books & Audible > General",
+  "description": "\ud83c\udf1f New Release: Encyclopedia Volume 40\n\nThe Gullah Geechee community has preserved African traditions for over 400 years. Now, this wisdom is available in an easy-to-read guide.\n\nInside you'll find:\n\u2705 Step-by-step guidance\n\u2705 Cultural context and history\n\u2705 Practical exercises\n\u2705 Stories from the Sea Islands\n\nThis book is more than a guide \u2014 it's a connection to a living culture that has survived against all odds.\n\nDownload instantly on Google Play Books, Amazon Kindle, or your favorite device.\n\n#GullahGeechee #NewBook #CulturalWisdom #SelfHelp #BlackExcellence",
+  "hashtags": [
+    "#GullahGeechee",
+    "#BookTok",
+    "#NewBook",
+    "#SelfHelp",
+    "#BlackHistory",
+    "#CulturalHeritage",
+    "#Lowcountry",
+    "#BookRecommendation",
+    "#ReadingList",
+    "#TikTokShop"
+  ],
+  "shipping": {
+    "weight": "0.5 lbs",
+    "dimensions": "6 x 0.5 x 9 inches",
+    "handling_time": "1-2 business days"
+  },
+  "pricing_breakdown": {
+    "list_price": 9.99,
+    "tiktok_commission_pct": "5.0%",
+    "tiktok_commission": 0.5,
+    "processing_fee": 0.6,
+    "net_profit_per_sale": 8.89
+  },
+  "promotional_scripts": [
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-email-blast-1963f2.md",
+      "type": "1963f2"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-instagram-post-ad78e6.md",
+      "type": "ad78e6"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-pinterest-pin-2f04cf.md",
+      "type": "2f04cf"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-review-prompt-220ab2.md",
+      "type": "220ab2"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-seo-article-24c846.md",
+      "type": "24c846"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-tiktok-script-6ff945.md",
+      "type": "6ff945"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-40-twitter-post-9010b6.md",
+      "type": "9010b6"
+    }
+  ],
+  "generated_at": "2026-08-02T02:17:05.451725+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "google_ads": {
+    "headline": "Encyclopedia Vol 12",
+    "description": "Discover Encyclopedia Vol 12",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-12",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover Encyclopedia Vol 12",
+    "headline": "Encyclopedia Vol 12",
+    "description": "Gullah Geechee Biz",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-12",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "Encyclopedia Vol 12",
+    "description": "Learn about Encyclopedia Vol 12",
+    "keywords": [
+      "encyclopedia",
+      "vol",
+      "12"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "Encyclopedia Vol 12",
+    "description": "Check out Encyclopedia Vol 12",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-12"
+  }
+}

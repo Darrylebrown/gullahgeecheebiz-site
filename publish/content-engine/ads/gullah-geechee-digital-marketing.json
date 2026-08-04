@@ -1,0 +1,30 @@
+{
+  "google_ads": {
+    "headline": "Gullah Geechee Digital Marketi",
+    "description": "A guide to gullah geechee digital marketing, drawing on Gullah Geechee wisdom and cultural",
+    "url": "https://gullahgeecheebiz.com/books/gullah-geechee-digital-marketing",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover Gullah Geechee Digital Marketing",
+    "headline": "Gullah Geechee Digital Marketing",
+    "description": "A guide to gullah geechee digi",
+    "url": "https://gullahgeecheebiz.com/books/gullah-geechee-digital-marketing",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "Gullah Geechee Digital Marketing",
+    "description": "A guide to gullah geechee digital marketing, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "gullah",
+      "geechee",
+      "digital",
+      "marketing"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "Gullah Geechee Digital Marketi",
+    "description": "A guide to gullah geechee digital marketing, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/gullah-geechee-digital-marketing"
+  }
+}

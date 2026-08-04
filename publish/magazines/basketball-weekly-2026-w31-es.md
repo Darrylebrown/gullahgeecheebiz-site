@@ -1,0 +1,171 @@
+
+
+# 🏀 CANASTA TOTAL
+### Edición 31 — 2026 | Del cancha a la cultura
+
+---
+
+## HISTORIA DE PORTADA
+
+### Luka Dončić anota 57 puntos y estampa un triple histórico: "No tengo palabras"
+
+**Por Carlos Mendoza | 18 de julio de 2026**
+
+El Palacio de los Deportes de Dallas se estremeció la noche del viernes 17 de julio cuando Luka Dončić desató su mayor acto de magia individual en lo que va de temporada. Con 57 puntos, 11 asistencias y 8 rebotes, el alero esloveno lideró a los Dallas Mavericks a una victoria épica por 142-136 sobre los Denver Nuggets, en un duelo que los expertos ya catalogan como uno de los diez mejores partidos de la historia de la NBA.
+
+Dončić anotó 8 triples, incluyendo una sucesión de tres convertidos en los últimos tres minutos del cuarto cuarto que sellaron la victoria. "Estaba en otra dimensión", declaró el astro, visiblemente emocionado tras el pitido final. "No pensé en las estadísticas. Solo pensaba en ganar. En mi equipo. En estos fanáticos que no me han soltado la mano nunca."
+
+El exjugador Steve Nash describió la actuación como "posiblemente la mejor exhibición ofensiva que he visto en los últimos cinco años", mientras que Charles Barkley no dudó en tuitear: "Luka Dončić es, sin discusión, el jugador más letal de esta liga hoy en día."
+
+La jugada más memorable llegó en el minuto 3:42 del cuarto tiempo, cuando Dončić recibió un pase en la línea de triple, giró sobre su pie de pivote para crear espacio y enterró un triple de seis metros que dejó bocaada a la afición rival. ElaNuggets, por su parte, contaron con una brillante actuación de Nikola Jokić (38 puntos, 14 rebotes, 10 asistencias), pero no pudieron evitar la remontada maverick.
+
+Este triunfo coloca a Dallas en segundo lugar en la Conferencia Oeste con un récord de 42-28, a solo dos juegos de los Oklahoma City Thunder. "Esto es solo el comienzo", aseguró el mánager general Mark Cuban durante la conferencia de prensa posterior. "Luka está jugándose su mejor篮球."
+
+---
+
+## SPOTLIGHT DE JUGADOR
+
+### Caitlin Clark rompe otro récord y redefine lo que significa ser una estrella
+
+**Por Valentina Reyes | 19 de julio de 2026**
+
+A sus 24 años, Caitlin Clark ya no solo está escribiendo la historia de la WNBA: la está reescribiendo una y otra vez. La base de los Iowa Wolves marcó 42 puntos la noche del 16 de julio, incluidos siete triples, y lideró a su equipo a una victoria de 98-87 sobre las Las Vegas Aces en un partido que congregó a una audiencia récord de 2,3 millones de espectadores en ESPN.
+
+Lo que hace única a Clark no es solo su capacidad goleadora — ya acumula 1.847 puntos en la temporada, líder indiscutible de la liga — sino su visión de juego. Con 14 asistencias en esa misma noche, superó la marca de 300 asistencias en una sola temporada, un hito que se creía inalcanzable para una jugadora en sus primeros años profesionales.
+
+"Mi objetivo nunca fue romper récords", afirmó Clark en la cancha, con los ojos brillantes. "Mi objetivo siempre fue hacer que este juego se viera más bonito. Si puedo inspirar a una niña en Iowa o en cualquier parte del mundo a coger un balón y soñar en grande, entonces todo esto tiene sentido."
+
+La directora ejecutiva de la WNBA, Cathy Engelbert, destacó que el fenómeno Clark ha elevado los ingresos por publicidad de la liga en un 340% respecto al año anterior y ha vendido entradas por valor de más de 450 millones de dólares en taquilla a nivel nacional. "Caitlin es el alma de esta liga en este momento", declaró Engelbert. "Ha transformado la forma en que el mundo ve el baloncesto femenino."
+
+Los comparaciones con LeBron James y Stephen Curry son inevitables, pero Clark las recibe con una humildad que sorprende. "Quiero ser recordada no por mis números, sino por cómo cambié el juego", comentó. "Eso es todo lo que me importa."
+
+---
+
+## ANÁLISIS DE PARTIDO
+
+### Barça vs. Real Madrid: La guerra del derbi europeo
+
+**Por Andrés Gil | 20 de julio de 2026**
+
+El Palau Blaugrana fue escenario de uno de los derbis más intensos de la Euroliga esta temporada. El FC Barcelona venció al Real Madrid 89-84 en un duelo que definió múltiples立场上: tácticas, emocionales y deportivas.
+
+**Primera parte: El choque de estilos**
+
+El Barça abrió con una defensa pressante que obligó al Real Madrid a cometer 9 pérdidas en el primer cuarto. Willy Hernangómez, el pívot barcelonista, dominó el post bajo con 14 puntos y 8 rebotes, mientras que el Real respondía con la velocidad de Facundo Campazzo, quien anotó 11 puntos y repartió 7 asistencias desde la banca.
+
+El entrenador catalán, Sarunas Jasikevicius, implementó un esquema de bloqueos múltiples que desorganizó completamente la defensa blanca. "Necesitamos ser más agresivos sin balón", comentó Jasikevicius en la pausa del segundo cuarto. "El defensor del rival tiene que sentir presión todo el partido."
+
+**Segunda parte: La respuesta madridista**
+
+Santiago Squarzon, el entrenador del Real Madrid, ajustó con un sistema de zona 2-3 que neutralizó los bloqueos barcelonistas. El cambio funcionó: el Barça encestó solo 3 de 14 triple в втором тайме. Pero fue la estrella del partido: Alex Abrines, quien anotó 22 puntos, incluyendo un triple decisivo con 28 segundos para el final que dejó al Palau en éxtasis.
+
+**Datos clave del encuentro:**
+- Posesiones: Barça 74 — Real Madrid 71
+- Porcentaje de tiro: Barça 52% — Real Madrid 47%
+- Rebotes: 41-38 a favor del Barça
+- Asistencias: 22-19 a favor del Real
+
+"Este partido demuestra que el basket europeo está en un momento histórico", reflexionó el analista deportivo Jordi Puig. "Dos equipos con filosofías opuestas que compiten al más alto nivel es exactamente lo que necesita esta competición."
+
+---
+
+## CONSEJOS Y ENTRENAMIENTO
+
+### Eleva tu juego: 5 ejercicios para dominar el tiro en movimiento
+
+**Por Roberto Sánchez | 21 de julio de 2026**
+
+El tiro en movimiento es una de las habilidades más subestimadas en el baloncesto. A diferencia del tiro estático, requiere coordinación entre la velocidad, el ritmo y la mecánica. Aquí te presentamos cinco ejercicios que utilizan entrenadores de la NBA y de la Euroliga para perfeccionar esta técnica.
+
+**Ejercicio 1: El circuito de triple en movimiento**
+Coloca conos a 5 metros del aro en ambos lados de la pista. Comienza desde la línea de fondo, corre hacia el cono, detente en dos tiempos, recoge el pase de un compañero y lanza. Repite desde ambos lados durante 10 repeticiones. El secreto: la coordinación entre el último paso y el lanzamiento debe ser perfecta.
+
+**Ejercicio 2: Spot-up desde el post bajo**
+Colócate en la línea de tiro libre. Un compañero te pasa el balón desde el poste bajo. Recibe, ajusta tus pies al instante y lanza. Este ejercicio simula situaciones reales de juego donde recibes el pase en una posición de tiro. Realiza 15 repeticiones por cada lado.
+
+**Ejercicio 3: El "one-dribble pull-up"**
+Comienza desde media cancha, drible una vez hacia adelante y lanza un tiro flotante. Este ejercicio entrena tu capacidad para crear espacio en una sola operación, algo fundamental contra defensas agresivas. 20 repeticiones, alternando manos.
+
+**Ejercicio 4: Tiro tras corte V**
+Un compañero te hace un corte en forma de V hacia la bandeja. En el momento del cambio de dirección, recibes el pase y lanzas. Este ejercicio es crucial para jugadores que buscan tiros en el perímetro durante transiciones ofensivas. 15 repeticiones por cada lado.
+
+**Ejercicio 5: Tiro bajo fatiga**
+Realiza sprints de ida y vuelta antes de cada tiro. La fatiga afecta la mecánica del lanzamiento, y aprender a mantener la forma bajo presión es lo que separa a los buenos tiradores de los grandes tiradores. 20 tiros, 5 sprints entre cada uno.
+
+**Consejo pro:** Trabaja estos ejercicios tres veces por semana, comenzando con cinco minutos de calentamiento de brazos y muñecas. La constancia es más importante que la intensidad.
+
+---
+
+## PRÓXIMOS EVENTOS
+
+### Calendario de la semana: lo que no te puedes perder
+
+**Por María Fernanda Torres | 22 de julio de 2026**
+
+La próxima semana está cargada de partidos de alto calibre que prometen emociones fuertes. Aquí te dejamos nuestra guía esencial:
+
+**Lunes 21 de julio — NBA Summer League**
+- Lakers vs. Warriors en las Vegas (20:00 h, ESPN)
+- Los Angeles Lakers presentan a su joven promesa, Marcus Johnson, quien promedia 22 puntos en la Pretemporada. El partido promete ser un espectáculo de talento emergente.
+
+**Miércoles 23 de julio — Euroliga: Final Four Semifinales**
+- Fenerbahçe vs. Olympiacos (18:00 h,beIN Sports)
+- Dos gigantes europeos se enfrentan por un lugar en la gran final. El Fenerbahçe llega con la racha de 12 victorias consecutivas.
+
+**Viernes 25 de julio — Liga ACB: Jornada 15**
+- Valencia Basket vs. Baskonia (20:30 h, Movistar Deportes)
+- El Valencia Basket busca cerrar la tabla de posiciones con una victoria crucial contra uno de sus perseguidores directos.
+
+**Sábado 26 de julio — WNBA: Día de las Estrellas**
+- Partido de Estrellas WNBA (21:00 h, ABC)
+- La estrella del momento, Caitlin Clark, será el centro de atención en un partido que promete ser un espectáculo de habilidades y entretenimiento.
+
+**Domingo 27 de julio — Baloncesto Femenino: España vs. Francia**
+- Encuentro clasificatorio para el Mundial 2027 (18:00 h, La 2)
+- La selección española busca mantener su racha invicta en la eliminatoria europea.
+
+---
+
+## ESQUINA COMUNITARIA
+
+### El baloncesto que nace en los barrios: historias que inspiran
+
+**Por Diego Morales | 23 de julio de 2026**
+
+En el barrio de Comaltepec, en la Ciudad de México, un grupo de jóvenes ha convertido un canasto de concreto en un templo del baloncesto. Bajo la dirección del coach Miguel Ángel Hernández, "Los Comales" ha formado a más de 50 jugadores que ahora compiten en ligas locales y regionales.
+
+"Este baloncesto no tiene glamour", comenta Hernández, de 52 años, mientras supervisa un entrenamiento en las canchas al aire libre que han sido remodeladas con materiales reciclados. "Pero tiene corazón. Cada niño que viene aquí viene con un sueño y se va con disciplina."
+
+El proyecto, iniciado hace siete años con una donación de 200 dólares de un vecino, ahora recibe apoyo de la Fundación Baloncesto para Todos y ha expandido su programa a tres barrios vecinos.
+
+En Barcelona, la cooperativa "Esport per la Vida" organiza torneos mensuales en parques públicos que reúnen a más de 200 jugadores de todas las edades. "El baloncesto es el mejor pegamento social que existe", afirma Laura Martínez, coordinadora del programa. "No importa tu edad, tu color, tu condición. En la cancha, todos son iguales."
+
+Mientras tanto, en Buenos Aires, el club "Los Muchachos del Sur" ha organizado un torneo benéfico que recaudó más de 15.000 dólares para familias necesitadas del barrio. "El baloncesto nos une más allá de lo deportivo", dice su presidente, Martín Fernández. "Somos una familia."
+
+Estas historias nos recuerdan que el verdadero espíritu del baloncesto no vive en los estadios más grandes ni en las transmisiones más costosas. Vive en cada cancha de barrio, en cada entrenador que se toma el tiempo de enseñar, en cada niño que sueña con un futuro mejor a través de un balón.
+
+---
+
+## LECCIÓN DE HISTORIA
+
+### El milagro de 1992: Cuando los Dream Team cambiaron el baloncesto para siempre
+
+**Por Alejandro Ruiz | 24 de julio de 2026**
+
+El 7 de agosto de 1992, el conjunto estadounidense conocido como "Dream Team" ganó la medalla de oro en los Juegos Olímpicos de Barcelona. Pero más allá del resultado, ese equipo transformó para siempre la forma en que el mundo veía el baloncesto.
+
+La historia comienza en 1989, cuando la FIBA permitió por primera vez que jugadores profesionales de la NBA compitieran en los Juegos Olímpicos. La respuesta de la NBA fue histórica: Michael Jordan, Magic Johnson, Larry Bird, Charles Barkley, John Stockton, Patrick Ewing, David Robinson, Chris Mullin, Karl Malone, Clyde Drexler, Scottie Pippen y Christian Laettner.
+
+Los Estados Unidos no solo ganó todos sus partidos en Barcelona, sino que lo hizo dominando con una diferencia promedio de 44 puntos por encuentro. La final contra la selección española, que contenía a los hermanos Hernández, terminó 117-85.
+
+"Lo que hizo ese equipo fue cambiar la percepción del baloncesto en el mundo", explica el historiador deportivo Enrique Vázquez. "Antes de 1992, el basket era un deporte popular en Estados Unidos pero marginal en Europa y Asia. Después del Dream Team, el basketball se convirtió en el segundo deporte más popular del mundo."
+
+Los efectos fueron inmediatos y duraderos: la NBA vio un aumento del 800% en su audiencia internacional en los cinco años siguientes. Jugadores como Steve Francis, Tony Parker y Pau Gasol citan al Dream Team como su mayor inspiración para perseguir el sueño de jugar en la NBA.
+
+"El Dream Team no ganó porque fueran los mejores jugadores del mundo", concluía Magic Johnson en una entrevista histórica. "Ganaron porque eran los mejores amigos del mundo. Eso es lo que hizo especial a ese equipo: la química, el amor, la diversión."
+
+Casi tres décadas después, el legado del Dream Team sigue vigente. Cada joven que mira un partido de la NBA y sueña con ser la próxima estrella, cada entrenador que adapta tácticas del juego americano, cada niño que pinta un balón con los colores de su equipo favorito lleva dentro un fragmento de aquel milagro de Barcelona.
+
+---
+
+*CANASTA TOTAL — Edición 31, 2026 | Del cancha a la cultura*

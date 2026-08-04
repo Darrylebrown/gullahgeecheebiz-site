@@ -146,14 +146,6 @@ header p {
     margin-bottom: 20px;
 }
 
-.trust-line {
-    text-align: center;
-    margin-top: 28px;
-    font-size: 0.9rem;
-    color: var(--cream);
-    opacity: 0.72;
-}
-
 .tier-card ul {
     list-style: none;
     text-align: left;

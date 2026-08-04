@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Write Copy That Sells",
+    "description": "A guide to how to write copy that sells, drawing on Gullah Geechee wisdom and cultural her",
+    "url": "https://gullahgeecheebiz.com/books/how-to-write-copy-that-sells",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Write Copy That Sells",
+    "headline": "How to Write Copy That Sells",
+    "description": "A guide to how to write copy t",
+    "url": "https://gullahgeecheebiz.com/books/how-to-write-copy-that-sells",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Write Copy That Sells",
+    "description": "A guide to how to write copy that sells, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "write",
+      "copy",
+      "that"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Write Copy That Sells",
+    "description": "A guide to how to write copy that sells, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-write-copy-that-sells"
+  }
+}

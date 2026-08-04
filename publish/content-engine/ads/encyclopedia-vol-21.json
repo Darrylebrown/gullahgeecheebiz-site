@@ -1,0 +1,29 @@
+{
+  "google_ads": {
+    "headline": "Encyclopedia Vol 21",
+    "description": "Discover Encyclopedia Vol 21",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-21",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover Encyclopedia Vol 21",
+    "headline": "Encyclopedia Vol 21",
+    "description": "Gullah Geechee Biz",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-21",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "Encyclopedia Vol 21",
+    "description": "Learn about Encyclopedia Vol 21",
+    "keywords": [
+      "encyclopedia",
+      "vol",
+      "21"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "Encyclopedia Vol 21",
+    "description": "Check out Encyclopedia Vol 21",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-21"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "google_ads": {
+    "headline": "Gullah Geechee Beverages",
+    "description": "A guide to gullah geechee beverages, drawing on Gullah Geechee wisdom.",
+    "url": "https://gullahgeecheebiz.com/books/gullah-geechee-beverages",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover Gullah Geechee Beverages",
+    "headline": "Gullah Geechee Beverages",
+    "description": "A guide to gullah geechee beve",
+    "url": "https://gullahgeecheebiz.com/books/gullah-geechee-beverages",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "Gullah Geechee Beverages",
+    "description": "A guide to gullah geechee beverages, drawing on Gullah Geechee wisdom.",
+    "keywords": [
+      "gullah",
+      "geechee",
+      "beverages"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "Gullah Geechee Beverages",
+    "description": "A guide to gullah geechee beverages, drawing on Gullah Geechee wisdom.",
+    "url": "https://gullahgeecheebiz.com/books/gullah-geechee-beverages"
+  }
+}

@@ -1,0 +1,160 @@
+
+
+# THE GOALPOST — Issue 31, 2026
+### The world's game, every week
+
+---
+
+## COVER STORY: The Derby That Shook Europe
+
+**By Marcus Hale**
+
+The lights of Old Trafford didn't just dim on Saturday night — they seemed to hold their breath. In one of the most anticipated matches of the 2025–26 Premier League season, Manchester United delivered a performance that will be whispered about for decades. A 3–1 demolition of Liverpool at the Theatre of Dreams didn't just shift the title race; it may have shifted the entire momentum of European football.
+
+Erik ten Hag, under relentless scrutiny since October, stood on the touchline looking every bit the calm general. His strategy was unorthodox — a 3–4–2–1 formation that had barely seen the pitch all season — but the execution was flawless. Lisandro Martínez anchored the back three with the ferocity of a man who'd been waiting his whole career for this moment, pinning Liverpool's press high and forcing errors before they could gather steam.
+
+The opening goal arrived in the 14th minute. Kobbie Mainoo, playing as the inside forward on the left, intercepted a lazy pass from Alexis Mac Allister and threaded a pass through the legs of Virgil van Dijk that found Bruno Fernandes. The Portuguese playmaker's first touch was soft, his second was surgical — a low drive into the bottom corner that hit the net and sent 74,000 voices into delirium.
+
+"I told the boys before the week started," Ten Hag said afterward, "that this game isn't about the table. It's about identity. Who are we? What do we stand for?"
+
+The second came forty-five seconds after the restart. Marcus Rashford, dropped deep to collect the ball, feinted a pass, turned, and unleashed a left-footed rocket from twenty-five yards. Alisson Becker stretched, fingers millimetres from parrying it away, but the angle was too tight. 2–0.
+
+Liverpool's response was brave but flawed. Mohamed Salah went chasing shadows for most of the half, isolated up front without the midfield to link him. Arne Slot, making his third appearance at Old Trafford as Liverpool manager, made the decision to bring on Darwin Núñez for Diogo Jota in the 62nd minute — a move that opened space but also left the home side's back line exposed.
+
+Cody Gakpo pulled one back with ten minutes remaining, a sharp finish after a swift counter, but United's response was immediate. Mainoo — named man of the match with an assist and two key passes — curled a free kick onto the post in the 78th minute before Bruno himself sealed it with a penalty in stoppage time after a handball by Joe Gomez.
+
+What does this mean for the title race? United are now three points behind Arsenal, who face Chelsea next weekend. The margin is thin, but the psychological blow to Liverpool — who dropped points against mid-table Aston Villa later that day — cannot be overstated.
+
+"For the first time all season, I felt we played as a team," said Casemiro, speaking through the exhaustion. "That's what makes the difference. Not individuals. Team."
+
+---
+
+## PLAYER SPOTLIGHT: The Rose That Bloomed in Munich
+
+**By Yuki Tanaka**
+
+Jamal Musiala doesn't need an introduction, but this week — after a hat-trick against Borussia Dortmund that saw Bayern Munich extend their Bundesliga lead to eight points — perhaps it's time for the world to sit up and truly appreciate what they're watching.
+
+At 23 years old, Musiala has already collected two Bundesliga titles, a DFB-Pokal, and a UEFA Champions League trophy. Yet his game continues to evolve. Against Dortmund, he didn't just score — he orchestrated. His positioning in the final third had Dortmund's midfield chasing ghosts for ninety minutes, and his first touch in tight spaces seems to get better every single month.
+
+"Jamal plays football the way it was meant to be played," said Bayern manager Vincent Kompany after the match. "He sees the game three passes ahead of everyone else. When he receives the ball, he's already decided what happens next. That's a gift."
+
+The statistics tell their own story. Musiala leads the Bundesliga this season with 18 goals and 11 assists across all competitions. His progressive carries per 90 minutes (4.7) are the highest in Europe's top five leagues among players with at least fifteen appearances. He has been directly involved in 29 of Bayern's 47 goals this campaign — more than any other player in the continent.
+
+But beyond the numbers lies something harder to quantify: charisma. Musiala walks onto the pitch with a quiet confidence that draws the eye. He celebrates goals with a serene nod rather than theatrical displays, yet there is an intensity in his eyes when he looks toward the opposition's goal that tells you he wants this more than anyone else on the pitch.
+
+English clubs have been circling for two years. PSG are said to be preparing a bid. Yet Musiala has consistently pushed back at speculation. "I am happy here," he said simply this week. "Bayern is my home. I have a project with Vincent, and we are building something special."
+
+Whether that project includes a third Champions League in four years remains to be seen, but if Musiala's form against Dortmund is any indicator, the Bayern number 10 is in no rush to leave the scene of his greatest triumphs.
+
+---
+
+## GAME ANALYSIS: Tactical Breakdown — How City Broken Man City… Wait.
+
+**By David O'Brien**
+
+Let's talk about the match that nobody saw coming: Tottenham Hotspur's 2–0 victory over Manchester City at the Tottenham Hotspur Stadium on Saturday. A result that may look ordinary on paper but was, in reality, a tactical masterclass from Ange Postecoglou.
+
+City came into the fixture having won their last twelve Premier League games. Spurs had lost three of their last four. On paper, this was supposed to be a routine weekend for Pep Guardiola's men. Instead, it was a statement.
+
+Spurs' setup was the story. Postecoglou deployed a 3–2–4–1 in attack, with Pedro Porro and Destiny Udogie pushing incredibly high as wing-backs, almost playing as wingers. The two holding midfielders — Yves Bissouma and Pape Sarr — sat deep, forming a double pivot that neutralised City's usual overloads in central areas.
+
+The key tactical matchup was between Rodri and Bissouma. City typically use Rodri as the metronome, receiving the ball between the opposition's press and moving it forward with his distribution. Spurs' game plan was to deny Rodri that time and space. Bissouma pressed aggressively when Rodri received the ball, while Sarr covered the passing lane to İlkay Gündoğan. The result: Rodri, usually the most impactful player on the pitch, was largely invisible. He completed just 68% of his passes — his lowest figure of the season — and had zero progressive passes.
+
+In attack, James Maddison operated in the half-space between City's midfield and defense, finding pockets of space that Erling Haaland couldn't track without abandoning his positional discipline. Son Heung-min, playing as the central striker, held up play brilliantly, bringing two forwards into the game and creating space for Bissouma to surge forward.
+
+The first goal arrived from a set piece — Spurs' trademark. Cristian Romero won the header, and the ball fell to Maddison, who curled a left-footed shot that dipped under Ederson's crossbar. The second was even more devastating: a swift counter where Udogie raced onto a through ball from Sarr and squared for Son to finish clinically.
+
+Guardiola's post-match silence was telling. "We had our moments, but Tottenham were better. No excuses."
+
+City return to the Premier League next weekend against Wolves, looking to bounce back. Spurs, meanwhile, have seized control of the race for Champions League qualification, sitting fourth and just two points behind Arsenal.
+
+---
+
+## TIPS & TRAINING: The Art of the Turn — Mastering the Roulette
+
+**By Elena Torres**
+
+Every player, at some point, has found themselves with their back to goal, two defenders closing in, and the clock ticking. The instinct is to play it safe — square it back, lay it off, survive. But the truly great players do something different: they turn.
+
+This week, we break down the "roulette" — that spectacular 360-degree turn popularised by players like Zinedine Zidane and more recently, Florian Wirtz — and how you can incorporate it into your game.
+
+**Step 1: The Trap**
+Before you turn, you need the ball under control. Receive the ball with the sole of your foot, cushioning it slightly. The ball should be close enough that you can manipulate it with the inside of your opposite foot as you rotate.
+
+**Step 2: The Finit**
+Your first touch is everything. Don't just trap the ball — place it. A well-weighted first touch in the direction you want to turn can steal half a second of space, which is all you need.
+
+**Step 3: The Rotation**
+Plant your non-kicking foot beside the ball and rotate your body quickly through 360 degrees. Keep your head up — this is the most overlooked aspect. You need to see where your defender is at all times.
+
+**Step 4: The Exit**
+As you complete the turn, your kicking foot should be ready to either drive past the defender, pass to a teammate, or shoot. The turn should never be an end in itself; it's a means to an end.
+
+**Drill for Beginners:** Set up two cones ten yards apart. Receive a pass from a partner, turn through 360 degrees, and pass through the cones. Start at half speed, gradually building to match pace.
+
+**Pro Tip:** Practice receiving with your back to goal in tight spaces. The roulette only works if you have the close control to execute it under pressure. Spend ten minutes a day juggling with your sole — it sounds simple, but the benefit to your touch is enormous.
+
+Remember: the roulette isn't for every situation. But when the moment comes, and you have the space, the confidence, and the skill — go for it. The crowd will love you for it.
+
+---
+
+## UPCOMING EVENTS: What to Watch Next Week
+
+**By Sarah Chen**
+
+Here's your must-watch guide for the next seven days of football action.
+
+**Saturday, August 2nd — Premier League: Arsenal vs. Chelsea**
+The North London side host their London rivals at the Emirates in what promises to be a firecracker. Arsenal's pre-season has been impressive, but Chelsea's new-look side, with Enzo Maresca still building his philosophy, could spring a surprise. Key battle: Bukayo Saka vs. Marc Cucurella on the right flank.
+
+**Sunday, August 3rd — Champions League Group Stage Draw**
+The draw takes place at 12:00 CET in Istanbul. With the new format featuring 36 teams and a league phase, every club is eager to see who they'll face. Keep an eye on potential matchups involving English, Spanish, and Italian clubs.
+
+**Wednesday, August 6th — Europa League Playoff First Legs**
+The playoff round gets underway with some tantalizing ties. Look out for Roma hosting Ajax and Sporting Lisbon taking on Celtic. Both ties promise drama and history.
+
+**Saturday, August 9th — Bundesliga: Bayern Munich vs. Borussia Mönchengladbach**
+Bayern come off their dominant display against Dortmund and face a Gladbach side that finished a respectable sixth last season. Musiala will be looking to add to his tally.
+
+**Sunday, August 10th — Serie A: Juventus vs. Inter Milan**
+The Derby d'Italia kicks off the Serie A season. Juventus, under new manager Thiago Motta, will want to make a statement against a Milan side that weakened slightly in the summer but remains the defending champions.
+
+---
+
+## COMMUNITY CORNER: Where the Beautiful Game Begins
+
+**The Riverside Rovers Take the County Cup**
+In a match that drew over 2,000 spectators to Riverside Park, Riverside Rovers claimed their first County Cup triumph in club history, defeating Oakhaven United 4–2 in a thrilling final on Sunday. The match, officiated by former England international Karen Jones, saw Rovers trail 2–0 at half-time before a second-half surge powered by goals from academy graduate Leo Mensah (two) and captain Samir Patel. "This is for every kid who told us we weren't good enough," said Mensah, who scored a hat-trick-level double. The club, founded in 1978 by a group of railway workers, has now won twelve senior trophies — including the County Cup for the first time.
+
+**New Coaching Clinic Launched in Glasgow**
+Celtic FC's community wing has partnered with Glasgow City Council to launch a free coaching clinic for young players aged 8–16 across the city's six districts. Running every Saturday morning from September through to April, the program will be led by qualified coaches and former player ambassadors. "Football is about more than talent," said program director Fiona McAllister. "It's about access, opportunity, and community." Spots are limited — register at celticfc.com/community.
+
+**Local School Wins National Fitness Challenge**
+St. Patrick's Primary School in Leeds has been named national champions in the Football Foundation's "Move More, Match Well" challenge, having logged over 50,000 minutes of physical activity across their student body this term. The school will receive new pitch equipment and a coaching visit from a professional club. Headteacher Nigel Armstrong called it "a testament to what children can achieve when they're given the chance to be active."
+
+---
+
+## HISTORY LESSON: The Day the World Stopped for Football
+
+**By Roberto Fernández**
+
+On July 16, 1950, somewhere between 150,000 and 200,000 people gathered at the Maracanã Stadium in Rio de Janeiro for what was supposed to be a coronation. Brazil needed only a draw against Uruguay in the decisive match of the FIFA World Cup to claim their first-ever title on home soil. The city had been transformed into a carnival of green and yellow. Newspapers had already printed headlines declaring the Brazilian champion.
+
+They were wrong.
+
+Uruguay, a nation of just 2.5 million people, had reached this moment through sheer grit. They had drawn with Sweden and Spain in the final group stage and were now the underdogs against a Brazilian side boasting the likes of Ademir, Jair, and the brilliant Plínio.
+
+The match itself was tense and tactical. Brazil created several chances in the first half but couldn't find the breakthrough. Uruguay's goalkeeper, Mazurkiewicz, was imperious. Half-time: 0–0.
+
+The second half saw Brazil pressing desperately. Ademir struck the crossbar. Jair had a goal disallowed for offside. The crowd roared with every attack.
+
+Then, in the 79th minute, the moment that would be replayed a million times over the decades: Paraguay-born Uruguayan Alcides Ghiggia received the ball on the right wing, cut inside past Didi, and fired a low shot past goalkeeper Augusto. 1–0. The Maracanã went silent — a silence so profound that photographers capturing the scene later described it as "watching a country die."
+
+Uruguay added a second seven minutes later through Juan Alberto Schiaffino, and the final whistle confirmed not just a match victory, but one of the greatest upsets in sporting history. The "Maracanazo," as it became known, is still discussed in Brazil as the moment that defined a nation's relationship with football — a love affair tempered by the knowledge that the beautiful game can break your heart as easily as it fills it.
+
+A plaque at the Maracanã marks the spot where Ghiggia scored. It reads simply: *Aquí ocurrió la mayor final de la historia del fútbol.* (Here occurred the greatest final in football history.)
+
+---
+
+*That's all for Issue 31. See you next week — the beautiful game never sleeps.*

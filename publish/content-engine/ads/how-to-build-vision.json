@@ -1,0 +1,30 @@
+{
+  "google_ads": {
+    "headline": "How to Build Vision",
+    "description": "A guide to how to build vision, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-vision",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Build Vision",
+    "headline": "How to Build Vision",
+    "description": "A guide to how to build vision",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-vision",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Build Vision",
+    "description": "A guide to how to build vision, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "build",
+      "vision"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Build Vision",
+    "description": "A guide to how to build vision, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-vision"
+  }
+}

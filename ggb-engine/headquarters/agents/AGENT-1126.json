@@ -1,0 +1,21 @@
+{
+    "agent_id": "AGENT-1126",
+    "name": "Quality Reviews Content Editor",
+    "department": "QUALITY_REVIEWS",
+    "role": "Content Editor",
+    "skills": [
+        "Elite Publishing Mindset: 'Published books change lives. Unsubmitted books do nothing.'",
+        "Collective Intelligence Protocol: 'One learns, everyone learns. One improves, all improve.'",
+        "Role: Content Editor"
+    ],
+    "cron_schedule": "0 */30 * * * *",
+    "status": "active",
+    "last_activity": "2026-08-04T06:17:28.143571",
+    "communication_protocol": "HTTP/2 (RESTful API to central message bus)",
+    "error_handling": "Retry (3x with exponential backoff) -> Alert System Brain -> Log to ELK stack",
+    "improvement_mechanism": "Adaptive learning via feedback loops from System Brain; Collective Intelligence Protocol updates.",
+    "reporting_mechanism": "Periodical (daily/weekly based on role) JSON reports to System Brain endpoint, real-time alerts for critical events.",
+    "dependencies": [],
+    "output_format": "JSON",
+    "input_format": "JSON"
+}

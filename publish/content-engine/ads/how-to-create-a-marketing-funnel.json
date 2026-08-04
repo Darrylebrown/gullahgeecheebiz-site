@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Create a Marketing Funn",
+    "description": "A guide to how to create a marketing funnel, drawing on Gullah Geechee wisdom and cultural",
+    "url": "https://gullahgeecheebiz.com/books/how-to-create-a-marketing-funnel",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Create a Marketing Funnel",
+    "headline": "How to Create a Marketing Funnel",
+    "description": "A guide to how to create a mar",
+    "url": "https://gullahgeecheebiz.com/books/how-to-create-a-marketing-funnel",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Create a Marketing Funnel",
+    "description": "A guide to how to create a marketing funnel, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "create",
+      "a",
+      "marketing"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Create a Marketing Funn",
+    "description": "A guide to how to create a marketing funnel, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-create-a-marketing-funnel"
+  }
+}

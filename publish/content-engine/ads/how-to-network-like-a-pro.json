@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Network Like a Pro",
+    "description": "A guide to how to network like a pro, drawing on Gullah Geechee wisdom and cultural herita",
+    "url": "https://gullahgeecheebiz.com/books/how-to-network-like-a-pro",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Network Like a Pro",
+    "headline": "How to Network Like a Pro",
+    "description": "A guide to how to network like",
+    "url": "https://gullahgeecheebiz.com/books/how-to-network-like-a-pro",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Network Like a Pro",
+    "description": "A guide to how to network like a pro, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "network",
+      "like",
+      "a"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Network Like a Pro",
+    "description": "A guide to how to network like a pro, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-network-like-a-pro"
+  }
+}

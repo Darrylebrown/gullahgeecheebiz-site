@@ -1,0 +1,34 @@
+========================================
+  GULLAH GEECHEE BIZ — 1,817 BOOKS
+  All locations for the crew
+========================================
+
+📊 DASHBOARD:
+  http://localhost:8086
+
+📁 DATABASE:
+  /Users/darrylsmac/gullahgeecheebiz-site/publish/publisher.db
+
+📄 EPUB FILES (2,823 files):
+  /Users/darrylsmac/gullahgeecheebiz-site/publish/for-distribution/google-play/
+
+📋 SHOPIFY CSV (1,817 products):
+  /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/universal-submitter/csv/shopify-products.csv
+
+📋 ETSY CSV (1,817 listings):
+  /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/universal-submitter/csv/etsy-listings.csv
+
+📋 PINTEREST CSV (1,817 pins):
+  /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/universal-submitter/csv/pinterest-feed.csv
+
+📋 DRAFT2DIGITAL CSV (1,817 books):
+  /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/universal-submitter/csv/draft2digital-books.csv
+
+🔧 UPLOAD SCRIPTS:
+  /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/
+  - shopify-uploader.py
+  - etsy-uploader.py
+  - pinterest-uploader.py
+  - draft2digital-connector.py
+
+========================================

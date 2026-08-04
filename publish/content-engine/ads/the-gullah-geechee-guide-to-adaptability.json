@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "The Gullah Geechee Guide to Ad",
+    "description": "A guide to the gullah geechee guide to adaptability, drawing on Gullah Geechee wisdom.",
+    "url": "https://gullahgeecheebiz.com/books/the-gullah-geechee-guide-to-adaptability",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover The Gullah Geechee Guide to Adaptability",
+    "headline": "The Gullah Geechee Guide to Adaptability",
+    "description": "A guide to the gullah geechee ",
+    "url": "https://gullahgeecheebiz.com/books/the-gullah-geechee-guide-to-adaptability",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "The Gullah Geechee Guide to Adaptability",
+    "description": "A guide to the gullah geechee guide to adaptability, drawing on Gullah Geechee wisdom.",
+    "keywords": [
+      "the",
+      "gullah",
+      "geechee",
+      "guide",
+      "to"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "The Gullah Geechee Guide to Ad",
+    "description": "A guide to the gullah geechee guide to adaptability, drawing on Gullah Geechee wisdom.",
+    "url": "https://gullahgeecheebiz.com/books/the-gullah-geechee-guide-to-adaptability"
+  }
+}

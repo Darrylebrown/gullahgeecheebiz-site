@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Bake Buttermilk Cornbre",
+    "description": "A guide to how to bake buttermilk cornbread, drawing on Gullah Geechee wisdom and cultural",
+    "url": "https://gullahgeecheebiz.com/books/how-to-bake-buttermilk-cornbread",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Bake Buttermilk Cornbread",
+    "headline": "How to Bake Buttermilk Cornbread",
+    "description": "A guide to how to bake butterm",
+    "url": "https://gullahgeecheebiz.com/books/how-to-bake-buttermilk-cornbread",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Bake Buttermilk Cornbread",
+    "description": "A guide to how to bake buttermilk cornbread, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "bake",
+      "buttermilk",
+      "cornbread"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Bake Buttermilk Cornbre",
+    "description": "A guide to how to bake buttermilk cornbread, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-bake-buttermilk-cornbread"
+  }
+}

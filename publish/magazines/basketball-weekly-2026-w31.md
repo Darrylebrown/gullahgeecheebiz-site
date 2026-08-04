@@ -1,0 +1,188 @@
+
+
+# SLAM WEEKLY
+## Issue 31 — July 28, 2026
+### *From the court to the culture*
+
+---
+
+## COVER STORY: The Warriors' Rebuild Is Already Rewriting History
+
+By Marcus Chen
+
+Eight years after their last championship banner was raised in Chase Center rafters, the Golden State Warriors aren't just competing again — they're competing *differently*. And that's what makes the last two weeks the most consequential in franchise history outside of the Curry-Pugh-Klay trinity's peak.
+
+On July 22, head coach Steve Kerr announced a starting lineup shift that sent ripples through the league: 22-year-old phenom trio of Brandin Podziemski, Moses Moody, and rookie sensation **Darius Thompson** — a 6'5" guard out of Duke who went pick-first in the 2026 draft — will see extended minutes together this preseason. It's a dramatic pivot toward youth and length, a signal that the Warriors are no longer waiting for the past to return. They're building something new.
+
+"We spent years optimizing for yesterday," Kerr said at the press conference in San Francisco. "This offseason, we decided to optimize for tomorrow."
+
+The move comes on the heels of a front-office overhaul that saw the departures of veterans Andrew Wiggins and Gary Payton II, replaced by aggressive free-agent acquisitions including All-Star caliber wing **Jalen Duren** and three-point specialist **Aaron Wiggins**. The analytics department, led by newly hired VP of Basketball Ops **Dr. Elena Vasquez**, pushed hard for a younger, switchable roster built for the pace-and-space evolution of the modern game.
+
+The results have been undeniable in summer league. Through four games in Las Vegas, the Warriors are shooting 52% from three on high-volume look attempts — a league-worst rate in 2025, dramatically improved. Thompson, in particular, has looked like a generational prospect: 18 points, 7 assists, and a +14 plus-minus in his summer league debut against the Lakers on July 10.
+
+Critics call it recklessness. Veterans on the roster call it liberation.
+
+"What they're doing takes courage," said former Warriors champion Andre Iguodala, now a team ambassador. "Not every dynasty knows when to pivot. This one did."
+
+The NBA Finals remain two years away, but the chess match has already begun. And in San Francisco, the future looks brighter than it has since 2022.
+
+---
+
+## PLAYER SPOTLIGHT: Victor Wembanyama — The Frame That Defies Logic
+
+By Jordan Hayes
+
+When Victor Wembanyama steps onto the court for the San Antonio Spurs this October, the question won't be *if* he's the best player in the world — it'll be *how*.
+
+At 7'4" with a 8'2" wingspan and a handle that rivals point guards, the French phenomenon has already redefined what a basketball player can be in his first two seasons. But the 2026-27 campaign could be the leap that separates him from even the all-time greats.
+
+Last season, Wembanyama averaged 26.4 points, 10.8 rebounds, and a league-leading 3.9 blocks per game. He made the All-NBA First Team at 22 years old — the youngest player ever to achieve the feat. Yet his impact transcends counting stats.
+
+Film study reveals a player who's constantly upgrading his game. His mid-range pull-up has become virtually unhackable. His court vision has improved to the point where he regularly initiates the offense from the top of the key — a role traditionally reserved for larger, quicker guards. And defensively, he's developed the foot speed to guard positions one through five in switch-heavy schemes.
+
+"He's not playing basketball the way other seven-footers do," said Spurs head coach Greg Popovich. "He's playing it the way the game *should* be played."
+
+What makes Wembanyama truly special, however, is his mentorship of the Spurs' young core. Teammates describe him as relentlessly detail-oriented, spending hours after practice reviewing film with rookies and second-year players alike. Forward **Keldon Johnson** called him "the most humble superstar I've ever been around."
+
+With the Spurs holding the second pick in the 2026 draft (selecting **Toumani Camara** out of Dayton), the foundation around Wembanyama is taking shape. If he reaches even half of his projected ceiling, the Spurs could be contendings by 2027 — a remarkable turnaround from their 22-loss season in 2024.
+
+The world is watching. And Wembanyama is just getting started.
+
+---
+
+## GAME ANALYSIS: How the Celtics Outsmarted the Lakers in the Champions Cup Final
+
+By Sarah Okonkwo
+
+The 2026 NBA Champions Cup Final between the Boston Celtics and Los Angeles Lakers was everything a championship game should be — and then some. Boston's 112-107 victory on July 15 wasn't won by athleticism alone; it was a masterclass in tactical adjustment that will be studied for years.
+
+**First Half: The Lakers' Blitz**
+
+Los Angeles came out firing, employing a relentless double-team on Jayson Tatum in the early minutes. Luka Dončić was the hub, finding Tatum's helpers with pinpoint kicks to the corners. AJ Lawrence and Rui Hachimura combined for 28 first-half points on efficient shooting. The Lakers led 58-52 at the break, having exploited Boston's switch-everything defense with precise ball movement.
+
+**The Turning Point: Second-Half Adjustments**
+
+Enter Joe Mazzulla. The Celtics' head coach made two critical adjustments after halftime:
+
+1. **Tatum became the primary ball-handler.** Moving Tatum into more iso and pick-and-roll roles disrupted the Lakers' defensive rhythm. When Tatum initiated, Dončić had to stay attached, opening driving lanes for Jaylen Brown.
+
+2. **Derrick White was moved to guard Dončić full-court.** This seemingly minor change had massive implications. White's length and quickness forced Dončić into 14 second-half turnovers — 8 of them leading to transition buckets.
+
+**The Clutch Sequence: 1:47 Remaining**
+
+With the game tied 104-104, the Celtics executed a play that perfectly encapsulated their adjustment. Tatum dribbled off a screen from Kristaps Porziņģis, drew Dončić and Lawrence, then kicked to Brown in the corner. Brown, who had been 2-for-10 from deep through three quarters, drained a three that gave Boston a 107-104 lead with 1:12 remaining.
+
+The Lakers got one final possession back. Dončić drove, collapsed the defense, and kicked to Lawrence in the corner — but Brown, playing with desperate intensity, got a fingertip on the rim. The ball rolled out. Boston survived.
+
+**What This Means**
+
+The Celtics proved that tactical flexibility beats star power when executed properly. For the Lakers, the loss is a wake-up call — but also a roadmap. If they can address their perimeter defense and develop more secondary playmakers, they'll be dangerous again next season.
+
+For Boston, the message is clear: they're not just the best team in the league. They're the smartest.
+
+---
+
+## TIPS & TRAINING: The 3-Second Rule That Changes Everything
+
+By Coach Delia Ramirez
+
+Here's a truth most players never hear: *Most games aren't won in the fourth quarter. They're won in the three seconds before the ball is snapped.*
+
+That's right — those three seconds of reading the defense, setting your stance, and committing to your first move determine whether you're creating or reacting. Let's break it down.
+
+**The Pre-Snap Read (3 Seconds Before the Ball)**
+
+Before the ball ever touches your hands, you need to identify: *Who is guarding me, and what is their stance doing?* Is your defender playing off (giving you room)? Playing tight (crowding you)? Is he sagging toward the paint or playing on the perimeter?
+
+This information determines your approach:
+- **Off guard?** Attack the gap. Use a quick jab step to freeze him, then explode past.
+- **Tight?** Use a slower, more deliberate move. A hesitation dribble or pump fake creates just enough space.
+- **Sagging?** Step back or drive. Make him respect your range.
+
+**The Setup (2 Seconds After the Ball)**
+
+Where do you want to go? Most players don't decide until after they catch the ball — and by then, the defense is already reacting. Commit to your direction *before* you catch. Even if you change your mind mid-drive, having an initial direction gives you more options.
+
+**The First Move (1 Second to Execute)**
+
+Your first move after catching must be *decisive*. A half-hearted jab step gets you nowhere. Commit fully. The best ball-handlers in the world — Curry, Thompson, Wembanyama — all attack with conviction on their first move.
+
+**Drill of the Week: The 3-Second Read**
+
+Partner up. One player is the defender (in a neutral stance), the other is the offensive player 15 feet away. On the coach's whistle, the offensive player has exactly three seconds to read the defender's stance and make a move. Rotate every 60 seconds. Repeat for 10 minutes.
+
+This drill builds the habit of reading *before* reacting — and that habit separates good players from great ones.
+
+Remember: The game is fast, but the best players slow it down. Use those three seconds wisely.
+
+---
+
+## UPCOMING EVENTS: What to Watch Next Week
+
+- **July 30 — Summer League Semi-Finals, Las Vegas:** Four teams remain. The Warriors face the Nuggets, while the Celtics take on the Suns. Tip-off at 7 PM ET on ESPN2.
+
+- **August 1 — 2026 FIBA Women's World Cup Quarterfinals:** USA vs. Australia at 3 PM ET, France vs. Canada at 7 PM ET. CBS Sports Network.
+
+- **August 3 — NBA Free Agency Period Opens:** The biggest names on the market include free-agent center **Clint Capela** and wing **Tobias Harris**. Stay tuned for our daily coverage.
+
+- **August 5 — NBA Draft Combine Media Day:** Top 60 prospects appear before media and front offices. Our scouting team will be live-tweeting the results.
+
+- **August 7 — The Rise Basketball Showcase, Portland:** An annual grassroots tournament featuring high school seniors and JUCO transfers. Featuring a matchup between top-ranked prospects **Jamal Wilson** and **Ethan Park**. Free admission.
+
+---
+
+## COMMUNITY CORNER: Hoops Beyond the Arena
+
+By Maria Gonzalez
+
+Basketball isn't just what happens on television. It happens in parking lots, community centers, and under streetlights across the country. This week, we highlight three stories that prove the game belongs to everyone.
+
+**Detroit's "Concrete Court" Initiative Reaches 50 Gyms**
+
+What started as a single painted court in Detroit's Eastside has grown into a citywide movement. The Concrete Court Initiative, founded in 2023 by former high school coach **Terry Williams**, has now installed or renovated 50 public basketball courts across the metro area. This week, the 50th court — at the Harper Woods Community Center — was dedicated with a youth tournament featuring 200 kids.
+
+"We didn't need another arena," Williams said. "We needed a place where kids could just *be*."
+
+The program is funded through a combination of city grants, corporate sponsorships, and grassroots fundraising. Next goal: 100 courts by 2028.
+
+**Brooklyn's Summer League Brings Together Neighbors**
+
+Every Wednesday evening, the courts at Marcy Houses in Brooklyn become a melting pot of ages and backgrounds. The Marcy Summer League, now in its eighth year, fields 16 teams representing everything from local high schools to retiree groups. This year's championship game, scheduled for August 2, is expected to draw over 500 spectators.
+
+Organizer **DeAndre Thomas**, a 19-year-old who grew up playing on those same courts, said the league has become a lifeline for neighborhood youth. "It's not just about basketball," he said. "It's about showing up for each other."
+
+**The Court Builders: A Nation of Volunteers**
+
+From Chicago to Charlotte, a growing network of volunteers known as "Court Builders" is taking basketball infrastructure into their own hands. Using donated materials and sheer determination, these volunteers — many of them former players — are transforming neglected courts into safe, playable spaces.
+
+This week, a team of 30 volunteers in Atlanta completed a full resurfacing of the court at Benjamin Elijah Mays High School, where future NBA star **Trae Young** once played. The project took three days and was completed entirely through donations and volunteer labor.
+
+These stories remind us: basketball isn't just a sport. It's a community. And it's thriving everywhere you look.
+
+---
+
+## HISTORY LESSON: The Night the World Changed — June 17, 1979
+
+By Marcus Chen
+
+On June 17, 1979, the Indiana Pacers defeated the Seattle SuperSonics in Game 5 of the NBA Finals, 107-86. It wasn't the most iconic Finals game in history — not in the way of "The Shot" or the 2016 comeback — but it was the moment that proved a new league could survive.
+
+The NBA and the ABA had merged just five years earlier, in 1976. Three ABA teams (the Nuggets, Pacers, and Spirits of St. Louis) had been absorbed, and the league was still fighting for legitimacy. The Sonics, an ABA holdover, were the underdogs. The Pacers, an established NBA franchise, were the favorites.
+
+But the real story was Larry Bird.
+
+A rookie from Indiana State, Bird had been selected third overall by the Boston Celtics in 1978 but sat out the season due to a contract dispute with the Pacers. He finally joined the Celtics for the 1979 season — and his first Finals appearance came against the Pacers, his former team's rival.
+
+Wait — that's not right. Let me correct myself.
+
+The 1979 Finals featured **Maurice Lucas** and the Pacers against ** Dennis Johnson** and the Sonics. But the story that would define the next decade was already unfolding in Massachusetts, where a 22-year-old Larry Bird was about to change everything.
+
+Actually, the more significant historical moment came on this date in **1992**: the U.S. men's basketball "Dream Team" was officially announced, featuring Michael Jordan, Magic Johnson, and Larry Bird. That team would go on to win gold at the Barcelona Olympics, carrying basketball to a global audience that had never seen anything like it.
+
+Either way, June 17 has given us moments that shaped the game. And next year, it'll do it again.
+
+---
+
+*That's all for this week. Stay locked in, stay passionate, and keep your eyes on the court.*
+
+**— The SLAM WEEKLY Team**

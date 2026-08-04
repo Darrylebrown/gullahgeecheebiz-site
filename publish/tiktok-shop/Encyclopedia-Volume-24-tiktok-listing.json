@@ -1,0 +1,64 @@
+{
+  "product_name": "Encyclopedia Volume 24",
+  "author": "Darryl Elliott Brown",
+  "publisher": "Gullah Geechee Biz",
+  "price": 9.99,
+  "currency": "USD",
+  "category": "Books & Audible > General",
+  "description": "\ud83d\udcd6 Encyclopedia Volume 24 \u2014 A Gullah Geechee Guide\n\nFor over four centuries, the Gullah Geechee people have preserved the traditions, language, and wisdom of their West African ancestors. This book brings that wisdom to you.\n\nWhether you're new to Gullah Geechee culture or looking to deepen your understanding, this guide offers:\n\n\u2728 Clear explanations of key concepts\n\u2728 Historical context and cultural significance\n\u2728 Practical applications for modern life\n\u2728 Beautifully designed for easy reading\n\nJoin thousands of readers who have discovered the power of Gullah Geechee wisdom.\n\nAvailable now on all major platforms.\n\n#GullahGeechee #BookRecommendation #CulturalHeritage #LowcountryLife",
+  "hashtags": [
+    "#GullahGeechee",
+    "#BookTok",
+    "#NewBook",
+    "#SelfHelp",
+    "#BlackHistory",
+    "#CulturalHeritage",
+    "#Lowcountry",
+    "#BookRecommendation",
+    "#ReadingList",
+    "#TikTokShop"
+  ],
+  "shipping": {
+    "weight": "0.5 lbs",
+    "dimensions": "6 x 0.5 x 9 inches",
+    "handling_time": "1-2 business days"
+  },
+  "pricing_breakdown": {
+    "list_price": 9.99,
+    "tiktok_commission_pct": "5.0%",
+    "tiktok_commission": 0.5,
+    "processing_fee": 0.6,
+    "net_profit_per_sale": 8.89
+  },
+  "promotional_scripts": [
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-email-blast-db4f2e.md",
+      "type": "db4f2e"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-instagram-post-dbd93a.md",
+      "type": "dbd93a"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-pinterest-pin-b5829f.md",
+      "type": "b5829f"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-review-prompt-67b7c2.md",
+      "type": "67b7c2"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-seo-article-a6262c.md",
+      "type": "a6262c"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-tiktok-script-39e111.md",
+      "type": "39e111"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-24-twitter-post-bc0bc6.md",
+      "type": "bc0bc6"
+    }
+  ],
+  "generated_at": "2026-08-02T02:17:05.376786+00:00"
+}

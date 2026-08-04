@@ -1,0 +1,29 @@
+{
+  "google_ads": {
+    "headline": "Encyclopedia Vol 29",
+    "description": "Discover Encyclopedia Vol 29",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-29",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover Encyclopedia Vol 29",
+    "headline": "Encyclopedia Vol 29",
+    "description": "Gullah Geechee Biz",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-29",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "Encyclopedia Vol 29",
+    "description": "Learn about Encyclopedia Vol 29",
+    "keywords": [
+      "encyclopedia",
+      "vol",
+      "29"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "Encyclopedia Vol 29",
+    "description": "Check out Encyclopedia Vol 29",
+    "url": "https://gullahgeecheebiz.com/books/encyclopedia-vol-29"
+  }
+}

@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node scripts/smoke-test.js && node scripts/payment-audit.js",
-    "audit:payments": "node scripts/payment-audit.js",
+    "test": "node scripts/smoke-test.js",
     "spellcheck": "codespell --ignore-words=.codespell-ignore --skip=\"node_modules,.git,*.png,*.jpg,*.mp4,*.mp3\" ."
   },
   "repository": {

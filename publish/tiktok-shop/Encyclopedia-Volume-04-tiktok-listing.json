@@ -1,0 +1,64 @@
+{
+  "product_name": "Encyclopedia Volume 04",
+  "author": "Darryl Elliott Brown",
+  "publisher": "Gullah Geechee Biz",
+  "price": 9.99,
+  "currency": "USD",
+  "category": "Books & Audible > General",
+  "description": "\ud83d\udcda Encyclopedia Volume 04\n\nDiscover the rich heritage of the Gullah Geechee people in this essential guide. Written by Darryl Elliott Brown, this book draws on centuries of wisdom from the Sea Islands of South Carolina and Georgia.\n\nWhat you'll learn:\n\u2022 The history and traditions of the Gullah Geechee people\n\u2022 Practical wisdom passed down through generations\n\u2022 Cultural connections between West Africa and the Lowcountry\n\u2022 How to apply Gullah Geechee principles in your daily life\n\nPerfect for anyone interested in African American history, Southern culture, or personal growth.\n\n\ud83d\udd39 Instant download\n\ud83d\udd39 Read on any device\n\ud83d\udd39 70% of proceeds support Gullah Geechee cultural preservation\n\n#GullahGeechee #BlackHistory #Lowcountry #SeaIslands #CulturalHeritage",
+  "hashtags": [
+    "#GullahGeechee",
+    "#BookTok",
+    "#NewBook",
+    "#SelfHelp",
+    "#BlackHistory",
+    "#CulturalHeritage",
+    "#Lowcountry",
+    "#BookRecommendation",
+    "#ReadingList",
+    "#TikTokShop"
+  ],
+  "shipping": {
+    "weight": "0.5 lbs",
+    "dimensions": "6 x 0.5 x 9 inches",
+    "handling_time": "1-2 business days"
+  },
+  "pricing_breakdown": {
+    "list_price": 9.99,
+    "tiktok_commission_pct": "5.0%",
+    "tiktok_commission": 0.5,
+    "processing_fee": 0.6,
+    "net_profit_per_sale": 8.89
+  },
+  "promotional_scripts": [
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-email-blast-114812.md",
+      "type": "114812"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-instagram-post-3bb44b.md",
+      "type": "3bb44b"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-pinterest-pin-471f45.md",
+      "type": "471f45"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-review-prompt-7dbbf9.md",
+      "type": "7dbbf9"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-seo-article-f959ff.md",
+      "type": "f959ff"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-tiktok-script-8533c8.md",
+      "type": "8533c8"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-04-twitter-post-67edf2.md",
+      "type": "67edf2"
+    }
+  ],
+  "generated_at": "2026-08-02T02:17:05.253121+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Build a Personal Brand",
+    "description": "A guide to how to build a personal brand, drawing on Gullah Geechee wisdom and cultural he",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-a-personal-brand",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Build a Personal Brand",
+    "headline": "How to Build a Personal Brand",
+    "description": "A guide to how to build a pers",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-a-personal-brand",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Build a Personal Brand",
+    "description": "A guide to how to build a personal brand, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "build",
+      "a",
+      "personal"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Build a Personal Brand",
+    "description": "A guide to how to build a personal brand, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-a-personal-brand"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "product_name": "Encyclopedia Volume 41",
+  "author": "Darryl Elliott Brown",
+  "publisher": "Gullah Geechee Biz",
+  "price": 9.99,
+  "currency": "USD",
+  "category": "Books & Audible > General",
+  "description": "\ud83d\udcd6 Encyclopedia Volume 41 \u2014 A Gullah Geechee Guide\n\nFor over four centuries, the Gullah Geechee people have preserved the traditions, language, and wisdom of their West African ancestors. This book brings that wisdom to you.\n\nWhether you're new to Gullah Geechee culture or looking to deepen your understanding, this guide offers:\n\n\u2728 Clear explanations of key concepts\n\u2728 Historical context and cultural significance\n\u2728 Practical applications for modern life\n\u2728 Beautifully designed for easy reading\n\nJoin thousands of readers who have discovered the power of Gullah Geechee wisdom.\n\nAvailable now on all major platforms.\n\n#GullahGeechee #BookRecommendation #CulturalHeritage #LowcountryLife",
+  "hashtags": [
+    "#GullahGeechee",
+    "#BookTok",
+    "#NewBook",
+    "#SelfHelp",
+    "#BlackHistory",
+    "#CulturalHeritage",
+    "#Lowcountry",
+    "#BookRecommendation",
+    "#ReadingList",
+    "#TikTokShop"
+  ],
+  "shipping": {
+    "weight": "0.5 lbs",
+    "dimensions": "6 x 0.5 x 9 inches",
+    "handling_time": "1-2 business days"
+  },
+  "pricing_breakdown": {
+    "list_price": 9.99,
+    "tiktok_commission_pct": "5.0%",
+    "tiktok_commission": 0.5,
+    "processing_fee": 0.6,
+    "net_profit_per_sale": 8.89
+  },
+  "promotional_scripts": [
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-email-blast-617daa.md",
+      "type": "617daa"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-instagram-post-34236a.md",
+      "type": "34236a"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-pinterest-pin-65d76a.md",
+      "type": "65d76a"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-review-prompt-3441b5.md",
+      "type": "3441b5"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-seo-article-a89e7a.md",
+      "type": "a89e7a"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-tiktok-script-79152c.md",
+      "type": "79152c"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-41-twitter-post-2e68b6.md",
+      "type": "2e68b6"
+    }
+  ],
+  "generated_at": "2026-08-02T02:17:05.456218+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Make Mac and Cheese the",
+    "description": "A guide to how to make mac and cheese the southern way, drawing on Gullah Geechee wisdom a",
+    "url": "https://gullahgeecheebiz.com/books/how-to-make-mac-and-cheese-the-southern-way",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Make Mac and Cheese the Southern Way",
+    "headline": "How to Make Mac and Cheese the Southern ",
+    "description": "A guide to how to make mac and",
+    "url": "https://gullahgeecheebiz.com/books/how-to-make-mac-and-cheese-the-southern-way",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Make Mac and Cheese the Southern Way",
+    "description": "A guide to how to make mac and cheese the southern way, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "make",
+      "mac",
+      "and"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Make Mac and Cheese the",
+    "description": "A guide to how to make mac and cheese the southern way, drawing on Gullah Geechee wisdom and cultura",
+    "url": "https://gullahgeecheebiz.com/books/how-to-make-mac-and-cheese-the-southern-way"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "google_ads": {
+    "headline": "How to Build a Subscription Bu",
+    "description": "A guide to how to build a subscription business, drawing on Gullah Geechee wisdom and cult",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-a-subscription-business",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Build a Subscription Business",
+    "headline": "How to Build a Subscription Business",
+    "description": "A guide to how to build a subs",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-a-subscription-business",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Build a Subscription Business",
+    "description": "A guide to how to build a subscription business, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "build",
+      "a",
+      "subscription"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Build a Subscription Bu",
+    "description": "A guide to how to build a subscription business, drawing on Gullah Geechee wisdom and cultural herit",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-a-subscription-business"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "google_ads": {
+    "headline": "How to Build Zeal",
+    "description": "A guide to how to build zeal, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-zeal",
+    "display_url": "gullahgeecheebiz.com/books"
+  },
+  "facebook_ads": {
+    "primary_text": "Discover How to Build Zeal",
+    "headline": "How to Build Zeal",
+    "description": "A guide to how to build zeal, ",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-zeal",
+    "call_to_action": "Shop Now"
+  },
+  "amazon_ads": {
+    "headline": "How to Build Zeal",
+    "description": "A guide to how to build zeal, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "keywords": [
+      "how",
+      "to",
+      "build",
+      "zeal"
+    ]
+  },
+  "tiktok_ads": {
+    "headline": "How to Build Zeal",
+    "description": "A guide to how to build zeal, drawing on Gullah Geechee wisdom and cultural heritage.",
+    "url": "https://gullahgeecheebiz.com/books/how-to-build-zeal"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "product_name": "Encyclopedia Volume 18",
+  "author": "Darryl Elliott Brown",
+  "publisher": "Gullah Geechee Biz",
+  "price": 9.99,
+  "currency": "USD",
+  "category": "Books & Audible > General",
+  "description": "\ud83c\udf1f New Release: Encyclopedia Volume 18\n\nThe Gullah Geechee community has preserved African traditions for over 400 years. Now, this wisdom is available in an easy-to-read guide.\n\nInside you'll find:\n\u2705 Step-by-step guidance\n\u2705 Cultural context and history\n\u2705 Practical exercises\n\u2705 Stories from the Sea Islands\n\nThis book is more than a guide \u2014 it's a connection to a living culture that has survived against all odds.\n\nDownload instantly on Google Play Books, Amazon Kindle, or your favorite device.\n\n#GullahGeechee #NewBook #CulturalWisdom #SelfHelp #BlackExcellence",
+  "hashtags": [
+    "#GullahGeechee",
+    "#BookTok",
+    "#NewBook",
+    "#SelfHelp",
+    "#BlackHistory",
+    "#CulturalHeritage",
+    "#Lowcountry",
+    "#BookRecommendation",
+    "#ReadingList",
+    "#TikTokShop"
+  ],
+  "shipping": {
+    "weight": "0.5 lbs",
+    "dimensions": "6 x 0.5 x 9 inches",
+    "handling_time": "1-2 business days"
+  },
+  "pricing_breakdown": {
+    "list_price": 9.99,
+    "tiktok_commission_pct": "5.0%",
+    "tiktok_commission": 0.5,
+    "processing_fee": 0.6,
+    "net_profit_per_sale": 8.89
+  },
+  "promotional_scripts": [
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-email-blast-646ef4.md",
+      "type": "646ef4"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-instagram-post-3614e2.md",
+      "type": "3614e2"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-pinterest-pin-2e1723.md",
+      "type": "2e1723"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-review-prompt-e4ea23.md",
+      "type": "e4ea23"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-seo-article-9a15f6.md",
+      "type": "9a15f6"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-tiktok-script-bfab92.md",
+      "type": "bfab92"
+    },
+    {
+      "file": "/Users/darrylsmac/gullahgeecheebiz-site/publish/promotion/googleplay/Encyclopedia-Volume-18-twitter-post-4b1655.md",
+      "type": "4b1655"
+    }
+  ],
+  "generated_at": "2026-08-02T02:17:05.352353+00:00"
+}

@@ -133,3 +133,6 @@
 | 2026-07-29 (Wed) | Blue Crab | blue-crab-2026-07-29.png | ✅ Posted |
 | 2026-07-30 (Thu) | Dolphins | dolphins-2026-07-30.png | ✅ Posted |
 | 2026-07-31 (Fri) | Spanish Moss | spanish-moss-2026-07-31.jpg | ✅ Posted |
+| 2026-08-01 (Sat) | Oysters | oysters-2026-08-01.jpg | ✅ Posted |
+| 2026-08-02 (Sun) | Sea Turtle | sea-turtle-2026-08-02.jpg | ✅ Posted |
+| 2026-08-03 (Mon) | Live Oak Trees | live-oak-2026-08-03.jpg | ✅ Posted |
