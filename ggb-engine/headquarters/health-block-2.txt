@@ -1,0 +1,369 @@
+#!/usr/bin/env python3
+"""
+GGB System Health Monitor
+Comprehensive health monitoring daemon for all GGB platforms and services
+"""
+
+import os
+import sys
+import time
+import json
+import logging
+import requests
+import psutil
+import sqlite3
+import subprocess
+from datetime import datetime, timedelta
+from threading import Thread
+from flask import Flask, jsonify, render_template_string
+from pathlib import Path
+
+# Configuration
+BASE_DIR = Path("/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine")
+HEADQUARTERS_DIR = BASE_DIR / "headquarters"
+LOGS_DIR = HEADQUARTERS_DIR / "logs" / "health-monitor"
+HEALTH_DATA_FILE = HEADQUARTERS_DIR / "health-status.json"
+ALERTS_LOG = HEADQUARTERS_DIR / "health-alerts.log"
+
+# Create directories
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Logging setup
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(LOGS_DIR / 'health-monitor.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger('HealthMonitor')
+
+# GGB Platforms configuration
+PLATFORMS = {
+    'command-center': {'port': 8080, 'name': 'Command Center'},
+    'book-engine': {'port': 8081, 'name': 'Book Engine'},
+    'content-creator': {'port': 8082, 'name': 'Content Creator'},
+    'social-media-manager': {'port': 8083, 'name': 'Social Media Manager'},
+    'seo-optimizer': {'port': 8084, 'name': 'SEO Optimizer'},
+    'email-marketing': {'port': 8085, 'name': 'Email Marketing'},
+    'analytics-dashboard': {'port': 8086, 'name': 'Analytics Dashboard'},
+    'customer-portal': {'port': 8087, 'name': 'Customer Portal'},
+    'admin-panel': {'port': 8088, 'name': 'Admin Panel'}
+}
+
+class SystemHealthMonitor:
+    def __init__(self):
+        self.health_data = {
+            'timestamp': datetime.now().isoformat(),
+            'overall_score': 0,
+            'platforms': {},
+            'system_resources': {},
+            'alerts': [],
+            'uptime': 0
+        }
+        self.start_time = datetime.now()
+        self.platform_failures = {platform: 0 for platform in PLATFORMS}
+        self.running = True
+        
+    def check_platform_health(self, platform, config):
+        """Check individual platform health"""
+        try:
+            url = f"http://127.0.0.1:{config['port']}/health"
+            response = requests.get(url, timeout=5)
+            
+            if response.status_code == 200:
+                data = response.json()
+                self.platform_failures[platform] = 0  # Reset failure counter
+                return {
+                    'status': 'healthy',
+                    'response_time': response.elapsed.total_seconds(),
+                    'data': data,
+                    'last_check': datetime.now().isoformat()
+                }
+            elif response.status_code >= 500:
+                self.platform_failures[platform] += 1
+                if self.platform_failures[platform] >= 3:
+                    self.auto_heal_platform(platform, config)
+                return {
+                    'status': 'error',
+                    'error': f'HTTP {response.status_code}',
+                    'last_check': datetime.now().isoformat()
+                }
+            else:
+                return {
+                    'status': 'warning',
+                    'error': f'HTTP {response.status_code}',
+                    'last_check': datetime.now().isoformat()
+                }
+                
+        except requests.exceptions.ConnectionError:
+            return {
+                'status': 'offline',
+                'error': 'Connection refused',
+                'last_check': datetime.now().isoformat()
+            }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'error': str(e),
+                'last_check': datetime.now().isoformat()
+            }
+    
+    def auto_heal_platform(self, platform, config):
+        """Attempt to restart a failing platform"""
+        try:
+            logger.warning(f"Auto-healing platform: {platform}")
+            self.log_alert(f"AUTO-HEAL: Restarting {platform} after 3 consecutive failures")
+            
+            # Kill existing process on port
+            subprocess.run([
+                'lsof', '-ti', f':{config["port"]}'
+            ], capture_output=True, text=True, check=False)
+            
+            # Restart platform (this is a simplified restart - adjust based on your setup)
+            platform_script = BASE_DIR / f"{platform}.py"
+            if platform_script.exists():
+                subprocess.Popen([
+                    sys.executable, str(platform_script)
+                ], cwd=str(BASE_DIR))
+                
+            self.platform_failures[platform] = 0  # Reset counter
+            
+        except Exception as e:
+            logger.error(f"Failed to auto-heal {platform}: {e}")
+    
+    def get_system_resources(self):
+        """Get system resource usage"""
+        try:
+            cpu_percent = psutil.cpu_percent(interval=1)
+            memory = psutil.virtual_memory()
+            disk = psutil.disk_usage('/')
+            
+            # Network stats
+            net_io = psutil.net_io_counters()
+            
+            return {
+                'cpu': {
+                    'percent': cpu_percent,
+                    'count': psutil.cpu_count()
+                },
+                'memory': {
+                    'total': memory.total,
+                    'available': memory.available,
+                    'percent': memory.percent,
+                    'used': memory.used
+                },
+                'disk': {
+                    'total': disk.total,
+                    'free': disk.free,
+                    'used': disk.used,
+                    'percent': (disk.used / disk.total) * 100
+                },
+                'network': {
+                    'bytes_sent': net_io.bytes_sent,
+                    'bytes_recv': net_io.bytes_recv,
+                    'packets_sent': net_io.packets_sent,
+                    'packets_recv': net_io.packets_recv
+                }
+            }
+        except Exception as e:
+            logger.error(f"Error getting system resources: {e}")
+            return {}
+    
+    def check_database_health(self):
+        """Check SQLite database health"""
+        try:
+            db_path = BASE_DIR / "database" / "ggb.db"
+            if not db_path.exists():
+                return {'status': 'error', 'error': 'Database file not found'}
+            
+            conn = sqlite3.connect(str(db_path))
+            cursor = conn.cursor()
+            
+            # Check books table
+            cursor.execute("SELECT COUNT(*) FROM books")
+            book_count = cursor.fetchone()[0]
+            
+            # Check database integrity
+            cursor.execute("PRAGMA integrity_check")
+            integrity = cursor.fetchone()[0]
+            
+            conn.close()
+            
+            return {
+                'status': 'healthy' if integrity == 'ok' else 'warning',
+                'book_count': book_count,
+                'integrity': integrity,
+                'size_mb': os.path.getsize(db_path) / (1024 * 1024)
+            }
+            
+        except Exception as e:
+            return {'status': 'error', 'error': str(e)}
+    
+    def calculate_overall_score(self):
+        """Calculate overall system health score"""
+        try:
+            scores = []
+            
+            # Platform health (60% weight)
+            healthy_platforms = sum(1 for p in self.health_data['platforms'].values() 
+                                  if p.get('status') == 'healthy')
+            platform_score = (healthy_platforms / len(PLATFORMS)) * 60
+            scores.append(platform_score)
+            
+            # System resources (30% weight)
+            resources = self.health_data.get('system_resources', {})
+            resource_score = 30
+            
+            if 'cpu' in resources and resources['cpu']['percent'] > 80:
+                resource_score -= 10
+            if 'memory' in resources and resources['memory']['percent'] > 85:
+                resource_score -= 10
+            if 'disk' in resources and resources['disk']['percent'] > 90:
+                resource_score -= 10
+                
+            scores.append(max(0, resource_score))
+            
+            # Database health (10% weight)
+            db_health = self.health_data.get('database', {})
+            db_score = 10 if db_health.get('status') == 'healthy' else 5
+            scores.append(db_score)
+            
+            return min(100, sum(scores))
+            
+        except Exception as e:
+            logger.error(f"Error calculating health score: {e}")
+            return 0
+    
+    def log_alert(self, message):
+        """Log alert to alerts file"""
+        try:
+            with open(ALERTS_LOG, 'a') as f:
+                f.write(f"{datetime.now().isoformat()} - {message}\n")
+            
+            self.health_data['alerts'].insert(0, {
+                'timestamp': datetime.now().isoformat(),
+                'message': message
+            })
+            
+            # Keep only last 50 alerts
+            self.health_data['alerts'] = self.health_data['alerts'][:50]
+            
+        except Exception as e:
+            logger.error(f"Error logging alert: {e}")
+    
+    def run_health_check(self):
+        """Run complete health check cycle"""
+        try:
+            logger.info("Running health check cycle")
+            
+            # Check all platforms
+            for platform, config in PLATFORMS.items():
+                self.health_data['platforms'][platform] = self.check_platform_health(platform, config)
+            
+            # Get system resources
+            self.health_data['system_resources'] = self.get_system_resources()
+            
+            # Check database
+            self.health_data['database'] = self.check_database_health()
+            
+            # Calculate scores
+            self.health_data['overall_score'] = self.calculate_overall_score()
+            self.health_data['timestamp'] = datetime.now().isoformat()
+            self.health_data['uptime'] = (datetime.now() - self.start_time).total_seconds()
+            
+            # Check for alerts
+            self.check_alerts()
+            
+            # Save health data
+            with open(HEALTH_DATA_FILE, 'w') as f:
+                json.dump(self.health_data, f, indent=2)
+                
+        except Exception as e:
+            logger.error(f"Error in health check cycle: {e}")
+    
+    def check_alerts(self):
+        """Check for alert conditions"""
+        try:
+            # Check for offline platforms
+            offline_platforms = [
+                name for name, status in self.health_data['platforms'].items()
+                if status.get('status') == 'offline'
+            ]
+            
+            if offline_platforms:
+                self.log_alert(f"Offline platforms: {', '.join(offline_platforms)}")
+            
+            # Check resource usage
+            resources = self.health_data.get('system_resources', {})
+            
+            if 'cpu' in resources and resources['cpu']['percent'] > 90:
+                self.log_alert(f"High CPU usage: {resources['cpu']['percent']:.1f}%")
+            
+            if 'memory' in resources and resources['memory']['percent'] > 90:
+                self.log_alert(f"High memory usage: {resources['memory']['percent']:.1f}%")
+            
+            if 'disk' in resources and resources['disk']['percent'] > 95:
+                self.log_alert(f"High disk usage: {resources['disk']['percent']:.1f}%")
+                
+        except Exception as e:
+            logger.error(f"Error checking alerts: {e}")
+    
+    def start_monitoring(self):
+        """Start the monitoring loop"""
+        logger.info("Starting GGB Health Monitor")
+        
+        while self.running:
+            try:
+                self.run_health_check()
+                time.sleep(60)  # Check every 60 seconds
+                
+            except KeyboardInterrupt:
+                logger.info("Monitoring stopped by user")
+                self.running = False
+            except Exception as e:
+                logger.error(f"Error in monitoring loop: {e}")
+                time.sleep(10)  # Short delay before retry
+
+# Flask app for health dashboard
+app = Flask(__name__)
+
+@app.route('/health')
+def health_endpoint():
+    """Health endpoint for the monitor itself"""
+    return jsonify({
+        'status': 'ok',
+        'timestamp': datetime.now().isoformat(),
+        'service': 'health-monitor'
+    })
+
+@app.route('/api/health-data')
+def health_data_api():
+    """API endpoint for health data"""
+    try:
+        if HEALTH_DATA_FILE.exists():
+            with open(HEALTH_DATA_FILE, 'r') as f:
+                return jsonify(json.load(f))
+        else:
+            return jsonify({'error': 'Health data not available'})
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+@app.route('/')
+def dashboard():
+    """Health dashboard"""
+    return render_template_string(open('health-dashboard.html').read())
+
+def run_flask_app():
+    """Run Flask app in separate thread"""
+    app.run(host='127.0.0.1', port=8092, debug=False)
+
+if __name__ == '__main__':
+    # Start Flask app in background thread
+    flask_thread = Thread(target=run_flask_app, daemon=True)
+    flask_thread.start()
+    
+    # Start health monitoring
+    monitor = SystemHealthMonitor()
+    monitor.start_monitoring()

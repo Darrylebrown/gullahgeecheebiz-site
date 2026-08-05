@@ -1,0 +1,38 @@
+GGB Security Hardening Report — 2026-08-04T07:55:15.022598
+Score: 74/100  (was 35; Δ +39)
+Findings: {'CRITICAL': 11, 'HIGH': 3, 'MEDIUM': 3, 'INFO': 4}
+Auto-fixes applied: 9
+Manual actions required: 13
+
+== MANUAL ACTIONS (do these next) ==
+
+[CRITICAL] Services bound to 0.0.0.0 / ::
+  Reconfigure each service to bind to 127.0.0.1 or use the macOS firewall to restrict access.
+
+[CRITICAL] 2 hardcoded secrets detected
+  Move secrets to .env, rotate ALL leaked keys immediately.
+
+[CRITICAL] OpenRouter key rotation REQUIRED
+  1) Go to https://openrouter.ai/keys
+2) Revoke existing key
+3) Generate new key
+4) Update .env (chmod 600)
+5) Follow schedule: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/secrets-rotation-schedule.json
+
+[CRITICAL] publishing_controller listening on :8090
+  Restart publishing_controller after integrating agent_auth.
+
+[CRITICAL] bot_factory listening on :8091
+  Restart bot_factory after integrating agent_auth.
+
+[CRITICAL] universal_submitter listening on :8086
+  Restart universal_submitter after integrating agent_auth.
+
+[CRITICAL] royalty_dashboard listening on :8087
+  Restart royalty_dashboard after integrating agent_auth.
+
+[MEDIUM] Local listeners on flagged ports
+  Verify each is intended; shut down unused services.
+
+Full JSON: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/hardening-report-20260804-075514.json
+Log: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/hardening-20260804-075514.log

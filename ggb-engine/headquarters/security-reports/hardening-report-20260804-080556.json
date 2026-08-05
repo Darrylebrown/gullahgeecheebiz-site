@@ -1,0 +1,256 @@
+{
+  "generated_at": "2026-08-04T08:05:56.324261",
+  "project_root": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine",
+  "security_score": 74,
+  "previous_score": 35,
+  "delta": 39,
+  "finding_counts": {
+    "CRITICAL": 11,
+    "HIGH": 3,
+    "MEDIUM": 3,
+    "INFO": 4
+  },
+  "auto_fixes_applied": 9,
+  "manual_actions_required": 13,
+  "findings": [
+    {
+      "severity": "INFO",
+      "category": "Network Hardening",
+      "title": "Listening services documented",
+      "detail": "20 listeners saved to /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/listening-services.json",
+      "auto_fixed": false,
+      "manual_action": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Network Hardening",
+      "title": "Services bound to 0.0.0.0 / ::",
+      "detail": "rapportd:58941 bound to *\n  rapportd:58941 bound to *\n  ControlCe:7000 bound to *\n  ControlCe:7000 bound to *\n  ControlCe:5000 bound to *\n  ControlCe:5000 bound to *\n  Python:8087 bound to *\n  Python:8081 bound to *\n  Python:8082 bound to *\n  Python:8083 bound to *\n  Python:8084 bound to *\n  Python:8085 bound to *\n  Python:8086 bound to *\n  Python:8777 bound to *\n  Python:8090 bound to *\n  Python:8091 bound to *\n  Python:8080 bound to *",
+      "auto_fixed": false,
+      "manual_action": "Reconfigure each service to bind to 127.0.0.1 or use the macOS firewall to restrict access."
+    },
+    {
+      "severity": "INFO",
+      "category": "Network Hardening",
+      "title": "Firewall already enabled",
+      "detail": "",
+      "auto_fixed": false,
+      "manual_action": ""
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Network Hardening",
+      "title": "Local listeners on flagged ports",
+      "detail": "Open: [8080, 8086, 8087, 8090, 8091]",
+      "auto_fixed": false,
+      "manual_action": "Verify each is intended; shut down unused services."
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Secrets Management",
+      "title": "Env files restricted",
+      "detail": "Set chmod 600 on 0 .env files.",
+      "auto_fixed": true,
+      "manual_action": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Secrets Management",
+      "title": "2 hardcoded secrets detected",
+      "detail": "[\n  {\n    \"file\": \"headquarters/pinterest-api-diagnostic.py\",\n    \"type\": \"API key/secret\",\n    \"match\": \"TOKEN = ...DIA\\\"\"\n  },\n  {\n    \"file\": \"headquarters/draft2digital-connector.py\",\n    \"type\": \"API key/secret\",\n    \"match\": \"PASSWORD...coh\\\"\"\n  }\n]",
+      "auto_fixed": false,
+      "manual_action": "Move secrets to .env, rotate ALL leaked keys immediately."
+    },
+    {
+      "severity": "INFO",
+      "category": "Secrets Management",
+      "title": "No git repo",
+      "detail": "Skipped history scan.",
+      "auto_fixed": false,
+      "manual_action": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Secrets Management",
+      "title": "OpenRouter key rotation REQUIRED",
+      "detail": "Assume current key is compromised per audit.",
+      "auto_fixed": false,
+      "manual_action": "1) Go to https://openrouter.ai/keys\n2) Revoke existing key\n3) Generate new key\n4) Update .env (chmod 600)\n5) Follow schedule: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/secrets-rotation-schedule.json"
+    },
+    {
+      "severity": "INFO",
+      "category": "Database Security",
+      "title": "Integrity headquarters.db",
+      "detail": "ok",
+      "auto_fixed": false,
+      "manual_action": ""
+    },
+    {
+      "severity": "HIGH",
+      "category": "Database Security",
+      "title": "SQL-injection guard installed",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/db_safe.py \u2014 import db_safe.safe_execute in all agents.",
+      "auto_fixed": true,
+      "manual_action": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Database Security",
+      "title": "DB encryption helper installed",
+      "detail": "Use /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/encrypt_db.sh to encrypt every .db before backup/transfer.",
+      "auto_fixed": true,
+      "manual_action": "Run encrypt_db.sh on each database in inventory and store key offline."
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Agent Security",
+      "title": "Agent auth tokens generated",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/.agent_tokens.env (chmod 600)",
+      "auto_fixed": true,
+      "manual_action": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Agent Security",
+      "title": "Auth middleware installed",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/agent_auth.py \u2014 integrate into every agent.",
+      "auto_fixed": true,
+      "manual_action": "Integrate require_agent_auth() into each agent:\n  \u2022 publishing_controller (: 8090) \u2014 load AGENT_TOKEN_PUBLISHING_CONTROLLER from .agent_tokens.env and call require_agent_auth('{env}') in a before_request hook.\n  \u2022 bot_factory (: 8091) \u2014 load AGENT_TOKEN_BOT_FACTORY from .agent_tokens.env and call require_agent_auth('{env}') in a before_request hook.\n  \u2022 universal_submitter (: 8086) \u2014 load AGENT_TOKEN_UNIVERSAL_SUBMITTER from .agent_tokens.env and call require_agent_auth('{env}') in a before_request hook.\n  \u2022 royalty_dashboard (: 8087) \u2014 load AGENT_TOKEN_ROYALTY_DASHBOARD from .agent_tokens.env and call require_agent_auth('{env}') in a before_request hook.\nAll callers must send: Authorization: Bearer <token>"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Agent Security",
+      "title": "publishing_controller listening on :8090",
+      "detail": "Service is up \u2014 confirm auth middleware is wired.",
+      "auto_fixed": false,
+      "manual_action": "Restart publishing_controller after integrating agent_auth."
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Agent Security",
+      "title": "bot_factory listening on :8091",
+      "detail": "Service is up \u2014 confirm auth middleware is wired.",
+      "auto_fixed": false,
+      "manual_action": "Restart bot_factory after integrating agent_auth."
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Agent Security",
+      "title": "universal_submitter listening on :8086",
+      "detail": "Service is up \u2014 confirm auth middleware is wired.",
+      "auto_fixed": false,
+      "manual_action": "Restart universal_submitter after integrating agent_auth."
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Agent Security",
+      "title": "royalty_dashboard listening on :8087",
+      "detail": "Service is up \u2014 confirm auth middleware is wired.",
+      "auto_fixed": false,
+      "manual_action": "Restart royalty_dashboard after integrating agent_auth."
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Operational Security",
+      "title": "logrotate config installed",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logrotate-ggb.conf",
+      "auto_fixed": true,
+      "manual_action": "Install via: sudo cp logrotate-ggb.conf /etc/logrotate.d/ggb  (or run manually with logrotate -f)"
+    },
+    {
+      "severity": "HIGH",
+      "category": "Operational Security",
+      "title": "Encrypted backup script installed",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/backup.sh",
+      "auto_fixed": true,
+      "manual_action": "Schedule via cron: 0 3 * * * /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/backup.sh"
+    },
+    {
+      "severity": "HIGH",
+      "category": "Operational Security",
+      "title": "DR plan written",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/disaster-recovery-plan.md",
+      "auto_fixed": true,
+      "manual_action": ""
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Operational Security",
+      "title": "Monitoring script installed",
+      "detail": "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/monitor.sh",
+      "auto_fixed": true,
+      "manual_action": "Install: (crontab -l; echo '*/5 * * * * /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/monitor.sh') | crontab -"
+    }
+  ],
+  "outstanding_by_severity": {
+    "CRITICAL": [
+      {
+        "severity": "CRITICAL",
+        "category": "Network Hardening",
+        "title": "Services bound to 0.0.0.0 / ::",
+        "detail": "rapportd:58941 bound to *\n  rapportd:58941 bound to *\n  ControlCe:7000 bound to *\n  ControlCe:7000 bound to *\n  ControlCe:5000 bound to *\n  ControlCe:5000 bound to *\n  Python:8087 bound to *\n  Python:8081 bound to *\n  Python:8082 bound to *\n  Python:8083 bound to *\n  Python:8084 bound to *\n  Python:8085 bound to *\n  Python:8086 bound to *\n  Python:8777 bound to *\n  Python:8090 bound to *\n  Python:8091 bound to *\n  Python:8080 bound to *",
+        "auto_fixed": false,
+        "manual_action": "Reconfigure each service to bind to 127.0.0.1 or use the macOS firewall to restrict access."
+      },
+      {
+        "severity": "CRITICAL",
+        "category": "Secrets Management",
+        "title": "2 hardcoded secrets detected",
+        "detail": "[\n  {\n    \"file\": \"headquarters/pinterest-api-diagnostic.py\",\n    \"type\": \"API key/secret\",\n    \"match\": \"TOKEN = ...DIA\\\"\"\n  },\n  {\n    \"file\": \"headquarters/draft2digital-connector.py\",\n    \"type\": \"API key/secret\",\n    \"match\": \"PASSWORD...coh\\\"\"\n  }\n]",
+        "auto_fixed": false,
+        "manual_action": "Move secrets to .env, rotate ALL leaked keys immediately."
+      },
+      {
+        "severity": "CRITICAL",
+        "category": "Secrets Management",
+        "title": "OpenRouter key rotation REQUIRED",
+        "detail": "Assume current key is compromised per audit.",
+        "auto_fixed": false,
+        "manual_action": "1) Go to https://openrouter.ai/keys\n2) Revoke existing key\n3) Generate new key\n4) Update .env (chmod 600)\n5) Follow schedule: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/security-reports/secrets-rotation-schedule.json"
+      },
+      {
+        "severity": "CRITICAL",
+        "category": "Agent Security",
+        "title": "publishing_controller listening on :8090",
+        "detail": "Service is up \u2014 confirm auth middleware is wired.",
+        "auto_fixed": false,
+        "manual_action": "Restart publishing_controller after integrating agent_auth."
+      },
+      {
+        "severity": "CRITICAL",
+        "category": "Agent Security",
+        "title": "bot_factory listening on :8091",
+        "detail": "Service is up \u2014 confirm auth middleware is wired.",
+        "auto_fixed": false,
+        "manual_action": "Restart bot_factory after integrating agent_auth."
+      },
+      {
+        "severity": "CRITICAL",
+        "category": "Agent Security",
+        "title": "universal_submitter listening on :8086",
+        "detail": "Service is up \u2014 confirm auth middleware is wired.",
+        "auto_fixed": false,
+        "manual_action": "Restart universal_submitter after integrating agent_auth."
+      },
+      {
+        "severity": "CRITICAL",
+        "category": "Agent Security",
+        "title": "royalty_dashboard listening on :8087",
+        "detail": "Service is up \u2014 confirm auth middleware is wired.",
+        "auto_fixed": false,
+        "manual_action": "Restart royalty_dashboard after integrating agent_auth."
+      }
+    ],
+    "HIGH": [],
+    "MEDIUM": [
+      {
+        "severity": "MEDIUM",
+        "category": "Network Hardening",
+        "title": "Local listeners on flagged ports",
+        "detail": "Open: [8080, 8086, 8087, 8090, 8091]",
+        "auto_fixed": false,
+        "manual_action": "Verify each is intended; shut down unused services."
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-08-04T11:55:15.178173",
+  "score_before": 74,
+  "score_after": 94,
+  "score_gain": 20,
+  "fixes": [
+    {
+      "msg": "INTERNAL_AUTH_TOKEN already in .env",
+      "status": "info"
+    },
+    {
+      "msg": "Set .env permissions to 600",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound publishing-controller.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "bot-factory.py already bound to 127.0.0.1",
+      "status": "info"
+    },
+    {
+      "msg": "Bound universal-submitter.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound royalty-dashboard.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound command-center.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound agentforge.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound ai-persona-pro.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound gullahverse-books.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound gullahgems.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Bound gullah-hearth.py to 127.0.0.1",
+      "status": "ok"
+    },
+    {
+      "msg": "Found 2 potential secrets \u2014 saved to secrets-scan-20260804-115515.json",
+      "status": "warn"
+    },
+    {
+      "msg": "Created disaster recovery plan",
+      "status": "ok"
+    },
+    {
+      "msg": "Created log rotation config",
+      "status": "ok"
+    }
+  ],
+  "auth_token": "OcSkTD8kn6vzlqvM..."
+}

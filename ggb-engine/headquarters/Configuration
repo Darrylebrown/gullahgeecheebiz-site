@@ -1,0 +1,281 @@
+#!/usr/bin/env python3
+"""
+Add Health Endpoints to GGB Platforms
+Automatically adds /health endpoints to all platform scripts
+"""
+
+import os
+import re
+import ast
+import logging
+from pathlib import Path
+from datetime import datetime
+
+# Configuration
+BASE_DIR = Path("/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine")
+HEADQUARTERS_DIR = BASE_DIR / "headquarters"
+
+# Logging setup
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger('HealthEndpointAdder')
+
+# Platform files to update
+PLATFORM_FILES = [
+    'command-center.py',
+    'book-engine.py',
+    'content-creator.py',
+    'social-media-manager.py',
+    'seo-optimizer.py',
+    'email-marketing.py',
+    'analytics-dashboard.py',
+    'customer-portal.py',
+    'admin-panel.py'
+]
+
+HEALTH_ENDPOINT_TEMPLATE = '''
+@app.route('/health')
+def health_check():
+    """Health check endpoint for system monitoring"""
+    try:
+        from datetime import datetime
+        import time
+        import os
+        
+        # Get basic system info
+        health_data = {
+            'status': 'ok',
+            'timestamp': datetime.now().isoformat(),
+            'service': '{service_name}',
+            'uptime': time.time() - globals().get('_start_time', time.time()),
+            'pid': os.getpid()
+        }
+        
+        # Add service-specific health checks here
+        return jsonify(health_data)
+        
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'timestamp': datetime.now().isoformat(),
+            'service': '{service_name}',
+            'error': str(e)
+        }), 500
+'''
+
+class HealthEndpointAdder:
+    def __init__(self):
+        self.backup_dir = HEADQUARTERS_DIR / 'backups' / f'health-endpoints-{datetime.now().strftime("%Y%m%d_%H%M%S")}'
+        self.backup_dir.mkdir(parents=True, exist_ok=True)
+    
+    def backup_file(self, file_path):
+        """Create backup of original file"""
+        try:
+            backup_path = self.backup_dir / file_path.name
+            backup_path.write_text(file_path.read_text())
+            logger.info(f"Backed up {file_path.name} to {backup_path}")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to backup {file_path}: {e}")
+            return False
+    
+    def check_has_health_endpoint(self, content):
+        """Check if file already has a health endpoint"""
+        patterns = [
+            r"@app\.route\(['\"]\/health['\"]",
+            r"def health_check\(",
+            r"def health\(",
+            r"\/health.*endpoint"
+        ]
+        
+        for pattern in patterns:
+            if re.search(pattern, content, re.IGNORECASE):
+                return True
+        return False
+    
+    def check_has_flask_app(self, content):
+        """Check if file uses Flask"""
+        patterns = [
+            r"from flask import",
+            r"import flask",
+            r"app = Flask\(",
+            r"@app\.route"
+        ]
+        
+        for pattern in patterns:
+            if re.search(pattern, content):
+                return True
+        return False
+    
+    def check_has_jsonify(self, content):
+        """Check if file imports jsonify"""
+        return 'jsonify' in content
+    
+    def add_jsonify_import(self, content):
+        """Add jsonify to Flask imports"""
+        # Find Flask import line
+        flask_import_pattern = r"from flask import ([^\\n]+)"
+        match = re.search(flask_import_pattern, content)
+        
+        if match:
+            current_imports = match.group(1)
+            if 'jsonify' not in current_imports:
+                new_imports = current_imports.strip() + ', jsonify'
+                content = re.sub(flask_import_pattern, f"from flask import {new_imports}", content)
+        else:
+            # Add new import line after other imports
+            import_section = re.search(r"((?:^(?:import|from).*$\n?)+)", content, re.MULTILINE)
+            if import_section:
+                new_import = import_section.group(1) + "from flask import jsonify\n"
+                content = content.replace(import_section.group(1), new_import)
+        
+        return content
+    
+    def add_start_time_tracking(self, content):
+        """Add start time tracking for uptime calculation"""
+        if '_start_time' not in content:
+            # Add after imports
+            import_section = re.search(r"((?:^(?:import|from).*$\n?)+)", content, re.MULTILINE)
+            if import_section:
+                start_time_code = "\n# Health monitoring\nimport time\n_start_time = time.time()\n\n"
+                insertion_point = import_section.end()
+                content = content[:insertion_point] + start_time_code + content[insertion_point:]
+        
+        return content
+    
+    def find_insertion_point(self, content):
+        """Find best place to insert health endpoint"""
+        # Look for existing route definitions
+        routes = list(re.finditer(r"@app\.route\([^)]+\)\s*\ndef [^(]+\([^)]*\):", content))
+        
+        if routes:
+            # Insert after the last route
+            last_route = routes[-1]
+            # Find the end of the last route function
+            lines = content[last_route.start():].split('\n')
+            function_end = last_route.start()
+            indent_level = None
+            
+            for i, line in enumerate(lines[1:], 1):  # Skip the def line
+                if line.strip() == '':
+                    continue
+                
+                current_indent = len(line) - len(line.lstrip())
+                
+                if indent_level is None and line.strip():
+                    indent_level = current_indent
+                elif line.strip() and current_indent <= 0:  # Back to module level
+                    function_end += len('\n'.join(lines[:i]))
+                    break
+                    
+            return function_end
+        else:
+            # Insert before if __name__ == '__main__':
+            main_pattern = r"\nif __name__ == ['\"]__main__['\"]:"
+            match = re.search(main_pattern, content)
+            if match:
+                return match.start()
+            else:
+                # Insert at end
+                return len(content)
+    
+    def add_health_endpoint(self, file_path, service_name):
+        """Add health endpoint to a platform file"""
+        try:
+            logger.info(f"Processing {file_path.name}")
+            
+            # Read current content
+            content = file_path.read_text()
+            
+            # Check if it's a Flask app
+            if not self.check_has_flask_app(content):
+                logger.info(f"Skipping {file_path.name} - not a Flask app")
+                return False
+            
+            # Check if health endpoint already exists
+            if self.check_has_health_endpoint(content):
+                logger.info(f"Skipping {file_path.name} - health endpoint already exists")
+                return True
+            
+            # Backup original file
+            if not self.backup_file(file_path):
+                return False
+            
+            # Add jsonify import if needed
+            if not self.check_has_jsonify(content):
+                content = self.add_jsonify_import(content)
+            
+            # Add start time tracking
+            content = self.add_start_time_tracking(content)
+            
+            # Prepare health endpoint code
+            health_code = HEALTH_ENDPOINT_TEMPLATE.format(service_name=service_name)
+            
+            # Find insertion point
+            insertion_point = self.find_insertion_point(content)
+            
+            # Insert health endpoint
+            new_content = content[:insertion_point] + "\n" + health_code + "\n" + content[insertion_point:]
+            
+            # Validate Python syntax
+            try:
+                ast.parse(new_content)
+            except SyntaxError as e:
+                logger.error(f"Syntax error in modified {file_path.name}: {e}")
+                return False
+            
+            # Write updated content
+            file_path.write_text(new_content)
+            logger.info(f"Successfully added health endpoint to {file_path.name}")
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error processing {file_path.name}: {e}")
+            return False
+    
+    def process_all_platforms(self):
+        """Process all platform files"""
+        logger.info("Starting to add health endpoints to GGB platforms")
+        
+        success_count = 0
+        total_count = 0
+        
+        for filename in PLATFORM_FILES:
+            file_path = BASE_DIR / filename
+            
+            if not file_path.exists():
+                logger.warning(f"File not found: {file_path}")
+                continue
+            
+            total_count += 1
+            service_name = filename.replace('.py', '').replace('-', '_')
+            
+            if self.add_health_endpoint(file_path, service_name):
+                success_count += 1
+        
+        logger.info(f"Completed: {success_count}/{total_count} platforms updated")
+        
+        # Create summary report
+        report = {
+            'timestamp': datetime.now().isoformat(),
+            'total_files': total_count,
+            'successful_updates': success_count,
+            'backup_location': str(self.backup_dir)
+        }
+        
+        report_file = HEADQUARTERS_DIR / 'health-endpoints-report.json'
+        with open(report_file, 'w') as f:
+            import json
+            json.dump(report, f, indent=2)
+        
+        logger.info(f"Report saved to {report_file}")
+        return success_count == total_count
+
+if __name__ == '__main__':
+    adder = HealthEndpointAdder()
+    success = adder.process_all_platforms()
+    
+    if success:
+        print("✅ All platform files updated successfully!")
+    else:
+        print("⚠️  Some files could not be updated. Check the logs for details.")
