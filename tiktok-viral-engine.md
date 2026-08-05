@@ -137,3 +137,4 @@
 | 2026-08-02 (Sun) | Sea Turtle | sea-turtle-2026-08-02.jpg | ✅ Posted |
 | 2026-08-03 (Mon) | Live Oak Trees | live-oak-2026-08-03.jpg | ✅ Posted |
 | 2026-08-04 (Tue) | Fishing | fishing-2026-08-04.jpg | ✅ Posted |
+| 2026-08-05 (Wed) | Alligator Follow-up | alligator-followup-2026-08-05.jpg | ✅ Posted |
