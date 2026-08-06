@@ -75,3 +75,7 @@ dist/
 build/
 out/
 .github/workflows/
+
+# Internal systems — stay local, never deployed
+# Only public pages (membership/, assets/, viral/, etc.) ship to GitHub Pages
+ggb-engine/

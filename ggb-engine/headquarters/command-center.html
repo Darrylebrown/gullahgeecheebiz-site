@@ -1,637 +1,659 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GGB Command Center</title>
-    <!-- Tailwind CSS CDN for utility-first styling -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- ApexCharts for gauge -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- Vue.js 3 CDN for reactive frontend -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>GGB Command Center - Live Dashboard</title>
     <style>
-        /* Custom Styles for GGB Theme and Overrides */
-        :root {
-            --ggb-dark: #1A1A1A; /* Deep dark background */
-            --ggb-gold: #FFD700; /* Standard gold */
-            --ggb-amber: #FFA000; /* Richer amber for accents */
-            --ggb-text-light: #E0E0E0; /* Light text */
-            --ggb-green: #28A745; /* Green for healthy status */
-            --ggb-yellow: #FFC107; /* Yellow for warning status */
-            --ggb-red: #DC3545; /* Red for critical status */
-            --ggb-blue: #007BFF; /* Blue for info */
-            --ggb-purple: #6F42C1; /* Purple for specific pipeline stages */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* A modern, readable font */
-            background-color: var(--ggb-dark);
-            color: var(--ggb-text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e94560;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Scrollbar styling for dark theme */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #333;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--ggb-amber);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--ggb-gold);
+        .header {
+            background: rgba(233, 69, 96, 0.1);
+            border-bottom: 2px solid #e94560;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
         }
 
-        .header-bg {
-            background-color: #262626; /* Slightly lighter dark for header */
+        .header h1 {
+            font-size: 2.5em;
+            color: #f5c842;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
         }
 
-        .card {
-            background-color: #262626;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease-in-out;
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #e94560;
+            opacity: 0.8;
         }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        .last-update {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
         }
 
         .status-indicator {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .status-green { background-color: var(--ggb-green); animation: pulse-green 1.5s infinite; }
-        .status-yellow { background-color: var(--ggb-yellow); animation: pulse-yellow 1.5s infinite; }
-        .status-red { background-color: var(--ggb-red); animation: pulse-red 1.5s infinite; }
-        .status-gray { background-color: #9CA3AF; }
-
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); } 100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); } }
-        @keyframes pulse-yellow { 0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); } }
-        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); } }
-
-        .btn-action {
-            @apply bg-ggb-amber text-ggb-dark font-bold py-2 px-4 rounded transition-all duration-200 hover:bg-ggb-gold hover:text-gray-900;
+            background: #4ade80;
+            animation: pulse 2s infinite;
         }
 
-        /* ApexCharts overrides for dark theme */
-        .apexcharts-tooltip {
-            background: #333 !important;
-            color: var(--ggb-text-light) !important;
-            border: 1px solid var(--ggb-amber) !important;
+        .status-dot.error {
+            background: #ef4444;
         }
-        .apexcharts-legend-text {
-            color: var(--ggb-text-light) !important;
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
-        .apexcharts-yaxis-label, .apexcharts-xaxis-label {
-            fill: var(--ggb-text-light) !important;
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #f5c842, #4ade80);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+            border-color: #e94560;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            color: #f5c842;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.5em;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.1);
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .metric-label {
+            color: #ccc;
+            font-size: 0.95em;
+        }
+
+        .metric-value {
+            color: #4ade80;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .metric-value.warning {
+            color: #f59e0b;
+        }
+
+        .metric-value.error {
+            color: #ef4444;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560, #f5c842);
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .log-container {
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .log-entry.recent {
+            color: #4ade80;
+            opacity: 1;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .system-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .system-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+        }
+
+        .system-status.online {
+            background: #4ade80;
+        }
+
+        .system-status.offline {
+            background: #ef4444;
+        }
+
+        .loading {
+            text-align: center;
+            color: #f5c842;
+            font-style: italic;
+        }
+
+        .error-message {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .last-update, .status-indicator {
+                position: static;
+                text-align: center;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
-<body class="antialiased leading-normal tracking-wide">
-    <div id="app" class="min-h-screen flex flex-col">
+<body>
+    <div class="header">
+        <div class="status-indicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="statusText">Systems Online</span>
+        </div>
+        <h1>🌊 Gullah Geechee Biz Command Center 🌊</h1>
+        <p class="subtitle">Real-Time Publishing Empire Dashboard</p>
+        <div class="last-update">
+            Last Updated: <span id="lastUpdate">Loading...</span>
+        </div>
+    </div>
 
-        <!-- HEADER -->
-        <header class="header-bg py-4 px-6 flex flex-wrap items-center justify-between shadow-lg">
-            <div class="flex items-center space-x-4">
-                <i class="fas fa-book-open text-ggb-amber text-3xl"></i>
-                <h1 class="text-3xl font-bold text-ggb-gold">GGB Command Center</h1>
-                <div class="flex items-center ml-8">
-                    <span :class="['status-indicator', liveStatusClass]"></span>
-                    <span class="text-lg font-semibold">{{ liveStatusText }}</span>
+    <div class="dashboard">
+        <!-- D2D Mass Publisher Stats -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">📚</span>
+                D2D Mass Publisher
+            </div>
+            <div class="metric">
+                <span class="metric-label">Books Submitted Today</span>
+                <span class="metric-value" id="d2d-today">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Submitted</span>
+                <span class="metric-value" id="d2d-total">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Failed Submissions</span>
+                <span class="metric-value" id="d2d-failed">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Books Processed</span>
+                <span class="metric-value" id="d2d-processed">--</span>
+            </div>
+        </div>
+
+        <!-- Chinese Funnel Stats -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">🐉</span>
+                Chinese Translation Funnel
+            </div>
+            <div class="metric">
+                <span class="metric-label">Mandarin Books</span>
+                <span class="metric-value" id="chinese-mandarin">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Cantonese Books</span>
+                <span class="metric-value" id="chinese-cantonese">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Hokkien Books</span>
+                <span class="metric-value" id="chinese-hokkien">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Translation Progress</span>
+                <span class="metric-value" id="translation-progress">--</span>
+            </div>
+        </div>
+
+        <!-- Gumroad Stats -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">💰</span>
+                Gumroad Marketplace
+            </div>
+            <div class="metric">
+                <span class="metric-label">Live Products</span>
+                <span class="metric-value" id="gumroad-products">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Sales</span>
+                <span class="metric-value" id="gumroad-sales">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Revenue Today</span>
+                <span class="metric-value" id="gumroad-revenue">--</span>
+            </div>
+        </div>
+
+        <!-- Publisher Database -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">🗄️</span>
+                Publisher Database
+            </div>
+            <div class="metric">
+                <span class="metric-label">Published Books</span>
+                <span class="metric-value" id="db-published">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">In Pipeline</span>
+                <span class="metric-value" id="db-pipeline">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Database Size</span>
+                <span class="metric-value" id="db-size">--</span>
+            </div>
+        </div>
+
+        <!-- System Health -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">⚡</span>
+                System Health Monitor
+            </div>
+            <div class="system-grid">
+                <div class="system-item">
+                    <div class="system-status" id="health-cpu"></div>
+                    <div>CPU</div>
+                    <div id="health-cpu-val">--</div>
+                </div>
+                <div class="system-item">
+                    <div class="system-status" id="health-memory"></div>
+                    <div>Memory</div>
+                    <div id="health-memory-val">--</div>
+                </div>
+                <div class="system-item">
+                    <div class="system-status" id="health-disk"></div>
+                    <div>Disk</div>
+                    <div id="health-disk-val">--</div>
+                </div>
+                <div class="system-item">
+                    <div class="system-status" id="health-network"></div>
+                    <div>Network</div>
+                    <div id="health-network-val">--</div>
                 </div>
             </div>
-            <div class="flex flex-col items-end text-right">
-                <div class="text-xl font-mono text-ggb-text-light">{{ currentTime }}</div>
-                <div class="text-sm text-gray-400">{{ currentDate }}</div>
-                <p class="mt-2 text-sm italic text-gray-500">"Published books change lives. Unsubmitted books do nothing."</p>
+        </div>
+
+        <!-- Publishing Agents -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">🤖</span>
+                Active Publishing Agents
             </div>
-        </header>
-
-        <main class="flex-grow p-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-8">
-                <!-- STATS ROW -->
-                <div class="card flex flex-col items-center justify-center text-center">
-                    <i class="fas fa-layer-group text-3xl text-ggb-amber mb-2"></i>
-                    <p class="text-gray-400 text-sm">Total Books</p>
-                    <p class="text-3xl font-bold text-ggb-text-light">{{ stats.totalBooks }}</p>
-                </div>
-                <div class="card flex flex-col items-center justify-center text-center">
-                    <i :class="['fas fa-shield-alt text-3xl mb-2', securityScoreColorClass]"></i>
-                    <p class="text-gray-400 text-sm">Security Score</p>
-                    <p :class="['text-3xl font-bold', securityScoreColorClass]">{{ stats.securityScore }}/100</p>
-                </div>
-                <div class="card flex flex-col items-center justify-center text-center">
-                    <i :class="['fas fa-heartbeat text-3xl mb-2', systemHealthColorClass]"></i>
-                    <p class="text-gray-400 text-sm">System Health</p>
-                    <p :class="['text-3xl font-bold', systemHealthColorClass]">{{ stats.systemHealth }}%</p>
-                </div>
-                <div class="card flex flex-col items-center justify-center text-center">
-                    <i class="fas fa-users-cog text-3xl text-ggb-blue mb-2"></i>
-                    <p class="text-gray-400 text-sm">Active Agents</p>
-                    <p class="text-3xl font-bold text-ggb-text-light">{{ stats.activeAgents }}+</p>
-                </div>
-                <div class="card flex flex-col items-center justify-center text-center">
-                    <i class="fas fa-server text-3xl text-ggb-purple mb-2"></i>
-                    <p class="text-gray-400 text-sm">Live Platforms</p>
-                    <p class="text-3xl font-bold text-ggb-text-light">{{ stats.livePlatforms }}</p>
-                </div>
-                <div class="card flex flex-col items-center justify-center text-center">
-                    <i class="fas fa-money-bill-wave text-3xl text-green-500 mb-2"></i>
-                    <p class="text-gray-400 text-sm">Revenue (Est.)</p>
-                    <p class="text-3xl font-bold text-green-400">${{ stats.revenue }}</p>
-                </div>
+            <div id="agents-container">
+                <div class="loading">Loading agent status...</div>
             </div>
+        </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-                <!-- PIPELINE SECTION -->
-                <div class="lg:col-span-2 card p-6">
-                    <h2 class="text-2xl font-semibold text-ggb-gold mb-4 flex items-center"><i class="fas fa-project-diagram mr-3"></i>Book Pipeline Overview</h2>
-                    <div class="overflow-x-auto">
-                        <div class="flex space-x-4 pb-4">
-                            <div v-for="(stage, index) in pipeline" :key="index" class="flex-shrink-0 w-48 p-4 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
-                                 :style="{ backgroundColor: stage.color }">
-                                <p class="text-white font-semibold text-lg">{{ stage.name }}</p>
-                                <p class="text-white text-3xl font-bold">{{ stage.count }}</p>
-                                <p class="text-white text-sm">books</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SECURITY SECTION (Gauge & Stats) -->
-                <div class="card p-6 flex flex-col">
-                    <h2 class="text-2xl font-semibold text-ggb-gold mb-4 flex items-center"><i class="fas fa-lock mr-3"></i>Security Overview</h2>
-                    <div id="security-gauge" class="w-full h-48"></div>
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="text-center">
-                            <p class="text-gray-400 text-sm">Threats Detected</p>
-                            <p class="text-2xl font-bold text-ggb-red">{{ security.threatsDetected }}</p>
-                        </div>
-                        <div class="text-center">
-                            <p class="text-gray-400 text-sm">Threats Healed</p>
-                            <p class="text-2xl font-bold text-ggb-green">{{ security.threatsHealed }}</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-4 text-center">Last Scan: {{ security.lastScanTime }}</p>
-                </div>
-
-                <!-- PLATFORM STATUS GRID -->
-                <div class="lg:col-span-2 card p-6">
-                    <h2 class="text-2xl font-semibold text-ggb-gold mb-4 flex items-center"><i class="fas fa-cloud-upload-alt mr-3"></i>Platform Distribution Status</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                        <a v-for="platform in platforms" :key="platform.name" :href="platform.link" target="_blank"
-                           class="card p-4 flex items-center space-x-4 bg-gray-800 hover:bg-gray-700 transition duration-200">
-                            <span :class="['status-indicator', platform.status === 'Online' ? 'status-green' : 'status-red']"></span>
-                            <div>
-                                <p class="text-lg font-semibold text-ggb-text-light">{{ platform.name }}</p>
-                                <p class="text-sm text-gray-400">Port: {{ platform.port }} | Status: <span :class="{'text-ggb-green': platform.status === 'Online', 'text-ggb-red': platform.status === 'Offline'}">{{ platform.status }}</span></p>
-                            </div>
-                            <i class="fas fa-external-link-alt text-gray-500 ml-auto text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- AGENT ACTIVITY FEED -->
-                <div class="card p-6 max-h-96 flex flex-col">
-                    <h2 class="text-2xl font-semibold text-ggb-gold mb-4 flex items-center"><i class="fas fa-robot mr-3"></i>Agent Activity Feed</h2>
-                    <div class="flex-grow overflow-y-auto space-y-3 pr-2" ref="activityFeed">
-                        <div v-for="(activity, index) in agentActivity" :key="index"
-                             class="flex items-start text-sm p-3 rounded-lg" :class="activityClass(activity.type)">
-                            <div class="flex-shrink-0 w-6 text-center mr-3">
-                                <i :class="activityIcon(activity.type)" class="text-lg"></i>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="font-semibold">{{ activity.agentId }} <span class="font-normal">{{ activity.action }}</span></p>
-                                <p class="text-xs text-gray-500">{{ formatTimestamp(activity.timestamp) }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- QUICK ACTIONS -->
-                <div class="card p-6">
-                    <h2 class="text-2xl font-semibold text-ggb-gold mb-4 flex items-center"><i class="fas fa-bolt mr-3"></i>Quick Actions</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <button @click="runAction('scan')" class="btn-action">
-                            <i class="fas fa-shield-alt mr-2"></i>Run Security Scan
-                        </button>
-                        <button @click="runAction('healing')" class="btn-action">
-                            <i class="fas fa-first-aid mr-2"></i>Run Healing
-                        </button>
-                        <button @click="runAction('deploy')" class="btn-action">
-                            <i class="fas fa-plus-circle mr-2"></i>Deploy Bot
-                        </button>
-                        <button @click="runAction('status')" class="btn-action">
-                            <i class="fas fa-sync-alt mr-2"></i>Check System Status
-                        </button>
-                    </div>
-                    <p v-if="actionStatus" class="mt-4 text-center text-sm" :class="actionStatusClass">{{ actionStatus }}</p>
-                </div>
+        <!-- Recent Activity Log -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">📋</span>
+                Recent Activity
             </div>
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="header-bg py-4 px-6 text-sm text-gray-400 flex flex-wrap justify-between items-center mt-8 shadow-inner">
-            <div class="flex items-center space-x-4">
-                <span>System Uptime: <span class="font-semibold">{{ footer.uptime }}</span></span>
-                <span>Last Updated: <span class="font-semibold">{{ footer.lastUpdated }}</span></span>
+            <div class="log-container" id="activity-log">
+                <div class="loading">Loading recent activities...</div>
             </div>
-            <span>Version: <span class="font-semibold">{{ footer.version }}</span></span>
-        </footer>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="card">
+            <div class="card-title">
+                <span class="card-icon">📊</span>
+                Performance Metrics
+            </div>
+            <div class="metric">
+                <span class="metric-label">Books/Hour Rate</span>
+                <span class="metric-value" id="perf-rate">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Success Rate</span>
+                <span class="metric-value" id="perf-success">--</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="success-progress" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">System Uptime</span>
+                <span class="metric-value" id="perf-uptime">--</span>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Mock API for development. In production, this would be replaced by actual fetch calls.
-        const mockAPI = {
-            async getDashboardData() {
-                // Simulate network delay
-                await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500));
+        class CommandCenter {
+            constructor() {
+                this.lastUpdateTime = null;
+                this.errorCount = 0;
+                this.maxErrors = 5;
+                this.refreshInterval = 30000; // 30 seconds
+                this.init();
+            }
 
-                const currentBooks = 1817;
-                const currentSecurity = 94;
-                const currentHealth = 85;
-                const currentAgents = 370;
-                const currentRevenue = Math.floor(Math.random() * 100000); // 0-100k
+            init() {
+                this.updateData();
+                setInterval(() => this.updateData(), this.refreshInterval);
+            }
 
-                const pipelineCounts = {
-                    creation: Math.floor(Math.random() * 10) + 5,
-                    validation: Math.floor(Math.random() * 8) + 3,
-                    design: Math.floor(Math.random() * 12) + 7,
-                    formatting: Math.floor(Math.random() * 6) + 2,
-                    packaging: Math.floor(Math.random() * 4) + 1,
-                    submission: Math.floor(Math.random() * 3) + 1,
-                    monitoring: Math.floor(Math.random() * 20) + 10,
-                    optimization: Math.floor(Math.random() * 15) + 5,
-                };
-                const totalPipelineBooks = Object.values(pipelineCounts).reduce((acc, curr) => acc + curr, 0);
-
-
-                const platforms = [
-                    { name: 'Amazon KDP', port: '443', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://kdp.amazon.com' },
-                    { name: 'Apple Books', port: '22', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://authors.apple.com' },
-                    { name: 'Google Play Books', port: '80', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://play.google.com/books/publish' },
-                    { name: 'Barnes & Noble Press', port: '443', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://press.barnesandnoble.com' },
-                    { name: 'Kobo Writing Life', port: '22', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://www.kobo.com/us/en/p/writinglife' },
-                    { name: 'Smashwords', port: '80', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://www.smashwords.com/dashboard' },
-                    { name: 'Draft2Digital', port: '443', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://www.draft2digital.com' },
-                    { name: 'IngramSpark', port: '22', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://www.ingramspark.com' },
-                    { name: 'PublishDrive', port: '80', status: Math.random() > 0.1 ? 'Online' : 'Offline', link: 'https://publishdrive.com' },
-                ];
-
-                const threatsDetected = Math.floor(Math.random() * 10);
-                const threatsHealed = Math.floor(threatsDetected * 0.8);
-                const lastScanTime = new Date(Date.now() - Math.random() * 3600 * 1000).toLocaleString();
-
-                return {
-                    stats: {
-                        totalBooks: currentBooks,
-                        securityScore: currentSecurity,
-                        systemHealth: currentHealth,
-                        activeAgents: currentAgents,
-                        livePlatforms: platforms.filter(p => p.status === 'Online').length,
-                        revenue: currentRevenue.toLocaleString(), // Format for display
-                    },
-                    pipeline: [
-                        { name: 'Creation', count: pipelineCounts.creation, color: '#3B82F6' }, // blue-500
-                        { name: 'Validation', count: pipelineCounts.validation, color: '#A855F7' }, // purple-500
-                        { name: 'Design', count: pipelineCounts.design, color: '#EC4899' }, // pink-500
-                        { name: 'Formatting', count: pipelineCounts.formatting, color: '#F97316' }, // orange-500
-                        { name: 'Packaging', count: pipelineCounts.packaging, color: '#EF4444' }, // red-500
-                        { name: 'Submission', count: pipelineCounts.submission, color: '#10B981' }, // emerald-500
-                        { name: 'Monitoring', count: pipelineCounts.monitoring, color: '#06B6D4' }, // cyan-500
-                        { name: 'Optimization', count: pipelineCounts.optimization, color: '#6366F1' }, // indigo-500
-                    ],
-                    platforms: platforms,
-                    security: {
-                        threatsDetected: threatsDetected,
-                        threatsHealed: threatsHealed,
-                        lastScanTime: lastScanTime,
-                        score: currentSecurity // Re-use for gauge
-                    },
-                    agentActivity: Array.from({ length: 5 }, (_, i) => ({
-                        agentId: `Agent-${String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}`,
-                        action: this.getRandomAction(),
-                        type: this.getRandomActivityType(),
-                        timestamp: new Date(Date.now() - (i * 1000 * 60 * (Math.random() * 5 + 1))).toISOString()
-                    })).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)), // Most recent first
-                    footer: {
-                        uptime: "34d 12h 45m", // Placeholder
-                        lastUpdated: new Date().toLocaleString(),
-                        version: "1.0.3-beta"
+            async updateData() {
+                try {
+                    const response = await fetch('/api/stats');
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                     }
-                };
-            },
-            getRandomAction() {
-                const actions = [
-                    "initiated book creation for 'Project X'",
-                    "validated manuscript for 'The Golden Age'",
-                    "deployed to platform 'Amazon KDP'",
-                    "detected security threat on 'Platform Alpha'",
-                    "healed critical vulnerability 'CVE-2023-1234'",
-                    "optimized metadata for 'Whispers of the Ancestors'",
-                    "archived old project 'Legacy Collection'",
-                    "updated agent configuration",
-                    "monitored sales for 'Echoes from the Past'",
-                    "generated new cover for 'Digital Nomads Guide'",
-                ];
-                return actions[Math.floor(Math.random() * actions.length)];
-            },
-            getRandomActivityType() {
-                const types = ['creation', 'submission', 'healing', 'threat', 'optimization', 'update'];
-                return types[Math.floor(Math.random() * types.length)];
-            },
-            async runActionAPI(actionType) {
-                await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
-                const success = Math.random() > 0.2; // 80% success rate
-                if (success) {
-                    return { status: 'success', message: `Action '${actionType}' initiated successfully.` };
+                    
+                    const data = await response.json();
+                    this.renderData(data);
+                    this.updateStatus(true);
+                    this.errorCount = 0;
+                    
+                } catch (error) {
+                    console.error('Failed to fetch data:', error);
+                    this.errorCount++;
+                    this.updateStatus(false, error.message);
+                    
+                    if (this.errorCount >= this.maxErrors) {
+                        this.showError('Multiple connection failures. Check system status.');
+                    }
+                }
+                
+                this.updateLastUpdateTime();
+            }
+
+            renderData(data) {
+                // D2D Mass Publisher
+                this.updateElement('d2d-today', data.d2d?.today || 0);
+                this.updateElement('d2d-total', data.d2d?.total || 0);
+                this.updateElement('d2d-failed', data.d2d?.failed || 0);
+                this.updateElement('d2d-processed', data.d2d?.processed || 0);
+
+                // Chinese Funnel
+                this.updateElement('chinese-mandarin', data.chinese?.mandarin || 0);
+                this.updateElement('chinese-cantonese', data.chinese?.cantonese || 0);
+                this.updateElement('chinese-hokkien', data.chinese?.hokkien || 0);
+                this.updateElement('translation-progress', data.chinese?.progress || '0%');
+
+                // Gumroad
+                this.updateElement('gumroad-products', data.gumroad?.products || 0);
+                this.updateElement('gumroad-sales', data.gumroad?.sales || 0);
+                this.updateElement('gumroad-revenue', data.gumroad?.revenue ? `$${data.gumroad.revenue}` : '$0');
+
+                // Database
+                this.updateElement('db-published', data.database?.published || 0);
+                this.updateElement('db-pipeline', data.database?.pipeline || 0);
+                this.updateElement('db-size', data.database?.size || '0 MB');
+
+                // System Health
+                if (data.health) {
+                    this.updateHealthMetric('cpu', data.health.cpu);
+                    this.updateHealthMetric('memory', data.health.memory);
+                    this.updateHealthMetric('disk', data.health.disk);
+                    this.updateHealthMetric('network', data.health.network);
+                }
+
+                // Agents
+                this.renderAgents(data.agents || []);
+
+                // Activity Log
+                this.renderActivityLog(data.activity || []);
+
+                // Performance
+                this.updateElement('perf-rate', data.performance?.rate || '0');
+                this.updateElement('perf-success', data.performance?.successRate || '0%');
+                this.updateElement('perf-uptime', data.performance?.uptime || '0h');
+                
+                if (data.performance?.successRate) {
+                    const rate = parseFloat(data.performance.successRate.replace('%', ''));
+                    document.getElementById('success-progress').style.width = `${rate}%`;
+                }
+            }
+
+            updateElement(id, value) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value;
+                    
+                    // Add visual feedback for changes
+                    element.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        element.style.transform = 'scale(1)';
+                    }, 200);
+                }
+            }
+
+            updateHealthMetric(type, data) {
+                const statusElement = document.getElementById(`health-${type}`);
+                const valueElement = document.getElementById(`health-${type}-val`);
+                
+                if (statusElement && valueElement) {
+                    valueElement.textContent = data.value || '--';
+                    
+                    statusElement.className = 'system-status';
+                    if (data.status === 'online' || data.status === 'good') {
+                        statusElement.classList.add('online');
+                    } else {
+                        statusElement.classList.add('offline');
+                    }
+                }
+            }
+
+            renderAgents(agents) {
+                const container = document.getElementById('agents-container');
+                
+                if (agents.length === 0) {
+                    container.innerHTML = '<div class="loading">No active agents</div>';
+                    return;
+                }
+                
+                const agentsHTML = agents.map(agent => `
+                    <div class="metric">
+                        <span class="metric-label">${agent.name}</span>
+                        <span class="metric-value ${agent.status === 'active' ? '' : 'warning'}">${agent.status}</span>
+                    </div>
+                `).join('');
+                
+                container.innerHTML = agentsHTML;
+            }
+
+            renderActivityLog(activities) {
+                const container = document.getElementById('activity-log');
+                
+                if (activities.length === 0) {
+                    container.innerHTML = '<div class="loading">No recent activities</div>';
+                    return;
+                }
+                
+                const logHTML = activities.slice(0, 10).map((activity, index) => `
+                    <div class="log-entry ${index < 3 ? 'recent' : ''}">
+                        [${activity.timestamp}] ${activity.message}
+                    </div>
+                `).join('');
+                
+                container.innerHTML = logHTML;
+            }
+
+            updateStatus(online, errorMsg = '') {
+                const statusDot = document.getElementById('statusDot');
+                const statusText = document.getElementById('statusText');
+                
+                if (online) {
+                    statusDot.className = 'status-dot';
+                    statusText.textContent = 'Systems Online';
                 } else {
-                    return { status: 'error', message: `Failed to initiate action '${actionType}'. Please check logs.` };
+                    statusDot.className = 'status-dot error';
+                    statusText.textContent = `Connection Error${errorMsg ? ': ' + errorMsg : ''}`;
                 }
             }
-        };
 
-        const app = Vue.createApp({
-            data() {
-                return {
-                    currentTime: '',
-                    currentDate: '',
-                    liveStatus: 'green', // 'green', 'yellow', 'red'
-                    stats: {
-                        totalBooks: 0,
-                        securityScore: 0,
-                        systemHealth: 0,
-                        activeAgents: 0,
-                        livePlatforms: 0,
-                        revenue: '0',
-                    },
-                    pipeline: [],
-                    platforms: [],
-                    security: {
-                        threatsDetected: 0,
-                        threatsHealed: 0,
-                        lastScanTime: '',
-                        score: 0
-                    },
-                    agentActivity: [],
-                    footer: {
-                        uptime: 'N/A',
-                        lastUpdated: 'N/A',
-                        version: 'N/A'
-                    },
-                    actionStatus: '',
-                    actionStatusClass: '',
-                    securityGaugeChart: null,
-                    refreshIntervalId: null,
-                    timeUpdateIntervalId: null,
-                };
-            },
-            computed: {
-                liveStatusClass() {
-                    return {
-                        'status-green': this.liveStatus === 'green',
-                        'status-yellow': this.liveStatus === 'yellow',
-                        'status-red': this.liveStatus === 'red',
-                    };
-                },
-                liveStatusText() {
-                    switch (this.liveStatus) {
-                        case 'green': return 'Operational';
-                        case 'yellow': return 'Degraded Performance';
-                        case 'red': return 'Critical Alert';
-                        default: return 'Unknown';
-                    }
-                },
-                securityScoreColorClass() {
-                    if (this.stats.securityScore < 50) return 'text-ggb-red';
-                    if (this.stats.securityScore < 75) return 'text-ggb-yellow';
-                    return 'text-ggb-green';
-                },
-                systemHealthColorClass() {
-                    if (this.stats.systemHealth < 50) return 'text-ggb-red';
-                    if (this.stats.systemHealth < 75) return 'text-ggb-yellow';
-                    return 'text-ggb-green';
-                },
-            },
-            methods: {
-                updateDateTime() {
-                    const now = new Date();
-                    this.currentTime = now.toLocaleTimeString();
-                    this.currentDate = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                },
-                async fetchDashboardData() {
-                    try {
-                        // In production, replace mockAPI with actual fetch calls to your Python backend
-                        // const response = await fetch('/api/dashboard');
-                        // const data = await response.json();
-                        const data = await mockAPI.getDashboardData();
-
-                        this.stats = data.stats;
-                        this.pipeline = data.pipeline;
-                        this.platforms = data.platforms;
-                        this.security = data.security;
-                        this.agentActivity = data.agentActivity;
-                        this.footer = data.footer;
-
-                        this.updateSecurityGauge(data.security.score);
-                        this.determineOverallStatus();
-                        this.scrollToFeedBottom();
-                    } catch (error) {
-                        console.error("Failed to fetch dashboard data:", error);
-                        this.liveStatus = 'red'; // Set to critical on fetch error
-                    }
-                },
-                determineOverallStatus() {
-                    if (this.stats.securityScore < 50 || this.stats.systemHealth < 50 || this.platforms.some(p => p.status === 'Offline')) {
-                        this.liveStatus = 'red';
-                    } else if (this.stats.securityScore < 75 || this.stats.systemHealth < 75) {
-                        this.liveStatus = 'yellow';
-                    } else {
-                        this.liveStatus = 'green';
-                    }
-                },
-                activityClass(type) {
-                    switch (type) {
-                        case 'creation': return 'bg-blue-900 bg-opacity-30 border border-blue-700';
-                        case 'submission': return 'bg-green-900 bg-opacity-30 border border-green-700';
-                        case 'healing': return 'bg-ggb-amber bg-opacity-30 border border-ggb-amber';
-                        case 'threat': return 'bg-red-900 bg-opacity-30 border border-red-700';
-                        case 'optimization': return 'bg-indigo-900 bg-opacity-30 border border-indigo-700';
-                        case 'update': return 'bg-gray-700 bg-opacity-30 border border-gray-600';
-                        default: return 'bg-gray-700 bg-opacity-30 border border-gray-600';
-                    }
-                },
-                activityIcon(type) {
-                    switch (type) {
-                        case 'creation': return 'fas fa-plus-circle text-blue-400';
-                        case 'submission': return 'fas fa-share-square text-green-400';
-                        case 'healing': return 'fas fa-medkit text-ggb-gold';
-                        case 'threat': return 'fas fa-exclamation-triangle text-red-400';
-                        case 'optimization': return 'fas fa-chart-line text-indigo-400';
-                        case 'update': return 'fas fa-info-circle text-gray-400';
-                        default: return 'fas fa-robot text-gray-400';
-                    }
-                },
-                formatTimestamp(timestamp) {
-                    return new Date(timestamp).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                },
-                scrollToFeedBottom() {
-                    this.$nextTick(() => {
-                        const feed = this.$refs.activityFeed;
-                        if (feed) {
-                            feed.scrollTop = feed.scrollHeight;
-                        }
-                    });
-                },
-                async runAction(actionType) {
-                    this.actionStatus = `Initiating '${actionType}'...`;
-                    this.actionStatusClass = 'text-yellow-500';
-                    try {
-                        // In production, replace mockAPI with actual fetch calls
-                        // const response = await fetch(`/api/action/${actionType}`, { method: 'POST' });
-                        // const result = await response.json();
-                        const result = await mockAPI.runActionAPI(actionType);
-
-                        if (result.status === 'success') {
-                            this.actionStatus = result.message;
-                            this.actionStatusClass = 'text-ggb-green';
-                        } else {
-                            this.actionStatus = result.message;
-                            this.actionStatusClass = 'text-ggb-red';
-                        }
-                    } catch (error) {
-                        this.actionStatus = `Error during '${actionType}' action: ${error.message}`;
-                        this.actionStatusClass = 'text-ggb-red';
-                        console.error("Action error:", error);
-                    } finally {
-                        setTimeout(() => { this.actionStatus = ''; this.actionStatusClass = ''; }, 5000); // Clear message after 5s
-                        this.fetchDashboardData(); // Refresh data after action
-                    }
-                },
-                updateSecurityGauge(score) {
-                    if (!this.securityGaugeChart) {
-                        const options = {
-                            series: [score],
-                            chart: {
-                                height: 180,
-                                type: 'radialBar',
-                                toolbar: { show: false }
-                            },
-                            plotOptions: {
-                                radialBar: {
-                                    startAngle: -135,
-                                    endAngle: 225,
-                                    hollow: {
-                                        margin: 0,
-                                        size: '70%',
-                                        background: 'transparent',
-                                        image: undefined,
-                                        imageOffsetX: 0,
-                                        imageOffsetY: 0,
-                                        position: 'front',
-                                    },
-                                    track: {
-                                        background: '#333',
-                                        strokeWidth: '67%',
-                                        margin: 0,
-                                    },
-                                    dataLabels: {
-                                        show: true,
-                                        name: {
-                                            offsetY: -10,
-                                            show: true,
-                                            color: '#888',
-                                            fontSize: '14px'
-                                        },
-                                        value: {
-                                            formatter: function (val) {
-                                                return parseInt(val);
-                                            },
-                                            color: this.securityScoreColorClass.replace('text-', ''), // Tailwind class to color
-                                            fontSize: '28px',
-                                            show: true,
-                                            offsetY: 8,
-                                        }
-                                    }
-                                }
-                            },
-                            fill: {
-                                type: 'gradient',
-                                gradient: {
-                                    shade: 'dark',
-                                    type: 'horizontal',
-                                    shadeIntensity: 0.5,
-                                    gradientToColors: [this.getColorForScore(score + 15)], // slightly brighter
-                                    inverseColors: true,
-                                    opacityFrom: 1,
-                                    opacityTo: 1,
-                                    stops: [0, 100]
-                                }
-                            },
-                            stroke: {
-                                lineCap: 'round'
-                            },
-                            labels: ['Score'],
-                            colors: [this.getColorForScore(score)]
-                        };
-                        this.securityGaugeChart = new ApexCharts(document.querySelector("#security-gauge"), options);
-                        this.securityGaugeChart.render();
-                    } else {
-                        // Update existing chart
-                        this.securityGaugeChart.updateOptions({
-                            fill: {
-                                gradient: {
-                                    gradientToColors: [this.getColorForScore(score + 15)],
-                                }
-                            },
-                            colors: [this.getColorForScore(score)],
-                            plotOptions: {
-                                radialBar: {
-                                    dataLabels: {
-                                        value: {
-                                            color: this.securityScoreColorClass.replace('text-', '')
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                        this.securityGaugeChart.updateSeries([score]);
-                    }
-                },
-                getColorForScore(score) {
-                    if (score < 50) return getComputedStyle(document.documentElement).getPropertyValue('--ggb-red');
-                    if (score < 75) return getComputedStyle(document.documentElement).getPropertyValue('--ggb-yellow');
-                    return getComputedStyle(document.documentElement).getPropertyValue('--ggb-green');
-                }
-            },
-            mounted() {
-                this.updateDateTime();
-                this.fetchDashboardData();
-                // Set up auto-refresh
-                this.timeUpdateIntervalId = setInterval(this.updateDateTime, 1000); // Every second for clock
-                this.refreshIntervalId = setInterval(this.fetchDashboardData, 10000); // Every 10 seconds for data
-            },
-            beforeUnmount() {
-                clearInterval(this.refreshIntervalId);
-                clearInterval(this.timeUpdateIntervalId);
+            updateLastUpdateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString();
+                document.getElementById('lastUpdate').textContent = timeString;
             }
+
+            showError(message) {
+                // You could implement a more sophisticated error display here
+                console.error('Dashboard Error:', message);
+            }
+        }
+
+        // Initialize the dashboard when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new CommandCenter();
         });
 
-        app.mount('#app');
+        // Add some visual flair
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.cssText = `
+                position: fixed;
+                pointer-events: none;
+                width: 20px;
+                height: 20px;
+                background: radial-gradient(circle, rgba(233,69,96,0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                left: ${e.clientX}px;
+                top: ${e.clientY}px;
+                z-index: 9999;
+                animation: fadeOut 1s ease-out forwards;
+            `;
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => cursor.remove(), 1000);
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0); }
+                50% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
