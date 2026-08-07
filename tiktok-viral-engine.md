@@ -139,3 +139,4 @@
 | 2026-08-04 (Tue) | Fishing | fishing-2026-08-04.jpg | ✅ Posted |
 | 2026-08-05 (Wed) | Alligator Follow-up | alligator-followup-2026-08-05.jpg | ✅ Posted |
 | 2026-08-06 (Thu) | Sea Turtle (cycle restart) | sea-turtle-2026-08-06.png | ✅ Posted |
+| 2026-08-07 (Fri) | Blue Heron | blue-heron-2026-08-07.png | ✅ Posted |
