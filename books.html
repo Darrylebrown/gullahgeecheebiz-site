@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookstore — Gullah Geechee Biz</title>
+  <meta name="description" content="Browse and buy the Gullah Geechee Encyclopedia series, the Complete Box Set, the Heritage Vault (ebooks + audiobooks + genealogy), and institutional site licenses. Secure checkout via Gumroad." />
+  <meta name="theme-color" content="#1A3D36" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=sentient@400,500,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="./logo.png" type="image/png" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <style>
+    .book-hero{background:linear-gradient(135deg,#1A3D36 0%,#0F2F29 60%,#13211d 100%);color:#F5EFE6;padding:3.5rem 0 3rem}
+    .book-card{border:1px solid rgba(196,138,26,0.25);border-radius:16px;padding:1.5rem;background:#fff}
+    .book-card .price{font-family:var(--serif,Georgia,serif);font-size:1.5rem;color:#1A3D36}
+    .badge{display:inline-block;padding:.25rem .7rem;border-radius:999px;font-size:.78rem;letter-spacing:.04em;font-weight:600;
+      background:rgba(196,138,26,.14);color:#8a5c12;margin-bottom:.6rem;text-transform:uppercase}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+    .promo-strip{background:#c48a1a;color:#0F2F29;text-align:center;padding:.9rem 1rem;font-weight:600}
+    .tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./index.html" aria-label="Gullah Geechee Biz home">
+        <svg class="mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" fill="none">
+          <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 24c3-8 7-12 10-12s7 4 10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 20h16M14 16h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+        <span class="brand-text">Gullah Geechee Biz</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="#catalog" aria-current="page">Books</a>
+        <a href="./shop.html">Merch</a>
+        <a href="./index.html#listen">Listen</a>
+        <a href="./index.html#substack">Join</a>
+        <a href="./index.html#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="book-hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow" style="color:#c48a1a">The Gullah Geechee reading circle</p>
+        <h1 style="font-size:clamp(2rem,4vw,3rem);margin:.4rem 0 1rem">The bookstore.</h1>
+        <p style="max-width:60ch;font-size:1.1rem;line-height:1.6">
+          Every title below is available right now — secure checkout through Gumroad, instant download
+          on purchase. From single encyclopedia volumes to the complete 25-volume box set and the full
+          Heritage Vault of ebooks, audiobooks, and genealogy.
+        </p>
+      </div>
+    </section>
+
+    <div class="promo-strip">Secure Gumroad checkout · Instant download · Culture worth keeping</div>
+
+    <section class="section" id="catalog">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Buy the collection</h2>
+          <p class="section-sub">10 live products · pay with Gumroad · download instantly.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Flagship bundles -->
+          <article class="book-card">
+            <span class="badge">Complete Box Set</span>
+            <h3>Gullah Geechee Encyclopedia — Complete Box Set (Vol 1–25)</h3>
+            <p class="price">$39.99</p>
+            <p>All 25 volumes of the flagship encyclopedia in one purchase.</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/fpnfz" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+
+          <article class="book-card">
+            <span class="badge">Everything Bundle</span>
+            <h3>Ultimate Gullah Geechee Heritage Vault (Ebooks + Audiobooks + Genealogy)</h3>
+            <p class="price">$97.00</p>
+            <p>The complete heritage collection — ebooks, audiobooks, and genealogy together.</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/rlxww" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+
+          <article class="book-card">
+            <span class="badge">Library / University</span>
+            <h3>Gullah Geechee Institutional Site License</h3>
+            <p class="price">$497.00</p>
+            <p>Site-wide access for libraries, schools, and universities.</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/hoiak" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band quote-band" aria-label="Individual volumes">
+      <div class="wrap narrow">
+        <p class="quote">One volume at a time — or take them all.</p>
+      </div>
+    </section>
+
+    <section class="section" id="volumes">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Individual encyclopedia volumes</h2>
+          <p class="section-sub">Volume 16–22 available now at $9.99 each.</p>
+        </div>
+        <div class="grid-3">
+          <article class="book-card">
+            <h3>Encyclopedia Volume 22</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/wrryi" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+          <article class="book-card">
+            <h3>Encyclopedia Volume 21</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/eakpyu" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+          <article class="book-card">
+            <h3>Encyclopedia Volume 20</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/bpauwp" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+          <article class="book-card">
+            <h3>Encyclopedia Volume 19</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/qjcqdo" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+          <article class="book-card">
+            <h3>Encyclopedia Volume 18</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/jktjof" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+          <article class="book-card">
+            <h3>Encyclopedia Volume 17</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/hqzkqz" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+          <article class="book-card">
+            <h3>Encyclopedia Volume 16</h3>
+            <p class="price">$9.99</p>
+            <p style="margin-top:1rem"><a class="btn btn-primary" href="https://debtide0.gumroad.com/l/bbxhyg" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="why">
+      <div class="wrap about-grid">
+        <div>
+          <h2>Why buy direct</h2>
+          <p>
+            Buying here keeps every dollar in the preservation of Gullah Geechee culture.
+            Books unlock instantly. Buy a volume, or the whole set, and read at your pace.
+          </p>
+        </div>
+        <ul class="pillars">
+          <li><span class="pillar-num">01</span><div><strong>Instant</strong><p>Download right after checkout</p></div></li>
+          <li><span class="pillar-num">02</span><div><strong>Complete</strong><p>Ebooks, audiobooks, genealogy</p></div></li>
+          <li><span class="pillar-num">03</span><div><strong>Secure</strong><p>Trusted Gumroad checkout</p></div></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>Gullah Geechee Biz</strong>
+        <p>Preserving a culture. Sharing a world.</p>
+      </div>
+      <div class="footer-meta">
+        <p>© 2026 Gullah Geechee Biz. All rights reserved.</p>
+        <p class="muted"><a href="./index.html">Back to home</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
