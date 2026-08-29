@@ -5,6 +5,7 @@ Engine that continuously analyzes, predicts, and optimizes every piece of
 content for maximum discoverability across all platforms.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, re, random
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Tuple

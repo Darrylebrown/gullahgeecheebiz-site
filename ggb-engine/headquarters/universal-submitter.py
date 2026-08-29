@@ -569,7 +569,7 @@ def main():
     print(f"  • Full submission tracking per book per platform")
     print(f"  • Press Ctrl+C to stop.\n")
     
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

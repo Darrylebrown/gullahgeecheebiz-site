@@ -5,6 +5,7 @@ Predicts, coordinates, and optimizes across all layers: publishing, security,
 social, SOE, agents, healing, and revenue. The master orchestrator.
 """
 import json, os, sys, time, sqlite3, requests, threading, hashlib
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Any

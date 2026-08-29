@@ -5,6 +5,7 @@ learn, and improve over time. Each agent specializes in a publishing task,
 tracks its success rate, and evolves its strategy based on results.
 """
 import json, os, sys, time, sqlite3, requests, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional

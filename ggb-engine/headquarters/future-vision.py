@@ -5,6 +5,7 @@ publishing system to 5-years-in-the-future standards. What would a
 2026-era system look like in 2031?
 """
 import json, os, sys, time, requests, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 

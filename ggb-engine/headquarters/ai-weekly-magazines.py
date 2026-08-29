@@ -4,6 +4,7 @@ GGB AI Weekly Magazine Generator — produces 5 AI-focused magazines
 every week in English, Spanish, and Mandarin. Runs as a cron job.
 """
 import json, os, sys, sqlite3, requests, time, csv
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List

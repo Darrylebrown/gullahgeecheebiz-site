@@ -6,6 +6,7 @@ create everything. Connected to the Brain, SOE, Dream Weaver, and all
 distribution channels.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Any

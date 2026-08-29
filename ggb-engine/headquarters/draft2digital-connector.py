@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import asyncio
 from datetime import datetime
+import _env_creds
 
 try:
     from playwright.async_api import async_playwright, Page, Browser, BrowserContext
@@ -21,8 +22,8 @@ except ImportError:
     sys.exit(1)
 
 # Configuration
-D2D_EMAIL = "darrylebrown2014@icloud.com"
-D2D_PASSWORD = "mujzyk-1zotce-Mimcoh"
+D2D_EMAIL = _env_creds.require("D2D_EMAIL")
+D2D_PASSWORD = _env_creds.require("D2D_PASSWORD")
 EPUB_DIRECTORY = "/Users/darrylsmac/gullahgeecheebiz-site/publish/for-distribution/google-play/"
 LOG_FILE = "/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/d2d_submission.log"
 

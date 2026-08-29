@@ -16,7 +16,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <title>Logo Split / Lockup Pulse — group_7 reference impl</title>
+    <title>Dynamic Logo Split & Pulse Animation (HyperFrames)</title>
     <script src="../../motion-primitives/assets/gsap.min.js"></script>
     <!-- Velocity-driven directional motion blur (registry: motion-blur). Samples each
          target's GSAP x/y per seek and applies a one-sided ghost trail + top blur
@@ -257,7 +257,8 @@
       /* edge/vertical centering is set in JS via GSAP xPercent/yPercent so it
          composes with the animated x (a CSS % transform would be clobbered). */
     </style>
-  </head>
+    <meta name="description" content="Unleash the power of your brand with a captivating logo split and pulse animation. This HyperFrames reference implementation showcases dynamic motion blur and engaging visual effects.">
+</head>
   <body>
     <!-- duration = 2.875s = the green logo lifecycle (seed -> split -> lockup ->
          snap -> pulse); the source then HARD-CUTS to the next group at f70 (2.917s). -->
@@ -592,5 +593,25 @@
         }
       })();
     </script>
-  </body>
+  
+  <!-- Related Content -->
+  <div class="related-content">
+    <h3>Explore More</h3>
+    <ul>
+      <li><a href="/.agents/skills/hyperframes-animation/examples/brand-reveal-assemble-zoom.html">See another brand reveal example</a></li>
+      <li><a href="/.agents/skills/hyperframes-animation/examples/comparison-split-cards.html">Explore more split-screen animations</a></li>
+      <li><a href="/.agents/skills/hyperframes-animation/examples/concept-demo-decode-pan.html">Discover HyperFrames' dynamic panning</a></li>
+      <li><a href="/.agents/skills/changelog-video/examples/master-skeleton.html">Stay updated with HyperFrames Weekly</a></li>
+    </ul>
+  </div>
+
+  <!-- Social Sharing -->
+  <div class="social-share">
+    <p>Share this: 
+      <a href="https://twitter.com/intent/tweet?text=Elevate%20your%20brand's%20presence%20with%20this%20stunning%20logo%20split%20and%20pulse%20animation%20powered%20by%20HyperFrames!%20✨%20See%20it%20in%20action%20and%20learn%20how%20to%20create%20your%20own:%20[Page%20URL]" target="_blank">Twitter</a> |
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://gullahgeecheebiz.com/.agents/skills/music-to-video/references/templates/logo-split-lockup-pulse" target="_blank">Facebook</a> |
+      <a href="https://pinterest.com/pin/create/button/?url=https://gullahgeecheebiz.com/.agents/skills/music-to-video/references/templates/logo-split-lockup-pulse&description=Elevate%20your%20brand's%20presence%20with%20this%20stunning%20logo%20split%20and%20pulse%20animation%20powered%20by%20HyperFrames!%20✨%20See%20it%20in%20action%20and%20learn%20how%20to%20create%20your%20own:%20[Page%20URL]" target="_blank">Pinterest</a>
+    </p>
+  </div>
+</body>
 </html>

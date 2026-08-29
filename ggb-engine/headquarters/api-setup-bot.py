@@ -628,11 +628,24 @@ class ShopifyHandler(PlatformHandler):
             creds.append(Credential(self.name, "SHOPIFY_ACCESS_TOKEN", admin_token, "token"))
         return creds
 
+    def _shop_domain(self) -> str:
+        """Resolve the shop domain: prefer SHOPIFY_SHOP_DOMAIN, else derive
+        from SHOPIFY_STORE_URL (which may be a full https://...myshopify.com/admin)."""
+        domain = (self.env.get("SHOPIFY_SHOP_DOMAIN") or "").strip()
+        if domain:
+            return domain
+        url = (self.env.get("SHOPIFY_STORE_URL") or "").strip()
+        if not url:
+            return ""
+        # strip scheme + any path (e.g. /admin)
+        domain = url.split("//", 1)[-1].split("/", 1)[0].strip().rstrip("/")
+        return domain
+
     def api_test(self) -> Tuple[bool, str]:
-        shop = self.env.get("SHOPIFY_SHOP_DOMAIN")
+        shop = self._shop_domain()
         token = self.env.get("SHOPIFY_ACCESS_TOKEN")
         if not (shop and token):
-            return False, "missing SHOPIFY_SHOP_DOMAIN or SHOPIFY_ACCESS_TOKEN"
+            return False, "missing SHOPIFY_SHOP_DOMAIN/SHOPIFY_STORE_URL or SHOPIFY_ACCESS_TOKEN"
         url = f"https://{shop}/admin/api/2024-04/shop.json"
         try:
             r = requests.get(url, headers={"X-Shopify-Access-Token": token}, timeout=15)
@@ -821,8 +834,101 @@ class EtsyHandler(PlatformHandler):
 # ---------------------------------------------------------------------------
 # DRAFT2DIGITAL
 # ---------------------------------------------------------------------------
+
+
 class Draft2DigitalHandler(PlatformHandler):
     name = "draft2digital"
     display_name = "Draft2Digital"
     developer_url = "https://www.draft2digital.com/"
-    env_keys = ["D2
+    env_keys = ["D2D_EMAIL", "D2D_PASSWORD"]
+    login_required = True
+    twofa_likely = True
+
+    def setup(self):
+        log.info("Draft2Digital has no public API; browser automation handles submissions via draft2digital-connector.py")
+        return []
+
+    def api_test(self):
+        return (False, "browser-only platform — no API; use draft2digital-connector.py")
+
+HANDLERS = {
+    "pinterest": PinterestHandler,
+    "shopify": ShopifyHandler,
+    "etsy": EtsyHandler,
+    "draft2digital": Draft2DigitalHandler,
+}
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--platform", action="append", choices=list(HANDLERS.keys()) + ["all"], default=["all"])
+    parser.add_argument("--headless", action="store_true")
+    parser.add_argument("--non-interactive", action="store_true")
+    parser.add_argument("--test-only", action="store_true")
+    args = parser.parse_args()
+
+    env = EnvManager(ENV_PATH)
+    state = StateStore()
+
+    selected = set()
+    if "all" in args.platform:
+        selected = set(HANDLERS.keys())
+    else:
+        selected = set(args.platform)
+
+    needs_browser = any(not args.test_only for p in selected)
+    session = None
+    if needs_browser:
+        session = BrowserSession(headless=args.headless, slow_mo=50)
+        try:
+            session.__enter__()
+        except Exception as e:
+            log.error("Failed to start browser session: %s", e)
+            return 1
+
+    try:
+        results = []
+        setup_display: Dict[str, str] = {}
+        for pname in sorted(selected):
+            handler_cls = HANDLERS[pname]
+            handler = handler_cls(session, env, state, interactive=not args.non_interactive)
+            setup_result = "skipped"
+            api_result = "not run"
+
+            if not args.test_only:
+                try:
+                    creds = handler.setup()
+                    if creds:
+                        env.set_many(creds)
+                    setup_result = "ok" if creds else "none"
+                except Exception as e:
+                    setup_result = f"error: {e}"
+
+            try:
+                ok, msg = handler.api_test()
+                api_result = "pass" if ok else f"fail: {msg}"
+            except Exception as e:
+                api_result = f"error: {e}"
+
+            pr = state.get(pname)
+            pr.status = "success" if api_result == "pass" else ("skipped" if setup_result == "skipped" else "failed")
+            pr.api_test_ok = api_result == "pass"
+            pr.api_test_detail = api_result
+            setup_display[pname] = setup_result
+            state.save()
+            results.append(pr)
+
+        print(f"{'Platform':<20} {'Setup':<15} {'API Test'}")
+        print("-" * 60)
+        for r in results:
+            print(f"{r.platform:<20} {setup_display.get(r.platform, '-'):<15} {r.api_test_detail}")
+    finally:
+        if session:
+            try:
+                session.__exit__(None, None, None)
+            except Exception:
+                pass
+
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -3,6 +3,7 @@
 GGB Unified Publishing Agent — one agent to rule all platforms.
 Handles Google Play, KDP, Draft2Digital, Spotify, ACX, DistroKid, and Pinterest
 from a single cohesive system. Uses AI think tank for strategy, Playwright for execution.
+import omniroute_shim  # OMNIROUTE_MIGRATED
 """
 import json, os, sys, time, sqlite3, hashlib, logging, csv, shutil
 from pathlib import Path

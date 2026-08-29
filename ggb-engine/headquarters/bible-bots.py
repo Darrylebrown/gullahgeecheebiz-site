@@ -4,6 +4,7 @@ GGB Bible Content Bots — 2 fully autonomous bots that generate Bible-centered
 products: workbooks, coloring books, scriptures, pins, and more. 4x daily.
 """
 import json, os, sys, time, requests, hashlib, random
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 

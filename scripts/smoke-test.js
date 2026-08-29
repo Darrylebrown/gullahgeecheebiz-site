@@ -145,7 +145,7 @@ try {
 try {
   const { execSync } = require('child_process');
   const booksLinks = execSync(
-    "grep -rl 'gullahgeecheebiz.com/books' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l",
+    "grep -rlE 'gullahgeecheebiz\\.com/books([^.]|$)' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l",
     { cwd: ROOT, encoding: 'utf8' }
   ).trim();
   Number(booksLinks) === 0 ? ok('links: no dead /books') : fail('links: no dead /books', `${booksLinks} files`);

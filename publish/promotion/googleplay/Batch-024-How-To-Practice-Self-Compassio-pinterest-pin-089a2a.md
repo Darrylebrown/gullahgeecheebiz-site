@@ -1,0 +1,5 @@
+📌 Pinterest Promo Pin
+
+Batch 024 How To Practice Self Compassion — A Gullah Geechee Guide | Available on Google Play Books
+
+#GullahGeechee #GooglePlayBooks #BookRecommendation #ReadingList

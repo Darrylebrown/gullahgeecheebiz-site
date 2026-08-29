@@ -5,6 +5,7 @@ marketplace across every platform. Uses the existing GGB ecosystem to
 drive traffic, signups, and sales.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional

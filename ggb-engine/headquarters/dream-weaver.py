@@ -5,6 +5,7 @@ books, songs, poems, recipes, stories, and cultural content. The system's
 imagination. Connected to the Brain, SOE, and all distribution channels.
 """
 import json, os, sys, time, sqlite3, requests, random, hashlib
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional

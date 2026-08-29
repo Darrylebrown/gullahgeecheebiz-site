@@ -5,6 +5,7 @@ security system with threat detection, rapid repair, and continuous evolution.
 Watches every node in the ecosystem and auto-repairs any breach or failure.
 """
 import json, os, sys, time, sqlite3, requests, re, hashlib, subprocess, socket, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Tuple

@@ -5,6 +5,7 @@ self-sustaining Search Optimization Engine that operates autonomously
 as part of the 2031 publishing ecosystem.
 """
 import json, os, sys, time, requests, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 

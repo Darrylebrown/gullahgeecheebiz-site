@@ -1,9 +1,10 @@
 import requests
 import json
+import _env_creds
 
 # Configuration
-PINTEREST_APP_ID = "1597343"
-PINTEREST_ACCESS_TOKEN = "pina_AMAZ6XYYADXEUAIAGAABICTBTQX4VHYBACGSP4U4EDVOII74QOFM4SGKFP74VP5CRGZSEM4TTX7KLWXSWDKRJN4GAJSJGDIA"
+PINTEREST_APP_ID = _env_creds.require("PINTEREST_APP_ID")
+PINTEREST_ACCESS_TOKEN = _env_creds.require("PINTEREST_ACCESS_TOKEN")
 ENDPOINTS = {
     "Production": "https://api.pinterest.com/v5/user_account",
     "Sandbox": "https://api-sandbox.pinterest.com/v5/user_account"

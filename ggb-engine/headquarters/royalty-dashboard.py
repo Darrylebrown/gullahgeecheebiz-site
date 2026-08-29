@@ -370,7 +370,7 @@ def main():
     print(f"  • Top selling books")
     print(f"  • Monthly trends")
     print(f"  • Press Ctrl+C to stop.\n")
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

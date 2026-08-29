@@ -5,6 +5,7 @@ GGB Research & Review Army — 50 autonomous research agents that review
 piece of content gets reviewed by multiple agents before release.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Tuple

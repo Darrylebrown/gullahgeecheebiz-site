@@ -531,7 +531,7 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(HTML.encode())
 
 def main():
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     print(f"\n{'='*55}")
     print(f"  🏝️  GGB COMMAND CENTER")
     print(f"  http://localhost:{PORT}")

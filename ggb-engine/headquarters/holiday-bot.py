@@ -5,6 +5,7 @@ holiday-themed books, coloring books, activity pages, scripture cards,
 pins, and more for every holiday throughout the year. Runs 4x daily.
 """
 import json, os, sys, time, requests, hashlib, random
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 

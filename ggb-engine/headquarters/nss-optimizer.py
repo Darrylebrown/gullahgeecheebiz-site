@@ -4,6 +4,7 @@ GGB Newsletter, Substack & Stripe Optimizer — wires all three into the
 Spirit Weaver SOE for continuous optimization, automation, and connectivity.
 """
 import json, os, sys, time, sqlite3, requests, re
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional

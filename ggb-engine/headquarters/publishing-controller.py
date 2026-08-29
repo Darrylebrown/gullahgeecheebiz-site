@@ -684,6 +684,9 @@ class PublishingController:
         }
         
         # Identify strongest and weakest departments
+        if not avg_dept_performance:
+            logger.info('No performance data available for department optimization')
+            return
         strongest_dept = max(avg_dept_performance.items(), key=lambda x: x[1])[0]
         weakest_dept = min(avg_dept_performance.items(), key=lambda x: x[1])[0]
         
@@ -942,7 +945,7 @@ class PublishingController:
     def run(self):
         """Run the controller web server"""
         logger.info("Starting Publishing Controller web server on port 8090")
-        self.app.run(host='0.0.0.0', port=8090)
+        self.app.run(host='127.0.0.1', port=8090)
 
 if __name__ == '__main__':
     controller = PublishingController()

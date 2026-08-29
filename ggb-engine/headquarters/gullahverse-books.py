@@ -6,6 +6,7 @@ Author: Darryl Elliott Brown | Publisher: Gullah Geechee Biz
 Features: Storefront, AI Book Generator, AI Audio Generator, Author Platform
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading, re
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -989,7 +990,7 @@ def main():
     print(f"  • Publisher: Gullah Geechee Biz")
     print(f"  • Press Ctrl+C to stop.\n")
     
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

@@ -6,6 +6,7 @@ Built from the AI Think Tank winning design (30,924 chars).
 Features: Soul Profiles, Binyah Concierge, Community, Common Chat, Kinship Subscriptions.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading, re
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -1068,7 +1069,7 @@ def main():
     print(f"  • Darryl can chime in anytime as admin 👑")
     print(f"  • Press Ctrl+C to stop.\n")
     
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

@@ -1,142 +1,79 @@
 [
   {
     "process": "rapportd",
-    "pid": "641",
+    "pid": "968",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "58941"
+    "port": "59561"
   },
   {
     "process": "rapportd",
-    "pid": "641",
+    "pid": "968",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "58941"
+    "port": "59561"
   },
   {
     "process": "ControlCe",
-    "pid": "719",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "7000"
-  },
-  {
-    "process": "ControlCe",
-    "pid": "719",
+    "pid": "1090",
     "user": "darrylsmac",
     "bind": "*",
     "port": "7000"
   },
   {
     "process": "ControlCe",
-    "pid": "719",
+    "pid": "1090",
+    "user": "darrylsmac",
+    "bind": "*",
+    "port": "7000"
+  },
+  {
+    "process": "ControlCe",
+    "pid": "1090",
     "user": "darrylsmac",
     "bind": "*",
     "port": "5000"
   },
   {
     "process": "ControlCe",
-    "pid": "719",
+    "pid": "1090",
     "user": "darrylsmac",
     "bind": "*",
     "port": "5000"
   },
   {
     "process": "ollama",
-    "pid": "2089",
+    "pid": "1645",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "11434"
   },
   {
-    "process": "Python",
-    "pid": "3461",
+    "process": "Spotify",
+    "pid": "1667",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "8087"
+    "port": "59570"
   },
   {
-    "process": "Python",
-    "pid": "68651",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8081"
-  },
-  {
-    "process": "Python",
-    "pid": "70803",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8082"
-  },
-  {
-    "process": "Python",
-    "pid": "72346",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8083"
-  },
-  {
-    "process": "Python",
-    "pid": "74378",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8084"
-  },
-  {
-    "process": "Python",
-    "pid": "76313",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8085"
-  },
-  {
-    "process": "python3.1",
-    "pid": "77234",
+    "process": "Spotify",
+    "pid": "1667",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
-    "port": "63849"
+    "port": "7768"
   },
   {
-    "process": "Python",
-    "pid": "78871",
+    "process": "Spotify",
+    "pid": "1667",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "8086"
+    "port": "57621"
   },
   {
-    "process": "Python",
-    "pid": "80674",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8777"
-  },
-  {
-    "process": "Python",
-    "pid": "88787",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8090"
-  },
-  {
-    "process": "Python",
-    "pid": "91445",
+    "process": "llama-ser",
+    "pid": "19200",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
-    "port": "8091"
-  },
-  {
-    "process": "Python",
-    "pid": "93842",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8091"
-  },
-  {
-    "process": "Python",
-    "pid": "98328",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "8080"
+    "port": "57956"
   }
 ]

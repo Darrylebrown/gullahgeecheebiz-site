@@ -1,0 +1,2072 @@
+[
+ {
+  "title": "Gullah Geechee Books: Culture, History & Wisdom",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 167,
+  "file": "books.html"
+ },
+ {
+  "title": "Gullah Geechee Biz: AI Bot Dashboard & Opportunity Hub",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 163,
+  "file": "bot-dashboard.html"
+ },
+ {
+  "title": "Gullah Geechee Biz: Revenue & Growth Dashboard",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 139,
+  "file": "dashboard/index.html"
+ },
+ {
+  "title": "Gullah Geechee Ebooks: Culture, History & Business",
+  "issues": [
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 161,
+  "file": "ebooks/index.html"
+ },
+ {
+  "title": "Your Gullah Geechee Ebook: Download Success!",
+  "issues": [
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 130,
+  "file": "ebooks/success.html"
+ },
+ {
+  "title": "Gullah Geechee Encyclopedia: Culture, History & Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 162,
+  "file": "encyclopedia/index.html"
+ },
+ {
+  "title": "Free Gullah Geechee Corridor Guide | GGBiz",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 150,
+  "file": "guide/index.html"
+ },
+ {
+  "title": "Gullah Geechee Biz \u2014 Culture, Books & Story",
+  "issues": [
+   "no canonical"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 145,
+  "file": "index.html"
+ },
+ {
+  "title": "Gullah Geechee Biz: Culture, Flavors & Opportunity",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 155,
+  "file": "landing/index.html"
+ },
+ {
+  "title": "Membership \u2014 Gullah Geechee Biz",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 145,
+  "file": "membership/index.html"
+ },
+ {
+  "title": "Gullah Geechee Encyclopedia: Box Set & Institutional Access",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 151,
+  "file": "promo/index.html"
+ },
+ {
+  "title": "Receta de Pollo con Costra de Benne Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 134,
+  "file": "recipes/benne-chicken-es.html"
+ },
+ {
+  "title": "Gullah Benne Crusted Chicken Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 156,
+  "file": "recipes/benne-chicken.html"
+ },
+ {
+  "title": "Receta Tradicional de Galletas de Benne Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 100,
+  "file": "recipes/benne-wafers-es.html"
+ },
+ {
+  "title": "Traditional Gullah Benne Wafers Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 151,
+  "file": "recipes/benne-wafers.html"
+ },
+ {
+  "title": "Receta de Man\u00ed Hervido Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 115,
+  "file": "recipes/boiled-peanuts-es.html"
+ },
+ {
+  "title": "Gullah Boiled Peanuts Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 136,
+  "file": "recipes/boiled-peanuts.html"
+ },
+ {
+  "title": "Receta de Pan de Ma\u00edz con Suero de Leche Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 107,
+  "file": "recipes/buttermilk-cornbread-es.html"
+ },
+ {
+  "title": "Gullah Buttermilk Cornbread Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 126,
+  "file": "recipes/buttermilk-cornbread.html"
+ },
+ {
+  "title": "Receta de Berzas Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 140,
+  "file": "recipes/collard-greens-es.html"
+ },
+ {
+  "title": "Gullah Collard Greens Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 159,
+  "file": "recipes/collard-greens.html"
+ },
+ {
+  "title": "Receta de Relleno de Pan de Ma\u00edz Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 149,
+  "file": "recipes/cornbread-dressing-es.html"
+ },
+ {
+  "title": "Gullah Cornbread Dressing Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 161,
+  "file": "recipes/cornbread-dressing.html"
+ },
+ {
+  "title": "Receta de Country Captain de Pollo Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 156,
+  "file": "recipes/country-captain-es.html"
+ },
+ {
+  "title": "Gullah Country Captain Chicken Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 168,
+  "file": "recipes/country-captain.html"
+ },
+ {
+  "title": "Receta de Croquetas de Cangrejo Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 100,
+  "file": "recipes/crab-cakes-es.html"
+ },
+ {
+  "title": "Gullah Crab Cakes Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 146,
+  "file": "recipes/crab-cakes.html"
+ },
+ {
+  "title": "Receta de Arroz con Cangrejo Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 95,
+  "file": "recipes/crab-rice-es.html"
+ },
+ {
+  "title": "Gullah Crab Rice Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 139,
+  "file": "recipes/crab-rice.html"
+ },
+ {
+  "title": "Receta de Cangrejo Diabla Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 133,
+  "file": "recipes/deviled-crabs-es.html"
+ },
+ {
+  "title": "Gullah Deviled Crab Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 150,
+  "file": "recipes/deviled-crabs.html"
+ },
+ {
+  "title": "Receta de Pescado Frito Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 151,
+  "file": "recipes/fried-fish-es.html"
+ },
+ {
+  "title": "Gullah Fried Fish Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 137,
+  "file": "recipes/fried-fish.html"
+ },
+ {
+  "title": "Receta de Estofado Frogmore de las Lowcountry | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 106,
+  "file": "recipes/frogmore-stew-es.html"
+ },
+ {
+  "title": "Lowcountry Frogmore Stew Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 148,
+  "file": "recipes/frogmore-stew.html"
+ },
+ {
+  "title": "Receta de Pud\u00edn de Pl\u00e1tano Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 115,
+  "file": "recipes/gullah-banana-pudding-es.html"
+ },
+ {
+  "title": "Gullah Banana Pudding Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 149,
+  "file": "recipes/gullah-banana-pudding.html"
+ },
+ {
+  "title": "Receta de Repollo Frito Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 96,
+  "file": "recipes/gullah-cabbage-es.html"
+ },
+ {
+  "title": "Gullah Fried Cabbage Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 133,
+  "file": "recipes/gullah-cabbage.html"
+ },
+ {
+  "title": "Receta de Sopa de Pollo con Arroz Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 134,
+  "file": "recipes/gullah-chicken-soup-es.html"
+ },
+ {
+  "title": "Gullah Chicken and Rice Soup Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 160,
+  "file": "recipes/gullah-chicken-soup.html"
+ },
+ {
+  "title": "Receta de Ensalada de Huevos Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 139,
+  "file": "recipes/gullah-egg-salad-es.html"
+ },
+ {
+  "title": "Gullah Egg Salad Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 153,
+  "file": "recipes/gullah-egg-salad.html"
+ },
+ {
+  "title": "Receta de Gumbo de Mariscos Gullah Geechee | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 116,
+  "file": "recipes/gullah-gumbo-es.html"
+ },
+ {
+  "title": "Gullah Geechee Seafood Gumbo Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 130,
+  "file": "recipes/gullah-gumbo.html"
+ },
+ {
+  "title": "Receta de Pastel de Carne Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 130,
+  "file": "recipes/gullah-meatloaf-es.html"
+ },
+ {
+  "title": "Gullah Meatloaf Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 123,
+  "file": "recipes/gullah-meatloaf.html"
+ },
+ {
+  "title": "Receta de Queso con Pimiento Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 125,
+  "file": "recipes/gullah-pimento-cheese-es.html"
+ },
+ {
+  "title": "Gullah Pimento Cheese Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 138,
+  "file": "recipes/gullah-pimento-cheese.html"
+ },
+ {
+  "title": "Receta de Chuletas de Cerdo Ahogadas Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 118,
+  "file": "recipes/gullah-pork-chops-es.html"
+ },
+ {
+  "title": "Gullah Smothered Pork Chops Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 130,
+  "file": "recipes/gullah-pork-chops.html"
+ },
+ {
+  "title": "Receta de Ensalada de Papas Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 149,
+  "file": "recipes/gullah-potato-salad-es.html"
+ },
+ {
+  "title": "Gullah Potato Salad Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 146,
+  "file": "recipes/gullah-potato-salad.html"
+ },
+ {
+  "title": "Receta Aut\u00e9ntica de Arroz Rojo Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 84,
+  "file": "recipes/gullah-red-rice-es.html"
+ },
+ {
+  "title": "Authentic Gullah Red Rice Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 158,
+  "file": "recipes/gullah-red-rice.html"
+ },
+ {
+  "title": "Receta de Pastelitos de T\u00e9 Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 143,
+  "file": "recipes/gullah-tea-cakes-es.html"
+ },
+ {
+  "title": "Gullah Tea Cakes Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 148,
+  "file": "recipes/gullah-tea-cakes.html"
+ },
+ {
+  "title": "Receta de Hoppin' John Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 108,
+  "file": "recipes/hoppin-john-es.html"
+ },
+ {
+  "title": "Gullah Hoppin' John Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 65,
+  "file": "recipes/hoppin-john.html"
+ },
+ {
+  "title": "Gullah Geechee Recipes: Culinary Heritage & Flavor",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 157,
+  "file": "recipes/index.html"
+ },
+ {
+  "title": "Receta de Limpin' Susan Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 19,
+  "file": "recipes/limpin-susan-es.html"
+ },
+ {
+  "title": "Gullah Limpin' Susan Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 20,
+  "file": "recipes/limpin-susan.html"
+ },
+ {
+  "title": "Receta de Macarrones con Queso Horneados Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 118,
+  "file": "recipes/mac-and-cheese-es.html"
+ },
+ {
+  "title": "Gullah Baked Mac and Cheese Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 141,
+  "file": "recipes/mac-and-cheese.html"
+ },
+ {
+  "title": "Receta de Okra con Tomates Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 133,
+  "file": "recipes/okra-and-tomatoes-es.html"
+ },
+ {
+  "title": "Gullah Okra and Tomatoes Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 160,
+  "file": "recipes/okra-and-tomatoes.html"
+ },
+ {
+  "title": "Receta de Papas Fritas de Okra Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 143,
+  "file": "recipes/okra-fries-es.html"
+ },
+ {
+  "title": "Gullah Okra Fries Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 145,
+  "file": "recipes/okra-fries.html"
+ },
+ {
+  "title": "Receta de Sopa de Okra Gullah Geechee | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 99,
+  "file": "recipes/okra-soup-es.html"
+ },
+ {
+  "title": "Gullah Geechee Okra Soup Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 147,
+  "file": "recipes/okra-soup.html"
+ },
+ {
+  "title": "Receta de Cobbler de Durazno Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 103,
+  "file": "recipes/peach-cobbler-es.html"
+ },
+ {
+  "title": "Gullah Peach Cobbler Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 121,
+  "file": "recipes/peach-cobbler.html"
+ },
+ {
+  "title": "Receta de Perloo de Pollo Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 82,
+  "file": "recipes/perloo-chicken-es.html"
+ },
+ {
+  "title": "Gullah Chicken Perloo Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 142,
+  "file": "recipes/perloo-chicken.html"
+ },
+ {
+  "title": "Receta de Camarones en Escabeche Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 125,
+  "file": "recipes/pickled-shrimp-es.html"
+ },
+ {
+  "title": "Gullah Pickled Shrimp Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 161,
+  "file": "recipes/pickled-shrimp.html"
+ },
+ {
+  "title": "Receta de Frijoles Rojos con Arroz Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 128,
+  "file": "recipes/red-beans-rice-es.html"
+ },
+ {
+  "title": "Gullah Red Beans and Rice Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 140,
+  "file": "recipes/red-beans-rice.html"
+ },
+ {
+  "title": "Receta de Arroz con Leche Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 122,
+  "file": "recipes/rice-pudding-es.html"
+ },
+ {
+  "title": "Gullah Rice Pudding Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 109,
+  "file": "recipes/rice-pudding.html"
+ },
+ {
+  "title": "Receta de Cazuela de Mariscos Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 147,
+  "file": "recipes/seafood-casserole-es.html"
+ },
+ {
+  "title": "Gullah Seafood Casserole Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 142,
+  "file": "recipes/seafood-casserole.html"
+ },
+ {
+  "title": "Receta de Sopa de Cangrejo Hembra Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 120,
+  "file": "recipes/she-crab-soup-es.html"
+ },
+ {
+  "title": "Gullah She-Crab Soup Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 136,
+  "file": "recipes/she-crab-soup.html"
+ },
+ {
+  "title": "Receta de Camarones con S\u00e9mola de las Lowcountry | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 91,
+  "file": "recipes/shrimp-and-grits-es.html"
+ },
+ {
+  "title": "Lowcountry Shrimp and Grits Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 150,
+  "file": "recipes/shrimp-and-grits.html"
+ },
+ {
+  "title": "Receta de Pastel de Batata Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 129,
+  "file": "recipes/sweet-potato-pie-es.html"
+ },
+ {
+  "title": "Gullah Sweet Potato Pie Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 150,
+  "file": "recipes/sweet-potato-pie.html"
+ },
+ {
+  "title": "Receta de Limonada de Sweetgrass Gullah | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": true,
+  "desc_len": 107,
+  "file": "recipes/sweetgrass-lemonade-es.html"
+ },
+ {
+  "title": "Gullah Sweetgrass Lemonade Recipe | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 1,
+  "is_es": false,
+  "desc_len": 141,
+  "file": "recipes/sweetgrass-lemonade.html"
+ },
+ {
+  "title": "Redeem Your Ebook | Gullah Geechee Biz",
+  "issues": [
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 154,
+  "file": "redeem/index.html"
+ },
+ {
+  "title": "Search Gullah Geechee Biz: Find Culture, Books & More",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 157,
+  "file": "search/index.html"
+ },
+ {
+  "title": "Denmark Vesey's 1822 Plot: The Fire That Never Came",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 43,
+  "file": "season-1/denmark-vesey-1822.html"
+ },
+ {
+  "title": "Gullah Jack & Vesey: The 1822 Conjure Man",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 86,
+  "file": "season-1/gullah-jack-1822.html"
+ },
+ {
+  "title": "Gullah Wars: The 120-Year Fight for Freedom",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 145,
+  "file": "season-1/gullah-wars-seminole.html"
+ },
+ {
+  "title": "Harriet Jacobs' Seven-Year Escape: The Loophole",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 23,
+  "file": "season-1/harriet-jacobs-1861.html"
+ },
+ {
+  "title": "Harriet Tubman & The Combahee Raid \u00b7 GGB Season 1",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 53,
+  "file": "season-1/harriet-tubman-combahee.html"
+ },
+ {
+  "title": "Igbo Landing: They Chose the Water \u2014 GGB Season 1",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 167,
+  "file": "season-1/igbo-landing-1803.html"
+ },
+ {
+  "title": "Gullah Geechee Biz Doc Series: Season 1 - Resistance & Life",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 167,
+  "file": "season-1/index.html"
+ },
+ {
+  "title": "Mother Emanuel: A Story of Faith, Fire & Freedom",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 140,
+  "file": "season-1/mother-emanuel-1865.html"
+ },
+ {
+  "title": "Penn School: First Southern School - GGB Season 1, Ep 14",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 154,
+  "file": "season-1/penn-school-1862.html"
+ },
+ {
+  "title": "Port Royal Experiment: Freedmen's Resilience (GGB S1)",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 165,
+  "file": "season-1/port-royal-experiment-1862.html"
+ },
+ {
+  "title": "Queen Quet: Gullah Geechee Nation Leader | GGB Season 1",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 153,
+  "file": "season-1/queen-quet-2000.html"
+ },
+ {
+  "title": "Ring Shout Tradition: Gullah Geechee Cultural Dance",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 147,
+  "file": "season-1/ring-shout-tradition.html"
+ },
+ {
+  "title": "Robert Smalls: Escape to Freedom \u00b7 GGBiz S1 Episode 10",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 143,
+  "file": "season-1/robert-smalls-doc.html"
+ },
+ {
+  "title": "Sapelo's Last: Hog Hammock's Enduring Spirit",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 154,
+  "file": "season-1/sapelo-hog-hammock.html"
+ },
+ {
+  "title": "Da Language: Gullah Geechee History & West Africa",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 42,
+  "file": "season-1/sea-islands-language.html"
+ },
+ {
+  "title": "Sweetgrass Basket Tradition | GGB S1, Ep 4",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 177,
+  "file": "season-1/sweetgrass-basket-tradition.html"
+ },
+ {
+  "title": "Weeping Time: 1859's Horrific Slave Auction",
+  "issues": [
+   "no canonical",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 34,
+  "file": "season-1/weeping-time-1859.html"
+ },
+ {
+  "title": "Gullah Geechee Biz Services: Grow Your Business",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 45,
+  "file": "services/index.html"
+ },
+ {
+  "title": "Shop Binyah: Authentic Gullah Geechee Creations",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 168,
+  "file": "shop-binyah.html"
+ },
+ {
+  "title": "Merch \u2014 Gullah Geechee Biz",
+  "issues": [
+   "no canonical",
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 122,
+  "file": "shop.html"
+ },
+ {
+  "title": "Shop Gullah Geechee Biz - Support Black Businesses",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 123,
+  "file": "shop/index.html"
+ },
+ {
+  "title": "Test Your Gullah Geechee History Knowledge!",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 128,
+  "file": "tools/gullah-geechee-quiz/index.html"
+ },
+ {
+  "title": "Gullah Genealogy Tracker | Trace Your Roots",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 125,
+  "file": "tools/gullah-genealogy-tracker/index.html"
+ },
+ {
+  "title": "Gullah Translator: Speak Gullah Geechee Instantly",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 144,
+  "file": "tools/gullah-language-translator/index.html"
+ },
+ {
+  "title": "Gullah Music Player: Hear Authentic Geechee Sounds",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 156,
+  "file": "tools/gullah-music-player/index.html"
+ },
+ {
+  "title": "Gullah Geechee Name Generator",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 135,
+  "file": "tools/gullah-name-generator/index.html"
+ },
+ {
+  "title": "Gullah Word of the Day | Learn Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 159,
+  "file": "tools/gullah-word-of-the-day/index.html"
+ },
+ {
+  "title": "Heirs Property Calculator - Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 27,
+  "file": "tools/heirs-property-calculator/index.html"
+ },
+ {
+  "title": "Lowcountry Events: Gullah Geechee Biz Calendar",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 141,
+  "file": "tools/lowcountry-event-calendar/index.html"
+ },
+ {
+  "title": "Lowcountry Fishing: Gullah Geechee Biz Report",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 165,
+  "file": "tools/lowcountry-fishing-report/index.html"
+ },
+ {
+  "title": "Lowcountry Hurricane Tracker | Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 153,
+  "file": "tools/lowcountry-hurricane-tracker/index.html"
+ },
+ {
+  "title": "Lowcountry Recipe Converter | Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 141,
+  "file": "tools/lowcountry-recipe-converter/index.html"
+ },
+ {
+  "title": "Lowcountry Tide Calculator | Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 139,
+  "file": "tools/lowcountry-tide-calculator/index.html"
+ },
+ {
+  "title": "Sea Island Distance Calculator \u2014 Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 159,
+  "file": "tools/sea-island-distance-calculator/index.html"
+ },
+ {
+  "title": "Sea Level Rise Impact Calculator | Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 25,
+  "file": "tools/sea-level-rise-calculator/index.html"
+ },
+ {
+  "title": "Sweetgrass Basket Price Calculator - Gullah Geechee Biz",
+  "issues": [
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 142,
+  "file": "tools/sweetgrass-basket-pricer/index.html"
+ },
+ {
+  "title": "Trending Gullah Geechee Products | Biz",
+  "issues": [
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 13,
+  "file": "trending/index.html"
+ },
+ {
+  "title": "Unlock Your Roots: African American Genealogy Workbook",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 144,
+  "file": "trending/trending-african-american-genealogy-workbook.html"
+ },
+ {
+  "title": "Why African DNA Kits Are Trending Now | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 143,
+  "file": "trending/trending-african-dna-ancestry-kit.html"
+ },
+ {
+  "title": "African Mudcloth Throw Blankets: Trending Decor",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 158,
+  "file": "trending/trending-african-mudcloth-throw-blanket.html"
+ },
+ {
+  "title": "Why Everyone Wants the Black History 365 Calendar",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 161,
+  "file": "trending/trending-black-history-365-day-calendar.html"
+ },
+ {
+  "title": "Why Cast Iron Dutch Ovens Are Trending Now | GGBiz",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 171,
+  "file": "trending/trending-cast-iron-dutch-oven.html"
+ },
+ {
+  "title": "Why Gullah Geechee Cookbooks Are Trending Now",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 148,
+  "file": "trending/trending-gullah-geechee-cookbook.html"
+ },
+ {
+  "title": "Sweetgrass Coasters: Eco-Chic & Handwoven | GGBiz",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 160,
+  "file": "trending/trending-handwoven-sweetgrass-coaster-set.html"
+ },
+ {
+  "title": "Lowcountry Marsh Candle: Why It's Trending Now!",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 57,
+  "file": "trending/trending-lowcountry-marsh-candle.html"
+ },
+ {
+  "title": "Soul Food Seasoning Set: Unlock Authentic Gullah Flavors",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 145,
+  "file": "trending/trending-soul-food-seasoning-set.html"
+ },
+ {
+  "title": "Why Wireless Bluetooth Turntables Are Trending Now",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 153,
+  "file": "trending/trending-wireless-bluetooth-turntable.html"
+ },
+ {
+  "title": "Harriet Tubman: La Incursi\u00f3n del R\u00edo Combahee",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 163,
+  "file": "viral/combahee-river-raid-es.html"
+ },
+ {
+  "title": "Harriet Tubman's Combahee Raid: A Heroic Legacy",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 52,
+  "file": "viral/combahee-river-raid.html"
+ },
+ {
+  "title": "Gullah Geechee Genealogy: Tracing Your SC Roots",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 167,
+  "file": "viral/gullah-geechee-ancestry-genealogy.html"
+ },
+ {
+  "title": "Gullah Geechee Books & Encyclopedia Collection | Buy the Complete 25-Volume Set",
+  "issues": [
+   "title>70"
+  ],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 235,
+  "file": "viral/gullah-geechee-books-collection.html"
+ },
+ {
+  "title": "La Cocina Gullah Geechee: Sabor Ancestral del Sur",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 142,
+  "file": "viral/gullah-geechee-food-history-es.html"
+ },
+ {
+  "title": "Gullah Geechee Food: Southern Cuisine's Hidden Roots",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 147,
+  "file": "viral/gullah-geechee-food-history.html"
+ },
+ {
+  "title": "Gullah Geechee Historic Sites: Lowcountry Journeys",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 154,
+  "file": "viral/gullah-geechee-historic-sites.html"
+ },
+ {
+  "title": "Gullah Geechee Music: Ra\u00edces Ocultas del Hip-Hop",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 17,
+  "file": "viral/gullah-geechee-music-origins-es.html"
+ },
+ {
+  "title": "Gullah Geechee Music: Ring Shouts to Hip-Hop",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 199,
+  "file": "viral/gullah-geechee-music-origins.html"
+ },
+ {
+  "title": "Gullah Geechee: Authentic Lowcountry Recipes",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 150,
+  "file": "viral/gullah-geechee-recipes.html"
+ },
+ {
+  "title": "Carolina Gold Rice &amp; Gullah Geechee Rice Cultivation History",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 170,
+  "file": "viral/gullah-geechee-rice-history.html"
+ },
+ {
+  "title": "Descubre el Turismo Gullah Geechee Aut\u00e9ntico",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 162,
+  "file": "viral/gullah-geechee-tourism-es.html"
+ },
+ {
+  "title": "Authentic Gullah Geechee Tourism Guide",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 149,
+  "file": "viral/gullah-geechee-tourism.html"
+ },
+ {
+  "title": "Gullah Geechee Traditions: Culture & Community",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 146,
+  "file": "viral/gullah-geechee-traditions-explained.html"
+ },
+ {
+  "title": "Gullah: Un Idioma Vivo \u2013 Su Legado y Futuro",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 165,
+  "file": "viral/gullah-language-survival-es.html"
+ },
+ {
+  "title": "Gullah Language: A Legacy Thriving Against Odds",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 166,
+  "file": "viral/gullah-language-survival.html"
+ },
+ {
+  "title": "Propiedad Hereditaria Gullah Geechee Explicada",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 144,
+  "file": "viral/heirs-property-explained-es.html"
+ },
+ {
+  "title": "Heirs' Property: Gullah Geechee Guide & Protection",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 32,
+  "file": "viral/heirs-property-explained.html"
+ },
+ {
+  "title": "Gullah Geechee Culture: Heritage & Business",
+  "issues": [
+   "no og:title",
+   "no og:image"
+  ],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 164,
+  "file": "viral/index.html"
+ },
+ {
+  "title": "Penn Center: Legado Gullah Geechee y Educaci\u00f3n",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 147,
+  "file": "viral/penn-center-history-es.html"
+ },
+ {
+  "title": "Penn Center: Gullah Geechee History & Legacy",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 168,
+  "file": "viral/penn-center-history.html"
+ },
+ {
+  "title": "Robert Smalls: H\u00e9roe Gullah Geechee - Rob\u00f3 un Barco",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 175,
+  "file": "viral/robert-smalls-hero-es.html"
+ },
+ {
+  "title": "Robert Smalls: Gullah Geechee Hero & Confederate Ship Heist",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 190,
+  "file": "viral/robert-smalls-hero.html"
+ },
+ {
+  "title": "Sapelo Island Gullah Geechee: The Last Sea Island Community",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 170,
+  "file": "viral/sapelo-island-gullah-geechee.html"
+ },
+ {
+  "title": "Crisis Gullah Geechee: Las Sea Islands se Hunden",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 173,
+  "file": "viral/sea-islands-climate-change-es.html"
+ },
+ {
+  "title": "Sea Islands Sinking: Gullah Geechee Climate Crisis",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 185,
+  "file": "viral/sea-islands-climate-change.html"
+ },
+ {
+  "title": "Sea Islands Lowcountry History Guide | Gullah Geechee Biz",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 148,
+  "file": "viral/sea-islands-lowcountry-history-guide.html"
+ },
+ {
+  "title": "St. Helena Island: Gullah Geechee Culture & History",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 156,
+  "file": "viral/st-helena-island-gullah-geechee.html"
+ },
+ {
+  "title": "Cestas Sweetgrass: El Arte Ancestral se Vuelve Viral",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": true,
+  "desc_len": 154,
+  "file": "viral/sweetgrass-baskets-history-es.html"
+ },
+ {
+  "title": "Sweetgrass Baskets: Viral Art, 300-Year Legacy",
+  "issues": [],
+  "hreflangs": [
+   "en",
+   "es",
+   "x-default"
+  ],
+  "schema": 3,
+  "is_es": false,
+  "desc_len": 188,
+  "file": "viral/sweetgrass-baskets-history.html"
+ },
+ {
+  "title": "Wholesale Gullah Geechee Books & Products | GGBiz",
+  "issues": [],
+  "hreflangs": [],
+  "schema": 0,
+  "is_es": false,
+  "desc_len": 153,
+  "file": "wholesale/index.html"
+ }
+]

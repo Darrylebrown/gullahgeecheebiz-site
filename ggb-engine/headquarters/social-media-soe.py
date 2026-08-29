@@ -5,6 +5,7 @@ optimization engine. Wires Twitter/X, TikTok, Pinterest, Facebook, Instagram
 into the Spirit Weaver for continuous optimization and connectivity.
 """
 import json, os, sys, time, sqlite3, requests, re, random
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional

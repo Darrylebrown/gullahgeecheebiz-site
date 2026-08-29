@@ -1,0 +1,5 @@
+⭐ Review Prompt
+
+Your review of How to Cook Benne Chicken on Google Play Books helps preserve Gullah Geechee heritage. Leave one today!
+
+#GullahGeechee #GooglePlayBooks #BookReview #SupportIndieAuthors

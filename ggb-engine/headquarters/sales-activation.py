@@ -6,6 +6,7 @@ recovers abandoned carts, and targets B2B sales. Turns the
 running system into a revenue-generating machine.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional

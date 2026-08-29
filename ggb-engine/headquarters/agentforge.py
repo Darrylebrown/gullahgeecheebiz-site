@@ -5,6 +5,7 @@ Built from the AI Think Tank winning design.
 Full working web platform with virtual businesses, upgrades, and custom agents.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading, uuid
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -921,7 +922,7 @@ def main():
     # Start self-promotion loop
     engine.start_promo_loop()
     
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

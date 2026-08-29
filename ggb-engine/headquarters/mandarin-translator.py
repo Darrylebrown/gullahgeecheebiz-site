@@ -4,6 +4,7 @@ GGB Mandarin Translator — translates all published books to Mandarin Chinese
 using Gemini. Same architecture as the Spanish pipeline, new language.
 """
 import json, os, sys, sqlite3, requests, time
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional

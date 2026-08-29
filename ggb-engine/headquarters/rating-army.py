@@ -5,6 +5,7 @@ generate, monitor, and optimize ratings and reviews for all distributed
 products across Google Play, Amazon, Shopify, Etsy, and every platform.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional

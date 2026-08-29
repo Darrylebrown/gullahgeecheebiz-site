@@ -5,6 +5,7 @@ places, food, history, and culture of the Gullah Geechee Corridor.
 Published in English, Spanish, and Mandarin with EPUB + audio.
 """
 import json, os, sys, requests, time, html
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List

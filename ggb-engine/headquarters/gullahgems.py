@@ -5,6 +5,7 @@ Built from the AI Think Tank winning design (22,522 chars).
 Features: PDF storefront, AI PDF generator, social ads, popup ads, bot ads, magnet ads.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading, re
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -914,7 +915,7 @@ def main():
     # Start autonomous ad engine
     engine.start_ad_engine()
     
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

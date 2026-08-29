@@ -1,0 +1,5 @@
+📌 Pinterest Promo Pin
+
+Ggb Manifest D25A6B7 — A Gullah Geechee Guide | Available on Google Play Books
+
+#GullahGeechee #GooglePlayBooks #BookRecommendation #ReadingList

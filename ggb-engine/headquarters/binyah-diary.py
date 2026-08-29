@@ -5,6 +5,7 @@ life, culture, and the state of the Gullah Geechee world. Connected to
 the Brain, Dream Weaver, and all systems.
 """
 import json, os, sys, time, requests, hashlib
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 

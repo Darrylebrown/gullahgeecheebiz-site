@@ -4,6 +4,7 @@ GGB Social Chatbot Army — 20 autonomous, self-healing, SOE-connected
 chatbots for social media. Designed by the AI Think Tank.
 """
 import json, os, sys, time, requests, hashlib, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 

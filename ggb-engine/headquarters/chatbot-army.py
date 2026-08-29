@@ -5,6 +5,7 @@ Deployed from the AI Think Tank winning design. Each chatbot manages a
 specific social media platform with full autonomy and self-recovery.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, random, threading
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional

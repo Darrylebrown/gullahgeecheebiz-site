@@ -5,6 +5,7 @@ Generates hyper-personalized social posts, email subject lines, and ad copy
 in any voice. Runs on free tools. 95% automated.
 """
 import json, os, sys, time, sqlite3, requests, hashlib, smtplib, email
+import omniroute_shim  # OMNIROUTE_MIGRATED
 from pathlib import Path
 from datetime import datetime, timezone
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -517,7 +518,7 @@ def main():
     print(f"  • $10-$15 per pack")
     print(f"  • Press Ctrl+C to stop.\n")
     
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
