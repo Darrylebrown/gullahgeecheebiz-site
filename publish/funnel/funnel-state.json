@@ -1,0 +1,2107 @@
+{
+  "funnels": [
+    {
+      "lead_magnet": "Encyclopedia Vol 01",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-01/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 01",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 01",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 01 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 01...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 01, you'll enjoy these from the same library:\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n- Encyclopedia Vol 05\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 01? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.127649-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 02",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-02/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 02",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 02",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 02 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 02...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 02, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n- Encyclopedia Vol 05\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 02? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.132025-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 03",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-03/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 03",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 03",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 03 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 03...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 03, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 04\n- Encyclopedia Vol 05\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 03? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.139750-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 04",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-04/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 04",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 04",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 04 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 04...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 04, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 05\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 04? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.143572-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 05",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-05/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 05",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 05",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 05 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 05...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 05, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 05? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.153573-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 06",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-06/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 06",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 06",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 06 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 06...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 06, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 06? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.162859-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 07",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-07/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 07",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 07",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 07 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 07...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 07, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 07? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.165815-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 08",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-08/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 08",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 08",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 08 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 08...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 08, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 08? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.169345-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 09",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-09/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 09",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 09",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 09 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 09...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 09, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 09? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.211252-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 10",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-10/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 10",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 10",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 10 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 10...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 10, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 10? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.234768-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 11",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-11/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 11",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 11",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 11 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 11...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 11, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 11? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.252802-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 12",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-12/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 12",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 12",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 12 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 12...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 12, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 12? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.270397-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 13",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-13/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 13",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 13",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 13 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 13...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 13, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 13? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.317088-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 14",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-14/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 14",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 14",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 14 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 14...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 14, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 14? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.353776-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 15",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-15/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 15",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 15",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 15 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 15...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 15, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 15? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.389424-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 16",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-16/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 16",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 16",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 16 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 16...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 16, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 16? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.438780-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 17",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-17/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 17",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 17",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 17 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 17...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 17, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 17? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.528017-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 18",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-18/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 18",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 18",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 18 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 18...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 18, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 18? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.546050-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 19",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-19/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 19",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 19",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 19 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 19...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 19, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 19? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.554372-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 20",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-20/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 20",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 20",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 20 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 20...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 20, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 20? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.580812-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 21",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-21/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 21",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 21",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 21 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 21...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 21, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 21? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.591920-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 22",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-22/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 22",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 22",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 22 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 22...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 22, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 22? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.596440-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 23",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-23/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 23",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 23",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 23 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 23...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 23, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 23? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.626310-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 24",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-24/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 24",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 24",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 24 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 24...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 24, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 24? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.642503-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 25",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-25/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 25",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 25",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 25 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 25...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 25, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 25? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.648317-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 26",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-26/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 26",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 26",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 26 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 26...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 26, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 26? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.651116-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 27",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-27/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 27",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 27",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 27 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 27...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 27, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 27? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.657163-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 28",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-28/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 28",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 28",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 28 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 28...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 28, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 28? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.661450-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 29",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-29/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 29",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 29",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 29 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 29...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 29, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 29? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.665283-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 30",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-30/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 30",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 30",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 30 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 30...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 30, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 30? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.672837-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 31",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-31/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 31",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 31",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 31 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 31...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 31, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 31? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.677178-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 32",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-32/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 32",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 32",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 32 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 32...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 32, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 32? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.680828-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 33",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-33/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 33",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 33",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 33 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 33...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 33, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 33? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.686575-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 34",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-34/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 34",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 34",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 34 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 34...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 34, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 34? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.689951-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 35",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-35/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 35",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 35",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 35 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 35...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 35, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 35? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.693675-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 36",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-36/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 36",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 36",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 36 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 36...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 36, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 36? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.699385-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 37",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-37/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 37",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 37",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 37 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 37...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 37, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 37? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.703824-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 38",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-38/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 38",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 38",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 38 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 38...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 38, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 38? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.707303-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 39",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-39/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 39",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 39",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 39 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 39...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 39, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 39? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.710848-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 40",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-40/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 40",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 40",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 40 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 40...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 40, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 40? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.718405-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 41",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-41/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 41",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 41",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 41 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 41...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 41, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 41? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.722711-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 42",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-42/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 42",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 42",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 42 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 42...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 42, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 42? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.732581-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 43",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-43/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 43",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 43",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 43 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 43...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 43, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 43? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.742095-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 44",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-44/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 44",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 44",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 44 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 44...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 44, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 44? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.767539-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 45",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-45/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 45",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 45",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 45 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 45...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 45, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 45? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.776166-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 46",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-46/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 46",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 46",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 46 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 46...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 46, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 46? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.797107-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 47",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-47/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 47",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 47",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 47 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 47...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 47, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 47? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.806708-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 48",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-48/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 48",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 48",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 48 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 48...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 48, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 48? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.817159-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 49",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-49/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 49",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 49",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 49 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 49...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 49, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 49? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.827672-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    },
+    {
+      "lead_magnet": "Encyclopedia Vol 50",
+      "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-50/index.html",
+      "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+      "nurture": {
+        "lead": "Encyclopedia Vol 50",
+        "sequence": [
+          {
+            "day": 1,
+            "subject": "Your free book is here: Encyclopedia Vol 50",
+            "body": "Welcome! Your free copy of Encyclopedia Vol 50 is ready. Enjoy the read.\n\nReply anytime \u2014 Darryl Elliott Brown"
+          },
+          {
+            "day": 3,
+            "subject": "A story behind the story",
+            "body": "One thing most readers don't know about Encyclopedia Vol 50...\n\nThe Gullah Geechee heritage runs deep in every page."
+          },
+          {
+            "day": 6,
+            "subject": "More of the Lowcountry",
+            "body": "If you loved Encyclopedia Vol 50, you'll enjoy these from the same library:\n- Encyclopedia Vol 01\n- Encyclopedia Vol 02\n- Encyclopedia Vol 03\n- Encyclopedia Vol 04\n\nBrowse: https://gullahgeecheebiz.com/ebooks/"
+          },
+          {
+            "day": 10,
+            "subject": "A special welcome for new readers",
+            "body": "New readers get the best of the catalog. Explore the full Gullah Geechee collection:\nhttps://gullahgeecheebiz.com/shop.html"
+          },
+          {
+            "day": 14,
+            "subject": "Your 2-week reading check-in",
+            "body": "How are you enjoying Encyclopedia Vol 50? When you're ready for more, the full collection awaits:\nhttps://gullahgeecheebiz.com/ebooks/\n\nWarmly, Darryl Elliott Brown"
+          }
+        ]
+      },
+      "created": "2026-08-30T07:04:49.835544-04:00",
+      "sales_targets": {
+        "shop": "https://gullahgeecheebiz.com/shop.html",
+        "ebooks": "https://gullahgeecheebiz.com/ebooks/",
+        "binyah": "https://gullahgeecheebiz.com/shop-binyah.html"
+      }
+    }
+  ],
+  "emails_captured": 0,
+  "created": [
+    "Encyclopedia Vol 01",
+    "Encyclopedia Vol 02",
+    "Encyclopedia Vol 03",
+    "Encyclopedia Vol 04",
+    "Encyclopedia Vol 05",
+    "Encyclopedia Vol 06",
+    "Encyclopedia Vol 07",
+    "Encyclopedia Vol 08",
+    "Encyclopedia Vol 09",
+    "Encyclopedia Vol 10",
+    "Encyclopedia Vol 11",
+    "Encyclopedia Vol 12",
+    "Encyclopedia Vol 13",
+    "Encyclopedia Vol 14",
+    "Encyclopedia Vol 15",
+    "Encyclopedia Vol 16",
+    "Encyclopedia Vol 17",
+    "Encyclopedia Vol 18",
+    "Encyclopedia Vol 19",
+    "Encyclopedia Vol 20",
+    "Encyclopedia Vol 21",
+    "Encyclopedia Vol 22",
+    "Encyclopedia Vol 23",
+    "Encyclopedia Vol 24",
+    "Encyclopedia Vol 25",
+    "Encyclopedia Vol 26",
+    "Encyclopedia Vol 27",
+    "Encyclopedia Vol 28",
+    "Encyclopedia Vol 29",
+    "Encyclopedia Vol 30",
+    "Encyclopedia Vol 31",
+    "Encyclopedia Vol 32",
+    "Encyclopedia Vol 33",
+    "Encyclopedia Vol 34",
+    "Encyclopedia Vol 35",
+    "Encyclopedia Vol 36",
+    "Encyclopedia Vol 37",
+    "Encyclopedia Vol 38",
+    "Encyclopedia Vol 39",
+    "Encyclopedia Vol 40",
+    "Encyclopedia Vol 41",
+    "Encyclopedia Vol 42",
+    "Encyclopedia Vol 43",
+    "Encyclopedia Vol 44",
+    "Encyclopedia Vol 45",
+    "Encyclopedia Vol 46",
+    "Encyclopedia Vol 47",
+    "Encyclopedia Vol 48",
+    "Encyclopedia Vol 49",
+    "Encyclopedia Vol 50"
+  ]
+}

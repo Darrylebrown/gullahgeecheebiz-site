@@ -1,0 +1,302 @@
+[
+  {
+    "volume": 1,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-01/cover.jpg",
+    "md5": "91f16cfd"
+  },
+  {
+    "volume": 2,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-02/cover.jpg",
+    "md5": "e0ddd719"
+  },
+  {
+    "volume": 3,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-03/cover.jpg",
+    "md5": "0ae6013d"
+  },
+  {
+    "volume": 4,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-04/cover.jpg",
+    "md5": "2dd24c43"
+  },
+  {
+    "volume": 5,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-05/cover.jpg",
+    "md5": "4cbed817"
+  },
+  {
+    "volume": 6,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-06/cover.jpg",
+    "md5": "60916a13"
+  },
+  {
+    "volume": 7,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-07/cover.jpg",
+    "md5": "721c4e6d"
+  },
+  {
+    "volume": 8,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-08/cover.jpg",
+    "md5": "ce49540e"
+  },
+  {
+    "volume": 9,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-09/cover.jpg",
+    "md5": "03598ade"
+  },
+  {
+    "volume": 10,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-10/cover.jpg",
+    "md5": "21a5fb41"
+  },
+  {
+    "volume": 11,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-11/cover.jpg",
+    "md5": "3811f1f3"
+  },
+  {
+    "volume": 12,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-12/cover.jpg",
+    "md5": "110781ff"
+  },
+  {
+    "volume": 13,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-13/cover.jpg",
+    "md5": "ac2385bc"
+  },
+  {
+    "volume": 14,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-14/cover.jpg",
+    "md5": "d702c57b"
+  },
+  {
+    "volume": 15,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-15/cover.jpg",
+    "md5": "2c024143"
+  },
+  {
+    "volume": 16,
+    "status": "identical",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-16/cover.jpg",
+    "src_md5": "4b9ed6b1"
+  },
+  {
+    "volume": 17,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-17/cover.jpg",
+    "md5": "bcd2b094"
+  },
+  {
+    "volume": 18,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-18/cover.jpg",
+    "md5": "78de879c"
+  },
+  {
+    "volume": 19,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-19/cover.jpg",
+    "md5": "365f6040"
+  },
+  {
+    "volume": 20,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-20/cover.jpg",
+    "md5": "cf62665b"
+  },
+  {
+    "volume": 21,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-21/cover.jpg",
+    "md5": "13bdf4b0"
+  },
+  {
+    "volume": 22,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-22/cover.jpg",
+    "md5": "b2dd335e"
+  },
+  {
+    "volume": 23,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-23/cover.jpg",
+    "md5": "ca30390a"
+  },
+  {
+    "volume": 24,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-24/cover.jpg",
+    "md5": "3fa7afa5"
+  },
+  {
+    "volume": 25,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-25/cover.jpg",
+    "md5": "ed0126d3"
+  },
+  {
+    "volume": 26,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-26/cover.jpg",
+    "md5": "f63f6bd2"
+  },
+  {
+    "volume": 27,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-27/cover.jpg",
+    "md5": "6d2aa7fa"
+  },
+  {
+    "volume": 28,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-28/cover.jpg",
+    "md5": "97e1525a"
+  },
+  {
+    "volume": 29,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-29/cover.jpg",
+    "md5": "98f9d3dd"
+  },
+  {
+    "volume": 30,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-30/cover.jpg",
+    "md5": "cf1461fe"
+  },
+  {
+    "volume": 31,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-31/cover.jpg",
+    "md5": "07a9fe15"
+  },
+  {
+    "volume": 32,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-32/cover.jpg",
+    "md5": "6c2f0888"
+  },
+  {
+    "volume": 33,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-33/cover.jpg",
+    "md5": "5d25f29b"
+  },
+  {
+    "volume": 34,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-34/cover.jpg",
+    "md5": "c7a40d30"
+  },
+  {
+    "volume": 35,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-35/cover.jpg",
+    "md5": "ad89989c"
+  },
+  {
+    "volume": 36,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-36/cover.jpg",
+    "md5": "548d8805"
+  },
+  {
+    "volume": 37,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-37/cover.jpg",
+    "md5": "ea864886"
+  },
+  {
+    "volume": 38,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-38/cover.jpg",
+    "md5": "53b0a425"
+  },
+  {
+    "volume": 39,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-39/cover.jpg",
+    "md5": "17ad5804"
+  },
+  {
+    "volume": 40,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-40/cover.jpg",
+    "md5": "4c3d8baa"
+  },
+  {
+    "volume": 41,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-41/cover.jpg",
+    "md5": "ecbc5c60"
+  },
+  {
+    "volume": 42,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-42/cover.jpg",
+    "md5": "db69de97"
+  },
+  {
+    "volume": 43,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-43/cover.jpg",
+    "md5": "0eddd9d2"
+  },
+  {
+    "volume": 44,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-44/cover.jpg",
+    "md5": "3cf8cce5"
+  },
+  {
+    "volume": 45,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-45/cover.jpg",
+    "md5": "6ed53e74"
+  },
+  {
+    "volume": 46,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-46/cover.jpg",
+    "md5": "d3fc30d0"
+  },
+  {
+    "volume": 47,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-47/cover.jpg",
+    "md5": "585a0155"
+  },
+  {
+    "volume": 48,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-48/cover.jpg",
+    "md5": "221cf1a5"
+  },
+  {
+    "volume": 49,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-49/cover.jpg",
+    "md5": "7e701848"
+  },
+  {
+    "volume": 50,
+    "status": "created",
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-50/cover.jpg",
+    "md5": "d3e911ec"
+  }
+]
