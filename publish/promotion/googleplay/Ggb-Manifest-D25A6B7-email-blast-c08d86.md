@@ -1,0 +1,7 @@
+📧 Email Blast
+
+Subject: New Gullah Geechee release
+
+Hello, Ggb Manifest D25A6B7 is out now on Google Play Books. Explore the wisdom of the Sea Islands from anywhere.
+
+#GullahGeechee #GooglePlayBooks #EmailMarketing

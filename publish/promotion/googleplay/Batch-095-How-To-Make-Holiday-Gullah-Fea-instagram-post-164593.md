@@ -1,0 +1,9 @@
+📸 Instagram Promo Post
+
+📚 New on Google Play Books: Batch 095 How To Make Holiday Gullah Feasts
+
+Discover the rich heritage of the Gullah Geechee people. Available now on Google Play Books.
+
+#GullahGeechee #GooglePlayBooks #NewRelease #Bookstagram
+
+#GullahGeechee #GooglePlayBooks #Bookstagram #NewRelease #CulturalHeritage

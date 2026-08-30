@@ -1,7 +1,42 @@
 [
   {
-    "success": false,
-    "error": "Sorry, you can only create 10 products per day.",
-    "volume": 16
+    "volume": 16,
+    "status": "no_cover"
+  },
+  {
+    "volume": 17,
+    "status": "no_cover"
+  },
+  {
+    "volume": 18,
+    "status": "no_cover"
+  },
+  {
+    "volume": 19,
+    "status": "no_cover"
+  },
+  {
+    "volume": 20,
+    "status": "no_cover"
+  },
+  {
+    "volume": 21,
+    "status": "no_cover"
+  },
+  {
+    "volume": 22,
+    "status": "no_cover"
+  },
+  {
+    "volume": 23,
+    "status": "no_cover"
+  },
+  {
+    "volume": 24,
+    "status": "no_cover"
+  },
+  {
+    "volume": 25,
+    "status": "no_cover"
   }
 ]

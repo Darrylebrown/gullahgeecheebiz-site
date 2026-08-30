@@ -1,0 +1,5 @@
+🐦 X/Twitter Promo Post
+
+The culture lives on. How to Forgive Yourself and Move On is now available on Google Play Books. #GullahGeechee
+
+#GullahGeechee #GooglePlayBooks #NewBook #Reading

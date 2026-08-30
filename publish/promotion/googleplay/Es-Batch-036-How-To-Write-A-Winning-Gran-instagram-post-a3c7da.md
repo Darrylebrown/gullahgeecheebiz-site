@@ -1,0 +1,11 @@
+📸 Instagram Promo Post
+
+🌟 Just released on Google Play Books!
+
+Es Batch 036 How To Write A Winning Grant Proposal — your guide to Gullah Geechee wisdom and culture.
+
+Download today and start your journey.
+
+#GullahGeechee #GooglePlay #CulturalHeritage
+
+#GullahGeechee #GooglePlayBooks #Bookstagram #NewRelease #CulturalHeritage

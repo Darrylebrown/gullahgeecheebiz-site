@@ -1,37 +1,28 @@
 # GGB Disaster Recovery Plan
-Generated: 2026-08-21 02:43 UTC
+_Generated: 2026-08-30T07:57:35.029689_
 
-## System Overview
-- 370+ agents across 29 systems
-- 9 live platforms on localhost (:8080-8091)
-- 1,817 books in SQLite database
-- 54 cron jobs
-- GitHub Pages site at gullahgeecheebiz.com
+## 1. Backup cadence
+- **Code + configs**: daily via `headquarters/backup.sh` (AES-256-CBC)
+- **Databases**: on every write-batch; encrypted with `encrypt_db.sh`
+- **Keys**: `.agent_tokens.env`, `.ggb_db_key`, `.ggb_backup_key` stored offline
+  (password manager + printed paper in safe).
 
-## Critical Data Locations
-- Database: /Users/darrylsmac/gullahgeecheebiz-site/publish/publisher.db
-- Environment: /Users/darrylsmac/gullahgeecheebiz-site/.env
-- Agent configs: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/agents/
-- Security state: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/security-network/
-- Royalty data: /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/royalty-dashboard/
+## 2. Recovery procedure (RTO target: 30 min)
+1. Provision clean macOS host with Xcode CLT + Python 3.11+.
+2. Clone repo: `git clone <private-url> ggb-engine && cd ggb-engine`.
+3. Decrypt latest backup: `headquarters/decrypt_db.sh <file>.enc <file>`.
+4. Rebuild `.env` from offline key store; `chmod 600 .env*`.
+5. Start agents in order: Royalty Dashboard → Publishing Controller →
+   Bot Factory → Universal Submitter.
+6. Verify with `python3 headquarters/security-hardening.py` (target score ≥ 80).
 
-## Recovery Steps
-1. Restore database from backup
-2. Restore .env from secure storage
-3. Start services in order:
-   a. Command Center (:8080)
-   b. Universal Submitter (:8086)
-   c. Publishing Controller (:8090)
-   d. Bot Factory (:8091)
-   e. All other services
-4. Verify all 9 platforms respond
-5. Run smoke tests: cd /Users/darrylsmac/gullahgeecheebiz-site && npm test
+## 3. Rotation schedule
+See `security-reports/secrets-rotation-schedule.json`.
 
-## Contact
-- Primary: Darryl Elliott Brown
-- System: Hermes Agent (self-healing)
+## 4. Contacts
+- Security lead: _TODO_
+- Infra lead: _TODO_
+- Legal/compliance: _TODO_
 
-## Backup Schedule
-- Database: Daily via cron
-- Configs: Weekly via git
-- Logs: 30-day retention
+## 5. Test the plan
+Quarterly tabletop + annual full restore drill.
