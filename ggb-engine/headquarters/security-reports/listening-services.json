@@ -25,7 +25,7 @@
     "pid": "1029",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "54282"
+    "port": "58259"
   },
   {
     "process": "Spotify",
@@ -180,19 +180,5 @@
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "8091"
-  },
-  {
-    "process": "Obsidian",
-    "pid": "16973",
-    "user": "darrylsmac",
-    "bind": "127.0.0.1",
-    "port": "27124"
-  },
-  {
-    "process": "Obsidian",
-    "pid": "16973",
-    "user": "darrylsmac",
-    "bind": "127.0.0.1",
-    "port": "27123"
   }
 ]

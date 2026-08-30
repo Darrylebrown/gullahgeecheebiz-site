@@ -1,5 +1,5 @@
 # GGB Disaster Recovery Plan
-_Generated: 2026-08-30T07:57:35.029689_
+_Generated: 2026-08-30T09:42:26.837470_
 
 ## 1. Backup cadence
 - **Code + configs**: daily via `headquarters/backup.sh` (AES-256-CBC)
