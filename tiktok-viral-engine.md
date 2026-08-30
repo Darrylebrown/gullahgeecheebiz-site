@@ -124,6 +124,7 @@
 - Every TikTok → Link in bio → GullahGeecheeBiz.com
 - Every TikTok → "Full story in the documentary" → Heirs Property doc
 - Every TikTok → "Book link in bio" → Roots & Rivers / Blood Remembers
+<<<<<<< HEAD
 
 ### Posting Log
 | Date | Video | Thumbnail | Status |
@@ -140,3 +141,5 @@
 | 2026-08-05 (Wed) | Alligator Follow-up | alligator-followup-2026-08-05.jpg | ✅ Posted |
 | 2026-08-06 (Thu) | Sea Turtle (cycle restart) | sea-turtle-2026-08-06.png | ✅ Posted |
 | 2026-08-07 (Fri) | Blue Heron | blue-heron-2026-08-07.png | ✅ Posted |
+=======
+>>>>>>> main1

@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["stripe"]
+
+# Stripe webhooks must not parse body before signature check — Netlify passes raw body to functions.
