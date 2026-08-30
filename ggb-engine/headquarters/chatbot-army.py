@@ -21,20 +21,58 @@ QUEUE_FILE = ARMY_DIR / "post-queue.json"
 ARMY_DIR.mkdir(parents=True, exist_ok=True)
 
 def get_api_key():
-    env_file = BASE_DIR / ".env"
-    if env_file.exists():
-        for line in env_file.read_text().split("\n"):
-            if "OPENROUTER_API_KEY" in line:
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
-    return ""
+    # Check multiple locations for API keys
+    import os
+    for env_path in [
+        BASE_DIR / ".env",
+        Path.home() / ".hermes" / ".env",
+        Path.home() / ".env",
+    ]:
+        if env_path.exists():
+            for line in env_path.read_text().split("\n"):
+                # Try Agnes AI first (free tier)
+                if "AGNES_API_KEY" in line and not line.strip().startswith("#"):
+                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    if key:
+                        return key, "agnes"
+                # Then try OpenRouter
+                if "OPENROUTER_API_KEY" in line and not line.strip().startswith("#"):
+                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    if key:
+                        return key, "openrouter"
+    # Fallback to env vars
+    key = os.environ.get("AGNES_API_KEY", "")
+    if key:
+        return key, "agnes"
+    key = os.environ.get("OPENROUTER_API_KEY", "")
+    if key:
+        return key, "openrouter"
+    return "", ""
+
+# Agnes AI base URL
+AGNES_BASE_URL = "https://apihub.agnes-ai.com/v1"
 
 def call_ai(prompt, model="google/gemini-2.5-flash", max_tokens=2000):
-    api_key = get_api_key()
+    api_key, provider = get_api_key()
     if not api_key:
         return None
+    
+    # Use Agnes AI if available (free tier), otherwise OpenRouter
+    if provider == "agnes":
+        base_url = AGNES_BASE_URL
+        # Map model names for Agnes AI
+        model_map = {
+            "google/gemini-2.5-flash": "agnes-2.5-flash",
+            "deepseek/deepseek-chat": "agnes-2.5-flash",
+            "qwen/qwen3.7-max": "agnes-2.5-flash",
+        }
+        model = model_map.get(model, "agnes-2.5-flash")
+    else:
+        base_url = "https://openrouter.ai/api/v1"
+    
     try:
         r = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+            f"{base_url}/chat/completions",
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
             json={"model": model, "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens},
             timeout=60
