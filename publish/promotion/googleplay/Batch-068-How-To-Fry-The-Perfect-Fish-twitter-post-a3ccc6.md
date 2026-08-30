@@ -1,0 +1,5 @@
+🐦 X/Twitter Promo Post
+
+The culture lives on. Batch 068 How To Fry The Perfect Fish is now available on Google Play Books. #GullahGeechee
+
+#GullahGeechee #GooglePlayBooks #NewBook #Reading

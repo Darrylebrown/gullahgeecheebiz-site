@@ -1,0 +1,5 @@
+⭐ Review Prompt
+
+Your review of How to Live with Intention on Google Play Books helps preserve Gullah Geechee heritage. Leave one today!
+
+#GullahGeechee #GooglePlayBooks #BookReview #SupportIndieAuthors

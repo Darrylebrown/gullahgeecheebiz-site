@@ -1,0 +1,5 @@
+🐦 X/Twitter Promo Post
+
+The culture lives on. How to Break Bad Habits Forever is now available on Google Play Books. #GullahGeechee
+
+#GullahGeechee #GooglePlayBooks #NewBook #Reading
