@@ -140,7 +140,7 @@ class UnifiedPublisher:
         try:
             import requests
             r = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
+                "omniroute",
                 headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
                 json={"model": model, "messages": [{"role": "user", "content": prompt}], "max_tokens": 2000},
                 timeout=30

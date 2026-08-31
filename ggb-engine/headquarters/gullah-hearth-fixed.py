@@ -17,6 +17,7 @@ import threading
 import requests
 import hashlib
 import uuid
+import omniroute_shim  # OMNIROUTE_MIGRATED
 
 # Configure logging
 logging.basicConfig(

@@ -477,6 +477,7 @@ Usage (http.server / raw): wrap handler with wrap_http_handler(handler, expected
 """
 import os, hmac, functools
 from flask import request, abort
+import omniroute_shim  # OMNIROUTE_MIGRATED
 
 def _safe_eq(a: str, b: str) -> bool:
     return hmac.compare_digest(a.encode(), b.encode())

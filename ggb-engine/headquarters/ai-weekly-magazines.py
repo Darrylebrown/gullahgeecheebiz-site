@@ -103,7 +103,7 @@ class AIMagazineGenerator:
             return "Content generation unavailable."
         try:
             r = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
+                "omniroute",
                 headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
                 json={"model": OPENROUTER_MODEL, "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens},
                 timeout=30

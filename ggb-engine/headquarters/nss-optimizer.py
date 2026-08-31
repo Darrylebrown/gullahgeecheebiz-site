@@ -25,22 +25,9 @@ def get_api_key():
                 return line.split("=", 1)[1].strip().strip('"').strip("'")
     return ""
 
-def call_ai(prompt, max_tokens=2000):
-    api_key = get_api_key()
-    if not api_key:
-        return None
-    try:
-        r = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json={"model": "google/gemini-2.5-flash", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens},
-            timeout=30
-        )
-        if r.status_code == 200:
-            return r.json()["choices"][0]["message"]["content"]
-    except:
-        pass
-    return None
+def call_ai(prompt, model="ggb-free-auto", max_tokens=2000):
+    """Route through OmniRoute gateway with auto-fallback."""
+    return omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=min(max_tokens, 4000))
 
 # ─── Newsletter Optimizer ─────────────────────────────────────────────────
 

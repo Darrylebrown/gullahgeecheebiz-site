@@ -26,7 +26,7 @@ def get_api_key():
 def call_ai(prompt, model, api_key):
     try:
         r = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+            "omniroute",
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
             json={"model": model, "messages": [{"role": "user", "content": prompt}], "max_tokens": 4000},
             timeout=120
