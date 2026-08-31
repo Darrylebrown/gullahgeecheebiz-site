@@ -1,4 +1,4 @@
-n
+
 #!/usr/bin/env python3
 """
 Shopify Product Uploader

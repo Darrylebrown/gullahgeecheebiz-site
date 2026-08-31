@@ -106,7 +106,7 @@ class Draft2DigitalConnector:
             
             # Wait for login to complete - look for dashboard or profile elements
             try:
-                await self.page.wait_for_selector('[data-test="dashboard"], .dashboard, #dashboard', timeout=15000)
+                await self.page.wait_for_selector("&[data-test="dashboard"], .dashboard, #dashboard", timeout=30000))
                 logger.info("Login successful - dashboard detected")
                 self.is_logged_in = True
                 return True
@@ -147,7 +147,7 @@ class Draft2DigitalConnector:
             
             for url in upload_urls:
                 try:
-                    await self.page.goto(url, wait_until="networkidle", timeout=15000)
+                    await self.page.goto(url, wait_until="networkidle", timeout=30000)
                     
                     # Check if we found an upload form
                     upload_selectors = [

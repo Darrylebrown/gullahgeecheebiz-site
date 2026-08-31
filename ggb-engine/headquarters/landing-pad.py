@@ -10,15 +10,14 @@ from datetime import datetime, timezone
 from typing import Optional, Dict, List
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from publisher import PublishEngine, PublishState, REPO_ROOT, DB_PATH
-from headquarters.engine import HQDatabase, CONTENT_DIR, STUDIO_DIR, LOGS_DIR
+from publisher import PublishEngine, PublishState, GGB_HOME, PUBLISH_DIR, LOGS_DIR as PUBLISH_LOGS_DIR, MANIFESTS_DIR, ReleaseManifest, KDPAdapter
 
 # ─── Landing Pad ──────────────────────────────────────────────────────────
 
-LANDING_PAD = REPO_ROOT / "publish" / "landing-pad"
-STAGED_DIR = REPO_ROOT / "publish" / "staging"
-PUBLISHED_DIR = REPO_ROOT / "publish" / "completed"
-SCOREBOARD_DB = LOGS_DIR / "scoreboard.db"
+LANDING_PAD = GGB_HOME / "publish" / "landing-pad"
+STAGED_DIR = GGB_HOME / "publish" / "staging"
+PUBLISHED_DIR = GGB_HOME / "publish" / "completed"
+SCOREBOARD_DB = PUBLISH_LOGS_DIR / "scoreboard.db"
 
 for d in [LANDING_PAD, STAGED_DIR, PUBLISHED_DIR]:
     d.mkdir(parents=True, exist_ok=True)
@@ -178,7 +177,7 @@ class LandingPad:
         self.pad = LANDING_PAD
         self.scoreboard = Scoreboard()
         self.engine = PublishEngine()
-        self.hq = HQDatabase()
+        self.hq = None
 
     def place_content(self, title: str, slug: str, category: str = "self-help",
                       price: float = 3.99, format: str = "ebook", 
@@ -240,7 +239,8 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
 
         # Register in scoreboard
         pkg_id = self.scoreboard.register_package(title, slug, category, format, price)
-        self.hq.log_content("landing-pad", "placed", f"Placed: {title}", str(pkg_dir))
+        if self.hq is not None:
+            self.hq.log_content("landing-pad", "placed", f"Placed: {title}", str(pkg_dir))
 
         return pkg_dir
 
@@ -263,21 +263,21 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 if existing:
                     # Check if manifest has empty files — if so, re-discover
                     mid = existing[2]
-                    if mid:
-                        manifest = self.engine.db.load_manifest(mid)
-                        if manifest:
-                            files = manifest.get("files", {})
-                            if "manuscript" in files and "cover" in files:
-                                continue  # Already has files, skip
-                    
+                    manifest_path = MANIFESTS_DIR / f"{mid}.json"
+                    if manifest_path.exists():
+                        with open(manifest_path) as f:
+                            manifest = json.load(f)
+                        files = manifest.get("files", {})
+                        if "manuscript" in files and "cover" in files:
+                            continue  # Already has files, skip
+                    elif not mid:
+                        continue
+
                     # Re-discover: force update manifest with new files
                     # Delete old manifest entry so discover() creates a fresh one
-                    conn2 = sqlite3.connect(str(self.engine.db.db_path))
-                    conn2.execute("DELETE FROM manifests WHERE manifest_id=?", (mid,))
-                    conn2.execute("DELETE FROM platform_evidence WHERE manifest_id=?", (mid,))
-                    conn2.commit()
-                    conn2.close()
-                    
+                    if mid and manifest_path.exists():
+                        manifest_path.unlink()
+
                     result = self.engine.discover(str(pkg_dir))
                     if result:
                         mid = result[0]["manifest_id"]
@@ -293,11 +293,13 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 result = self.engine.discover(str(pkg_dir))
                 if result:
                     mid = result[0]["manifest_id"]
-                    manifest = self.engine.db.load_manifest(mid)
+                    manifest_path = MANIFESTS_DIR / f"{mid}.json"
                     title = "Unknown"
                     category = "self-help"
                     price = 0.0
-                    if manifest:
+                    if manifest_path.exists():
+                        with open(manifest_path) as f:
+                            manifest = json.load(f)
                         title = manifest.get("title", {}).get("canonical", "Unknown")
                         price = manifest.get("publishing", {}).get("price", 0.0)
                     pkg_id = self.scoreboard.register_package(title, slug, category, "ebook", price)
@@ -315,37 +317,25 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         State-aware: skips steps already completed."""
         results = {}
         try:
-            manifest = self.engine.db.load_manifest(manifest_id)
-            if not manifest:
+            manifest_path = MANIFESTS_DIR / f"{manifest_id}.json"
+            if not manifest_path.exists():
                 return {"error": "Manifest not found"}
+            manifest = ReleaseManifest.load(manifest_path)
 
             # Check current state
-            current_state = self.engine.db.get_state(manifest_id)
+            current_state = manifest.data.get("status", "discovered")
             results["current_state"] = current_state
 
             # Skip packages without proper files (unless already past preview)
-            files = manifest.get("files", {})
+            files = manifest.data.get("files", {})
             if "manuscript" not in files or "cover" not in files:
-                if current_state in ("discovered", None):
+                if current_state in ("discovered", "validated"):
                     return {"skipped": True, "reason": "Missing manuscript or cover"}
 
-            # Use a pipeline-specific adapter that's non-mock from the start
-            from publisher import MockKDPAdapter
-            pipeline_adapter = MockKDPAdapter()
-            pipeline_adapter._is_mock = False
             original_adapter = self.engine.adapter
-            self.engine.adapter = pipeline_adapter
+            self.engine.adapter = KDPAdapter()
 
-            # Update any existing mock evidence to non-mock for this pipeline run
-            ev_conn = sqlite3.connect(str(self.engine.db.db_path))
-            ev_conn.execute("UPDATE platform_evidence SET is_mock=0 WHERE manifest_id=?", (manifest_id,))
-            ev_conn.commit()
-            ev_conn.close()
-
-            # State-aware progression
-            from publisher import PublishState
-
-            if current_state in ("discovered", None):
+            if current_state in ("discovered",):
                 # Reconcile
                 r = self.engine.reconcile(manifest_id)
                 results["reconciled"] = "error" not in r
@@ -372,7 +362,6 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                     return results
 
             elif current_state in ("validated",):
-                # Skip reconcile, start from audit
                 r = self.engine.audit(manifest_id)
                 results["validated"] = r.get("passed", False)
                 if not results["validated"]:
@@ -405,13 +394,12 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 results["approved"] = "approval_hash" in r
 
             # Mock submit
-            draft_id = manifest.get("draft_id", "pipeline-draft")
+            draft_id = manifest_id
             submit_result = self.engine.adapter.submit(draft_id)
             results["submitted"] = submit_result.get("submitted", False)
             if results["submitted"]:
-                state = self.engine.db.get_state(manifest_id)
-                if state:
-                    self.engine.db.transition(manifest_id, PublishState(state), PublishState.LIVE, actor="pipeline-auto")
+                manifest.data["status"] = "published"
+                manifest.save()
 
             # Restore original adapter
             self.engine.adapter = original_adapter
@@ -438,6 +426,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             results["error"] = str(e)[:200]
 
         return results
+
 
     def full_cycle(self) -> Dict:
         """Full cycle: scan landing pad, discover, run pipeline, report.
@@ -469,7 +458,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 unique_pending.append((mid, status))
 
         # Also process packages at awaiting_owner_approval that need approval+submit
-        pub_conn = sqlite3.connect(str(self.engine.db.db_path))
+        pub_conn = sqlite3.connect(str(PUBLISH_DIR / 'publisher.db'))
         awaiting = pub_conn.execute(
             "SELECT manifest_id FROM manifests WHERE state='awaiting_owner_approval'"
         ).fetchall()
@@ -613,7 +602,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
     def _show_pipeline_flow(self, scan=None, pipeline_results=None):
         """Print terminal pipeline flow visualization."""
         try:
-            conn = sqlite3.connect(str(DB_PATH))
+            conn = sqlite3.connect(str(PUBLISH_DIR / "publisher.db"))
             rows = conn.execute("SELECT state, COUNT(*) FROM manifests GROUP BY state").fetchall()
             conn.close()
             states = {"discovered": 0, "validated": 0, "approved": 0, "live": 0}
