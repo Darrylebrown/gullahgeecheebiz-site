@@ -252,6 +252,7 @@ Return as JSON:
         # Auto-recover
         if issues:
             self.health["issues"] = issues
+            self.health.setdefault("recoveries", 0)
             self.health["recoveries"] += 1
             self.health["last_check"] = datetime.now(timezone.utc).isoformat()
             self.state["healthy"] = False

@@ -6,3 +6,29 @@
 {"ts": "2026-08-31T01:07:34.621133+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 2 items across 2 platforms"}
 {"ts": "2026-08-31T01:07:34.795687+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: The Sea Islands' wisdom is now digital. Get Batch ..."}
 {"ts": "2026-08-31T01:07:34.919333+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T01:12:59.157857+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T01:12:59.764687+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T01:12:59.766606+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 5 items across 3 platforms"}
+{"ts": "2026-08-31T01:12:59.968352+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Learn Batch 001 How To Find Your Purpose with this..."}
+{"ts": "2026-08-31T01:13:00.097261+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T01:13:38.002475+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T01:13:38.778899+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T01:13:38.781911+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 8 items across 3 platforms"}
+{"ts": "2026-08-31T01:13:38.997760+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: The Sea Islands' wisdom is now digital. Get Batch ..."}
+{"ts": "2026-08-31T01:13:39.123428+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T01:20:44.518256+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T01:20:45.084646+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T01:20:45.090567+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 11 items across 3 platforms"}
+{"ts": "2026-08-31T01:20:45.728211+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Batch 002 How To Build Unshakeable Confidence \u2014 A ..."}
+{"ts": "2026-08-31T01:20:45.847176+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T01:22:54.196645+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T01:22:54.780031+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T01:22:54.784869+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 14 items across 3 platforms"}
+{"ts": "2026-08-31T01:22:55.406965+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Learn Batch 002 How To Build Unshakeable Confidenc..."}
+{"ts": "2026-08-31T01:22:55.524702+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T01:24:30.515923+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T01:24:31.005552+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T01:24:31.007731+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 17 items across 3 platforms"}
+{"ts": "2026-08-31T01:24:31.536173+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Learn Batch 002 How To Build Unshakeable Confidenc..."}
+{"ts": "2026-08-31T01:24:31.660135+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T04:20:10.072453+00:00", "source_bot": "MARKETING_GOAL", "event": "merge_conflicts_resolved", "detail": "Resolved all git merge conflicts in index.html - homepage now renders correctly with full CSS (wrought iron accents, animated emblem, search form, connected hubs section)", "impact": "critical_fix", "pages_affected": ["index.html"], "marketing_state": {"subscribers": 305, "pinterest_pins_generated": 3600, "viral_pages": 59, "funnel_lead_magnet": "Gullah Geechee Flavor Foundation PDF guide", "traffic_sources": []}}
