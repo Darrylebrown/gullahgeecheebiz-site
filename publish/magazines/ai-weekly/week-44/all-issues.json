@@ -1,0 +1,137 @@
+[
+  {
+    "magazine": "ai-for-the-culture",
+    "language": "en",
+    "week": 44,
+    "name": "AI for the Culture",
+    "tagline": "AI tools for heritage creators",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:17.845668+00:00"
+  },
+  {
+    "magazine": "ai-for-the-culture",
+    "language": "es",
+    "week": 44,
+    "name": "IA para la Cultura",
+    "tagline": "Herramientas de IA para creadores de herencia cultural",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:19.001001+00:00"
+  },
+  {
+    "magazine": "ai-for-the-culture",
+    "language": "zh",
+    "week": 44,
+    "name": "文化人工智能",
+    "tagline": "为文化遗产创作者提供的人工智能工具",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:20.106508+00:00"
+  },
+  {
+    "magazine": "the-ai-publisher",
+    "language": "en",
+    "week": 44,
+    "name": "The AI Publisher",
+    "tagline": "Weekly deep-dive on AI publishing",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:21.345924+00:00"
+  },
+  {
+    "magazine": "the-ai-publisher",
+    "language": "es",
+    "week": 44,
+    "name": "El Editor de IA",
+    "tagline": "Inmersión semanal en la publicación con IA",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:22.471496+00:00"
+  },
+  {
+    "magazine": "the-ai-publisher",
+    "language": "zh",
+    "week": 44,
+    "name": "人工智能出版人",
+    "tagline": "每周深入探讨人工智能出版",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:23.685782+00:00"
+  },
+  {
+    "magazine": "ai-side-hustle",
+    "language": "en",
+    "week": 44,
+    "name": "AI Side Hustle Weekly",
+    "tagline": "Real ways to make money with AI",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:24.929090+00:00"
+  },
+  {
+    "magazine": "ai-side-hustle",
+    "language": "es",
+    "week": 44,
+    "name": "Ingresos Extra con IA Semanal",
+    "tagline": "Formas reales de ganar dinero con IA",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:26.142523+00:00"
+  },
+  {
+    "magazine": "ai-side-hustle",
+    "language": "zh",
+    "week": 44,
+    "name": "人工智能副业周刊",
+    "tagline": "用人工智能赚钱的真实方法",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:27.391097+00:00"
+  },
+  {
+    "magazine": "prompt-and-publish",
+    "language": "en",
+    "week": 44,
+    "name": "Prompt & Publish",
+    "tagline": "10 new prompts every week",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:28.554263+00:00"
+  },
+  {
+    "magazine": "prompt-and-publish",
+    "language": "es",
+    "week": 44,
+    "name": "Prompt y Publica",
+    "tagline": "10 nuevos prompts cada semana",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:29.768529+00:00"
+  },
+  {
+    "magazine": "prompt-and-publish",
+    "language": "zh",
+    "week": 44,
+    "name": "提示与出版",
+    "tagline": "每周10个新提示",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:30.980348+00:00"
+  },
+  {
+    "magazine": "the-autonomous-creator",
+    "language": "en",
+    "week": 44,
+    "name": "The Autonomous Creator",
+    "tagline": "AI agents that create while you sleep",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:32.116754+00:00"
+  },
+  {
+    "magazine": "the-autonomous-creator",
+    "language": "es",
+    "week": 44,
+    "name": "El Creador Autónomo",
+    "tagline": "Agentes de IA que crean mientras duermes",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:33.255467+00:00"
+  },
+  {
+    "magazine": "the-autonomous-creator",
+    "language": "zh",
+    "week": 44,
+    "name": "在你睡觉时创作的人工智能代理",
+    "tagline": "AI agents that create while you sleep",
+    "content": "Content generation unavailable.",
+    "generated_at": "2026-08-31T10:02:34.366984+00:00"
+  }
+]

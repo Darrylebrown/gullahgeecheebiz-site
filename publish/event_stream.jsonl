@@ -49,3 +49,80 @@
 {"ts": "2026-08-31T04:26:27.474641+00:00", "source_bot": "MARKETING_GOAL", "event": "promotion_posted", "detail": "Posted 3 social posts to Pinterest, Instagram, TikTok. Twitter blocked (xurl not authenticated). 23+ items queued across platforms.", "stats": {"platforms_posted": ["pinterest", "instagram", "tiktok"], "twitter_blocked": true}}
 {"ts": "2026-08-31T04:26:27.474643+00:00", "source_bot": "MARKETING_GOAL", "event": "homepage_merged_conflicts_resolved", "detail": "Fixed 10 git merge conflicts in index.html - restored wrought iron CSS accents, animated emblem, search form, connected hubs section. Deployed to GitHub Pages.", "stats": {"conflicts_resolved": 10, "deployed": true}}
 {"ts": "2026-08-31T04:26:46.442237+00:00", "source_bot": "MARKETING_GOAL", "event": "cron_run_complete", "detail": "Cron marketing run complete. Fixed homepage merge conflicts, generated 20 viral SEO pages, posted 3 social items, deployed site.", "state": {"subscribers": 305, "revenue": 0, "products": 85, "viral_pages": 79, "pinterest_pins_generated": 3600, "social_posts_queued": 23, "traffic_sources": []}, "actions_taken": ["Resolved 10 git merge conflicts in index.html", "Deployed fixed homepage to GitHub Pages", "Generated 100 daily Pinterest pin descriptions (manifest-2026-08-31)", "Posted 3 social items (Pinterest, Instagram, TikTok)", "Generated 20 new SEO viral pages (EN + ES)", "Updated CTAs on viral pages", "Regenerated sitemap (197 URLs)", "Logged events to event_stream"], "blockers": ["Twitter/X posting blocked (xurl not authenticated)", "Zero sales despite 85 active Gumroad products", "No tracked traffic sources (analytics gap)"]}
+{"ts": "2026-08-31T07:04:59.437605+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T07:05:00.037641+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T07:05:00.057534+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 26 items across 3 platforms"}
+{"ts": "2026-08-31T07:05:00.275655+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Learn Batch 003 How To Master Your Morning Routine..."}
+{"ts": "2026-08-31T07:05:00.412908+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T10:13:17.207835+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T10:13:17.811286+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T10:13:17.816922+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 29 items across 3 platforms"}
+{"ts": "2026-08-31T10:13:18.300116+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Batch 004 How To Overcome Imposter Syndrome \u2014 A Gu..."}
+{"ts": "2026-08-31T10:13:18.429047+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T06:27:33", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:34", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 02: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:35", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 03: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:36", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 04: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:37", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 05: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:38", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 12: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:40", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 13: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:41", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 14: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:42", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 15: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:27:43", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 16: HTTP 404: <!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Page not found (404) - Gumroad</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta name=\"descripti"}
+{"ts": "2026-08-31T06:28:24", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:27", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 02: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:30", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 03: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:32", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 04: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:35", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 05: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:38", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 12: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:40", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 13: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:43", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 14: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:45", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 15: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:28:48", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 16: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T10:29:02.847395+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T10:29:03.313923+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T10:29:03.316748+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 32 items across 3 platforms"}
+{"ts": "2026-08-31T10:29:03.728063+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Learn Batch 004 How To Overcome Imposter Syndrome ..."}
+{"ts": "2026-08-31T10:29:03.857721+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
+{"ts": "2026-08-31T06:29:13", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:16", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 02: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:18", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 03: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:21", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 04: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:24", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 05: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:27", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 12: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:29", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 13: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:32", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 14: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:34", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 15: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:29:37", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 16: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:18", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:20", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 02: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:23", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 03: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:26", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 04: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:28", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 05: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:31", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 12: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:34", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 13: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:37", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 14: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:39", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 15: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:30:42", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 16: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:34:04", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:17", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:19", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 02: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:21", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 03: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:24", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 04: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:26", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 05: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:28", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 12: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:30", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 13: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:33", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 14: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:35", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 15: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:38:37", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 16: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:13", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:15", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 02: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:17", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 03: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:20", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 04: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:22", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 05: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:24", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 12: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:26", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 13: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:29", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 14: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:31", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 15: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:41:33", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 16: HTTP 429: Retry later\n"}
+{"ts": "2026-08-31T06:49:11", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_failed", "detail": "Volume 01: HTTP 429: Retry later\n"}

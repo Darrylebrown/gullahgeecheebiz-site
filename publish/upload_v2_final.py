@@ -264,6 +264,10 @@ if __name__ == "__main__":
     for r in ok:
         print(f"  ✓ Vol {r['volume']:02d}: {r.get('url','N/A')}")
     for r in fail:
-        print(f"  ✗ Vol {r.get('volume','?'):02d}: {r.get('error','?')}")
+        vol = r.get('volume')
+        if isinstance(vol, int):
+            print(f"  ✗ Vol {vol:02d}: {r.get('error','?')}")
+        else:
+            print(f"  ✗ Vol {vol}: {r.get('error','?')}")
     
     sys.exit(0 if not fail else 1)

@@ -18,7 +18,7 @@
     "pid": "1029",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "64506"
+    "port": "57785"
   },
   {
     "process": "Spotify",
@@ -140,53 +140,39 @@
     "port": "8085"
   },
   {
-    "process": "python3.1",
-    "pid": "11539",
+    "process": "Python",
+    "pid": "11708",
+    "user": "darrylsmac",
+    "bind": "127.0.0.1",
+    "port": "8092"
+  },
+  {
+    "process": "Python",
+    "pid": "56798",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "8086"
   },
   {
-    "process": "python3.1",
-    "pid": "11540",
+    "process": "Python",
+    "pid": "56799",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "8087"
   },
   {
     "process": "python3.1",
-    "pid": "11541",
+    "pid": "65459",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "8090"
   },
   {
     "process": "python3.1",
-    "pid": "11542",
+    "pid": "65470",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "8091"
-  },
-  {
-    "process": "node",
-    "pid": "39091",
-    "user": "darrylsmac",
-    "bind": "*",
-    "port": "20128"
-  },
-  {
-    "process": "node",
-    "pid": "39091",
-    "user": "darrylsmac",
-    "bind": "127.0.0.1",
-    "port": "20131"
-  },
-  {
-    "process": "node",
-    "pid": "39091",
-    "user": "darrylsmac",
-    "bind": "127.0.0.1",
-    "port": "20132"
   },
   {
     "process": "Google",
@@ -194,12 +180,5 @@
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "9222"
-  },
-  {
-    "process": "Python",
-    "pid": "72730",
-    "user": "darrylsmac",
-    "bind": "127.0.0.1",
-    "port": "8092"
   }
 ]

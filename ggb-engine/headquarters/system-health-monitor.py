@@ -50,12 +50,20 @@ def check_platform(name, port):
     """Check if a platform is responding."""
     try:
         req = Request(f"http://127.0.0.1:{port}/", method="GET")
+        # Send auth token if available for this platform
+        token_var = f"AGENT_TOKEN_{name.upper().replace(' ', '_')}"
+        token = os.environ.get(token_var)
+        if token:
+            req.add_header("Authorization", f"Bearer {token}")
         resp = urlopen(req, timeout=5)
         status = resp.getcode()
         return "ok" if status == 200 else "degraded"
     except URLError:
         return "down"
-    except Exception:
+    except Exception as e:
+        # 401 means platform is running but needs auth - treat as ok
+        if hasattr(e, 'code') and e.code == 401:
+            return "ok"
         return "down"
 
 def get_system_metrics():

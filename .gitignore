@@ -74,13 +74,13 @@ logs/
 dist/
 build/
 out/
-<<<<<<< HEAD
+
+# GitHub workflows (CI credentials)
 .github/workflows/
 
 # Internal systems — stay local, never deployed
 # Only public pages (membership/, assets/, viral/, etc.) ship to GitHub Pages
 ggb-engine/
-=======
 
 # Stripe ops secrets + local logs
 stripe-ops/.env
@@ -89,4 +89,3 @@ stripe-ops/data/
 **/Orders.jsonl
 stripe-ops/heartbeats.json
 stripe-ops/.publish_pause
->>>>>>> main1

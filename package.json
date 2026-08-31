@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Darrylebrown/gullahgeecheebiz-site#readme",
   "dependencies": {
     "@browserbasehq/stagehand": "^4.0.2",
+    "@playwright/test": "^1.62.1",
     "dotenv": "^17.4.2",
     "sharp": "^0.35.3"
   }
