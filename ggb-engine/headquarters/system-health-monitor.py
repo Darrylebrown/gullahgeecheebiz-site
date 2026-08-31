@@ -58,8 +58,6 @@ def check_platform(name, port):
         resp = urlopen(req, timeout=5)
         status = resp.getcode()
         return "ok" if status == 200 else "degraded"
-    except URLError:
-        return "down"
     except Exception as e:
         # 401 means platform is running but needs auth - treat as ok
         if hasattr(e, 'code') and e.code == 401:

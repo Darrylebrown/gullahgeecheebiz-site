@@ -1,0 +1,274 @@
+[
+  {
+    "topic": "pickleball",
+    "language": "en",
+    "week": 44,
+    "name": "Pickleball",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:42.684624+00:00"
+  },
+  {
+    "topic": "pickleball",
+    "language": "es",
+    "week": 44,
+    "name": "Pickleball",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:43.935613+00:00"
+  },
+  {
+    "topic": "volleyball",
+    "language": "en",
+    "week": 44,
+    "name": "Volleyball",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:45.158627+00:00"
+  },
+  {
+    "topic": "volleyball",
+    "language": "es",
+    "week": 44,
+    "name": "Voleibol",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:46.405464+00:00"
+  },
+  {
+    "topic": "indoor-golf",
+    "language": "en",
+    "week": 44,
+    "name": "Indoor Golf",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:47.636198+00:00"
+  },
+  {
+    "topic": "indoor-golf",
+    "language": "es",
+    "week": 44,
+    "name": "Golf Interior",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:48.834254+00:00"
+  },
+  {
+    "topic": "golf",
+    "language": "en",
+    "week": 44,
+    "name": "Golf",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:50.067506+00:00"
+  },
+  {
+    "topic": "golf",
+    "language": "es",
+    "week": 44,
+    "name": "Golf",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:51.295172+00:00"
+  },
+  {
+    "topic": "basketball",
+    "language": "en",
+    "week": 44,
+    "name": "Basketball",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:52.469600+00:00"
+  },
+  {
+    "topic": "basketball",
+    "language": "es",
+    "week": 44,
+    "name": "Baloncesto",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:53.738665+00:00"
+  },
+  {
+    "topic": "soccer",
+    "language": "en",
+    "week": 44,
+    "name": "Soccer",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:54.980163+00:00"
+  },
+  {
+    "topic": "soccer",
+    "language": "es",
+    "week": 44,
+    "name": "Fútbol",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:56.248038+00:00"
+  },
+  {
+    "topic": "football",
+    "language": "en",
+    "week": 44,
+    "name": "Football",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:57.457788+00:00"
+  },
+  {
+    "topic": "football",
+    "language": "es",
+    "week": 44,
+    "name": "Fútbol Americano",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:58.717837+00:00"
+  },
+  {
+    "topic": "church-faith",
+    "language": "en",
+    "week": 44,
+    "name": "Church & Faith",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:24:59.961036+00:00"
+  },
+  {
+    "topic": "church-faith",
+    "language": "es",
+    "week": 44,
+    "name": "Iglesia y Fe",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:01.211693+00:00"
+  },
+  {
+    "topic": "fishing-boating",
+    "language": "en",
+    "week": 44,
+    "name": "Fishing & Boating",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:02.470739+00:00"
+  },
+  {
+    "topic": "fishing-boating",
+    "language": "es",
+    "week": 44,
+    "name": "Pesca y Navegación",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:03.704935+00:00"
+  },
+  {
+    "topic": "tourism",
+    "language": "en",
+    "week": 44,
+    "name": "Tourism",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:04.967136+00:00"
+  },
+  {
+    "topic": "tourism",
+    "language": "es",
+    "week": 44,
+    "name": "Turismo",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:06.240993+00:00"
+  },
+  {
+    "topic": "dining",
+    "language": "en",
+    "week": 44,
+    "name": "Dining",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:07.501366+00:00"
+  },
+  {
+    "topic": "dining",
+    "language": "es",
+    "week": 44,
+    "name": "Gastronomía",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:08.761613+00:00"
+  },
+  {
+    "topic": "fitness",
+    "language": "en",
+    "week": 44,
+    "name": "Fitness",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:10.017260+00:00"
+  },
+  {
+    "topic": "fitness",
+    "language": "es",
+    "week": 44,
+    "name": "Fitness",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:11.255489+00:00"
+  },
+  {
+    "topic": "cooking",
+    "language": "en",
+    "week": 44,
+    "name": "Cooking",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:12.519398+00:00"
+  },
+  {
+    "topic": "cooking",
+    "language": "es",
+    "week": 44,
+    "name": "Cocina",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:13.825202+00:00"
+  },
+  {
+    "topic": "retirement",
+    "language": "en",
+    "week": 44,
+    "name": "Retirement",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:15.079368+00:00"
+  },
+  {
+    "topic": "retirement",
+    "language": "es",
+    "week": 44,
+    "name": "Jubilación",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:16.327899+00:00"
+  },
+  {
+    "topic": "investing",
+    "language": "en",
+    "week": 44,
+    "name": "Investing",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:17.574207+00:00"
+  },
+  {
+    "topic": "investing",
+    "language": "es",
+    "week": 44,
+    "name": "Inversión",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:18.832957+00:00"
+  },
+  {
+    "topic": "cars",
+    "language": "en",
+    "week": 44,
+    "name": "Cars",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:20.108009+00:00"
+  },
+  {
+    "topic": "cars",
+    "language": "es",
+    "week": 44,
+    "name": "Autos",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:21.369279+00:00"
+  },
+  {
+    "topic": "trucking",
+    "language": "en",
+    "week": 44,
+    "name": "Trucking",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:22.578846+00:00"
+  },
+  {
+    "topic": "trucking",
+    "language": "es",
+    "week": 44,
+    "name": "Transporte de Carga",
+    "content": "ERROR: HTTP 402",
+    "generated_at": "2026-08-31T11:25:23.815896+00:00"
+  }
+]

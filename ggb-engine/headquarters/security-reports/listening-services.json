@@ -18,7 +18,7 @@
     "pid": "1029",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "57785"
+    "port": "49458"
   },
   {
     "process": "Spotify",
@@ -141,10 +141,38 @@
   },
   {
     "process": "Python",
-    "pid": "11708",
+    "pid": "48218",
     "user": "darrylsmac",
     "bind": "127.0.0.1",
     "port": "8092"
+  },
+  {
+    "process": "node",
+    "pid": "54864",
+    "user": "darrylsmac",
+    "bind": "*",
+    "port": "20128"
+  },
+  {
+    "process": "node",
+    "pid": "54864",
+    "user": "darrylsmac",
+    "bind": "127.0.0.1",
+    "port": "20131"
+  },
+  {
+    "process": "node",
+    "pid": "54864",
+    "user": "darrylsmac",
+    "bind": "127.0.0.1",
+    "port": "20132"
+  },
+  {
+    "process": "llama-ser",
+    "pid": "56092",
+    "user": "darrylsmac",
+    "bind": "127.0.0.1",
+    "port": "63737"
   },
   {
     "process": "Python",
