@@ -1,6 +1,6 @@
 {
   "setup": {
-    "date": "2026-08-30T21:00:00Z",
+    "date": "2026-08-31T22:00:00Z",
     "agent": "PROMOTION_GOAL",
     "goal": "Continuous automated promotion of all GGB products across all channels"
   },
@@ -24,13 +24,14 @@
       "twitter_posts_available": 4824,
       "pinterest_pins_available": 4824,
       "instagram_posts_available": 4824,
-      "tiktok_scripts_available": 4824
+      "tiktok_scripts_available": 4825
     },
     "previously_posted": {
-      "total": 2,
+      "total": 37,
       "by_platform": {
-        "instagram": 1,
-        "tiktok": 1
+        "instagram": 13,
+        "pinterest": 11,
+        "tiktok": 13
       }
     },
     "channel_status": {
@@ -41,19 +42,24 @@
         "fix": "Run: xurl auth apps add my-app --client-id <ID> --client-secret <SECRET>"
       },
       "pinterest": {
-        "status": "PROVEN_WORKING",
-        "verified_pins": 8,
-        "automation": "browser_bot_with_csv_queue"
+        "status": "BROWSER_AUTOMATION_AVAILABLE",
+        "note": "Playwright browser installed. Network timeout on login - may need manual intervention.",
+        "automation": "pinterest-browser-bot.py",
+        "csv_entries": 1850,
+        "progress_file": "exists"
       },
       "instagram": {
-        "status": "BROWSER_AUTOMATION_AVAILABLE",
-        "success_rate": "LOW",
-        "notes": "Timeout issues with share button"
+        "status": "QUEUED",
+        "note": "13 items marked as posted"
       },
       "tiktok": {
+        "status": "QUEUED",
+        "note": "13 items marked as posted"
+      },
+      "substack": {
         "status": "BROWSER_AUTOMATION_AVAILABLE",
-        "success_rate": "UNKNOWN",
-        "notes": "Has script infrastructure"
+        "drafts_pending": 4,
+        "note": "Browser publisher timing out on login - needs attention"
       },
       "facebook": {
         "status": "NO_AUTOMATION",
@@ -71,53 +77,57 @@
   },
   "actions_taken_this_run": [
     {
-      "action": "created_promotion_orchestrator_script",
-      "path": "/Users/darrylsmac/gullahgeecheebiz-site/scripts/promotion-orchestrator.py",
-      "status": "SUCCESS",
-      "description": "Built autonomous promotion bot that checks all platforms and posts available content"
+      "action": "attempted_pinterest_bot",
+      "timestamp": "2026-08-31T15:05:00Z",
+      "status": "FAILED",
+      "error": "Network timeout on Pinterest login - Playwright installed but network connectivity issue",
+      "next_action": "Retry with extended timeout or manual browser login"
     },
     {
-      "action": "executed_promotion_cycle",
-      "timestamp": "2026-08-30T21:00:00Z",
-      "results": {
-        "twitter": "BLOCKED - needs xurl auth",
-        "pinterest": "QUEUED - content added to CSV for browser bot",
-        "instagram": "QUEUED - content saved to queue file",
-        "tiktok": "QUEUED - content saved to queue file"
+      "action": "attempted_substack_publisher",
+      "timestamp": "2026-08-31T15:05:32Z",
+      "status": "TIMED_OUT",
+      "drafts_found": 4,
+      "note": "Found 4 drafts to publish but browser automation timed out during login",
+      "next_action": "Retry substack publisher or use API method"
+    },
+    {
+      "action": "verified_infrastructure",
+      "timestamp": "2026-08-31T15:00:00Z",
+      "status": "SUCCESS",
+      "details": {
+        "playwright_installed": true,
+        "event_stream_accessible": true,
+        "posted_db_accessible": true,
+        "promotion_content_count": 19297
       }
     }
   ],
   "next_steps": [
     {
       "priority": 1,
-      "action": "fix_twitter_auth",
-      "command": "xurl auth apps add ggb-bot --client-id <ID> --client-secret <SECRET>",
-      "impact": "UNLOCKS_4824_PREMADE_TWEETS"
+      "action": "retry_pinterest_bot",
+      "command": "python3 /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/pinterest-browser-bot.py",
+      "impact": "POST_TO_PROVEN_CHANNEL"
     },
     {
       "priority": 2,
-      "action": "run_pinterest_bot",
-      "command": "python3 /Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/pinterest-browser-bot.py",
-      "impact": "POSTS_TO_PROVEN_CHANNEL"
+      "action": "retry_substack_publisher",
+      "command": "python3 /Users/darrylsmac/gullahgeecheebiz-site/scripts/substack-browser-publisher.py",
+      "impact": "PUBLISH_4_DRAFTS"
     },
     {
       "priority": 3,
-      "action": "create_bundle_offers",
-      "description": "Group Encyclopedia Volumes into bundles on Gumroad",
-      "impact": "INCREASE_AVG_ORDER_VALUE"
-    },
-    {
-      "priority": 4,
-      "action": "setup_email_capture",
-      "description": "Add email signup to product pages for retargeting",
-      "impact": "BUILD_AUDIENCE"
+      "action": "fix_twitter_auth",
+      "command": "xurl auth apps add ggb-bot --client-id <ID> --client-secret <SECRET>",
+      "impact": "UNLOCKS_4824_TWEETS"
     }
   ],
   "completion_status": {
     "goal_met": false,
     "products_fully_promoted": "0/1190",
-    "channels_active": "1/7 (Pinterest only)",
+    "channels_active": "0/7 (Pinterest and Substack automation has issues)",
     "real_sales_generated": 0,
-    "notes": "Infrastructure created, first automation cycle executed. Twitter blocked pending auth setup."
+    "notes": "Infrastructure in place. Playwright browser installed. Pinterest and Substack automation timing out on login - may require network/firewall check or manual intervention. Twitter requires xurl auth setup."
   }
 }
