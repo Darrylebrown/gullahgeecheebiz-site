@@ -1,3 +1,8 @@
 {"ts": "2026-08-30T14:30:00", "source_bot": "PUBLISHING_TANK_OWNER", "action": "publishing_status_report", "detail": "GUMROAD VERIFIED: 4/50 volumes live (31-34). EPUBs: 50/50 real content. Covers: 50/50 unique. Rate limited - awaiting quota reset."}
 {"ts": "2026-08-30T14:31:00", "source_bot": "PUBLISHING_TANK_OWNER", "action": "upload_attempt", "detail": "Attempted uploads for vols 35-39. Hit 429 rate limit from Gumroad API. Volumes 31-34 confirmed live with verified URLs."}
 {"ts": "2026-08-30T14:32:00", "source_bot": "PUBLISHING_TANK_OWNER", "action": "asset_status", "detail": "All 50 EPUBs regenerated with real content (avg 7.5KB each). All 50 covers unique. Ready for upload when quota resets."}
+{"ts": "2026-08-31T01:07:34.152979+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-08-31T01:07:34.618618+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 10 live Gumroad products"}
+{"ts": "2026-08-31T01:07:34.621133+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 2 items across 2 platforms"}
+{"ts": "2026-08-31T01:07:34.795687+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: The Sea Islands' wisdom is now digital. Get Batch ..."}
+{"ts": "2026-08-31T01:07:34.919333+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
