@@ -10,6 +10,8 @@ from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
+AGENT_TOKEN = os.environ.get("AGENT_TOKEN_UNIVERSAL_SUBMITTER", "")
+
 BASE_DIR = Path("/Users/darrylsmac/gullahgeecheebiz-site")
 PUB_DB = BASE_DIR / "publish" / "publisher.db"
 LOGS_DIR = Path(__file__).parent / "logs"
@@ -517,7 +519,19 @@ setInterval(loadStats, 15000);
 engine = UniversalSubmitter()
 
 class Handler(BaseHTTPRequestHandler):
+    def _check_auth(self):
+        auth = self.headers.get("Authorization", "")
+        if not auth.startswith("Bearer ") or auth[7:] != AGENT_TOKEN:
+            self.send_response(401)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps({"error": "Unauthorized"}).encode())
+            return False
+        return True
+
     def do_GET(self):
+        if not self._check_auth():
+            return
         path = self.path
         if path == "/api/stats":
             self._json(engine.get_stats())
@@ -529,10 +543,12 @@ class Handler(BaseHTTPRequestHandler):
             self._html(HTML)
     
     def do_POST(self):
+        if not self._check_auth():
+            return
         length = int(self.headers.get("Content-Length", 0))
         body = json.loads(self.rfile.read(length)) if length else {}
         path = self.path
-        
+
         if path == "/api/run-submission":
             self._json(engine.run_full_submission())
         elif path == "/api/generate-csvs":

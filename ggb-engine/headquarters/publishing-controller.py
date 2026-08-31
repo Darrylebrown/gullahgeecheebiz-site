@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import time
 import queue
@@ -6,6 +7,7 @@ import logging
 import threading
 import signal
 import atexit
+from pathlib import Path
 from datetime import datetime
 from collections import defaultdict, deque
 from typing import Dict, List, Optional, Tuple
@@ -18,6 +20,9 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 import joblib
+
+sys.path.insert(0, str(Path(__file__).parent))
+from agent_auth import require_agent_auth
 
 # Constants
 CONTROLLER_VERSION = "1.0.0"
@@ -91,7 +96,12 @@ class Task:
 class PublishingController:
     def __init__(self):
         self.app = Flask(__name__)
+        self.app.config["AGENT_TOKEN"] = os.environ.get("AGENT_TOKEN_PUBLISHING_CONTROLLER", "")
         self._setup_endpoints()
+
+        @self.app.before_request
+        def _auth():
+            require_agent_auth("AGENT_TOKEN_PUBLISHING_CONTROLLER")
         
         # Core components
         self.task_queue = queue.PriorityQueue()

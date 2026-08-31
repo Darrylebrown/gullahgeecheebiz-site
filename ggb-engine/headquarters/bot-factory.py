@@ -1,11 +1,15 @@
 import datetime
 import json
+import os
 import random
 import time
 import uuid
 import logging
+import sys
+from pathlib import Path
 from collections import deque
-
+sys.path.insert(0, str(Path(__file__).parent))
+from agent_auth import require_agent_auth
 from flask import Flask, jsonify, request, render_template_string
 from threading import Thread, Lock, Event
 
@@ -61,6 +65,11 @@ state_lock = Lock()
 shutdown_event = Event()
 
 app = Flask(__name__)
+app.config["AGENT_TOKEN"] = os.environ.get("AGENT_TOKEN_BOT_FACTORY", "")
+
+@app.before_request
+def _bot_factory_auth():
+    require_agent_auth("AGENT_TOKEN_BOT_FACTORY")
 
 # --- Core Bot Factory Components ---
 

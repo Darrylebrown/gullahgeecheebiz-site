@@ -21,7 +21,7 @@ from flask import request, abort
 def _safe_eq(a: str, b: str) -> bool:
     return hmac.compare_digest(a.encode(), b.encode())
 
-def require_agent_auth(env_var: str | None = None):
+def require_agent_auth(env_var=None):
     """Flask before_request hook. Pass env_var to override auto-detection."""
     token = request.headers.get("Authorization", "")
     if token.startswith("Bearer "):

@@ -9,6 +9,8 @@ from datetime import datetime, timezone, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from typing import Dict, List, Optional
 
+AGENT_TOKEN = os.environ.get("AGENT_TOKEN_ROYALTY_DASHBOARD", "")
+
 BASE_DIR = Path("/Users/darrylsmac/gullahgeecheebiz-site")
 LOGS_DIR = Path(__file__).parent / "logs"
 ROYAL_DIR = LOGS_DIR / "royalty-dashboard"
@@ -333,7 +335,19 @@ setInterval(loadStats, 30000);
 </html>"""
 
 class Handler(BaseHTTPRequestHandler):
+    def _check_auth(self):
+        auth = self.headers.get("Authorization", "")
+        if not auth.startswith("Bearer ") or auth[7:] != AGENT_TOKEN:
+            self.send_response(401)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps({"error": "Unauthorized"}).encode())
+            return False
+        return True
+
     def do_GET(self):
+        if not self._check_auth():
+            return
         if self.path == "/api/stats":
             self._json(engine.get_stats())
         elif self.path == "/api/projections":
@@ -341,6 +355,8 @@ class Handler(BaseHTTPRequestHandler):
         else:
             self._html(HTML)
     def do_POST(self):
+        if not self._check_auth():
+            return
         length = int(self.headers.get("Content-Length", 0))
         body = json.loads(self.rfile.read(length)) if length else {}
         if self.path == "/api/record-sale":
