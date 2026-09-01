@@ -1,0 +1,30 @@
+{
+  "lead_magnet": "Gullah Geechee Full Book Library",
+  "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/full-catalog/index.html",
+  "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/free?nojs=true",
+  "nurture": {
+    "lead": "Gullah Geechee Full Book Library",
+    "sequence": [
+      {
+        "day": 1,
+        "subject": "Welcome to the Gullah Geechee Library",
+        "body": "You now have access to our complete collection of Gullah Geechee books. Explore at your own pace and let the wisdom of the ancestors guide you."
+      },
+      {
+        "day": 3,
+        "subject": "Start with the Encyclopedia",
+        "body": "If you're new to our collection, we recommend starting with the Encyclopedia volumes. They provide the foundation for understanding Gullah Geechee culture and heritage."
+      },
+      {
+        "day": 6,
+        "subject": "Discover the How-To Guides",
+        "body": "Once you've explored the Encyclopedia, check out our practical guides on boundaries, self-care, confidence, and purpose. Real wisdom for real life."
+      },
+      {
+        "day": 10,
+        "subject": "Share the Legacy",
+        "body": "Knowledge grows when shared. Forward this library to someone who would benefit from the Gullah Geechee heritage. The ancestors are watching and approving."
+      }
+    ]
+  }
+}

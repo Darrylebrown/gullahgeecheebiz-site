@@ -12,3 +12,8 @@
 {"ts": "2026-09-01T07:13:00Z", "source_bot": "PROMOTION_GOAL", "action": "pinterest_api_check", "status": "BLOCKED", "reason": "Token expired - 401 Authentication failed", "fix": "Refresh Pinterest access token"}
 {"ts": "2026-09-01T07:13:05Z", "source_bot": "PROMOTION_GOAL", "action": "pinterest_browser", "status": "PARTIAL", "note": "Upload works but form selectors timeout - needs CSS update"}
 {"ts": "2026-09-01T07:13:10Z", "source_bot": "PROMOTION_GOAL", "action": "substack_check", "status": "FOUND", "drafts_pending": 4, "note": "Browser automation started but no session cookie"}
+{"ts": "2026-09-01T16:14:35.958048+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_start", "detail": "Starting automated promotion cycle"}
+{"ts": "2026-09-01T16:14:36.758713+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_status", "detail": "Found 4 live Gumroad products"}
+{"ts": "2026-09-01T16:14:36.816366+00:00", "source_bot": "PROMOTION_GOAL", "action": "posting_status", "detail": "Already posted: 43 items across 3 platforms"}
+{"ts": "2026-09-01T16:14:37.084293+00:00", "source_bot": "PROMOTION_GOAL", "action": "pinterest_content_queued", "detail": "Queued for Pinterest: Batch 004 How To Overcome Imposter Syndrome \u2014 A Gu..."}
+{"ts": "2026-09-01T16:14:37.269002+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 3 items. Platforms: ['twitter', 'pinterest', 'instagram', 'tiktok']"}
