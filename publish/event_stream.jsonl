@@ -35,3 +35,10 @@
 {"ts": "2026-09-01T19:03:31.931481+00:00", "source_bot": "PROMOTION_GOAL", "action": "daily_social_poster", "status": "SUCCESS", "platforms": {"instagram": "posted", "tiktok": "posted", "twitter": "failed_no_auth", "facebook": "no_content"}}
 {"ts": "2026-09-01T19:03:31.931483+00:00", "source_bot": "PROMOTION_GOAL", "action": "tiktok_media_library_expanded", "status": "SUCCESS", "details": {"product_captions_created": 10, "brand_media_created": 6, "total_media_items": 25}}
 {"ts": "2026-09-01T19:03:31.931487+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 8 TikToks via Blotato API (HTTP 201), 2 queue files created via daily social poster. All 10 Gumroad products verified live."}
+{"ts": "2026-09-01T19:04:39.574901Z", "source_bot": "MARKETING_GOAL", "action": "viral_pages_generated", "detail": "Generated 20 new SEO pages (10 EN + 10 ES) via viral-engine.py"}
+{"ts": "2026-09-01T19:04:39.575446Z", "source_bot": "MARKETING_GOAL", "action": "ctas_optimized", "detail": "Updated CTAs on 21 viral landing pages with sales links"}
+{"ts": "2026-09-01T19:04:39.575448Z", "source_bot": "MARKETING_GOAL", "action": "tiktok_scripts_generated", "detail": "Generated 9 new TikTok scripts for product promotion"}
+{"ts": "2026-09-01T19:04:39.575449Z", "source_bot": "MARKETING_GOAL", "action": "pinterest_pins_generated", "detail": "Generated 100 pin descriptions, manifest saved"}
+{"ts": "2026-09-01T19:04:39.575450Z", "source_bot": "MARKETING_GOAL", "action": "daily_book_generated", "detail": "Created DOCX: The Gullah Geechee Guide to Robert Smalls (10 chapters, 38KB)"}
+{"ts": "2026-09-01T19:04:39.575451Z", "source_bot": "MARKETING_GOAL", "action": "site_deployed", "detail": "Deployed to GitHub Pages, sitemap with 201 URLs"}
+{"ts": "2026-09-01T19:04:39.575452Z", "source_bot": "MARKETING_GOAL", "action": "smoke_tests_passed", "detail": "26/26 tests passed, no failures"}

@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-09-01T16:16:16.084268",
+  "total_products": 10,
+  "epub_attached": 0,
+  "cover_attached": 0,
+  "skipped": 0,
+  "failed": 14,
+  "results": [
+    {
+      "product_id": "6moaSzclvzG3WmVwPW03xQ==",
+      "product_name": "How to Set Boundaries That Stick",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "no_match_found"
+    },
+    {
+      "product_id": "jIp5bOeC2jLD4_x-LmYNwA==",
+      "product_name": "How to Practice Radical Self-Care",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "no_match_found"
+    },
+    {
+      "product_id": "vNdcjqtWH8ouMHxrjnxJGw==",
+      "product_name": "Encyclopedia Volume 34",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "failed_404"
+    },
+    {
+      "product_id": "N-NGLiWCEaUKfNqWXxKwpA==",
+      "product_name": "Encyclopedia Volume 33",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "failed_404"
+    },
+    {
+      "product_id": "9-_nfySyW8GAN3bmtOIwgw==",
+      "product_name": "Encyclopedia Volume 32",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "failed_404"
+    },
+    {
+      "product_id": "YcqJrhCMSWmpIJ97fmjOyA==",
+      "product_name": "Encyclopedia Volume 31",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "failed_404"
+    },
+    {
+      "product_id": "GWj2iKfluxRd2Se1LS-aBg==",
+      "product_name": "How to Overcome Imposter Syndrome",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "no_match_found"
+    },
+    {
+      "product_id": "PIuqJXCSRyun27XHzS-K9Q==",
+      "product_name": "How to Master Your Morning Routine",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "no_match_found"
+    },
+    {
+      "product_id": "41Xn-16d8Mk_bDRmWahu7g==",
+      "product_name": "How to Build Unshakeable Confidence",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "no_match_found"
+    },
+    {
+      "product_id": "-Y3jQlddLon8NVBOS4Zjsw==",
+      "product_name": "How to Find Your Purpose",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "no_match_found"
+    }
+  ]
+}
