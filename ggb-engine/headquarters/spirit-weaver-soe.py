@@ -86,20 +86,7 @@ class SpiritWeaverSOE:
         PERFORMANCE_FILE.write_text(json.dumps(self.performance, indent=2))
     
     def _call_ai(self, prompt: str, max_tokens: int = 2000) -> Optional[str]:
-        if not self.api_key:
-            return None
-        try:
-            r = requests.post(
-                "omniroute",
-                headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
-                json={"model": "google/gemini-2.5-flash", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens},
-                timeout=30
-            )
-            if r.status_code == 200:
-                return r.json()["choices"][0]["message"]["content"]
-        except:
-            pass
-        return None
+        return omniroute_shim.call_ai(prompt=prompt, model="ggb-free-auto", max_tokens=max_tokens)
     
     # ─── TREND PREDICTION ─────────────────────────────────────────────────
     
