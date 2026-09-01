@@ -1,7 +1,7 @@
 {
   "lead_magnet": "Encyclopedia Vol 39",
   "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-39/index.html",
-  "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+  "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/free?nojs=true",
   "nurture": {
     "lead": "Encyclopedia Vol 39",
     "sequence": [

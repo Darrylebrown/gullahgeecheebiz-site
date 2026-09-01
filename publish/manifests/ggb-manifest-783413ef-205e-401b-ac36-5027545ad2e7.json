@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-783413ef-205e-401b-ac36-5027545ad2e7",
+  "created_at": "2026-09-01T04:56:12.890161+00:00",
+  "updated_at": "2026-09-01T04:56:12.890164+00:00",
+  "title": {
+    "canonical": "The Gullah Geechee Guide to Hope"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "English",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/prep-the-gullah-geechee-guide-to-hope",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/prep-the-gullah-geechee-guide-to-hope/cover.jpg",
+      "sha256": "f121688a4edb35ffd713e984ca023cf8645df174759a31639447bcf39e1fd6e9",
+      "size": 81479,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/prep-the-gullah-geechee-guide-to-hope/manuscript.md",
+      "sha256": "98b437fb8d8f456253109efddda941d32cdb0c57ebb2f84c5c61160ddae73174",
+      "size": 659,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "A guide to the gullah geechee guide to hope, drawing on Gullah Geechee wisdom.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 3.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "discovered",
+  "submission": {},
+  "audit_trail": []
+}

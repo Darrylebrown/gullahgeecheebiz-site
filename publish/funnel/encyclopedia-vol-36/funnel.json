@@ -1,7 +1,7 @@
 {
   "lead_magnet": "Encyclopedia Vol 36",
   "landing_page": "/Users/darrylsmac/gullahgeecheebiz-site/publish/funnel/encyclopedia-vol-36/index.html",
-  "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/subscribe",
+  "substack": "https://kofigullahgeecheebiz.substack.com/api/v1/free?nojs=true",
   "nurture": {
     "lead": "Encyclopedia Vol 36",
     "sequence": [

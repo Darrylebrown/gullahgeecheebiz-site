@@ -359,7 +359,10 @@ Return as JSON:
         results["coordination"] = bool(coord)
         if coord:
             for p in coord.get("priority_chain", [])[:3]:
-                print(f"   🎯 {p[:60]}")
+                if isinstance(p, dict):
+                    print(f"   🎯 {str(p)[:60]}")
+                else:
+                    print(f"   🎯 {p[:60]}")
         
         # 5. Analyze digital twin
         print("📊 Step 5: Analyzing Digital Twin...")

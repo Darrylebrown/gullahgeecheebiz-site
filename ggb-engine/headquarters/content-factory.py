@@ -257,7 +257,11 @@ Return as a JSON array:
             safe_title = item.get("title", "untitled")[:40].replace(" ", "-").lower()
             filename = f"{content_type}-{safe_title}-{item['id'][:6]}.md"
             output_path = OUTPUT_DIR / filename
-            output_path.write_text(f"# {item.get('title', 'Untitled')}\n\n{item.get('content', '')}\n\n---\n**SEO:** {item.get('seo_title', '')}\n**Description:** {item.get('seo_description', '')}\n**Keywords:** {', '.join(item.get('keywords', []))}\n**Platforms:** {', '.join(item.get('platforms', []))}\n**Audience:** {item.get('target_audience', '')}\n**CTA:** {item.get('cta', '')}")
+            # Ensure list fields are strings before joining
+            def safe_join(lst):
+                return ', '.join(str(x) for x in lst if x is not None)
+
+            output_path.write_text(f"# {item.get('title', 'Untitled')}\n\n{item.get('content', '')}\n\n---\n**SEO:** {item.get('seo_title', '')}\n**Description:** {item.get('seo_description', '')}\n**Keywords:** {safe_join(item.get('keywords', []))}\n**Platforms:** {safe_join(item.get('platforms', []))}\n**Audience:** {item.get('target_audience', '')}\n**CTA:** {item.get('cta', '')}")
             
             self.catalog.append(item)
             self.state["items_generated"] += 1

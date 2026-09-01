@@ -33,7 +33,7 @@ exists('style.css') ? ok('asset: style.css') : fail('asset: style.css', 'missing
 // 3. CNAME
 try {
   const cname = fs.readFileSync(path.join(ROOT, 'CNAME'), 'utf8').trim();
-  cname === 'gulfillgeecheebiz.com' ? ok(`CNAME: ${cname}`) : fail('CNAME', `got "${cname}"`);
+  cname === 'gullahgeecheebiz.com' ? ok(`CNAME: ${cname}`) : fail('CNAME', `got "${cname}"`);
 } catch (e) { fail('CNAME', 'missing'); }
 
 // 4. Sitemap
