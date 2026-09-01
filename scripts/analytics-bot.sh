@@ -2,7 +2,7 @@
 # Analytics Bot — Daily revenue + subscriber report
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 COMMAND="${1:-daily}"
 case "$COMMAND" in
   daily) PROMPT="Generate a daily business snapshot: 1. Estimated revenue 2. Subscriber growth 3. Content performance 4. Top content 5. Recommendations 6. Red flags" ;;

@@ -5,7 +5,7 @@
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
 
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 MODEL="${2:-deepseek-chat}"
 MAX_TOKENS="${3:-2000}"
 

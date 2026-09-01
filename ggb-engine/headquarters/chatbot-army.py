@@ -67,21 +67,9 @@ def call_ai(prompt, model="google/gemini-2.5-flash", max_tokens=2000):
             "qwen/qwen3.7-max": "agnes-2.5-flash",
         }
         model = model_map.get(model, "agnes-2.5-flash")
-    else:
-        base_url = "https://openrouter.ai/api/v1"
-    
-    try:
-        r = requests.post(
-            f"{base_url}/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json={"model": model, "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens},
-            timeout=60
-        )
-        if r.status_code == 200:
-            return r.json()["choices"][0]["message"]["content"]
-    except:
-        pass
-    return None
+    # Route through OmniRoute with compression and auto-fallback
+    import omniroute_shim
+    return omniroute_shim.call_ai(prompt, max_tokens=max_tokens)
 
 # ─── 20 Chatbot Definitions ──────────────────────────────────────────────
 

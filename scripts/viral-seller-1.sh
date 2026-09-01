@@ -2,7 +2,7 @@
 # Viral Seller 1 — Finds trending items, writes sales pitches
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 COMMAND="${1:-find}"
 case "$COMMAND" in
   find) PROMPT="Find 3 trending products on Amazon, 3 on Etsy, 3 on TikTok Shop for a Gullah Geechee audience. For each: title, price, why trending, commission estimate, best platform." ;;

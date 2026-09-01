@@ -52,7 +52,7 @@ for p in unpublished:
     update_data = {
         'access_token': token,
         'description': description,
-        'published': 'true',
+        'published': True,
         'tags': ['gullah', 'geechee', 'encyclopedia', 'history', 'culture', 'southern', 'african american']
     }
     

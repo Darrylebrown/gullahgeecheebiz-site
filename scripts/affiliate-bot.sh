@@ -6,7 +6,7 @@
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
 
-API_KEY="sk-10075769d3a4447bafc936e5233b1637"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 COMMAND="${1:-report}"
 validate_api_key "$API_KEY" || exit 1
 ARGS=$(sanitize_input "${2:-}")

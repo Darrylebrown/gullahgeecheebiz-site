@@ -2,7 +2,7 @@
 # SEO Bot — Optimizes pages, suggests keywords
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 CONTENT=$(sanitize_input "$1")
 COMMAND="${2:-audit}"
 case "$COMMAND" in

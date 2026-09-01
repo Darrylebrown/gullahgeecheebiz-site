@@ -33,8 +33,8 @@ logger = logging.getLogger(__name__)
 # Configuration
 PORT = 8085
 DB_PATH = '/Users/darrylsmac/gullahgeecheebiz-site/ggb-engine/headquarters/logs/gullah-hearth/hearth.db'
-OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY', '')
-OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1'
+OMNIROUTE_BASE_URL = 'http://localhost:20128'
+OMNIROUTE_API_KEY = ''
 
 class DatabaseManager:
     def __init__(self, db_path):
@@ -133,52 +133,26 @@ class DatabaseManager:
             raise
 
 class AIService:
-    def __init__(self, api_key):
-        self.api_key = api_key
-        self.base_url = OPENROUTER_BASE_URL
-        
+    def __init__(self):
+        # Route through OmniRoute with compression and auto-fallback
+        self.omniroute = True
+
     def get_binyah_response(self, user_message, context=""):
-        """Get AI response with proper error handling and timeout"""
-        if not self.api_key:
-            return "Binyah Concierge is currently offline. Please try again later."
-        
+        """Get AI response via OmniRoute with compression and auto-fallback"""
         try:
-            headers = {
-                'Authorization': f'Bearer {self.api_key}',
-                'Content-Type': 'application/json'
-            }
-            
             system_prompt = """You are Binyah, a wise Gullah Geechee cultural concierge. You help people connect with their heritage, 
             learn about Gullah Geechee culture, traditions, food, language, and history. Speak with warmth and wisdom, 
             occasionally using Gullah phrases when appropriate. Keep responses helpful and culturally authentic."""
             
-            data = {
-                'model': 'anthropic/claude-3-sonnet',
-                'messages': [
-                    {'role': 'system', 'content': system_prompt},
-                    {'role': 'user', 'content': f"{context}\n\nUser: {user_message}"}
-                ],
-                'max_tokens': 500,
-                'temperature': 0.7
-            }
-            
-            response = requests.post(
-                f'{self.base_url}/chat/completions',
-                headers=headers,
-                json=data,
-                timeout=30
+            response = omniroute_shim.call_ai(
+                f"{context}\n\n{system_prompt}\n\nUser: {user_message}",
+                max_tokens=500
             )
-            
-            if response.status_code == 200:
-                result = response.json()
-                return result['choices'][0]['message']['content']
+            if response:
+                return response
             else:
-                logger.error(f"AI API error: {response.status_code} - {response.text}")
+                logger.error("AI OmniRoute returned empty response")
                 return "I'm having trouble connecting right now. Please try again in a moment."
-                
-        except requests.exceptions.Timeout:
-            logger.error("AI API timeout")
-            return "I'm taking a moment to think. Please try again."
         except Exception as e:
             logger.error(f"AI service error: {e}")
             return "I'm experiencing some difficulties. Please try again later."

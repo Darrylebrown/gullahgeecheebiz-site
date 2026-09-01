@@ -2,7 +2,7 @@
 # Video Script Bot — TikTok + documentary scripts
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 TOPIC=$(sanitize_input "$1")
 PLATFORM="${2:-tiktok}"
 DURATION="${3:-60}"

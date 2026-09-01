@@ -24,3 +24,14 @@
 {"ts": "2026-09-01T16:15:05.017476+00:00", "source_bot": "MARKETING_GOAL", "action": "viral_ctas_updated", "detail": "Updated 40 viral landing pages with sales CTAs"}
 {"ts": "2026-09-01T16:15:05.017477+00:00", "source_bot": "MARKETING_GOAL", "action": "site_deployed", "detail": "Deployed to GitHub Pages, sitemap regenerated (201 URLs)"}
 {"ts": "2026-09-01T16:15:05.017478+00:00", "source_bot": "MARKETING_GOAL", "action": "promotion_queued", "detail": "Queued Pinterest, Instagram, TikTok content for posting"}
+{"ts": "2026-09-01T19:03:31.894877+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "cde7791f-a288-488d-8080-09e873472887", "item": "live-oak-2026-08-03"}
+{"ts": "2026-09-01T19:03:31.931467+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "1b6f4a0b-09ba-489e-a63d-a6d40148d313", "item": "dolphins-2026-07-30"}
+{"ts": "2026-09-01T19:03:31.931470+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "715ea174-945f-41e0-9b17-9f2fad0ef0dc", "item": "marsh-sunset-2026-07-26"}
+{"ts": "2026-09-01T19:03:31.931472+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "8f198c2e-2856-4999-8014-028640f16ac6", "item": "fishing-2026-08-04"}
+{"ts": "2026-09-01T19:03:31.931474+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "3e93202f-7bef-4c8f-81c3-a7291bef898b", "item": "ggb-language-collection"}
+{"ts": "2026-09-01T19:03:31.931475+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "cd392e6e-ad5f-4a66-9fb6-431545c66c23", "item": "encyclopedia-volume-11"}
+{"ts": "2026-09-01T19:03:31.931477+00:00", "source_bot": "PROMOTION_GOAL", "action": "blotato_tiktok_posted", "status": "SUCCESS", "post_id": "63850dbe-9576-4eaf-96f5-59f7ec48adda", "item": "ggb-art-craft"}
+{"ts": "2026-09-01T19:03:31.931479+00:00", "source_bot": "PROMOTION_GOAL", "action": "gumroad_verification", "status": "SUCCESS", "products_verified": 10, "all_200": true}
+{"ts": "2026-09-01T19:03:31.931481+00:00", "source_bot": "PROMOTION_GOAL", "action": "daily_social_poster", "status": "SUCCESS", "platforms": {"instagram": "posted", "tiktok": "posted", "twitter": "failed_no_auth", "facebook": "no_content"}}
+{"ts": "2026-09-01T19:03:31.931483+00:00", "source_bot": "PROMOTION_GOAL", "action": "tiktok_media_library_expanded", "status": "SUCCESS", "details": {"product_captions_created": 10, "brand_media_created": 6, "total_media_items": 25}}
+{"ts": "2026-09-01T19:03:31.931487+00:00", "source_bot": "PROMOTION_GOAL", "action": "promotion_cycle_complete", "detail": "Posted 8 TikToks via Blotato API (HTTP 201), 2 queue files created via daily social poster. All 10 Gumroad products verified live."}

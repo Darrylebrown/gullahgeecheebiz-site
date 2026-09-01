@@ -2,7 +2,7 @@
 # Viral Seller 2 — Trend hunter, Amazon listings, bundles, pitches
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 COMMAND="${1:-trend}"
 case "$COMMAND" in
   trend) PROMPT="Scan for trending products RIGHT NOW. Report: 5 trending on Amazon (books, history, culture, travel, decor), 5 on TikTok Shop, 3 seasonal items. For each: price, commission, why trending now." ;;

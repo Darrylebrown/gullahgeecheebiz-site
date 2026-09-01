@@ -8,6 +8,7 @@ import json, os, sys, requests, time, threading
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional
+import omniroute_shim  # OMNIROUTE_MIGRATED
 
 BASE_DIR = Path("/Users/darrylsmac/gullahgeecheebiz-site")
 LOGS_DIR = Path(__file__).parent / "logs"
@@ -83,54 +84,27 @@ class PublishingThinkTank:
         STATE_FILE.write_text(json.dumps(self.state, indent=2))
     
     def query_model(self, model_info: Dict) -> Dict:
-        """Query a single model with the publishing challenge."""
+        """Query a single model with the publishing challenge via OmniRoute."""
         name = model_info["name"]
         model = model_info["model"]
-        api_base = model_info.get("api_base", "https://openrouter.ai/api/v1")
-        
+
         try:
-            headers = {
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json"
-            }
-            data = {
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": "You are a publishing automation expert. Provide clear, actionable steps."},
-                    {"role": "user", "content": CHALLENGE}
-                ],
-                "max_tokens": 2000,
-                "temperature": 0.3,
-            }
-            
             start = time.time()
-            r = requests.post(
-                f"{api_base}/chat/completions",
-                headers=headers, json=data, timeout=60
+            # Use OmniRoute with compression and auto-fallback
+            result_text = omniroute_shim.call_ai(
+                f"You are a publishing automation expert. Provide clear, actionable steps.\n\nCHALLENGE:\n{CHALLENGE}",
+                max_tokens=2000
             )
             elapsed = time.time() - start
-            
-            if r.status_code == 200:
-                result = r.json()
-                # Handle different response formats
-                choices = result.get("choices", [])
-                if choices:
-                    msg = choices[0].get("message", {})
-                    content = msg.get("content")
-                    # Some models put content in reasoning field
-                    if not content:
-                        content = msg.get("reasoning", "")
-                else:
-                    content = ""
-                tokens = result.get("usage", {}).get("total_tokens", 0)
-                
+
+            if result_text:
                 return {
                     "name": name,
                     "model": model,
-                    "provider": model_info["provider"],
+                    "provider": model_info.get("provider", "omniroute"),
                     "success": True,
-                    "response": content or "",
-                    "tokens": tokens,
+                    "response": result_text,
+                    "tokens": 0,  # Not tracked for local routing
                     "time_seconds": round(elapsed, 1),
                 }
             else:

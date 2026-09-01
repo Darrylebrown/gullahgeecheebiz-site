@@ -2,7 +2,7 @@
 # Merch Bot — Printful product descriptions
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
-API_KEY="sk-3b0dd42ffb454d0287697021e9fc2202"
+API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 PRODUCT=$(sanitize_input "$1")
 DESIGN=$(sanitize_input "$2")
 PROMPT="Create a Printful listing for: $PRODUCT — $DESIGN. Generate: title, 2-3 paragraph description, 5 bullet points, 10-15 tags, size/color recs, retail price, social hook. Brand: Gullah Geechee Biz — luxury frame, culture picture. Navy + gold. Warm, proud, FROM the community."
