@@ -18,7 +18,7 @@
     "pid": "1029",
     "user": "darrylsmac",
     "bind": "*",
-    "port": "65341"
+    "port": "53243"
   },
   {
     "process": "Spotify",

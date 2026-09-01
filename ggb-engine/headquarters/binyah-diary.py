@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """
-GGB Binyah's Diary — Binyah the avatar writes daily journal entries about
-life, culture, and the state of the Gullah Geechee world. Connected to
-the Brain, Dream Weaver, and all systems.
+GGB Binyah's Diary — Write a new entry and display it.
 """
-import json, os, sys, time, requests, hashlib
-import omniroute_shim  # OMNIROUTE_MIGRATED
+import json, os, sys, time, hashlib, re
+import omniroute_shim
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -17,17 +15,75 @@ ENTRIES_FILE = DIARY_DIR / "entries.json"
 
 DIARY_DIR.mkdir(parents=True, exist_ok=True)
 
-def get_api_key():
-    env_file = BASE_DIR / ".env"
-    if env_file.exists():
-        for line in env_file.read_text().split("\n"):
-            if "OPENROUTER_API_KEY" in line:
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
-    return ""
-
 def call_ai(prompt, model="ggb-free-auto", max_tokens=2000):
-    """Route through OmniRoute gateway with auto-fallback."""
     return omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=min(max_tokens, 4000))
+
+def parse_entry_json(text):
+    """Parse JSON, handling common issues with newlines in string values."""
+    start = text.find("{")
+    end = text.rfind("}") + 1
+    if start < 0 or end <= start:
+        raise ValueError("No JSON object found")
+    
+    json_str = text[start:end]
+    
+    # Fix: replace actual newlines inside strings with \n
+    result_chars = []
+    i = 0
+    in_string = False
+    escape = False
+    
+    while i < len(json_str):
+        c = json_str[i]
+        
+        if escape:
+            result_chars.append(c)
+            escape = False
+            i += 1
+            continue
+        
+        if c == '\\':
+            escape = True
+            result_chars.append(c)
+            i += 1
+            continue
+        
+        if c == '"':
+            in_string = not in_string
+            result_chars.append(c)
+            i += 1
+            continue
+        
+        if in_string and c == '\n':
+            result_chars.append('\\')
+            result_chars.append('n')
+            i += 1
+            continue
+        
+        if not in_string and c == '\n':
+            i += 1
+            continue
+        
+        result_chars.append(c)
+        i += 1
+    
+    fixed_json = ''.join(result_chars)
+    return json.loads(fixed_json)
+
+def try_multiple_models(prompt):
+    """Try multiple models until one succeeds."""
+    models = ["ggb-free-auto", "qwen2.5:3b-instruct-q4_K_M", "deepseek-v3"]
+    
+    for model in models:
+        try:
+            result = call_ai(prompt, model=model, max_tokens=800)
+            if result and "{" in result:
+                print(f"Using model: {model}", file=sys.stderr)
+                return result
+        except:
+            continue
+    
+    return None
 
 class BinyahDiary:
     def __init__(self):
@@ -67,28 +123,22 @@ class BinyahDiary:
 Date: {date_str}
 Season: {season}
 Your mood: {self.state.get('mood', 'bright')}
-Previous entry mood: {self.state.get('mood', 'bright')}
 
-Write a warm, authentic diary entry (200-300 words) as Binyah. Talk about:
+Write a warm, authentic diary entry (150-200 words) as Binyah. Talk about:
 - What you did today
-- What you're excited about
-- A piece of Gullah Geechee wisdom or memory
+- A piece of Gullah Geechee wisdom
 - Something you're grateful for
-- Your hopes for tomorrow
 
-End with a Gullah Geechee blessing or proverb.
+Return ONLY valid JSON with no markdown. Use \\n for line breaks.
 
-Return as JSON:
-{{"date": "{date_str}", "entry": "...", "mood": "...", "proverb": "...", "blessing": "..."}}"""
+{{"date": "{date_str}", "entry": "TEXT HERE", "mood": "bright", "proverb": "PROVERB HERE", "blessing": "BLESSING HERE"}}"""
         
-        result = call_ai(prompt, max_tokens=1500)
+        result = try_multiple_models(prompt)
         if not result:
             return None
         
         try:
-            start = result.find("{")
-            end = result.rfind("}") + 1
-            entry = json.loads(result[start:end])
+            entry = parse_entry_json(result)
             entry["written_at"] = datetime.now(timezone.utc).isoformat()
             entry["id"] = hashlib.md5(date_str.encode()).hexdigest()[:8]
             
@@ -100,7 +150,9 @@ Return as JSON:
             self._save_state()
             
             return entry
-        except:
+        except Exception as e:
+            print(f"Failed to parse entry: {e}", file=sys.stderr)
+            print(f"Raw result: {result[:800]}", file=sys.stderr)
             return None
     
     def latest(self):
@@ -117,6 +169,19 @@ def main():
         print(f"🌿 Proverb: {entry.get('proverb', '')}")
         print(f"🙏 Blessing: {entry.get('blessing', '')}")
         print(f"💫 Mood: {entry.get('mood', '')}")
+    else:
+        print("FAILED to write new entry. Showing latest:", file=sys.stderr)
+        latest = diary.latest()
+        if latest:
+            print(f"\n📔 LATEST (from {latest.get('date', 'N/A')})")
+            print(f"{'='*50}")
+            print(f"\n{latest.get('entry', '')}")
+            print(f"\n{'='*50}")
+            print(f"🌿 Proverb: {latest.get('proverb', '')}")
+            print(f"🙏 Blessing: {latest.get('blessing', '')}")
+            print(f"💫 Mood: {latest.get('mood', '')}")
+        else:
+            print("No entries found.")
 
 if __name__ == "__main__":
     main()
