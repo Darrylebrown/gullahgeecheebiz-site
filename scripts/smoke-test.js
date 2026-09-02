@@ -90,13 +90,13 @@ fs.existsSync(nj) ? ok('.nojekyll present') : fail('.nojekyll', 'missing');
 
 // 10b. No .html.html doubles
 try {
-  const doubleHtml = execSync("grep -rl '\\\\.html\\\\.html' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l", { cwd: ROOT, encoding: 'utf8' }).trim();
+  const doubleHtml = execSync("grep -rl '\\.html\\.html' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l", { cwd: ROOT, encoding: 'utf8' }).trim();
   Number(doubleHtml) === 0 ? ok('links: no .html.html doubles') : fail('links: no .html.html doubles', `${doubleHtml} files`);
 } catch (e) { ok('links: no .html.html doubles'); }
 
 // 10c. No dead /books links (pointing to non-existent /books without .html)
 try {
-  const booksLinks = execSync("grep -rlE 'gulfillgeecheebiz\\\\.com/books([^.]|$)' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l", { cwd: ROOT, encoding: 'utf8' }).trim();
+  const booksLinks = execSync("grep -rlE 'gullahgeecheebiz\\.com/books([^.]|$)' --include='*.html' . 2>/dev/null | grep -v node_modules | wc -l", { cwd: ROOT, encoding: 'utf8' }).trim();
   Number(booksLinks) === 0 ? ok('links: no dead /books') : fail('links: no dead /books', `${booksLinks} files`);
 } catch (e) { ok('links: no dead /books'); }
 

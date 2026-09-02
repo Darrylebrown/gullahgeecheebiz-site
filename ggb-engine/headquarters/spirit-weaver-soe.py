@@ -23,6 +23,22 @@ SOE_DIR.mkdir(parents=True, exist_ok=True)
 
 # ─── Spirit Weaver SOE ─────────────────────────────────────────────────────
 
+# Dirs that are NOT site content (build artifacts, VCS, deps, logs). Walking
+# these caused FileNotFoundError crashes when omniroute/.build/next was
+# rebuilt mid-scan, and their transient HTML polluted page counts.
+_PRUNE_DIRS = {"node_modules", ".git", ".build", "dist", "logs", "__pycache__",
+               ".next", ".hermes", "omniroute", "site-packages", "venv", ".venv",
+               ".agents", "scripts", "n8n-nodes-blotato"}
+
+def _site_html_files():
+    """Yield site *.html files, skipping transient/build dirs and tolerating
+    dirs that vanish mid-walk (e.g. concurrent Next.js builds)."""
+    for root, dirs, files in os.walk(BASE_DIR, topdown=True, onerror=lambda e: None):
+        dirs[:] = [d for d in dirs if d not in _PRUNE_DIRS]
+        for fn in files:
+            if fn.endswith(".html"):
+                yield Path(root) / fn
+
 class SpiritWeaverSOE:
     """Autonomous Search Optimization Engine — the Spirit Weaver."""
     
@@ -205,8 +221,7 @@ Return as JSON array:
     
     def scan_all_pages(self) -> List[Dict]:
         """Scan all HTML pages on the site for SEO issues."""
-        html_files = sorted(BASE_DIR.rglob("*.html"))
-        html_files = [f for f in html_files if "node_modules" not in str(f)]
+        html_files = sorted(_site_html_files())
         
         results = []
         for f in html_files:
@@ -309,8 +324,7 @@ Return as JSON array:
     
     def deep_scan_all(self) -> List[Dict]:
         """Deep scan all pages for appeal and connectivity issues."""
-        html_files = sorted(BASE_DIR.rglob("*.html"))
-        html_files = [f for f in html_files if "node_modules" not in str(f)]
+        html_files = sorted(_site_html_files())
         
         results = []
         for f in html_files:
@@ -340,8 +354,7 @@ Return as JSON array:
         text = re.sub(r'\s+', ' ', text).strip()[:500]
         
         # Get all internal pages for connectivity suggestions
-        all_pages = sorted(BASE_DIR.rglob("*.html"))
-        all_pages = [f for f in all_pages if "node_modules" not in str(f)]
+        all_pages = sorted(_site_html_files())
         page_titles = []
         for p in all_pages[:20]:
             p_content = p.read_text()
