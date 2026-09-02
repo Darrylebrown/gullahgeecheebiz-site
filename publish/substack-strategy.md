@@ -1,5 +1,13 @@
 # The Root: Gullah Geechee Biz Monthly — Substack Newsletter Strategy
 
+## Live Status Snapshot (verified 2026-09-02 12:15 EDT)
+
+- **13 posts live** (public API), all published **July 4, 2026** — 60-day content silence, unresolved
+- **Paid tier: NOT enabled** (`payments_state: disabled`) — needs manual Stripe connect in Substack dashboard
+- **Publishing creds: still absent.** Scanned Brave (Default profile) + Chrome cookie stores 09-02 — no substack.com session cookie anywhere. Hard external blocker: requires Darryl to export `connect.sid` (Option A below) or publish via web UI
+- **Draft queue:** 4 ready posts in `publish/substack-drafts/` (2 free, 2 premium) — HTML cleaned 09-02 (dead "Explore More" site-relative link blocks stripped; zero relative hrefs remain). Ready to paste/publish the moment access exists
+- **Capture infrastructure verified live 09-02:** homepage + guide forms POST to `/api/v1/free?nojs=true` (dead `/api/v1/subscribe` → 404 replaced 09-01; empty POST now returns 403 = endpoint alive). All **51 funnel landing pages return HTTP 200** at `/publish/funnel/<name>/` and are sitemapped (267 URLs total, deployed)
+
 ## Current State (August 30, 2026)
 
 ### Publication Overview
@@ -24,7 +32,7 @@
 ### Infrastructure Status
 
 #### ✅ Working
-- [x] Email capture form (`/api/v1/subscribe` endpoint)
+- [x] Email capture form (`/api/v1/free?nojs=true` — corrected 09-01; old `/api/v1/subscribe` returned 404 and silently dropped signups; all funnel pages + homepage + guide use the fixed endpoint)
 - [x] NSS Optimizer (runs every 6 hours, checks Substack health)
 - [x] Marketing book funnel script (`marketing-book-funnel.py`)
 - [x] Draft generation script (`substack-publisher.py`) — NEW
