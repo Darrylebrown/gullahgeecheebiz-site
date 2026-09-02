@@ -332,10 +332,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 if current_state in ("discovered", "validated"):
                     return {"skipped": True, "reason": "Missing manuscript or cover"}
 
-            original_adapter = self.engine.adapter
-            self.engine.adapter = KDPAdapter()
-
-            if current_state in ("discovered",):
+            if current_state in ("discovered", "blocked"):
                 # Reconcile
                 r = self.engine.reconcile(manifest_id)
                 results["reconciled"] = "error" not in r
@@ -344,65 +341,54 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
                 r = self.engine.audit(manifest_id)
                 results["validated"] = r.get("passed", False)
                 if not results["validated"]:
-                    self.engine.adapter = original_adapter
                     return results
 
                 # Stage
                 r = self.engine.stage(manifest_id)
                 results["staged"] = "staged_files" in r
                 if not results["staged"]:
-                    self.engine.adapter = original_adapter
                     return results
 
                 # Preview
                 r = self.engine.preview(manifest_id)
-                results["previewed"] = r.get("previewer_opened", False)
+                results["previewed"] = r.get("preview_ready", False)
                 if not results["previewed"]:
-                    self.engine.adapter = original_adapter
                     return results
 
             elif current_state in ("validated",):
                 r = self.engine.audit(manifest_id)
                 results["validated"] = r.get("passed", False)
                 if not results["validated"]:
-                    self.engine.adapter = original_adapter
                     return results
                 r = self.engine.stage(manifest_id)
                 results["staged"] = "staged_files" in r
                 if not results["staged"]:
-                    self.engine.adapter = original_adapter
                     return results
                 r = self.engine.preview(manifest_id)
-                results["previewed"] = r.get("previewer_opened", False)
+                results["previewed"] = r.get("preview_ready", False)
                 if not results["previewed"]:
-                    self.engine.adapter = original_adapter
                     return results
 
             elif current_state in ("staged",):
                 r = self.engine.preview(manifest_id)
-                results["previewed"] = r.get("previewer_opened", False)
+                results["previewed"] = r.get("preview_ready", False)
                 if not results["previewed"]:
-                    self.engine.adapter = original_adapter
                     return results
 
             elif current_state in ("preview_clean", "awaiting_owner_approval"):
                 results["previewed"] = True
 
             # Approve (if not already approved)
-            if current_state in ("preview_clean", "awaiting_owner_approval", "staged", "validated", "discovered"):
+            if current_state in ("preview_clean", "awaiting_owner_approval", "staged", "validated", "discovered", "blocked"):
                 r = self.engine.approve(manifest_id, owner="pipeline-auto")
                 results["approved"] = "approval_hash" in r
 
-            # Mock submit
-            draft_id = manifest_id
-            submit_result = self.engine.adapter.submit(draft_id)
-            results["submitted"] = submit_result.get("submitted", False)
+            # Submit via engine (adapter managed internally)
+            submit_result = self.engine.submit(manifest_id, platform="kdp")
+            results["submitted"] = submit_result.get("status") == "submitted"
             if results["submitted"]:
                 manifest.data["status"] = "published"
                 manifest.save()
-
-            # Restore original adapter
-            self.engine.adapter = original_adapter
 
             # Update scoreboard
             conn = sqlite3.connect(str(SCOREBOARD_DB))
@@ -445,7 +431,7 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
         # Process all packages in the pipeline that need progression
         conn = sqlite3.connect(str(SCOREBOARD_DB))
         pending = conn.execute(
-            "SELECT manifest_id, status FROM packages WHERE status IN ('discovered', 'validated', 'staged', 'previewed', 'approved') AND manifest_id IS NOT NULL"
+            "SELECT manifest_id, status FROM packages WHERE status IN ('discovered', 'validated', 'staged', 'previewed', 'approved', 'blocked') AND manifest_id IS NOT NULL"
         ).fetchall()
         conn.close()
 
