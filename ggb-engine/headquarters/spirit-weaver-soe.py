@@ -400,22 +400,48 @@ Return as JSON:
                 # Apply description
                 new_desc = enhancements.get("description", "")
                 if new_desc:
-                    desc_match = re.search(r'<meta\s+name=["\']description["\']\s+content=["\'].*?["\']', content, re.IGNORECASE)
+                    # Quote-safe: match content="..." or content='...' up to its OWN closing
+                    # quote. Old pattern `["'].*?["']` stopped at apostrophes inside
+                    # double-quoted descriptions (e.g. "nature's"), leaving a garbage
+                    # tail (e.g. `s pharmacy today."`) after the injected description.
+                    desc_pat = re.compile(
+                        r'<meta\s+name=["\']description["\']\s+content=(["\']).*?\1',
+                        re.IGNORECASE | re.DOTALL)
+                    desc_match = desc_pat.search(content)
                     if desc_match:
-                        content = re.sub(
-                            r'<meta\s+name=["\']description["\']\s+content=["\'].*?["\']',
-                            f'<meta name="description" content="{new_desc}"',
-                            content, count=1
-                        )
+                        q = desc_match.group(1)
+                        content = desc_pat.sub(
+                            lambda m: f'<meta name="description" content={q}{new_desc.replace(q, "")}{q}',
+                            content, count=1)
                     else:
                         content = content.replace('</head>', f'  <meta name="description" content="{new_desc}">\n</head>', 1)
                 
                 # Add internal links before closing body
+                # Guard: never stack a 2nd block on pages enhanced in prior cycles
+                # (pre-2026-09-02 runs left up to N duplicate "Explore More" sections)
                 links = enhancements.get("internal_links", [])
-                if links and '</body>' in content:
+                # Guard: only emit links that resolve to real site files, rebuilt
+                # from their canonical repo path (kills AI-invented paths like
+                # /agents/... , .html.html doubles, /books-without-.html, //-doubles).
+                valid_links = []
+                if links:
+                    for link in links[:8]:
+                        p = (link.get("path") or "").strip().lstrip("/")
+                        if not p or p.startswith(("http://", "https://", "mailto:", "#")):
+                            continue
+                        try:
+                            cand = (BASE_DIR / p).resolve()
+                            cand.relative_to(BASE_DIR.resolve())
+                        except (ValueError, OSError):
+                            continue
+                        if cand.is_file() and cand != html_path.resolve():
+                            valid_links.append(
+                                {"path": str(cand.relative_to(BASE_DIR)).replace(os.sep, "/"),
+                                 "anchor": link.get("anchor", link.get("path", ""))})
+                if valid_links and '</body>' in content and 'class="related-content"' not in content:
                     links_html = '\n  <!-- Related Content -->\n  <div class="related-content">\n    <h3>Explore More</h3>\n    <ul>\n'
-                    for link in links[:5]:
-                        path = link.get("path", "")
+                    for link in valid_links[:5]:
+                        path = link["path"]
                         anchor = link.get("anchor", path)
                         links_html += f'      <li><a href="/{path}">{anchor}</a></li>\n'
                     links_html += '    </ul>\n  </div>\n'
