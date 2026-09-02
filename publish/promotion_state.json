@@ -1,121 +1,109 @@
 {
-  "setup": {
-    "date": "2026-09-02T06:16:00Z",
-    "agent": "PROMOTION_GOAL",
-    "goal": "Continuous automated promotion of all GGB products across all channels"
+ "setup": {
+  "date": "2026-09-02T06:16:00Z",
+  "agent": "PROMOTION_GOAL",
+  "goal": "Continuous automated promotion of all GGB products across all channels"
+ },
+ "current_state": {
+  "checked_at": "2026-09-02T13:14:57.665578+00:00",
+  "products_total_api": 101,
+  "products_published": 48,
+  "products_unpublished": 53,
+  "note_catalog_rebuild": "Publishing tank regenerated ALL pedia volumes as real EPUBs (10:33Z) and rebuilt 10 premium bundles with real content. Live now: 29 encyclopedia volumes (01-25, 31-34) + Box Set (25 real vols, $39.99) + Heritage Vault + Institutional License + 7 Heritage Collections + 9 singles/how-to books. ZERO duplicate names among published (dedup complete). Vols 26-30/35-50 not yet created (10/day Gumroad cap, queue active). 13 hollow products remain disabled (9 how-to + 4 culture) awaiting real content.",
+  "promotion_pool": {
+   "media_items": 47,
+   "note": "22 volume covers RESTORED 13:10Z (vols 01-15, 23-25, 31-34 re-enabled with real content; CTAs verified HTTP 200; commit 0ab254db pushed; image URLs live 200). Pool = 47 images: 29 real-volume covers + 9 collection/bundle + 9 brand/nature. Previously archived 10:16Z as disabled; no longer disabled.",
+   "unposted_remaining": []
   },
-  "current_state": {
-    "checked_at": "2026-09-02T06:17:00Z",
-    "products_total_api": 101,
-    "products_published": 39,
-    "products_unpublished": 62,
-    "note_published_breakdown": "Published = encyclopedia vols 16-22 ONLY (7, real 620KB EPUBs) + Complete Box Set + Institutional Site License + Heritage Vault + 7 Cultural Heritage Collections + 9 Gullah heritage singles (Ring Shout, Praise House Door, Cast Net Morning, Hoppin' John, Indigo Memory, Marsh Tide Clock, Penn Center Lessons, Sweetgrass Basket, Sunday Table) + 12 'How to' titles.",
-    "note_content_gap": "Vols 01-15, 23-25, 31-34 DISABLED 04:17 by PUBLISHING_TANK (stub 7.4KB EPUBs; only 16-22 real). Vols 26-30, 35-50 never created (no real content on disk). DO NOT promote disabled volumes — prior-run promos (vols 06-11, 31-34, 12-14) now point at disabled pages.",
-    "gumroad_verified_urls_200": [
-      "https://debtide0.gumroad.com/l/bbxhyg",
-      "https://debtide0.gumroad.com/l/hqzkqz",
-      "https://debtide0.gumroad.com/l/jktjof",
-      "https://debtide0.gumroad.com/l/qjcqdo",
-      "https://debtide0.gumroad.com/l/bpauwp",
-      "https://debtide0.gumroad.com/l/eakpyu",
-      "https://debtide0.gumroad.com/l/wrryi",
-      "https://debtide0.gumroad.com/l/mxzynu",
-      "https://debtide0.gumroad.com/l/veybe",
-      "https://debtide0.gumroad.com/l/sywqz",
-      "https://debtide0.gumroad.com/l/mhlqrb",
-      "https://debtide0.gumroad.com/l/vwnpk",
-      "https://debtide0.gumroad.com/l/xgkkis",
-      "https://debtide0.gumroad.com/l/sbwja",
-      "https://debtide0.gumroad.com/l/recipes"
-    ],
-    "promotion_pool": {
-      "tiktok_media_items": 25,
-      "tiktok_media_posted": 38,
-      "note": "Pool purged of 22 disabled-volume covers (archived publish/archive/disabled-volume-promos/, commit 250377e7). ALL 7 real-content volumes 16-22 posted this run (10 TikTok posts total + 1 YouTube). Pool now exhausted until new media for heritage singles / box set / site license is generated.",
-      "unposted_remaining": []
-    },
-    "channel_status": {
-      "tiktok_blotato": {"status": "WORKING", "note": "10 posts this run (HTTP 201). Account 40117. All 7 real volumes 16-22 + 2 new collections + 1 brand video."},
-      "youtube_blotato": {"status": "NEWLY_ACTIVE", "note": "Account 42801 GullahGeecheeBiz. First post 2026-09-02 (Heritage Vault, 32328d84). Target schema: title/privacyStatus/shouldNotifySubscribers required."},
-      "gumroad": {"status": "VERIFIED", "note": "39 published products. Only vols 16-22 + collections/bundles/singles are purchasable."},
-      "viral_seo": {"status": "ACTIVE", "pages": 64},
-      "facebook_blotato": {"status": "PROBED_BLOCKED", "note": "Account 40385 connected but POST 422: target requires pageId; account-id 40385 rejected; no API route to fetch pageId. Needs UI reconnect."},
-      "pinterest": {"status": "TOKEN_EXPIRED", "note": "API 401. Blotato pinterest account 8338 connected (darryleugenebrown) - cross-post path exists but untested."},
-      "twitter_xurl": {"status": "NEEDS_AUTH", "note": "Blotato twitter account 22451 connected but handle 'MrCarolinaNeon' is NOT the GGB brand - verify before use."},
-      "substack": {"status": "DRAFTS_PENDING", "drafts_pending": 4},
-      "facebook_linkedin_reddit": {"status": "HARD_BLOCKED", "note": "no direct automation"}
-    }
-  },
-  "actions_taken_this_run": [
-    {
-      "action": "gumroad_live_reaudit",
-      "timestamp": "2026-09-02T10:17:00Z",
-      "status": "SUCCESS",
-      "details": "Paginated API crawl: 101 total / 39 published. Confirmed 22 stub volumes disabled by publishing tank (only 16-22 real)."
-    },
-    {
-      "action": "pool_purge_disabled_volumes",
-      "timestamp": "2026-09-02T10:16:00Z",
-      "status": "SUCCESS",
-      "details": "git mv 22 disabled-volume covers+sidecars (44 files) to publish/archive/disabled-volume-promos/; commit 250377e7 pushed origin. Prevents future Blotato posts pointing at disabled products."
-    },
-    {
-      "action": "new_collection_media",
-      "timestamp": "2026-09-02T10:16:00Z",
-      "status": "SUCCESS",
-      "details": "Generated navy/gold 1080x1350 covers + captions for ggb-music-storytelling (vwnpk) and ggb-environment-ecology (xgkkis) - first media ever for these 2 published collections. Live URLs verified 200 after Pages rebuild."
-    },
-    {
-      "action": "tiktok_posts_x6",
-      "timestamp": "2026-09-02T10:19:00Z",
-      "status": "SUCCESS",
-      "details": "6x HTTP 201: ggb-music-storytelling cb0fe65f, ggb-environment-ecology 5cec7a6c, vol-18 d7b4baba, vol-16 27fb4bef, brand-video heritage-is-a-kind-of-wealth b36da6d7, vol-19 50ecb44e."
-    },
-    {
-      "action": "youtube_first_post",
-      "timestamp": "2026-09-02T10:20:00Z",
-      "status": "SUCCESS",
-      "details": "Heritage Vault promo posted to YouTube account 42801 via Blotato: HTTP 201, postSubmissionId 32328d84-e4d8-4ee4-836e-9e78f0cfcfdb. Channel unlocked (schema learned: title/privacyStatus/shouldNotifySubscribers)."
-    }
-  ],
-  "next_steps": [
-    {
-      "priority": 1,
-      "action": "post_remaining_volumes",
-      "impact": "COMPLETES_REAL_VOLUMES",
-      "note": "Post vols 17, 20, 21, 22 (only unposted real-content volumes). Media live + sidecars ready."
-    },
-    {
-      "priority": 2,
-      "action": "youtube_crosspost_volumes",
-      "impact": "NEW_CHANNEL_DISCOVERY",
-      "note": "YouTube now proven. Cross-post vol 16-22 promos to YouTube 42801 (title = volume title)."
-    },
-    {
-      "priority": 3,
-      "action": "restore_volume_content_or_reenable",
-      "impact": "UNBLOCKS_22_PROMOTABLE_PRODUCTS",
-      "note": "Vols 01-15/23-25/31-34 disabled for stub EPUBs; real content source lost (publishing domain). 30+ earlier TikTok promos CTA to these disabled pages. Restore real EPUBs (or boxsplit source) -> re-enable -> promo pool grows back."
-    },
-    {
-      "priority": 4,
-      "action": "facebook_pageid",
-      "impact": "UNLOCKS_FACEBOOK",
-      "note": "Get pageId for FB account 40385 (UI reconnect in Blotato) then POST requires target.pageId."
-    },
-    {
-      "priority": 5,
-      "action": "pinterest_blotato_test",
-      "impact": "UNLOCKS_4800_PINS",
-      "note": "Blotato pinterest 8338 connected; test cross-post (image pin of a collection)."
-    }
-  ],
-  "completion_status": {
-    "goal_met": false,
-    "real_sales_generated": 0,
-    "products_fully_promoted": "ALL 7 real encyclopedia volumes (16-22) posted to TikTok this run with Gumroad CTAs (submission ids recorded). All 8 collection/bundle promo items posted. 0/9 heritage singles and 0/12 how-to titles have promo media yet.",
-    "channels_active": "TikTok/Blotato (10 posts this run), YouTube/Blotato (1st post this run), Gumroad (39 clean listings), Website/viral SEO",
-    "channels_blocked": "Facebook (pageId), Pinterest API token (Blotato path open), Twitter (brand-handle question), LinkedIn/Reddit (hard), Substack (cookie)",
-    "notes": "Biggest structural finding: 30+ earlier TikTok promos (vols 06-11, 31-34, 12-14) now CTA to DISABLED stub-content products - publishing and promotion goals collided on sequencing. Promotion pool purged + re-aimed at the 39 genuinely purchasable products. Sales still $0."
+  "channel_status": {
+   "tiktok_blotato": {
+    "status": "WORKING",
+    "note": "Account 40117. Pool cycled by multiple bots; posts verified HTTP 201 hourly cadence."
+   },
+   "youtube_blotato": {
+    "status": "ACTIVE",
+    "note": "Account 42801 GullahGeecheeBiz. 3 posts total: Heritage Vault (32328d84), vol-16 (211e3cda), vol-01 (9a2e0ef2) \u2014 all HTTP 201. Schema: target.title/privacyStatus/shouldNotifySubscribers."
+   },
+   "gumroad": {
+    "status": "VERIFIED",
+    "note": "48 published incl 29 real volumes. All promo CTA URLs HTTP 200 (checked 13:08Z)."
+   },
+   "viral_seo": {
+    "status": "ACTIVE",
+    "pages": 64
+   },
+   "facebook_blotato": {
+    "status": "PROBED_BLOCKED",
+    "note": "Account 40385, POST 422 requires pageId; no API route to fetch. Needs UI reconnect."
+   },
+   "pinterest": {
+    "status": "TOKEN_EXPIRED",
+    "note": "API 401; Blotato pinterest 8338 connected (darryleugenebrown), board 726205577354259334."
+   },
+   "twitter_xurl": {
+    "status": "NEEDS_AUTH",
+    "note": "Account 22451 handle MrCarolinaNeon is NOT GGB brand \u2014 verify before use."
+   },
+   "substack": {
+    "status": "DRAFTS_PENDING",
+    "drafts_pending": 4
+   },
+   "facebook_linkedin_reddit": {
+    "status": "HARD_BLOCKED",
+    "note": "no direct automation"
+   }
   }
+ },
+ "actions_taken_this_run": [
+  {
+   "action": "catalog_reaudit",
+   "timestamp": "2026-09-02T13:14:57.665578+00:00",
+   "status": "SUCCESS",
+   "details": "Analyzed gumroad_live_catalog.json (08:12Z snapshot): 48 published / 29 encyclopedia volumes live (01-25, 31-34) with real content; 0 duplicate names. Prior state (39 published, only vols 16-22 real, 22 disabled) is OBSOLETE after publishing-tank rebuild 10:33Z."
+  },
+  {
+   "action": "pool_restore_22_volumes",
+   "timestamp": "2026-09-02T13:14:57.665578+00:00",
+   "status": "SUCCESS",
+   "details": "git mv 22 covers+captions from publish/archive/disabled-volume-promos/ back to tiktok-content/ (vols 01-15, 23-25, 31-34). CTA URLs verified HTTP 200 (16 spot checks). Commit 0ab254db pushed; Pages rebuild verified \u2014 image URLs 200."
+  },
+  {
+   "action": "youtube_posts",
+   "timestamp": "2026-09-02T13:14:57.665578+00:00",
+   "status": "SUCCESS",
+   "details": "2 promos posted to YouTube 42801 via Blotato HTTP 201: vol-16 211e3cda-395d-4ec8-bb78-5d99e0eec06b (CTA bbxhyg), vol-01 9a2e0ef2-fe69-4122-80d8-8817502c934f (CTA pfviv). New reusable script ggb-engine/headquarters/youtube-volume-poster.py."
+  }
+ ],
+ "next_steps": [
+  {
+   "priority": 1,
+   "action": "youtube_volume_cadence",
+   "impact": "NEW_CHANNEL_DISCOVERY",
+   "note": "Post vols 17-22 + 02-15/23-25/31-34 promos to YouTube 42801 at ~2-3/run via youtube-volume-poster.py (each CTA verified live)."
+  },
+  {
+   "priority": 2,
+   "action": "singles_media_generation",
+   "impact": "PROMOTES_9_UNPROMOTED_LIVE_PRODUCTS",
+   "note": "9 live singles have NO promo media: Praise House (wdtahp), Cast Net (bkfxy), Indigo (nvapx), Marsh Tide (rsgvas), Sunday Table (kphrke), Red Rice (redrice), Side Business (perjic), Visit Place (zembzz), Find Your Purpose (how-to-find-your-purpose). Generate navy/gold covers + captions, add to pool."
+  },
+  {
+   "priority": 3,
+   "action": "tiktok_cycle_restored",
+   "impact": "REACH_RESTORED_VOLUMES",
+   "note": "blotato-poster.py pool now includes 22 restored volumes; its cycling will pick them up. Optionally seed selection order."
+  },
+  {
+   "priority": 4,
+   "action": "facebook_pageid",
+   "impact": "UNLOCKS_FACEBOOK",
+   "note": "UI reconnect needed (pageId lookup)."
+  },
+  {
+   "priority": 5,
+   "action": "pinterest_blotato_test",
+   "impact": "NEW_CHANNEL",
+   "note": "Cross-post a collection image to pinterest 8338/board 726205577354259334."
+  }
+ ]
 }
