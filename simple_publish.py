@@ -6,7 +6,14 @@ import urllib.error
 import urllib.parse
 import time
 
-TOKEN = "Jf_2txZTGKVXX1Q0kS7BlscVAPe60G7bDOxtp7sqPuo"
+BASE_DIR = "/Users/darrylsmac/gullahgeecheebiz-site"
+TOKEN = None
+for line in open(f"{BASE_DIR}/.env").read().splitlines():
+    if line.startswith("GUMROAD_ACCESS_TOKEN="):
+        TOKEN = line.split("=", 1)[1].strip().strip('"').strip("'")
+        break
+if not TOKEN:
+    raise SystemExit("GUMROAD_ACCESS_TOKEN not found in .env")
 
 def api_get(url):
     req = urllib.request.Request(url, headers={"Authorization": f"Bearer {TOKEN}"})
@@ -79,19 +86,25 @@ if unpublished:
             'custom_permalink': permalink,
         }
         
-        try:
-            result = api_post("https://api.gumroad.com/v2/products", params)
-            if result.get("success"):
-                prod = result.get("product", {})
-                product_price = prod.get("price_cents", 0) / 100
-                print(f"  OK {name}: ${product_price:.2f}")
-            else:
-                print(f"  FAIL {name}: {result.get('error', 'unknown')}")
-        except urllib.error.HTTPError as e:
-            print(f"  ERR {name}: HTTP {e.code}")
-            if e.code == 429:
-                print("  Waiting 60s...")
-                time.sleep(60)
+        attempts = 0
+        while attempts < 4:
+            attempts += 1
+            try:
+                result = api_post("https://api.gumroad.com/v2/products", params)
+                if result.get("success"):
+                    prod = result.get("product", {})
+                    product_price = prod.get("price_cents", 0) / 100
+                    print(f"  OK {name}: ${product_price:.2f}")
+                else:
+                    print(f"  FAIL {name}: {result.get('error', 'unknown')}")
+                break
+            except urllib.error.HTTPError as e:
+                print(f"  ERR {name}: HTTP {e.code} (attempt {attempts}/4)")
+                if e.code == 429 and attempts < 4:
+                    print("  Waiting 60s...")
+                    time.sleep(60)
+                else:
+                    break
         time.sleep(2)
 
 # Check sales
