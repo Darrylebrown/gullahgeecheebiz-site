@@ -1,35 +1,11 @@
 {
-  "timestamp": "2026-09-01T16:16:16.084268",
+  "timestamp": "2026-09-01T20:02:26.689026",
   "total_products": 10,
   "epub_attached": 0,
   "cover_attached": 0,
   "skipped": 0,
   "failed": 14,
   "results": [
-    {
-      "product_id": "6moaSzclvzG3WmVwPW03xQ==",
-      "product_name": "How to Set Boundaries That Stick",
-      "has_epub_before": false,
-      "has_cover_before": false,
-      "epub_action": "failed_404",
-      "cover_action": "no_match_found"
-    },
-    {
-      "product_id": "jIp5bOeC2jLD4_x-LmYNwA==",
-      "product_name": "How to Practice Radical Self-Care",
-      "has_epub_before": false,
-      "has_cover_before": false,
-      "epub_action": "failed_404",
-      "cover_action": "no_match_found"
-    },
-    {
-      "product_id": "vNdcjqtWH8ouMHxrjnxJGw==",
-      "product_name": "Encyclopedia Volume 34",
-      "has_epub_before": false,
-      "has_cover_before": false,
-      "epub_action": "failed_404",
-      "cover_action": "failed_404"
-    },
     {
       "product_id": "N-NGLiWCEaUKfNqWXxKwpA==",
       "product_name": "Encyclopedia Volume 33",
@@ -85,6 +61,30 @@
       "has_cover_before": false,
       "epub_action": "failed_404",
       "cover_action": "no_match_found"
+    },
+    {
+      "product_id": "n5dAVx33Ul9P5pEMNPRC8Q==",
+      "product_name": "Encyclopedia Volume 11",
+      "has_epub_before": true,
+      "has_cover_before": false,
+      "epub_action": "already_has_epub",
+      "cover_action": "failed_404"
+    },
+    {
+      "product_id": "77jOb-mKWRCY2c9Z6P6krw==",
+      "product_name": "Encyclopedia Volume 10",
+      "has_epub_before": false,
+      "has_cover_before": false,
+      "epub_action": "failed_404",
+      "cover_action": "failed_404"
+    },
+    {
+      "product_id": "znfCFCBSdHc3xRiCSDQWOQ==",
+      "product_name": "Encyclopedia Volume 09",
+      "has_epub_before": true,
+      "has_cover_before": false,
+      "epub_action": "already_has_epub",
+      "cover_action": "failed_404"
     }
   ]
 }

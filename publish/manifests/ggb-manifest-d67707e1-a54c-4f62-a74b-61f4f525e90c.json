@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-d67707e1-a54c-4f62-a74b-61f4f525e90c",
+  "created_at": "2026-09-02T00:56:20.194377+00:00",
+  "updated_at": "2026-09-02T00:56:20.194379+00:00",
+  "title": {},
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "en",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-43",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/encyclopedia-vol-43/cover.jpg",
+      "sha256": "c578b8f7eedf9fd499861b2f97d47c1041310abdc997122b055eadfc7dd81b3c",
+      "size": 252188,
+      "mime_type": "image/jpeg"
+    }
+  },
+  "metadata": {
+    "description": "",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": false,
+    "kdp_select": false,
+    "price": 0,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "discovered",
+  "submission": {},
+  "audit_trail": []
+}
