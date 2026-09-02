@@ -141,3 +141,4 @@
 | 2026-08-06 (Thu) | Sea Turtle (cycle restart) | sea-turtle-2026-08-06.png | ✅ Posted |
 | 2026-08-07 (Fri) | Blue Heron | blue-heron-2026-08-07.png | ✅ Posted |
 | 2026-09-01 (Tue) | Blue Heron | blue-heron-2026-09-01.jpg | ⏳ Pending |
+| 2026-09-02 (Wed) | Blue Crab | blue-crab-2026-09-02.jpg | ✅ Posted |
