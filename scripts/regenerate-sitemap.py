@@ -55,6 +55,10 @@ for sub, pri in [
 ]:
     walk_html(sub, pri)
 
+# Substack email-capture funnels (lead magnet landing pages)
+for d in sorted((SITE_DIR / "publish" / "funnel").glob("*/index.html")) if (SITE_DIR / "publish" / "funnel").exists() else []:
+    add(f"publish/funnel/{d.parent.name}/", "0.7")
+
 # tools/*
 for tool_dir in sorted((SITE_DIR / "tools").glob("*/index.html")) if (SITE_DIR / "tools").exists() else []:
     add(f"tools/{tool_dir.parent.name}/", "0.7")

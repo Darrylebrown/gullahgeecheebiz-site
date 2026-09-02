@@ -38,12 +38,15 @@ class NewsletterOptimizer:
         self.state = self._load_state()
     
     def _load_state(self) -> Dict:
+        defaults = {"runs": 0, "newsletters_optimized": 0, "subject_lines_tested": 0, "last_run": None}
         if STATE_FILE.exists():
             try:
-                return json.loads(STATE_FILE.read_text())
+                loaded = json.loads(STATE_FILE.read_text())
+                if isinstance(loaded, dict):
+                    defaults.update(loaded)
             except:
                 pass
-        return {"runs": 0, "newsletters_optimized": 0, "subject_lines_tested": 0, "last_run": None}
+        return defaults
     
     def _save_state(self):
         STATE_FILE.write_text(json.dumps(self.state, indent=2))
@@ -57,7 +60,7 @@ class NewsletterOptimizer:
         results = []
         for d in mag_dirs:
             if d.exists():
-                for f in d.rglob("*.html"):
+                for f in list(d.rglob("*.html")) + list(d.rglob("*.md")):
                     content = f.read_text()
                     rel = str(f.relative_to(BASE_DIR))
                     
@@ -108,7 +111,7 @@ Return as JSON array of strings:
             start = result.find("[")
             end = result.rfind("]") + 1
             subjects = json.loads(result[start:end])
-            self.state["subject_lines_tested"] += len(subjects)
+            self.state["subject_lines_tested"] = self.state.get("subject_lines_tested", 0) + len(subjects)
             self._save_state()
             return subjects
         except:
@@ -152,9 +155,9 @@ Return as JSON:
                 meta = self.generate_newsletter_seo(r["title"], f"Newsletter at {r['path']}")
                 if meta:
                     optimized.append({"path": r["path"], "old_score": r["score"], "meta": meta})
-                    self.state["newsletters_optimized"] += 1
+                    self.state["newsletters_optimized"] = self.state.get("newsletters_optimized", 0) + 1
         
-        self.state["runs"] += 1
+        self.state["runs"] = self.state.get("runs", 0) + 1
         self._save_state()
         return optimized
 
@@ -167,12 +170,15 @@ class SubstackOptimizer:
         self.state = self._load_state()
     
     def _load_state(self) -> Dict:
+        defaults = {"runs": 0, "links_checked": 0, "last_check": None}
         if STATE_FILE.exists():
             try:
-                return json.loads(STATE_FILE.read_text())
+                loaded = json.loads(STATE_FILE.read_text())
+                if isinstance(loaded, dict):
+                    defaults.update(loaded)
             except:
                 pass
-        return {"runs": 0, "links_checked": 0, "last_check": None}
+        return defaults
     
     def _save_state(self):
         STATE_FILE.write_text(json.dumps(self.state, indent=2))
@@ -205,7 +211,7 @@ class SubstackOptimizer:
                     "status": "embed_found",
                 })
         
-        self.state["links_checked"] += len(results)
+        self.state["links_checked"] = self.state.get("links_checked", 0) + len(results)
         self._save_state()
         return results
     
@@ -283,12 +289,15 @@ class StripeOptimizer:
         self.state = self._load_state()
     
     def _load_state(self) -> Dict:
+        defaults = {"runs": 0, "checkouts_verified": 0, "last_check": None}
         if STATE_FILE.exists():
             try:
-                return json.loads(STATE_FILE.read_text())
+                loaded = json.loads(STATE_FILE.read_text())
+                if isinstance(loaded, dict):
+                    defaults.update(loaded)
             except:
                 pass
-        return {"runs": 0, "checkouts_verified": 0, "last_check": None}
+        return defaults
     
     def _save_state(self):
         STATE_FILE.write_text(json.dumps(self.state, indent=2))
@@ -321,7 +330,7 @@ class StripeOptimizer:
                     "status": "button_found",
                 })
         
-        self.state["checkouts_verified"] += len(results)
+        self.state["checkouts_verified"] = self.state.get("checkouts_verified", 0) + len(results)
         self._save_state()
         return results
     
@@ -428,12 +437,15 @@ class NSSOptimizer:
         self.state = self._load_state()
     
     def _load_state(self) -> Dict:
+        defaults = {"runs": 0, "last_full_cycle": None}
         if STATE_FILE.exists():
             try:
-                return json.loads(STATE_FILE.read_text())
+                loaded = json.loads(STATE_FILE.read_text())
+                if isinstance(loaded, dict):
+                    defaults.update(loaded)
             except:
                 pass
-        return {"runs": 0, "last_full_cycle": None}
+        return defaults
     
     def _save_state(self):
         STATE_FILE.write_text(json.dumps(self.state, indent=2))
@@ -509,8 +521,16 @@ Return as JSON:
             except:
                 results["strategy"] = {"raw": strategy[:200]}
         
-        self.state["runs"] += 1
+        self.state["runs"] = self.state.get("runs", 0) + 1
         self.state["last_full_cycle"] = datetime.now(timezone.utc).isoformat()
+        # Persist cycle results (incl. strategy) so they survive the run
+        self.state["last_results"] = {
+            "newsletter": results.get("newsletter", {}),
+            "substack": results.get("substack", {}),
+            "stripe": results.get("stripe", {}),
+        }
+        if isinstance(results.get("strategy"), dict):
+            self.state["last_strategy"] = results["strategy"]
         self._save_state()
         
         print(f"\n✅ NSS cycle complete")
@@ -552,6 +572,16 @@ def main():
     if args.cycle:
         results = nss.full_cycle()
         print(f"\n📊 Results saved to SOE state")
+        strat = results.get("strategy") if isinstance(results, dict) else None
+        if isinstance(strat, dict):
+            print(f"\n🧠 NSS STRATEGY:")
+            for k, v in strat.items():
+                if isinstance(v, list):
+                    print(f"  {k}:")
+                    for item in v:
+                        print(f"    - {item}")
+                else:
+                    print(f"  {k}: {v}")
         return
     
     if args.report:
