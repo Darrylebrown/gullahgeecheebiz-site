@@ -30,12 +30,12 @@
     ],
     "promotion_pool": {
       "tiktok_media_items": 25,
-      "tiktok_media_posted": 34,
-      "note": "Pool purged of 22 disabled-volume covers (archived publish/archive/disabled-volume-promos/, commit 250377e7). Pool now = 7 real volumes (16-22) + 8 collections/bundles + 9 nature/brand items + 1 brand video. Unposted remaining: vols 17, 20, 21, 22.",
-      "unposted_remaining": ["encyclopedia-volume-17", "encyclopedia-volume-20", "encyclopedia-volume-21", "encyclopedia-volume-22"]
+      "tiktok_media_posted": 38,
+      "note": "Pool purged of 22 disabled-volume covers (archived publish/archive/disabled-volume-promos/, commit 250377e7). ALL 7 real-content volumes 16-22 posted this run (10 TikTok posts total + 1 YouTube). Pool now exhausted until new media for heritage singles / box set / site license is generated.",
+      "unposted_remaining": []
     },
     "channel_status": {
-      "tiktok_blotato": {"status": "WORKING", "note": "6 posts this run (HTTP 201). Account 40117."},
+      "tiktok_blotato": {"status": "WORKING", "note": "10 posts this run (HTTP 201). Account 40117. All 7 real volumes 16-22 + 2 new collections + 1 brand video."},
       "youtube_blotato": {"status": "NEWLY_ACTIVE", "note": "Account 42801 GullahGeecheeBiz. First post 2026-09-02 (Heritage Vault, 32328d84). Target schema: title/privacyStatus/shouldNotifySubscribers required."},
       "gumroad": {"status": "VERIFIED", "note": "39 published products. Only vols 16-22 + collections/bundles/singles are purchasable."},
       "viral_seo": {"status": "ACTIVE", "pages": 64},
@@ -113,8 +113,8 @@
   "completion_status": {
     "goal_met": false,
     "real_sales_generated": 0,
-    "products_fully_promoted": "Volumes 16, 18, 19 posted to TikTok this run (16-22 all have live media + captions; 17, 20, 21, 22 remain unposted). All 8 collection/bundle promo items now posted. 0/9 heritage singles and 0/12 how-to titles have promo media yet.",
-    "channels_active": "TikTok/Blotato (6 posts this run), YouTube/Blotato (1st post this run), Gumroad (39 clean listings), Website/viral SEO",
+    "products_fully_promoted": "ALL 7 real encyclopedia volumes (16-22) posted to TikTok this run with Gumroad CTAs (submission ids recorded). All 8 collection/bundle promo items posted. 0/9 heritage singles and 0/12 how-to titles have promo media yet.",
+    "channels_active": "TikTok/Blotato (10 posts this run), YouTube/Blotato (1st post this run), Gumroad (39 clean listings), Website/viral SEO",
     "channels_blocked": "Facebook (pageId), Pinterest API token (Blotato path open), Twitter (brand-handle question), LinkedIn/Reddit (hard), Substack (cookie)",
     "notes": "Biggest structural finding: 30+ earlier TikTok promos (vols 06-11, 31-34, 12-14) now CTA to DISABLED stub-content products - publishing and promotion goals collided on sequencing. Promotion pool purged + re-aimed at the 39 genuinely purchasable products. Sales still $0."
   }
