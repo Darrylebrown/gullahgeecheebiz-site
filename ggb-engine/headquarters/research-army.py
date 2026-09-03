@@ -30,8 +30,35 @@ def get_api_key():
     return ""
 
 def call_ai(prompt, model="ggb-free-auto", max_tokens=2000):
-    """Route through OmniRoute gateway with auto-fallback."""
-    return omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=min(max_tokens, 4000))
+    """Route through OmniRoute gateway, falling back to Agnes AI (free) if the gateway fails."""
+    result = omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=min(max_tokens, 4000))
+    if result:
+        return result
+    # Fallback: Agnes AI free OpenAI-compatible endpoint (key in BASE_DIR/.env)
+    try:
+        env_file = BASE_DIR / ".env"
+        agnes_key = ""
+        if env_file.exists():
+            for line in env_file.read_text().split("\n"):
+                if "AGNES_API_KEY" in line:
+                    agnes_key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    break
+        if agnes_key:
+            r = requests.post(
+                "https://apihub.agnes-ai.com/v1/chat/completions",
+                headers={"Content-Type": "application/json", "Authorization": f"Bearer {agnes_key}"},
+                json={
+                    "model": "agnes-2.5-flash",
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": min(max_tokens, 4000),
+                },
+                timeout=120,
+            )
+            if r.status_code == 200:
+                return r.json()["choices"][0]["message"]["content"]
+    except Exception:
+        pass
+    return None
 
 # ─── 50 Research Agent Specializations ────────────────────────────────────
 

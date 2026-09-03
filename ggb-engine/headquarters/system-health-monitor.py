@@ -182,9 +182,22 @@ def scan_cycle():
             if name in script_map:
                 script = HQ / script_map[name]
                 if script.exists():
+                    # Load current agent tokens so the restarted service
+                    # authenticates against .agent_tokens.env (rotated by
+                    # security-hardening.py). Without this, auto-restarts come
+                    # up tokenless -> every client 401s (fixed 2026-09-02).
+                    child_env = os.environ.copy()
+                    tok_file = HQ / ".agent_tokens.env"
+                    if tok_file.exists():
+                        for line in tok_file.read_text().splitlines():
+                            line = line.strip()
+                            if line and not line.startswith("#") and "=" in line:
+                                k, v = line.split("=", 1)
+                                child_env[k.strip()] = v.strip().strip('"').strip("'")
                     subprocess.Popen(
-                        ["python3", str(script)],
+                        ["/Users/darrylsmac/.hermes/hermes-agent/venv/bin/python3", str(script)],
                         cwd=str(HQ),
+                        env=child_env,
                         stdout=subprocess.DEVNULL,
                         stderr=subprocess.DEVNULL
                     )

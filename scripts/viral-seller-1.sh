@@ -2,6 +2,9 @@
 # Viral Seller 1 — Finds trending items, writes sales pitches
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/security-core.sh"
+if [ -z "${DEEPSEEK_API_KEY:-}" ] && [ -f "$HOME/.hermes/.env" ]; then
+  DEEPSEEK_API_KEY=$(grep -E '^DEEPSEEK_API_KEY=' "$HOME/.hermes/.env" | head -1 | cut -d= -f2-)
+fi
 API_KEY="${DEEPSEEK_API_KEY:-fallback}"
 COMMAND="${1:-find}"
 case "$COMMAND" in

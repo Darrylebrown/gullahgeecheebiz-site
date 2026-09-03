@@ -31,8 +31,36 @@ def get_api_key():
     return ""
 
 def call_ai(prompt, model="ggb-free-auto", max_tokens=2000):
-    """Route through OmniRoute gateway with auto-fallback."""
-    return omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=min(max_tokens, 4000))
+    """Route through OmniRoute gateway with auto-fallback.
+
+    Validates the response is complete, parseable JSON (the system's prompts
+    all demand JSON). Retries up to 3 times to absorb gateway 502s, truncated
+    local-model output, and upstream flakes before giving up.
+    """
+    max_tokens = min(max_tokens, 4000)
+    last = None
+    for attempt in range(3):
+        result = omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=max_tokens)
+        if result:
+            start, end = result.find("["), result.rfind("]") + 1
+            if start >= 0 and end > start:
+                try:
+                    json.loads(result[start:end])
+                    return result
+                except Exception:
+                    pass
+            else:
+                lb, rb = result.find("{"), result.rfind("}") + 1
+                if lb >= 0 and rb > lb:
+                    try:
+                        json.loads(result[lb:rb])
+                        return result
+                    except Exception:
+                        pass
+        last = result
+        if attempt < 2:
+            time.sleep(2)
+    return last
 
 # ─── 1. STAR PRODUCT SELECTOR ────────────────────────────────────────────
 
@@ -45,13 +73,27 @@ class StarProductSelector:
     def _load_state(self) -> Dict:
         if STATE_FILE.exists():
             try:
-                return json.loads(STATE_FILE.read_text())
+                data = json.loads(STATE_FILE.read_text())
+                if isinstance(data, dict):
+                    # STATE_FILE is shared with SalesActivator (activations schema) —
+                    # merge defaults so missing keys never KeyError.
+                    return {
+                        "runs": data.get("runs", 0),
+                        "star_products": data.get("star_products", []),
+                        "last_selection": data.get("last_selection", None),
+                    }
             except:
                 pass
         return {"runs": 0, "star_products": [], "last_selection": None}
     
     def _save_state(self):
-        STATE_FILE.write_text(json.dumps(self.state, indent=2))
+        # Preserve keys owned by other components sharing this file (e.g. SalesActivator.activations)
+        try:
+            existing = json.loads(STATE_FILE.read_text()) if STATE_FILE.exists() else {}
+        except:
+            existing = {}
+        existing.update(self.state)
+        STATE_FILE.write_text(json.dumps(existing, indent=2))
     
     def _get_all_books(self) -> List[Dict]:
         try:
@@ -98,7 +140,7 @@ Selection criteria:
 Return as JSON array of objects with "title" and "reason":
 [{{"title": "...", "reason": "..."}}]"""
         
-        result = call_ai(prompt, max_tokens=2000)
+        result = call_ai(prompt, max_tokens=4000)
         if not result:
             return []
         
@@ -107,13 +149,20 @@ Return as JSON array of objects with "title" and "reason":
             end = result.rfind("]") + 1
             stars = json.loads(result[start:end])
             
-            # Match back to full book data
+            # Match back to full book data (fuzzy token-overlap: AI may reformat titles)
+            def _tokens(t: str) -> set:
+                return {w for w in t.lower().replace("-", " ").replace("—", " ").split() if len(w) > 2}
+            
             matched = []
             for s in stars:
+                st = _tokens(s.get("title", ""))
+                best, best_score = None, 0
                 for b in books:
-                    if s.get("title", "")[:30] in b["title"] or b["title"][:30] in s.get("title", ""):
-                        matched.append({**b, "reason": s.get("reason", ""), "selected_at": datetime.now(timezone.utc).isoformat()})
-                        break
+                    score = len(st & _tokens(b["title"]))
+                    if score > best_score:
+                        best, best_score = b, score
+                if best_score >= 3:
+                    matched.append({**best, "reason": s.get("reason", ""), "selected_at": datetime.now(timezone.utc).isoformat()})
             
             self.state["star_products"] = matched[:count]
             self.state["last_selection"] = datetime.now(timezone.utc).isoformat()
@@ -417,9 +466,9 @@ For each target, provide:
 - Estimated potential value ($)
 
 Return as JSON array:
-[{{"name": "...", "type": "...", "location": "...", "relevance": "...", "approach": "...", "potential_value": 0}}]"""
+[{"name": "...", "type": "...", "location": "...", "relevance": "...", "approach": "...", "potential_value": 0}]"""
         
-        result = call_ai(prompt, max_tokens=2000)
+        result = call_ai(prompt, max_tokens=4000)
         if not result:
             return []
         
@@ -480,7 +529,13 @@ class SalesActivator:
         return {"activations": 0, "last_full_activation": None}
     
     def _save_state(self):
-        STATE_FILE.write_text(json.dumps(self.state, indent=2))
+        # Preserve keys owned by other components sharing this file (e.g. StarProductSelector.runs)
+        try:
+            existing = json.loads(STATE_FILE.read_text()) if STATE_FILE.exists() else {}
+        except:
+            existing = {}
+        existing.update(self.state)
+        STATE_FILE.write_text(json.dumps(existing, indent=2))
     
     def full_activation(self) -> Dict:
         """Run all 5 sales activation systems."""

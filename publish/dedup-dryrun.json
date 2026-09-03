@@ -1,0 +1,543 @@
+{
+  "kept": [
+    {
+      "id": "VzxxeZOpSeZKJYhs5sNy1w==",
+      "name": "How to Develop Emotional Intelligence",
+      "price": 399
+    },
+    {
+      "id": "t5MlmjaS-AWgs9oVM4ou9g==",
+      "name": "How to Manage Anxiety Naturally",
+      "price": 399
+    },
+    {
+      "id": "HnI4Rrd63prfn-8IGyDV-g==",
+      "name": "How to Cultivate Daily Gratitude",
+      "price": 399
+    },
+    {
+      "id": "3yGrWLqwmC0RCrPdOtw1lw==",
+      "name": "How to Break Bad Habits Forever",
+      "price": 399
+    },
+    {
+      "id": "FK9fjkBMnahD8jgQAuIC1g==",
+      "name": "How to Set Boundaries That Stick",
+      "price": 399
+    },
+    {
+      "id": "JcDOJBx7Ld2vCrXyBSbw_w==",
+      "name": "How to Practice Radical Self-Care",
+      "price": 399
+    },
+    {
+      "id": "Q9hSxksisgkkdbtbhIz0LQ==",
+      "name": "Encyclopedia Volume 34",
+      "price": 999
+    },
+    {
+      "id": "hQ8smpava5cEwzP5ukdZfw==",
+      "name": "Encyclopedia Volume 08",
+      "price": 999
+    },
+    {
+      "id": "lTYgq5rjOPbjWPlg3PDCYg==",
+      "name": "Encyclopedia Volume 07",
+      "price": 999
+    },
+    {
+      "id": "NQ5Ku1L8n0X0BkRPAtmu_g==",
+      "name": "Encyclopedia Volume 06",
+      "price": 999
+    },
+    {
+      "id": "N-NGLiWCEaUKfNqWXxKwpA==",
+      "name": "Encyclopedia Volume 33",
+      "price": 999
+    },
+    {
+      "id": "9-_nfySyW8GAN3bmtOIwgw==",
+      "name": "Encyclopedia Volume 32",
+      "price": 999
+    },
+    {
+      "id": "YcqJrhCMSWmpIJ97fmjOyA==",
+      "name": "Encyclopedia Volume 31",
+      "price": 999
+    },
+    {
+      "id": "GWj2iKfluxRd2Se1LS-aBg==",
+      "name": "How to Overcome Imposter Syndrome",
+      "price": 399
+    },
+    {
+      "id": "PIuqJXCSRyun27XHzS-K9Q==",
+      "name": "How to Master Your Morning Routine",
+      "price": 399
+    },
+    {
+      "id": "41Xn-16d8Mk_bDRmWahu7g==",
+      "name": "How to Build Unshakeable Confidence",
+      "price": 399
+    },
+    {
+      "id": "-Y3jQlddLon8NVBOS4Zjsw==",
+      "name": "How to Find Your Purpose",
+      "price": 399
+    },
+    {
+      "id": "n5dAVx33Ul9P5pEMNPRC8Q==",
+      "name": "Encyclopedia Volume 11",
+      "price": 999
+    },
+    {
+      "id": "77jOb-mKWRCY2c9Z6P6krw==",
+      "name": "Encyclopedia Volume 10",
+      "price": 999
+    },
+    {
+      "id": "znfCFCBSdHc3xRiCSDQWOQ==",
+      "name": "Encyclopedia Volume 09",
+      "price": 999
+    },
+    {
+      "id": "7F_lwRo4oMGFYqS33U_M-Q==",
+      "name": "Gullah Geechee Encyclopedia - Complete Box Set (Vol 1-25)",
+      "price": 3999
+    },
+    {
+      "id": "rFLU9sNjhuCTg3Ze4Zj7mg==",
+      "name": "Gullah Geechee Encyclopedia - Complete Box Set (Vol 1-25)",
+      "price": 3999
+    },
+    {
+      "id": "J9wpJ-tgpVR2-22KRqoGrA==",
+      "name": "Gullah Geechee Encyclopedia - Complete Box Set (Vol 1-25)",
+      "price": 3999
+    },
+    {
+      "id": "fRyX2Dv2W2sXNZCUwBUR_g==",
+      "name": "Ultimate Gullah Geechee Heritage Vault (Ebooks + Audiobooks + Genealogy)",
+      "price": 9700
+    },
+    {
+      "id": "qWMDOFWfIfuGFO3XxtkXig==",
+      "name": "Ultimate Gullah Geechee Heritage Vault (Ebooks + Audiobooks + Genealogy)",
+      "price": 9700
+    },
+    {
+      "id": "P4XKYXcuADBFcauEH8ci2A==",
+      "name": "Ultimate Gullah Geechee Heritage Vault (Ebooks + Audiobooks + Genealogy)",
+      "price": 9700
+    },
+    {
+      "id": "LQSxB5C60f73g4d3T33tOA==",
+      "name": "Ultimate Gullah Geechee Heritage Vault (Ebooks + Audiobooks + Genealogy)",
+      "price": 9700
+    },
+    {
+      "id": "spM8ZyJOjY2s2hngVuYUYg==",
+      "name": "Gullah Geechee Institutional Site License (Library / University)",
+      "price": 49700
+    },
+    {
+      "id": "SsEIcL4iEd7KH5X9_cv1Uw==",
+      "name": "Gullah Geechee Institutional Site License (Library / University)",
+      "price": 49700
+    },
+    {
+      "id": "aSXPBcl-NQHlIQczu-lYyA==",
+      "name": "Gullah Geechee Institutional Site License (Library / University)",
+      "price": 49700
+    },
+    {
+      "id": "Wgyp2Pc-ROM8muc-tokPTg==",
+      "name": "Gullah Geechee Institutional Site License (Library / University)",
+      "price": 49700
+    },
+    {
+      "id": "R80S6_7QRBLgjj5UaYgLJQ==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 Language & Dialect",
+      "price": 1499
+    },
+    {
+      "id": "2sLdW6eXvtd4tv_e0DGsYw==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 History & Genealogy",
+      "price": 999
+    },
+    {
+      "id": "ny29B2n95IBWNiWf4GxYsw==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 Traditions & Recipes",
+      "price": 1499
+    },
+    {
+      "id": "ebmviK06H4F8Bb56tMshIQ==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 Spirituality & Folklore",
+      "price": 999
+    },
+    {
+      "id": "QaVLxrO2Q7TZ_XDJtY01Yg==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 Art & Craft",
+      "price": 999
+    },
+    {
+      "id": "bF--mPTIQtY9eunFVqX1qQ==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 Music & Storytelling",
+      "price": 999
+    },
+    {
+      "id": "3o4oJ_zVApd9C00uVWQWGA==",
+      "name": "Gullah Geechee Cultural Heritage Collection \u2014 Environment & Ecology",
+      "price": 999
+    },
+    {
+      "id": "XYwbbC4HWxiDeRayf3O3Ug==",
+      "name": "How to Make Red Rice at Home",
+      "price": 399
+    },
+    {
+      "id": "SFxbz_jcngdLGGZFcWGQmg==",
+      "name": "How to Start a Small Culture-Based Side Business",
+      "price": 999
+    },
+    {
+      "id": "CkTJFt_ds60buBvPSxlcdA==",
+      "name": "How to Visit a Gullah Geechee Place with Respect: A Traveler's Field Guide",
+      "price": 999
+    },
+    {
+      "id": "_tXewKOi_o_HSHwYuvoJmA==",
+      "name": "Ring Shout in the Sea Islands",
+      "price": 399
+    },
+    {
+      "id": "_lmsyZbwc10m7pgg4Rk1iA==",
+      "name": "Hoppin' John and the Lowcountry Table",
+      "price": 999
+    },
+    {
+      "id": "qB6PXBue40FgPq4K0z4pGw==",
+      "name": "Penn Center Lessons: St. Helena Island, Education, and Gullah Geechee Community Memory",
+      "price": 999
+    },
+    {
+      "id": "T-ep-rDf581sWakx2oEcTw==",
+      "name": "Sewing the Sweetgrass Basket: Craft, Family Work, and the Long Story of a Lowcountry Art",
+      "price": 399
+    },
+    {
+      "id": "7D__QEciTVCSR_t_2OyJdg==",
+      "name": "Marsh Tide Clock: Reading Water, Weather, and Work in the Lowcountry",
+      "price": 999
+    },
+    {
+      "id": "EphpvrFfiLsKPV5G6SRJ2w==",
+      "name": "Sunday Table: Family Foodways That Hold a People Together",
+      "price": 999
+    },
+    {
+      "id": "qIM2XxAd8YTvGypMYr138w==",
+      "name": "Indigo Memory: Blue Cloth, Trade Routes, and Lowcountry Hands",
+      "price": 999
+    },
+    {
+      "id": "BTAYXUM7R-Kq3wsG4whavQ==",
+      "name": "Cast Net Morning: Fishing Knowledge Along the Gullah Geechee Coast",
+      "price": 399
+    },
+    {
+      "id": "JqOPXgOyxEgqr6uLDGipQw==",
+      "name": "At the Praise House Door: Faith Gatherings and Sacred Sound on the Sea Islands",
+      "price": 999
+    },
+    {
+      "id": "dhYrf2rnhM7XC-X3B1ljFA==",
+      "name": "Encyclopedia Volume 05",
+      "price": 999
+    },
+    {
+      "id": "u-5Y3VsfKDxeuHddwrlBLw==",
+      "name": "Encyclopedia Volume 04",
+      "price": 999
+    },
+    {
+      "id": "C4YUKa7a1W8xD_iIoBtlzg==",
+      "name": "Encyclopedia Volume 03",
+      "price": 999
+    },
+    {
+      "id": "rY7wZ82IL3EjBLVEdqw4Xg==",
+      "name": "Encyclopedia Volume 02",
+      "price": 999
+    },
+    {
+      "id": "GOz5YrS8UG1GTIgLPA4bBg==",
+      "name": "Encyclopedia Volume 01",
+      "price": 999
+    },
+    {
+      "id": "B-S9CnpRE6avMgCKKSftoA==",
+      "name": "Encyclopedia Volume 22",
+      "price": 999
+    },
+    {
+      "id": "MtZx9-o6xQhkPBwmAu0PUQ==",
+      "name": "Encyclopedia Volume 21",
+      "price": 999
+    },
+    {
+      "id": "1l1-5vaRjuG80TFCIbwf1g==",
+      "name": "Encyclopedia Volume 20",
+      "price": 999
+    },
+    {
+      "id": "7BJCAyyuPqcIOirJbd4ayg==",
+      "name": "Encyclopedia Volume 19",
+      "price": 999
+    },
+    {
+      "id": "n4f88t4UfG9RQOc1JBHxlw==",
+      "name": "Encyclopedia Volume 18",
+      "price": 999
+    },
+    {
+      "id": "Lc4eRybml2MBHSG3haZfnA==",
+      "name": "Encyclopedia Volume 17",
+      "price": 999
+    },
+    {
+      "id": "6zKOwirARYbTK9YDr1yLcQ==",
+      "name": "Encyclopedia Volume 16",
+      "price": 999
+    },
+    {
+      "id": "7cCV-zTPgILdTaPii_jn9A==",
+      "name": "Encyclopedia Volume 15",
+      "price": 999
+    },
+    {
+      "id": "xEmtv36r0C5p5oaSEV1gZQ==",
+      "name": "Encyclopedia Volume 14",
+      "price": 999
+    },
+    {
+      "id": "cltS2V3r3Hk4XwMSphbJ8A==",
+      "name": "Encyclopedia Volume 13",
+      "price": 999
+    },
+    {
+      "id": "_TroC_C4ysHKdmNDB79JOA==",
+      "name": "Encyclopedia Volume 12",
+      "price": 999
+    },
+    {
+      "id": "hwP7G7x3p2wfv0QNkbObHA==",
+      "name": "Encyclopedia Volume 25",
+      "price": 999
+    },
+    {
+      "id": "3rmVEKj1MEwoBwHihgLxTA==",
+      "name": "Encyclopedia Volume 24",
+      "price": 999
+    },
+    {
+      "id": "ozzNTr9qeRiDzhb8kOGUsQ==",
+      "name": "Encyclopedia Volume 23",
+      "price": 999
+    }
+  ],
+  "to_disable": [
+    {
+      "id": "G798o6UxxP5V4puMPkuLgA==",
+      "name": "Encyclopedia Volume 34",
+      "price": 399,
+      "site_linked": false
+    },
+    {
+      "id": "8MJJZelMl_1DBxbVaneb2A==",
+      "name": "Encyclopedia Volume 08",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "JHYnkAc05rycloYDrKAzYQ==",
+      "name": "Encyclopedia Volume 08",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "xno9nU2h8dQ9uW3QhEzOdg==",
+      "name": "Encyclopedia Volume 08",
+      "price": 399,
+      "site_linked": false
+    },
+    {
+      "id": "Fp9tj2e01QH4Mn-r310rQg==",
+      "name": "Encyclopedia Volume 07",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "HaoiN9EfzifaIDo-hF25Tw==",
+      "name": "Encyclopedia Volume 07",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "kLT_V6sLHRD0Yn5BCOtEQQ==",
+      "name": "Encyclopedia Volume 07",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "rN9nfiUzPXTtNEVYQwMOng==",
+      "name": "Encyclopedia Volume 07",
+      "price": 399,
+      "site_linked": false
+    },
+    {
+      "id": "2cHEzfNMDu48y6lRpv0qWQ==",
+      "name": "Encyclopedia Volume 06",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "f3Hkel_VcMiIRXSxoWsvKw==",
+      "name": "Encyclopedia Volume 06",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "t5_jgHmUrsqiXabMRKunxw==",
+      "name": "Encyclopedia Volume 06",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "KhjXjkKlpsUipZDrJrcXnw==",
+      "name": "Encyclopedia Volume 06",
+      "price": 399,
+      "site_linked": false
+    },
+    {
+      "id": "LiIilA9fbRp-gANnpdZuZg==",
+      "name": "Encyclopedia Volume 33",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "gIraRBi3T254udj4iyQwQg==",
+      "name": "Encyclopedia Volume 32",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "oOEj1LzlXmdoSXmH6zv8Cg==",
+      "name": "Encyclopedia Volume 31",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "bS9yZ3tTS_7kqNqVLOelFg==",
+      "name": "Encyclopedia Volume 11",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "rPVNyRX9XdAl_8_4UB_kQg==",
+      "name": "Encyclopedia Volume 11",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "RWwaalID0jQuKRKqcy6PZQ==",
+      "name": "Encyclopedia Volume 10",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "ymHDkFrXSX6_pWdYRWyzAg==",
+      "name": "Encyclopedia Volume 10",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "5r67BX2T0R7QBQ1cJ9f4Bw==",
+      "name": "Encyclopedia Volume 09",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "wvgzorEqL4g0AmdUprTVTg==",
+      "name": "Encyclopedia Volume 09",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "HshTDWPtXbJdJvqpvEnz9A==",
+      "name": "Encyclopedia Volume 22",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "vXF6wnR3BjdikUdPviuvbg==",
+      "name": "Encyclopedia Volume 21",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "Fbb1IzusEJUBWDa8TveNKA==",
+      "name": "Encyclopedia Volume 20",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "NdkC8AAd9JrtgSmJGemPTA==",
+      "name": "Encyclopedia Volume 19",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "wwnZGNY12UQ_z6wjniXg0g==",
+      "name": "Encyclopedia Volume 18",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "caCmcW9aTNwj2oLedOUuOA==",
+      "name": "Encyclopedia Volume 17",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "qEeteNnnodbd18zd-LkZ1A==",
+      "name": "Encyclopedia Volume 16",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "UL5qcb4Cg-P7eyL8dLzfEQ==",
+      "name": "Encyclopedia Volume 15",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "zOXSF56GaaWrGObMUfHmXw==",
+      "name": "Encyclopedia Volume 14",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "omSKYQ3l8PEFyk0gijVSTQ==",
+      "name": "Encyclopedia Volume 13",
+      "price": 999,
+      "site_linked": false
+    },
+    {
+      "id": "z5NQaAaDhmzky9DodGk0KQ==",
+      "name": "Encyclopedia Volume 12",
+      "price": 999,
+      "site_linked": false
+    }
+  ]
+}

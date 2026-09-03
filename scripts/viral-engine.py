@@ -275,9 +275,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <meta property="og:title" content="{title} | Gullah Geechee Biz">
   <meta property="og:description" content="{meta_desc}">
   <meta property="og:image" content="https://gullahgeecheebiz.com/logo.png">
-  <meta property="og:url" content="https://gullahgeecheebiz.com/viral/{slug}">
+  <meta property="og:url" content="https://gullahgeecheebiz.com/viral/{slug}.html">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://gullahgeecheebiz.com/viral/{slug}">
+  <link rel="canonical" href="https://gullahgeecheebiz.com/viral/{slug}.html">
   <link rel="alternate" hreflang="en" href="https://gullahgeecheebiz.com/viral/{slug_en}">
   <link rel="alternate" hreflang="es" href="https://gullahgeecheebiz.com/viral/{slug_es}">
   <link rel="alternate" hreflang="x-default" href="https://gullahgeecheebiz.com/viral/{slug_en}">
@@ -305,7 +305,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
   <div class="container">
     <div class="lang-switch">
-      <a href="{slug_en}.html">English</a> | <a href="{slug_es}.html">Español</a>
+      <a href="{slug_en}">English</a> | <a href="{slug_es}">Español</a>
     </div>
     <h1>{title}</h1>
     <div class="date">Published {date} · Gullah Geechee Biz</div>
@@ -353,11 +353,21 @@ def generate_page(topic, lang="en"):
     return path
 
 def update_sitemap():
+    """Delegate to the canonical full-site sitemap regenerator.
+
+    This engine must NOT write sitemap.xml itself — doing so clobbers the
+    complete sitemap (recipes/, trending/, season-1/, encyclopedia/, etc.)
+    down to just the homepage + viral pages.
+    """
+    import subprocess, sys
+    regen = SITE_DIR / "scripts" / "regenerate-sitemap.py"
+    if regen.exists():
+        r = subprocess.run([sys.executable, str(regen)], capture_output=True, text=True)
+        print(r.stdout.strip() or r.stderr.strip())
+        return SITE_DIR / "sitemap.xml"
+    # Fallback (no regenerator): keep only the root URLs so we never clobber.
     sitemap_path = SITE_DIR / "sitemap.xml"
     urls = ["https://gullahgeecheebiz.com/", "https://gullahgeecheebiz.com/shop.html", "https://gullahgeecheebiz.com/shop-binyah.html"]
-    for f in sorted(PAGES_DIR.glob("*.html")):
-        urls.append(f"https://gullahgeecheebiz.com/viral/{f.stem}")
-    
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for url in urls:
         sitemap += f"  <url><loc>{url}</loc></url>\n"

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-aa72d53a-e972-4c96-bca3-fc2d83a1f612",
+  "created_at": "2026-09-02T05:08:14.215467+00:00",
+  "updated_at": "2026-09-02T05:08:14.215469+00:00",
+  "title": {
+    "canonical": "C\u00f3mo Construir una Comunidad Alrededor de tu Marca"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "Spanish",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-058-how-to-build-a-community-around-your-bra",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-058-how-to-build-a-community-around-your-bra/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-058-how-to-build-a-community-around-your-bra/manuscript.md",
+      "sha256": "fdc225d6a79f24c769ce8a40a5fe8509e2b9810afa964c235b2ba85258e23b7b",
+      "size": 795,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "Una gu\u00eda pr\u00e1ctica y cultural para c\u00f3mo construir una comunidad alrededor de tu marca, escrita por Darryl Elliott Brown. Aprende pasos claros y sencillos, supera los desaf\u00edos comunes y abraza el camino Gullah Geechee hacia el \u00e9xito.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 4.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

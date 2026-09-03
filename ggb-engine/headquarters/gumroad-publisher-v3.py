@@ -104,12 +104,41 @@ def upload_file(product_id, file_path, file_type="epub"):
     """Upload a file to an existing product."""
     if not file_path or not file_path.exists():
         return False
-    
-    with open(file_path, "rb") as f:
-        files = {"file": (file_path.name, f, "application/epub+zip" if file_type == "epub" else "image/jpeg")}
-        result = api_call("POST", f"products/{product_id}/files", files=files)
-    
-    return result.get("success", False)
+    # HEALTH_GOAL 2026-09-02: never attach empty-shell EPUBs (<10KB = stub with
+    # no real chapters). Real books are 30KB+ (verified: 86KB / 7,282 words).
+    if file_type == "epub" and file_path.stat().st_size < 10000:
+        log(f"  ⛔ SKIP shell EPUB ({file_path.stat().st_size}B <10KB): {file_path.name} — real content required")
+        return False
+    if file_type != "epub":
+        return False  # covers use the dedicated /covers endpoint, not product files
+    # Use the documented 4-step upload flow (presign → S3 PUT → complete → attach
+    # via files[][url] on PUT /products/:id). POST /products/{id}/files is retired (404).
+    fsize = file_path.stat().st_size
+    pr = api_call("POST", "files/presign", data={"filename": file_path.name, "file_size": fsize})
+    if not pr or not pr.get("success"):
+        log(f"  ⚠️ presign failed: {pr.get('error') if pr else 'no response'}")
+        return False
+    etags = []
+    for part in pr.get("parts", []):
+        with open(file_path, "rb") as f:
+            r = requests.put(part["presigned_url"], data=f.read(), timeout=120)
+        etag = (r.headers.get("ETag") or "").strip('"')
+        etags.append(etag)
+    if not etags:
+        return False
+    cr = api_call("POST", "files/complete", data={
+        "upload_id": pr.get("upload_id"), "key": pr.get("key"),
+        "parts[][part_number]": 1, "parts[][etag]": etags[0]})
+    file_url = (cr or {}).get("file_url")
+    if not file_url:
+        log("  ⚠️ complete returned no file_url")
+        return False
+    # full replacement of product files with this one (files[][url])
+    ar = api_call("PUT", f"products/{product_id}", data={"files[][url]": file_url})
+    ok = bool(ar and ar.get("success"))
+    if ok:
+        log(f"  ✅ Attached {file_path.name} ({fsize}B) via presign flow")
+    return ok
 
 def update_product(product_id, data):
     """Update an existing product."""
@@ -140,11 +169,30 @@ def get_books():
     return books
 
 def get_existing_products():
-    """Get all existing products on Gumroad."""
-    result = api_call("GET", "products")
-    if result.get("success"):
-        return {p.get("name", "").strip().lower(): p for p in result.get("products", [])}
-    return {}
+    """Get ALL existing products on Gumroad (paginated — was page-1-only, which
+    caused duplicate re-creation of drafts on later pages)."""
+    import urllib.parse as up
+    products, page_key = {}, None
+    for _ in range(30):  # hard safety cap on pages
+        url = f"{API}/products?access_token={TOKEN}"
+        if page_key:
+            url += f"&page_key={up.quote(page_key)}"
+        try:
+            r = requests.get(url, timeout=30)
+            if r.status_code == 429:
+                time.sleep(10)
+                continue
+            j = r.json()
+        except Exception:
+            return {}
+        if not j.get("success"):
+            break
+        for p in j.get("products", []):
+            products[p.get("name", "").strip().lower()] = p
+        page_key = j.get("next_page_key")
+        if not page_key:
+            break
+    return products
 
 def main():
     print(f"\n{'='*55}")
@@ -208,6 +256,7 @@ def main():
     # Step 4: Upload new books (up to 10 per day)
     daily_limit = 10
     uploaded_today = 0
+    consecutive_failures = 0
     
     for book in books:
         if uploaded_today >= daily_limit:
@@ -246,12 +295,17 @@ def main():
                     log(f"  ✅ Cover attached")
             
             uploaded_today += 1
+            consecutive_failures = 0
         else:
-            err = result.get("error", "")
-            if "10 products per day" in err:
-                log(f"  ⏸️ Daily limit reached")
+            err = result.get("message") or result.get("error", "")
+            if "10 products per day" in str(err):
+                log(f"  ⏸️ Daily limit reached ({uploaded_today} created today)")
                 break
-            log(f"  ❌ {err[:100]}")
+            log(f"  ❌ {str(err)[:100]}")
+            consecutive_failures += 1
+            if consecutive_failures >= 5:
+                log("  ⛔ 5 consecutive creation failures — API appears down; stopping")
+                break
         
         time.sleep(2)
     

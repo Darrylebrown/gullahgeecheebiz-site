@@ -218,7 +218,9 @@ class SubstackOptimizer:
     def check_substack_health(self) -> Dict:
         """Check if Substack publication is accessible."""
         try:
-            r = requests.get("https://gullahgeecheebiz.substack.com", timeout=10)
+            # Site links point to kofigullahgeecheebiz (187 hrefs); the old
+            # gullahgeecheebiz subdomain 302s to the author profile page.
+            r = requests.get("https://kofigullahgeecheebiz.substack.com", timeout=10)
             return {
                 "reachable": r.status_code == 200,
                 "status_code": r.status_code,
@@ -521,7 +523,17 @@ Return as JSON:
             except:
                 results["strategy"] = {"raw": strategy[:200]}
         
-        self.state["runs"] = self.state.get("runs", 0) + 1
+        # Merge with on-disk state BEFORE incrementing: subsystem classes each
+        # hold their own snapshot and saved mid-cycle, so a blind overwrite here
+        # would clobber newsletters_optimized / links_checked / checkouts_verified.
+        try:
+            disk_state = json.loads(STATE_FILE.read_text()) if STATE_FILE.exists() else {}
+            if isinstance(disk_state, dict):
+                disk_state.update(self.state)
+                self.state = disk_state
+        except Exception:
+            pass
+        self.state["runs"] = int(self.state.get("runs", 0) or 0) + 1
         self.state["last_full_cycle"] = datetime.now(timezone.utc).isoformat()
         # Persist cycle results (incl. strategy) so they survive the run
         self.state["last_results"] = {

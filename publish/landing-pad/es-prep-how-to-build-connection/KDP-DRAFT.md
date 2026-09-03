@@ -5,4 +5,4 @@
 - **DRM:** No
 - **KDP Select:** Off
 ## Description
-Una guía para how to build connection.
+Una guía Gullah Geechee para cultivar la conexión: sabiduría ancestral, pasos prácticos y tradiciones vivas que transforman la vida diaria.

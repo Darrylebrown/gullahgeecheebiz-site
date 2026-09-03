@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-a6a6f31b-ba03-4949-9f9a-0d8fafb45b69",
+  "created_at": "2026-09-02T05:08:14.122732+00:00",
+  "updated_at": "2026-09-02T05:08:14.122736+00:00",
+  "title": {
+    "canonical": "C\u00f3mo Construir Alianzas Estrat\u00e9gicas"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "Spanish",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-052-how-to-build-strategic-partnerships",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-052-how-to-build-strategic-partnerships/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-052-how-to-build-strategic-partnerships/manuscript.md",
+      "sha256": "42a022d936a898f0ed9e0be8d68fe2efa1f19d00d3d92e81795d0ca71adfa415",
+      "size": 756,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "Una gu\u00eda pr\u00e1ctica y cultural para c\u00f3mo construir alianzas estrat\u00e9gicas, escrita por Darryl Elliott Brown. Aprende pasos claros y sencillos, supera los desaf\u00edos comunes y abraza el camino Gullah Geechee hacia el \u00e9xito.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 4.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-f1487649-4258-499f-a7b7-c3663b6c2096",
+  "created_at": "2026-09-02T05:08:13.414597+00:00",
+  "updated_at": "2026-09-02T05:08:13.414609+00:00",
+  "title": {
+    "canonical": "C\u00f3mo Romper Malos H\u00e1bitos para Siempre"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "Spanish",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-007-how-to-break-bad-habits-forever",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-007-how-to-break-bad-habits-forever/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-007-how-to-break-bad-habits-forever/manuscript.md",
+      "sha256": "48b7bca1a86e0d19fd54c00dbc89a07678f248e1851891ee4d2e6670a048d9d8",
+      "size": 762,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "Una gu\u00eda pr\u00e1ctica y cultural para c\u00f3mo romper malos h\u00e1bitos para siempre, escrita por Darryl Elliott Brown. Aprende pasos claros y sencillos, supera los desaf\u00edos comunes y abraza el camino Gullah Geechee hacia el \u00e9xito.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 3.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

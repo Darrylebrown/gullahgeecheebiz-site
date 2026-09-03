@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-ee4f5092-df25-4fb4-9417-5a02e559511a",
+  "created_at": "2026-09-02T05:08:11.106434+00:00",
+  "updated_at": "2026-09-02T05:08:11.106437+00:00",
+  "title": {
+    "canonical": "How to Develop Daily Discipline"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "English",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-027-how-to-develop-daily-discipline",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-027-how-to-develop-daily-discipline/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-027-how-to-develop-daily-discipline/manuscript.md",
+      "sha256": "bed54f79b14ba63568a5ee735e01d4bd822f6419a01494eb2ca38c0d1e234603",
+      "size": 656,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "A guide to how to develop daily discipline, drawing on Gullah Geechee wisdom.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 3.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

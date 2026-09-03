@@ -37,14 +37,14 @@ BOTS = [
         "name": "Selah Scribe",
         "personality": "Deep, contemplative, rooted in scripture and Gullah Geechee spiritual tradition",
         "focus": "Workbooks, study guides, devotionals, scripture cards",
-        "model": "google/gemini-2.5-flash",
+        "model": "deepseek/deepseek-v4-flash",
     },
     {
         "id": 2,
         "name": "Joyful Creator",
         "personality": "Bright, creative, visual, makes faith fun and accessible",
         "focus": "Coloring books, activity pages, verse memes, pins, prayer cards",
-        "model": "deepseek/deepseek-chat",
+        "model": "deepseek/deepseek-v4-flash",
     },
 ]
 
@@ -93,7 +93,16 @@ Include:
 Return as JSON:
 {{"type": "{product_type}", "title": "...", "content": "...", "scripture": "...", "prayer": "...", "visuals": "...", "age_group": "...", "seo_title": "...", "seo_description": "..."}}"""
         
-        result = call_ai(prompt, model=self.model, max_tokens=2500)
+        # Bounded retry (2026-09-02): OmniRoute gateway intermittently fails
+        # ~25s round-trips on big generation prompts; DeepSeek reasoning can
+        # burn its budget and return empty. Retry the SAME type up to 3x so a
+        # flake doesn't silently drop the product. Mirrors sales-activation.py.
+        result = None
+        for attempt in range(3):
+            result = call_ai(prompt, model=self.model, max_tokens=2500)
+            if result:
+                break
+            time.sleep(3 * (attempt + 1))
         if not result:
             return None
         

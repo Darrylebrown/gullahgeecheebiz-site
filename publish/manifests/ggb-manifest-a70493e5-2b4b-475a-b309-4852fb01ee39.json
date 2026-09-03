@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-a70493e5-2b4b-475a-b309-4852fb01ee39",
+  "created_at": "2026-09-02T05:08:11.165911+00:00",
+  "updated_at": "2026-09-02T05:08:11.165916+00:00",
+  "title": {
+    "canonical": "How to Create a Content Strategy"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "English",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-041-how-to-create-a-content-strategy",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-041-how-to-create-a-content-strategy/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-041-how-to-create-a-content-strategy/manuscript.md",
+      "sha256": "1cfb1f8fbb3deac65ff8b64596aa3476817929c4691c8c1c6a691e9ecb46f3f3",
+      "size": 659,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "A guide to how to create a content strategy, drawing on Gullah Geechee wisdom.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 4.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

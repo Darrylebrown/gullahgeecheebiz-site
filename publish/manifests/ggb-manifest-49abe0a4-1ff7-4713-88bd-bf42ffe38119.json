@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-49abe0a4-1ff7-4713-88bd-bf42ffe38119",
+  "created_at": "2026-09-02T04:45:58.162669+00:00",
+  "updated_at": "2026-09-02T04:45:58.162696+00:00",
+  "title": {
+    "canonical": "Gullah Geechee Salads"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "English",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/prep-gullah-geechee-salads",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/prep-gullah-geechee-salads/cover.jpg",
+      "sha256": "f121688a4edb35ffd713e984ca023cf8645df174759a31639447bcf39e1fd6e9",
+      "size": 81479,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/prep-gullah-geechee-salads/manuscript.md",
+      "sha256": "50212c4d54bea548eb564e51967ef9df9affb3647d29d47ae0b9a629dcd293b1",
+      "size": 626,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "A guide to gullah geechee salads, drawing on Gullah Geechee wisdom.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 5.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

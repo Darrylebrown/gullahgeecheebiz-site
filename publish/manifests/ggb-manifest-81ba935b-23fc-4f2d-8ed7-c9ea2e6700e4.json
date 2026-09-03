@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-81ba935b-23fc-4f2d-8ed7-c9ea2e6700e4",
+  "created_at": "2026-09-02T05:08:13.352685+00:00",
+  "updated_at": "2026-09-02T05:08:13.352690+00:00",
+  "title": {
+    "canonical": "C\u00f3mo Practicar el Cuidado Personal Radical"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "Spanish",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-005-how-to-practice-radical-self-care",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-005-how-to-practice-radical-self-care/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-005-how-to-practice-radical-self-care/manuscript.md",
+      "sha256": "eec60452d0d972d4120ed530be1f926245375bd07b3119e9d6b244fb963299d1",
+      "size": 771,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "Una gu\u00eda pr\u00e1ctica y cultural para c\u00f3mo practicar el cuidado personal radical, escrita por Darryl Elliott Brown. Aprende pasos claros y sencillos, supera los desaf\u00edos comunes y abraza el camino Gullah Geechee hacia el \u00e9xito.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 3.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

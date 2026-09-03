@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-98b0788e-9e62-4a8d-b722-6284098cb23c",
+  "created_at": "2026-09-02T05:08:11.259979+00:00",
+  "updated_at": "2026-09-02T05:08:11.259982+00:00",
+  "title": {
+    "canonical": "How to Build a Digital Product Empire"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "English",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-064-how-to-build-a-digital-product-empire",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-064-how-to-build-a-digital-product-empire/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/batch-064-how-to-build-a-digital-product-empire/manuscript.md",
+      "sha256": "e175b01f6fe7ce8bede48ffe69dea9d8b590eae478fc448ec885eadaae2bfc65",
+      "size": 674,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "A guide to how to build a digital product empire, drawing on Gullah Geechee wisdom.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 4.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

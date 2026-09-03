@@ -591,12 +591,13 @@ A guide to {known_title.lower()}, drawing on Gullah Geechee wisdom.
             conn = sqlite3.connect(str(PUBLISH_DIR / "publisher.db"))
             rows = conn.execute("SELECT state, COUNT(*) FROM manifests GROUP BY state").fetchall()
             conn.close()
-            states = {"discovered": 0, "validated": 0, "approved": 0, "live": 0}
-            total = 0
+            states = {"discovered": 0, "validated": 0, "approved": 0, "live": 0, "published": 0}
             for state, count in rows:
                 if state in states:
                     states[state] = count
-                total += count
+            # 'published' is the real manifest terminal state; 'live' is legacy
+            states["live"] += states["published"]
+            total = sum(v for k, v in states.items() if k != "published")
             if total == 0: total = 1
             labels = [
                 ("Discovered", states["discovered"]),

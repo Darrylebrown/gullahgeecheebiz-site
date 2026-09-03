@@ -92,7 +92,7 @@ def run_scan():
         [sys.executable, str(HQ / "security-hardening.py")],
         capture_output=True,
         text=True,
-        timeout=180
+        timeout=900
     )
     
     print(result.stdout)
@@ -125,7 +125,7 @@ def run_heal():
         [sys.executable, str(HQ / "security-apply-fixes.py")],
         capture_output=True,
         text=True,
-        timeout=60
+        timeout=300
     )
     
     print(result.stdout)

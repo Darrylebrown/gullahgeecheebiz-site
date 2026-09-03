@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "ggb-manifest-13283dd7-ace9-41c8-9dd3-611090be482a",
+  "created_at": "2026-09-02T05:08:14.232370+00:00",
+  "updated_at": "2026-09-02T05:08:14.232386+00:00",
+  "title": {
+    "canonical": "C\u00f3mo Crear un Mapa del Viaje del Cliente"
+  },
+  "author": "Darryl Elliott Brown",
+  "contributors": [],
+  "publisher": "Gullah Geechee Biz",
+  "language": "Spanish",
+  "format": "ebook",
+  "target_platform": "",
+  "draft_id": null,
+  "source_package": {
+    "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-060-how-to-create-a-customer-journey-map",
+    "record_ids": {}
+  },
+  "files": {
+    "cover": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-060-how-to-create-a-customer-journey-map/cover.jpg",
+      "sha256": "2dafa771c05b70c92ab8b19a6d6a2647121bd6aaeb79d7efac7bc8576797f156",
+      "size": 64629,
+      "mime_type": "image/jpeg"
+    },
+    "manuscript": {
+      "path": "/Users/darrylsmac/gullahgeecheebiz-site/publish/landing-pad/es-batch-060-how-to-create-a-customer-journey-map/manuscript.md",
+      "sha256": "c7ddbda38d3df6dfc4986fd4d478088ea6540b6733fa7f1f9b5530dbcecc400e",
+      "size": 765,
+      "mime_type": "application/octet-stream"
+    }
+  },
+  "metadata": {
+    "description": "Una gu\u00eda pr\u00e1ctica y cultural para c\u00f3mo crear un mapa del viaje del cliente, escrita por Darryl Elliott Brown. Aprende pasos claros y sencillos, supera los desaf\u00edos comunes y abraza el camino Gullah Geechee hacia el \u00e9xito.",
+    "keywords": [],
+    "categories": [],
+    "ai_disclosure": {
+      "text": false,
+      "cover": false,
+      "interior_images": false,
+      "translation": false
+    }
+  },
+  "rights": {
+    "copyright_owner": "Darryl Elliott Brown",
+    "copyright_year": 2026,
+    "publishing_rights": "owner_confirmed",
+    "territories": "Worldwide"
+  },
+  "publishing": {
+    "drm": true,
+    "kdp_select": false,
+    "price": 4.99,
+    "currency": "USD"
+  },
+  "identifiers": {},
+  "validation": {
+    "status": "pending"
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "status": "published",
+  "submission": {},
+  "audit_trail": []
+}

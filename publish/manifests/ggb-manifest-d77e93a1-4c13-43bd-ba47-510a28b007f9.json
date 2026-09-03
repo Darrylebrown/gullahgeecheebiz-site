@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "manifest_id": "ggb-manifest-d77e93a1-4c13-43bd-ba47-510a28b007f9",
   "created_at": "2026-08-31T20:42:58.255925+00:00",
-  "updated_at": "2026-08-31T20:42:58.255930+00:00",
+  "updated_at": "2026-09-02T03:15:44.388414+00:00",
   "title": {
     "canonical": "How to Build Mindfulness"
   },
@@ -32,7 +32,7 @@
     }
   },
   "metadata": {
-    "description": "Una gu\u00eda para how to build mindfulness.",
+    "description": "Una gu\u00eda Gullah Geechee para cultivar la atenci\u00f3n plena: sabidur\u00eda ancestral, pasos pr\u00e1cticos y tradiciones vivas que transforman la vida diaria.",
     "keywords": [],
     "categories": [],
     "ai_disclosure": {
@@ -56,12 +56,24 @@
   },
   "identifiers": {},
   "validation": {
-    "status": "pending"
+    "cover": true,
+    "metadata": true,
+    "rights": true,
+    "hashes": true,
+    "schema": true,
+    "errors": [],
+    "warnings": [
+      "No keywords set",
+      "No categories set",
+      "AI disclosure not set \u2014 all components marked as not AI-generated"
+    ],
+    "passed": true,
+    "status": "passed"
   },
   "approval": {
     "status": "pending"
   },
-  "status": "discovered",
+  "status": "published",
   "submission": {},
   "audit_trail": []
 }

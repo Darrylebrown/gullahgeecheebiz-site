@@ -446,15 +446,32 @@ class AgentSecurity:
 
     def generate_tokens(self) -> None:
         tok_file = HEADQUARTERS / ".agent_tokens.env"
+        # PRESERVE existing tokens: rotating on every scan invalidates the
+        # auth tokens the running services captured at startup, 401-ing every
+        # client until the services are restarted (recurring GGB outage,
+        # fixed 2026-09-02). Only generate when the file is missing/empty.
+        existing = {}
+        if tok_file.exists():
+            for line in tok_file.read_text().splitlines():
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    existing[k.strip()] = v.strip().strip('"').strip("'")
         lines = ["# Auto-generated agent auth tokens. Keep chmod 600.\n"]
         for name in self.SERVICES:
-            tok = generate_token(48)
+            var = f"AGENT_TOKEN_{name.upper()}"
+            tok = existing.get(var) or generate_token(48)
             self.tokens[name] = tok
-            lines.append(f"AGENT_TOKEN_{name.upper()}={tok}\n")
-        tok_file.write_text("".join(lines))
-        tok_file.chmod(0o600)
-        self.findings.append(Finding("CRITICAL", self.name, "Agent auth tokens generated",
-                                     f"{tok_file} (chmod 600)", auto_fixed=True))
+            lines.append(f"{var}={tok}\n")
+        if existing:
+            self.findings.append(Finding("INFO", self.name,
+                                         "Agent auth tokens preserved",
+                                         f"{tok_file} (no rotation: services hold these tokens)"))
+        else:
+            tok_file.write_text("".join(lines))
+            tok_file.chmod(0o600)
+            self.findings.append(Finding("CRITICAL", self.name, "Agent auth tokens generated",
+                                         f"{tok_file} (chmod 600)", auto_fixed=True))
 
     def install_auth_middleware(self) -> None:
         mw = HEADQUARTERS / "agent_auth.py"

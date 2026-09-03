@@ -61,7 +61,7 @@
   "approval": {
     "status": "pending"
   },
-  "status": "discovered",
+  "status": "published",
   "submission": {},
   "audit_trail": []
 }

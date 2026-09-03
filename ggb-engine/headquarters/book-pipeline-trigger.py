@@ -25,12 +25,28 @@ def get_book_count():
     conn.close()
     return count
 
+def get_controller_token():
+    """Read the publishing-controller Bearer token (env first, then .agent_tokens.env)."""
+    token = os.environ.get("AGENT_TOKEN_PUBLISHING_CONTROLLER", "")
+    if not token:
+        try:
+            for line in (HQ / ".agent_tokens.env").read_text().splitlines():
+                if line.startswith("AGENT_TOKEN_PUBLISHING_CONTROLLER="):
+                    token = line.split("=", 1)[1].strip()
+                    break
+        except Exception:
+            pass
+    return token
+
 def trigger_controller(task_type, book_id):
     """Send a task to the Publishing Controller."""
+    token = get_controller_token()
+    headers = {"Authorization": f"Bearer {token}"} if token else {}
     try:
         r = requests.post(
             "http://127.0.0.1:8090/api/assign",
             json={"task_type": task_type, "book_id": book_id},
+            headers=headers,
             timeout=10
         )
         if r.status_code == 200:
@@ -91,8 +107,8 @@ def main():
     if gumroad_script.exists():
         log("Running Gumroad publisher...")
         result = subprocess.run(
-            ["python3", str(gumroad_script)],
-            capture_output=True, text=True, timeout=120
+            [sys.executable, str(gumroad_script)],
+            capture_output=True, text=True, timeout=300
         )
         for line in result.stdout.split("\n"):
             if "✅" in line or "❌" in line or "📊" in line or "Progress" in line:

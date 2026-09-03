@@ -30,7 +30,10 @@ def get_api_key():
     return ""
 
 def call_ai(prompt, model="ggb-free-auto", max_tokens=2000):
-    """Route through OmniRoute gateway with auto-fallback."""
+    """Route through OmniRoute gateway with auto-fallback.
+    RATING_ARMY_MODEL env overrides the per-bot model (used when the
+    default OpenRouter models are unavailable, e.g. no credits)."""
+    model = os.environ.get("RATING_ARMY_MODEL", model)
     return omniroute_shim.call_ai(prompt=prompt, model=model, max_tokens=min(max_tokens, 4000))
 
 # ─── 50 Rating Bot Specializations ────────────────────────────────────────

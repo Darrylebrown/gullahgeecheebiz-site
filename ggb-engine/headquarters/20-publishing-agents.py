@@ -90,20 +90,17 @@ class SelfImprovingAgent:
         self.strategy = strategy
     
     def _call_ai(self, prompt: str, max_tokens: int = 2000) -> Optional[str]:
-        if not self.api_key:
-            return None
-        try:
-            r = requests.post(
-                "omniroute",
-                headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
-                json={"model": self.model, "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens},
-                timeout=30
-            )
-            if r.status_code == 200:
-                return r.json()["choices"][0]["message"]["content"]
-        except:
-            pass
-        return None
+        """Route through OmniRoute gateway (shim), fall back to free local combo."""
+        client = omniroute_shim.get_client()
+        result = client.call(
+            prompt=prompt, model=self.model, max_tokens=min(max_tokens, 4000), timeout=240
+        )
+        if result:
+            return result
+        # Fallback: free local Ollama combo (system-brain.py's proven route)
+        return client.call(
+            prompt=prompt, model="ggb-free-auto", max_tokens=min(max_tokens, 4000), timeout=240
+        )
     
     def think(self) -> Dict:
         """Generate a strategy or solution for this agent's focus area."""
@@ -259,12 +256,12 @@ class AgentArmy:
             time.sleep(0.3)
         
         for t in threads:
-            t.join(timeout=60)
+            t.join(timeout=300)
         
         print(f"\n📊 RESULTS")
         print(f"{'='*40}")
         for name, result in results.items():
-            status = "✅" if result.get("success", result.get("strategy_updated", False)) else "❌"
+            status = "✅" if result.get("success", result.get("strategy_updated", result.get("evolved", False))) else "❌"
             print(f"  {status} {name:35s} | {str(result)[:60]}")
         
         if action == "evolve":

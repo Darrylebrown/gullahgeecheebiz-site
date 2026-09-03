@@ -3,7 +3,7 @@
 ## Researcher: Sarah Green (Field Researcher)
 ## Specialty: Contemporary community, interviews, current practices
 ## Style: Journalistic, interview-based, on-the-ground reporting
-## Date: September 01, 2026
+## Date: September 02, 2026
 
 ---
 

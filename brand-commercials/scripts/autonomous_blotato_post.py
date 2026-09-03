@@ -13,7 +13,7 @@ import urllib.request
 
 API_BASE = "https://backend.blotato.com/v2"
 TIKTOK_ACCOUNT_ID = os.environ.get(
-    "BLOTATO_TIKTOK_ACCOUNT_ID", "67831c2612959648943d04a6"
+    "BLOTATO_TIKTOK_ACCOUNT_ID", "40117"
 )
 
 POSTS = [

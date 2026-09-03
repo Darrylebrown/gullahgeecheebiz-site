@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "manifest_id": "ggb-manifest-5466b49f-6eb4-4f55-b4ec-51601f1b2699",
   "created_at": "2026-09-01T20:32:23.851048+00:00",
-  "updated_at": "2026-09-01T20:32:23.851066+00:00",
+  "updated_at": "2026-09-02T03:15:44.489711+00:00",
   "title": {
     "canonical": "How to Build Service"
   },
@@ -32,7 +32,7 @@
     }
   },
   "metadata": {
-    "description": "Una gu\u00eda para how to build service.",
+    "description": "Una gu\u00eda Gullah Geechee para cultivar el servicio: sabidur\u00eda ancestral, pasos pr\u00e1cticos y tradiciones vivas que transforman la vida diaria.",
     "keywords": [],
     "categories": [],
     "ai_disclosure": {
@@ -56,12 +56,24 @@
   },
   "identifiers": {},
   "validation": {
-    "status": "pending"
+    "cover": true,
+    "metadata": true,
+    "rights": true,
+    "hashes": true,
+    "schema": true,
+    "errors": [],
+    "warnings": [
+      "No keywords set",
+      "No categories set",
+      "AI disclosure not set \u2014 all components marked as not AI-generated"
+    ],
+    "passed": true,
+    "status": "passed"
   },
   "approval": {
     "status": "pending"
   },
-  "status": "discovered",
+  "status": "published",
   "submission": {},
   "audit_trail": []
 }

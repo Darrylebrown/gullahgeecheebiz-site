@@ -3,7 +3,7 @@
 ## Researcher: Dr. Amara Osei (Lead Historian)
 ## Specialty: West African cultural retentions, diaspora studies
 ## Style: Academic, citation-heavy, primary sources
-## Date: September 01, 2026
+## Date: September 02, 2026
 
 ---
 
