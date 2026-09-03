@@ -76,16 +76,25 @@ def deploy():
         log(f"  ⚠️  Pull had issues (may be fine): {output[:200]}")
     
     # Add, commit, push — TARGETED add: public pages only.
-    # NEVER `git add -A`: repo carries tracked internal trees (publish/, .agents/,
+    # NEVER `git add -A` alone: repo carries tracked internal trees (publish/, .agents/,
     # ggb-engine/, n8n/, tiktok-content/) that must stay local.
-    add_cmd = ("git add -A -- . "
-               "':(exclude)publish' ':(exclude).agents' ':(exclude)ggb-engine' "
-               "':(exclude)n8n' ':(exclude)n8n-nodes-blotato' "
-               "':(exclude)tiktok-content' "
-               "':(exclude)bot-dashboard.html' ':(exclude)command-center.html' "
-               "':(exclude)gumroad_products_report.json' "
-               "':(exclude)scripts/workbook-series-generator.py'")
+    # NOTE: pathspec-exclude form (`git add -A -- . ':(exclude)ggb-engine'`) ERRORS on
+    # this repo (git 2.50.1 quirk: "paths are ignored by .gitignore" despite the exclude,
+    # because ggb-engine/ is gitignored yet holds tracked files). Plain `git add -A`
+    # works but would stage internal-tree changes — so add everything, then `git reset`
+    # every internal path as a safety net (reset takes literal paths, no ignored-file check).
+    add_cmd = "git add -A -- ."
     success, output = run(add_cmd)
+    if success:
+        internal = ("ggb-engine publish .agents n8n n8n-nodes-blotato tiktok-content "
+                    "bot-dashboard.html command-center.html gumroad_products_report.json "
+                    "scripts/workbook-series-generator.py")
+        success, output = run(f"git reset -q -- {internal}")
+        # verify: abort if anything under an internal tree is still staged
+        v_ok, v_out = run("git diff --cached --name-only | grep -E '^(ggb-engine|publish|.agents|n8n|tiktok-content)/' || true")
+        if v_ok and v_out.strip():
+            log(f"  ❌ Internal paths still staged after safety net: {v_out[:200]}")
+            return False
     if not success:
         log(f"  ❌ Git add failed: {output}")
         return False
