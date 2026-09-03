@@ -75,8 +75,17 @@ def deploy():
     if not success:
         log(f"  ⚠️  Pull had issues (may be fine): {output[:200]}")
     
-    # Add, commit, push
-    success, output = run("git add -A")
+    # Add, commit, push — TARGETED add: public pages only.
+    # NEVER `git add -A`: repo carries tracked internal trees (publish/, .agents/,
+    # ggb-engine/, n8n/, tiktok-content/) that must stay local.
+    add_cmd = ("git add -A -- . "
+               "':(exclude)publish' ':(exclude).agents' ':(exclude)ggb-engine' "
+               "':(exclude)n8n' ':(exclude)n8n-nodes-blotato' "
+               "':(exclude)tiktok-content' "
+               "':(exclude)bot-dashboard.html' ':(exclude)command-center.html' "
+               "':(exclude)gumroad_products_report.json' "
+               "':(exclude)scripts/workbook-series-generator.py'")
+    success, output = run(add_cmd)
     if not success:
         log(f"  ❌ Git add failed: {output}")
         return False
